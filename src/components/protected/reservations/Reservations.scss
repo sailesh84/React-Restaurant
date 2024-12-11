@@ -1,0 +1,357 @@
+/*--------------------------------------------------------------
+1. Basic Color Variable
+----------------------------------------------------------------*/
+
+$white: #fff;
+$black: #000;
+$primary: #F5A540;
+$secondary: #040D10;
+$ternary: #999696;
+$border: #4F4836;
+$yellow: #F5A540;
+$about_bg: #040D10;
+:root {
+    --body-font-family: "Prompt", sans-serif;
+    --heading-font-family: "Oswald", sans-serif;	//Baskervville
+    --yellow-color: #F5A540;
+    --body-color: #C8C8C8;
+    --body-bg-color: #040D10;
+    --heading-color: #F5A540;
+    --border-color: #4F4836;
+    --common-color-white: #FFF;
+    --common-color-black: #000000;
+}
+
+/*--------------------------------------------------------------
+  21. Booking System
+----------------------------------------------------------------*/
+
+.ak-booking-system {
+    position: relative;
+    .ak-booking-system-bg-img {
+        position: absolute;
+        z-index: -10;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.booking-system-form {
+    &.style-2 {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        align-items: flex-start;
+        height: 100%;
+        .select {
+            width: 100%;
+            margin: 0;
+            .ak-form-select {
+                padding: 9px;
+                height: 58px;
+            }
+            .select-icon {
+                top: 25%;
+            }
+        }
+        .ak-form-time-date {
+            width: 100%;
+            .ak-time {
+                .time-input {
+                    height: 60px;
+                }
+                .time-icon {
+                    top: 14px;
+                }
+            }
+            .ak-date {
+                .date-input {
+                    height: 60px;
+                }
+                .date-icon {
+                    top: 14px;
+                }
+            }
+        }
+        .ak-btn.style-5 {
+            padding: 15px 20px;
+        }
+    }
+    .select {
+        border: 1px solid $border;
+        margin-bottom: 25px;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        .select-icon {
+            position: absolute;
+            width: 30px;
+            right: 2px;
+            top: 20%;
+        }
+    }
+    .ak-form-select {
+        appearance: none;
+        width: 100%;
+        cursor: pointer;
+        border: none;
+        padding: 10px;
+        color: $white;
+        background-color: transparent;
+        option {
+            color: $black;
+        }
+    }
+    .ak-form-time-date {
+        display: flex;
+        justify-content: space-between;
+        .ak-time {
+            flex-basis: 48%;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            .time-input {
+                border: 1px solid $border;
+                color: $white;
+                width: 100%;
+                // height: 100%;
+                position: absolute;
+                z-index: 4;
+                background-color: transparent;
+                padding: 9px;
+            }
+            .time-icon {
+                position: absolute;
+                width: 30px;
+                height: 100%;
+                right: 7px;
+                top: 8px;
+                z-index: 3;
+            }
+        }
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            background-color: $yellow;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .ak-date {
+            flex-basis: 48%;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            .date-input {
+                border: 1px solid $border;
+                color: $white;
+                width: 100%;
+                position: absolute;
+                z-index: 4;
+                background-color: transparent;
+                padding: 9px;
+            }
+            .date-icon {
+                position: absolute;
+                width: 30px;
+                height: 100%;
+                right: 7px;
+                top: 8px;
+                z-index: 3;
+            }
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background-color: $yellow;
+            cursor: pointer;
+            opacity: 0;
+        }
+    }
+}
+
+.ak-booking-system-map-from {
+    width: 85vw;
+}
+
+.booking-system-map {
+    display: flex;
+    gap: 10%;
+    align-items: center;
+    .booking-system-map-frist {
+        flex-basis: 50%;
+    }
+    .booking-system-map-second {
+        flex-basis: 40%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .ak-booking-system-map-from {
+        width: 100vw;
+        padding-right: 13.50px;
+    }
+    .booking-system-map {
+        flex-wrap: wrap;
+        gap: 20px;
+        .booking-system-map-frist {
+            flex-basis: 94%;
+            margin-bottom: 30px;
+        }
+        .booking-system-map-second {
+            flex-basis: 94%;
+        }
+    }
+    .ak-google-map {
+        height: 400px;
+    }
+    .booking-system-form {
+        &.style-2 {
+            flex-wrap: wrap;
+            .ak-btn.style-5 {
+                margin-top: 45px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+  23. Location
+----------------------------------------------------------------*/
+
+.ak-loaction-hr {
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.location-card {
+    display: flex;
+    justify-content: space-between;
+    .location-card-item {
+        flex-basis: 40%;
+        padding: 60px;
+        .card-title {
+            margin-top: 17px;
+            text-transform: uppercase;
+            color: $yellow;
+        }
+        .card-subtext {
+            margin-top: 17px;
+        }
+        &.style-1 {
+            border-right: 1px solid $border;
+        }
+        .card-icon {
+            transition: all 1s ease-in-out;
+            height: 41px;
+            width: 40px;
+            border: 1px solid $white;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        &:hover .card-icon {
+            border: none;
+            background-color: $yellow;
+            svg {
+                path {
+                    fill: $black;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .location-card {
+        margin-left: 0px;
+        .location-card-item {
+            flex-basis: 40%;
+            padding: 17px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .location-card {
+        flex-wrap: wrap;
+        margin-left: 0px;
+        .location-card-item {
+            padding: 15px 0px;
+            flex-basis: 100%;
+            &.style-1 {
+                border-right: none;
+            }
+        }
+    }
+    .ak-loaction-hr {
+        display: none;
+    }
+}
+
+@keyframes ripple {
+    from {
+        opacity: 1;
+    }
+    to {
+        width: 1px;
+        height: 200%;
+        opacity: 0;
+    }
+}
+
+
+form .input-text {
+    line-height: 1.5;
+    padding: 11.5px 10px;
+    background: hsl(0, 0%, 10%);
+    color: #afafaf;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 0.5px solid hsl(0, 0%, 30%);
+    width: 100%;
+}
+
+form .input-text:focus {
+    outline: 0.5px solid #f5a540;
+    border: 0 !important;
+    line-height: 1.5;
+    padding: 11.5px 10px;
+    background: hsl(0, 0%, 10%);
+    color: #afafaf;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+form .input-text::placeholder {
+    color: hsl(0, 0%, 50%);
+} 
+
+.react-datepicker-wrapper {
+    display: block !important;
+}
+
+.btn-reserv {
+	background: var(--hover-color);
+    border: 0.5px solid var(--hover-color);
+    color: #242526;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.btn-reserv:hover {
+	background: #dc943a;
+    border: 0.5px solid var(--hover-color);
+    color: #242526;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.btn-reserv:focus-visible {
+    color: var(--bs-btn-active-color) !important;
+    background-color: var(--hover-color) !important;
+    border-color: var(--hover-color) !important;
+    box-shadow: 0 0 0 0.25rem rgba(#dc943a, .5);
+    outline: 0;
+}

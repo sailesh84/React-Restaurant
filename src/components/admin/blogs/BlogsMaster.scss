@@ -1,0 +1,9 @@
+.input-error, .forms textarea.input-error {
+  border: 0.5px solid #f80c0c !important;
+}
+
+.forms p.errors-mssg {
+  color: #f80c0c !important;
+  font-family: inherit;
+  margin-bottom: 0;
+}

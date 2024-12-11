@@ -1,0 +1,1951 @@
+/* #UI Libraries used for Dashboard */
+/* # https://boxicons.com/ */
+/* # react-flags-select */
+/* # react-datepicker */
+/* # RadioButtonGroup  */
+
+:root {
+  --body-color: #C8C8C8;
+  --sidebar-color: #242526;
+  --primary-color: #3a3b3c;
+  --primary-color-light: #3a3b3c;
+  --toggle-color: #fff;
+  --text-color: #ccc;
+  --hover-color: #f5a540;
+
+  --trans-02: all 0.2s ease;
+  --trans-03: all 0.3s ease;
+  --trans-04: all 0.4s ease;
+  --trans-05: all 0.5s ease;
+
+  --surface-a: #ffffff;
+  --surface-b: #f9fafb;
+  --surface-c: #f3f4f6;
+  --surface-d: #e5e7eb;
+  --surface-e: #ffffff;
+  --surface-f: #ffffff;
+}
+
+// #Bootstrap classes customization
+.fixed-top {
+  z-index: 0;
+}
+
+.bg-primary {
+  --bs-bg-opacity: 1;
+  background-color: var(--hover-color) !important;
+} 
+
+.text-muted {
+  color: #afafaf !important;
+}
+
+// # Topbar Navigation
+// ----------------------------------------------
+.navbar-dark {
+  padding: 8px 5px;
+  left: 88px;
+  width: calc(100% - 88px);
+  border-bottom: 0.3px solid var(--hover-color);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #afafaf !important;
+  
+  &.small {
+    font-size: .875em;
+  }
+  &.large {
+    font-size: 2.8em;
+  }
+}
+
+.nav-link:hover {
+  color: #F5A540 !important;
+}
+
+.nav-link .bx{
+  margin-right: 4px;
+}
+
+
+// # Sidebar
+// ----------------------------------------------
+.sidebar header {
+  position: relative;
+}
+
+.sidebar .text {
+  font-size: 16px;
+  // font-weight: 500;
+  color: var(--text-color); /* #707070 */
+  transition: var(--trans-03);
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.sidebar .image {
+  min-width: 60px;
+  height: 60px;
+  background: var(--hover-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar .image p{
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 260px;
+  padding: 10px 14px;
+  background: var(--sidebar-color); /* #fff */
+  transition: var(--trans-05);
+  z-index: 1000;
+  border-right: 0.3px solid var(--hover-color);
+}
+
+.close {
+  width: 88px;
+}
+
+.close .text {
+  opacity: 0;
+}
+
+.close .menu-bar .menu .search-box input {
+  display: none;
+}
+
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li {
+  height: 50px;
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar li .icon {
+  min-width: 60px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar li .icon,
+.sidebar li .text {
+  color: var(--text-color); /* #707070 */
+  transition: var(--trans-02);
+}
+
+.sidebar .image-text img {
+  width: 40px;
+  border-radius: 6px;
+}
+
+.sidebar header .image-text {
+  display: flex;
+  align-items: center;
+}
+
+.close header .toogle {
+  color: var(--text-color) !important;
+}
+
+.sidebar header .toogle:hover, 
+.close header .toogle:hover {
+  background: var(--hover-color) !important;
+  color: var(--body-color) !important;
+}
+
+header .image-text .header-text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.header-text .name {
+  font-weight: 600;
+}
+
+.header-text .profession {
+  margin-top: -2px;
+}
+
+.sidebar header .toogle {
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  transform: translateY(-50%);
+  height: 25px;
+  width: 25px;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--text-color);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.sidebar .search-box {
+  background: var(--primary-color-light);
+  border-radius: 6px;
+}
+
+.search-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary-color-light);
+  color: #afafaf;
+}
+
+.sidebar li a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: var(--trans-04);
+}
+
+.sidebar li a:hover {
+  background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+  color: var(--hover-color);
+}
+
+.sidebar li a:active {
+  background: var(--primary-color);
+}
+
+.sidebar li a:active .icon,
+.sidebar li a:active .text {
+  color: var(--hover-color);
+}
+
+.sidebar .menu-bar {
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-bar .mode {
+  position: relative;
+  border-radius: 6px;
+  background: var(--primary-color-light);
+}
+
+.menu-bar .mode .moon-sun {
+  height: 50px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-bar .mode i.sun {
+  opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch {
+  position: absolute;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-width: 60px;
+  cursor: pointer;
+  background: var(--primary-color-light);
+}
+
+.toggle-switch .switch {
+  position: relative;
+  height: 22px;
+  width: 44px;
+  border-radius: 25px;
+  background: var(--toggle-color);
+}
+
+.switch::before {
+  content: '';
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  background: var(--sidebar-color);
+  cursor: pointer;
+  transition: var(--trans-03);
+}
+
+body.dark .switch::before {
+  left: 20px;
+}
+
+.home {
+  position: relative;
+  height: 100vh;
+  width: calc(100% - 250px);
+  left: 250px;
+  top: 5rem;
+  transition: var(--trans-05);
+  background: transparent;
+}
+
+.home {
+  padding: 8px 20px 30px;
+  z-index: -999;
+  position: absolute;
+}
+
+.sidebar.close ~ .home {
+  left: 88px;
+  width: calc(100% - 88px);
+}
+
+
+// # Forms: Input, Input-Group, Label
+// ----------------------------------------------
+.forms .form-label {
+  color: var(--text-color);
+}
+
+.forms textarea {
+  border: 1px solid hsl(0, 0%, 30%) !important;
+}
+
+.forms .input-group input, .forms textarea {
+  line-height: 1.5;
+  padding: 12.5px 10px;
+  border: 0;
+  background: hsl(0, 0%, 10%);
+  color: #afafaf;
+  font-size: 16px;
+  flex: 1 1 auto;
+}
+
+.forms .input-group input::placeholder, .forms textarea::placeholder {
+  color: hsl(0, 0%, 50%);
+} 
+
+.forms .input-group input:focus{
+	background:  hsl(0, 0%, 10%);
+  box-shadow: none;
+  color: #afafaf;
+}
+
+.forms textarea:focus {
+  background:  hsl(0, 0%, 10%);
+  box-shadow: none;
+  color: #afafaf;
+  outline: 0.5px solid var(--hover-color);
+  border: 0 !important;
+}
+
+.input-group {
+  border: 1px solid hsl(0, 0%, 30%);
+  background: hsl(0, 0%, 10%);
+	display: flex;
+	align-items: center;
+	border-radius: 4px;
+  flex-wrap: nowrap;
+}
+
+.input-group .icon {
+  color: #fff;
+	// min-width: 60px;
+	min-width: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  padding-left: 1rem;
+}
+
+.forms .input-group:focus-within {
+  outline: 0.5px solid var(--hover-color);
+  border: 0 !important;
+}
+
+
+// # Forms Dropdown with Flags
+// ----------------------------------------------
+.menu-flags {
+	border: 1px solid hsl(0, 0%, 30%);
+	background: hsl(0, 0%, 10%);
+	border-radius: 4px;
+	padding: 0 !important;
+}
+
+.menu-flags button:not(:disabled) {
+  color: #afafaf;
+}
+
+.menu-flags button:focus-visible, .p-dropdown:focus {
+  outline: 0.5px solid var(--hover-color);
+  border: 0;
+}
+
+.menu-flags ul {
+  background: black;
+  color: #afafaf;
+  border: 1px solid hsl(0, 0%, 30%);
+}
+
+.menu-flags ul li:hover {
+  background: hsl(0, 0%, 10%);
+  color: #fff;
+}
+
+.menu-flags ul div {
+  background: black;
+}
+
+.menu-flags ul input {
+  background:  hsl(0, 0%, 10%);
+  color: #afafaf;
+  outline: none;
+}
+
+.menu-flags-button span span:nth-child(2) {
+  padding-left: 0.6rem;
+}
+
+// Dropdown Scrollbar CSS
+.menu-flags ul::-webkit-scrollbar {
+  background-color: #fff;
+  width: 10px;
+}
+
+/* background of the scrollbar except button or resizer */
+.menu-flags ul::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+/* scrollbar itself */
+.menu-flags ul::-webkit-scrollbar-thumb {
+  background-color: #1d1d1d;
+  border-radius: 30px;
+  border: 2px solid #fff;
+}
+
+/* set button(top and bottom of the scrollbar) */
+.menu-flags ul::-webkit-scrollbar-button {
+  display:none;
+}
+
+
+//# Datepicker
+// ----------------------------------------------
+.react-datepicker {
+	font-family: "Oswald", sans-serif;
+  border-radius: 4px !important;
+  border: none !important;
+}
+
+.react-datepicker__month-container {
+	background: hsl(0, 0%, 10%);
+	border: 1px solid hsl(0, 0%, 30%);
+}
+
+.react-datepicker__navigation-icon {
+  top: 5px !important;
+}
+
+.react-datepicker__header {
+	background-color: hsl(0, 0%, 10%) !important;
+}
+
+.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle {
+  fill: hsl(0, 0%, 10%) !important;
+  color: hsl(0, 0%, 10%) !important;
+}
+
+.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header,
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+  color: #afafaf !important;
+  font-family: "Oswald", sans-serif;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+  background-color: var(--hover-color) !important;
+  color: var(--body-color) !important;
+}
+
+.react-datepicker__day:hover, .react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover, .react-datepicker__year-text:hover {
+  color: var(--body-color) !important;
+}
+
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
+  background-color: var(--text-color) !important;
+  color: var(--body-color) !important;
+}
+
+
+//# PrimeReact - RadioButton
+// ----------------------------------------------
+.p-radiobutton {
+  position: relative;
+  display: inline-flex;
+  user-select: none;
+  vertical-align: bottom;
+}
+.p-radiobutton-input {
+  cursor: pointer;
+}
+.p-radiobutton-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.p-radiobutton-icon {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0) scale(0.1);
+  border-radius: 50%;
+  visibility: hidden;
+}
+.p-radiobutton.p-highlight .p-radiobutton-icon {
+  transform: translateZ(0) scale(1, 1);
+  visibility: visible;
+}
+.p-radiobutton {
+  width: 20px;
+  height: 20px;
+}
+.p-radiobutton .p-radiobutton-input {
+  appearance: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  z-index: 1;
+  outline: 0 none;
+  border: 2px solid #ced4da;
+  border-radius: 50%;
+}
+.p-radiobutton .p-radiobutton-box {
+  border: 2px solid #ced4da;
+  background: #ffffff;
+  width: 20px;
+  height: 20px;
+  color: #495057;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  outline-color: transparent;
+}
+.p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
+  width: 10px;
+  height: 10px;
+  transition-duration: 0.2s;
+  background-color: #ffffff;
+}
+.p-radiobutton.p-highlight .p-radiobutton-box {
+  border-color: #F5A540;
+  background: #F5A540;
+}
+.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+  border-color: #F5A540;
+}
+.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+  border-color: #F5A540;
+  background: #F5A540;
+}
+.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box .p-radiobutton-icon {
+  background-color: #ffffff;
+}
+.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:focus-visible) .p-radiobutton-box {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.25rem rgba(245, 164, 64, 0.3843137255);
+  border-color: #F5A540;
+}
+.p-radiobutton.p-invalid > .p-radiobutton-box {
+  border-color: #f44336;
+}
+.p-radiobutton.p-variant-filled .p-radiobutton-box {
+  background-color: #f8f9fa;
+}
+.p-radiobutton.p-variant-filled.p-highlight .p-radiobutton-box {
+  background: #F5A540;
+}
+.p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+  background-color: #f8f9fa;
+}
+.p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+  background: #F5A540;
+}
+.p-input-filled .p-radiobutton .p-radiobutton-box {
+  background-color: #f8f9fa;
+}
+.p-input-filled .p-radiobutton.p-highlight .p-radiobutton-box {
+  background: #F5A540;
+}
+.p-input-filled .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+  background-color: #f8f9fa;
+}
+.p-input-filled .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-highlight .p-radiobutton-box {
+  background: #F5A540;
+}
+
+
+//# Button
+// ----------------------------------------------
+.btn-dark {
+  flex: 1 1 auto;
+  padding: 15px 40px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #bebebe;
+  border-radius: 4px;
+  border: 1px solid hsl(0, 0%, 50%);
+}
+
+.btn-dark:hover {
+  color: #fff;
+  background-position: right center;
+}
+
+.btn-5 {
+  background-image: linear-gradient(to right, hsl(0, 0%, 20%) 0%, hsl(0, 0%, 9%) 51%, hsl(0, 0%, 20%) 100%);
+}
+
+.btn-outline-dark {
+  border: 1px solid hsl(0, 0%, 50%);
+  color: #bebebe;
+  border-radius: 4px;
+}
+
+.btn-outline-dark:hover {
+  border: 1px solid hsl(0, 0%, 50%);
+}
+
+
+//# Radio Button
+// ----------------------------------------------
+.rb-wrapper{
+	display: flex;
+  gap: 1rem;
+}
+
+.rb-group {
+	width: auto; 
+  height: auto; 
+  background: hsl(0, 0%, 10%); 
+  padding: 10px 20px; 
+  border: 1px solid hsl(0, 0%, 30%); 
+  border-radius: 5px;
+}
+
+.rb-control {
+	display: flex; 
+  align-items: center; 
+  color: #afafaf;
+}
+
+.rb-control label {
+	margin-bottom: 0; 
+  margin-left: 0.5rem; 
+  font-size: 16px;
+}
+
+// # Prime React - Dropdown
+// ----------------------------------------------
+.p-dropdown {
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+.p-dropdown-clear-icon {
+  position: absolute;
+  top: 54%;
+  margin-top: -0.5rem;
+}
+.p-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.p-dropdown-label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1 1 auto;
+  width: 1%;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.p-dropdown-label-empty {
+  overflow: hidden;
+  opacity: 0;
+}
+input.p-dropdown-label {
+  cursor: default;
+}
+.p-dropdown .p-dropdown-panel {
+  min-width: 100%;
+}
+.p-dropdown-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.p-dropdown-items-wrapper {
+  overflow: auto;
+}
+.p-dropdown-item {
+  cursor: pointer;
+  font-weight: normal;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.p-dropdown-item-group {
+  cursor: auto;
+}
+.p-dropdown-items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.p-dropdown-filter {
+  width: 100%;
+}
+.p-dropdown-filter-container {
+  position: relative;
+}
+.p-dropdown-filter-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5rem;
+}
+.p-fluid .p-dropdown {
+  display: flex;
+}
+.p-fluid .p-dropdown .p-dropdown-label {
+  width: 1%;
+}
+.p-dropdown {
+  background: hsl(0, 0%, 10%);
+	border: 1px solid hsl(0, 0%, 30%);
+  font-size: 16px;
+	color: #afafaf;
+  padding: .7rem .75rem;
+  // transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 4px;
+  // outline-color: transparent;
+}
+// .p-dropdown:not(.p-disabled):hover {
+//   border-color: #f5a540;
+// }
+
+.p-dropdown:focus-within {
+  outline-offset: 0;
+  outline: 0.5px solid var(--hover-color);
+  border: 0; 
+}
+
+// .p-dropdown:not(.p-disabled).p-focus {
+//   outline-offset: 0;
+//   outline: 0.5px solid var(--hover-color);
+//   border: 0;
+// }
+
+.p-dropdown.p-variant-filled {
+  background: #383838;
+}
+.p-dropdown.p-variant-filled:not(.p-disabled):hover {
+  background-color: #383838;
+}
+.p-dropdown.p-variant-filled:not(.p-disabled).p-focus {
+  background-color: #383838;
+}
+.p-dropdown.p-variant-filled:not(.p-disabled).p-focus .p-inputtext {
+  background-color: transparent;
+}
+.p-dropdown.p-dropdown-clearable .p-dropdown-label {
+  padding-right: 1.5rem;
+}
+.p-dropdown .p-dropdown-label {
+  background: transparent;
+  border: 0 none;
+}
+.p-dropdown .p-dropdown-label.p-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.p-dropdown .p-dropdown-label:focus, .p-dropdown .p-dropdown-label:enabled:focus {
+  outline: 0 none;
+  box-shadow: none;
+}
+.p-dropdown .p-dropdown-trigger {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  // width: 2.357rem;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.p-dropdown .p-dropdown-clear-icon {
+  color: rgba(255, 255, 255, 0.6);
+  right: 2.357rem;
+}
+.p-dropdown.p-invalid.p-component {
+  border-color: #ef9a9a;
+}
+.p-dropdown-panel {
+  background: black;
+  color: #afafaf;
+  border: 1px solid hsl(0, 0%, 30%);
+  border-radius: 3px;
+  margin-top: 7px;
+}
+.p-dropdown-panel .p-dropdown-header {
+  padding: 0.5rem 1rem;
+  border-bottom: 0 none;
+  color: rgba(255, 255, 255, 0.87);
+  background: #1e1e1e;
+  margin: 0;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+  padding-right: 1.5rem;
+  margin-right: -1.5rem;
+}
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon {
+  right: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.p-dropdown-panel .p-dropdown-items {
+  padding: 0.5rem 0;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  margin: 0;
+  padding: 4px 10px;
+  border: 0 none;
+  color: #afafaf;
+  background: transparent;
+  transition: box-shadow 0.2s;
+  border-radius: 0;
+  font-size: 16px;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:first-child {
+  margin-top: 0;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:last-child {
+  margin-bottom: 0;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  color: rgba(255, 255, 255, 0.87);
+  background: hsl(0, 0%, 10%);
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: hsl(0, 0%, 20%);
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+  background: hsl(0, 0%, 10%);
+  color: #fff;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item .p-dropdown-check-icon {
+  position: relative;
+  margin-left: -0.5rem;
+  margin-right: 0.5rem;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {
+  margin: 0;
+  padding: 0.75rem 0.55rem;
+  color: rgba(255, 255, 255, 0.87);
+  background: #2e2e2e;
+  font-weight: 500;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-empty-message {
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.87);
+  background: transparent;
+}
+
+// Dropdown Scrollbar CSS
+// Pending....
+
+
+// # Checkboxes
+// ----------------------------------------------
+.form-check-input:checked {
+  background-color: var(--hover-color) !important;
+  border-color: var(--hover-color) !important;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 .25rem #f5a44062;
+  border-color: var(--hover-color) !important;
+}
+
+.form-check-label {
+  color: var(--text-color);
+}
+
+// #PrimeReact - DataTable
+// ----------------------------------------------
+.p-datatable-table {
+  td,
+  tbody th {
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  th,
+  thead th {
+    font-size: 13px;
+    font-weight: 400;
+    color:#fff;
+  }
+}
+
+.p-datatable-table tbody tr:hover {
+  background: var(--bs-table-hover-bg);
+}
+
+.p-datatable-table .p-row-odd {
+  background: var(--bs-table-striped-bg);
+}
+
+.p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+  background-color: transparent;
+  border: 0 none;
+  color: #6b7280;
+  min-width: 3rem;
+  height: 3rem;
+  margin: 0.143rem;
+  transition: box-shadow 0.2s;
+  // border-radius: 50%;
+}
+
+.p-paginator-page, .p-paginator-next, .p-paginator-last, .p-paginator-first, .p-paginator-prev, .p-paginator-current {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0.9;
+  user-select: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.p-link {
+	padding: 13px 18px !important;
+  border-radius: 50%;
+  margin: 3px;
+} 
+
+.p-paginator-icon {
+  padding: 0 !important;
+}
+
+.p-highlight {
+  background-color: #3d4247 !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+  background: #f3f4f6;
+  border-color: transparent;
+  color: #374151;
+}
+
+// PrimeReact - DataTable: Search Box (Global)
+.p-icon-field {
+  display: flex;
+  align-items: center;
+  color: hsl(0, 0%, 50%) !important;
+  padding: 0.15rem 0.75rem !important;
+  border-radius: 6px;
+  border: 1px solid hsl(0, 0%, 30%) !important;
+  margin-bottom: 0.5rem;
+  font-size: 20px;
+}
+
+.p-icon-field-left > .p-inputtext {
+  padding-left: 0.5rem;
+  background: var(--bs-table-bg);
+  color: #afafaf;
+  font-size: 16px;
+}
+
+// PrimeReact - DataTable: Clear Button
+.p-datatable-header .p-button.p-button-outlined {
+  border: 1px solid hsl(0, 0%, 30%) !important;
+  background: hsl(0, 0%, 10%);
+	color: #afafaf !important;
+	font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.p-button .p-button-icon-left {
+  margin-right: 0.5rem;
+}
+
+.p-paginator-bottom > .p-dropdown {
+  padding: 0;
+}
+
+// PrimeReact - DataTable: Sort Button
+.p-column-header-content span:nth-child(2) {
+  margin-left: 0.5rem;
+}
+
+
+// # PrimeReact - Tooltip
+// ----------------------------------------------
+.p-tooltip .p-tooltip-text {
+  background: #383838;
+  color: rgba(255, 255, 255, 0.87);
+  padding: 0.5rem 0.5rem;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.p-tooltip.p-tooltip-right .p-tooltip-arrow {
+  border-right-color: #383838;
+}
+.p-tooltip.p-tooltip-left .p-tooltip-arrow {
+  border-left-color: #383838;
+}
+.p-tooltip.p-tooltip-top .p-tooltip-arrow {
+  border-top-color: #383838;
+}
+.p-tooltip.p-tooltip-bottom .p-tooltip-arrow {
+  border-bottom-color: #383838;
+}
+
+
+// # PrimeReact - File Upload
+// ----------------------------------------------
+.p-fileupload .p-fileupload-buttonbar {
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 1rem;
+  border: 1px solid #383838;
+  color: rgba(255, 255, 255, 0.87);
+  border-bottom: 0 none;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  gap: 0.5rem;
+}
+.p-fileupload .p-fileupload-buttonbar .p-button {
+  margin-right: 0.5rem;
+}
+.p-fileupload .p-fileupload-content {
+  background: #1e1e1e;
+  padding: 2rem 1rem;
+  border: 1px solid #383838;
+  color: rgba(255, 255, 255, 0.87);
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.p-fileupload .p-progressbar {
+  height: 0.25rem;
+}
+.p-fileupload .p-fileupload-row > div {
+  padding: 1rem 0.05rem;
+}
+.p-fileupload.p-fileupload-advanced .p-message {
+  margin-top: 0;
+}
+
+.p-fileupload .p-fileupload-buttonbar .p-button {
+  margin-right: 0.5rem;
+}
+
+.p-button.p-button-icon-only.p-button-rounded {
+  border-radius: 50%;
+  height: 3rem;
+}
+
+.p-button.p-fileupload-choose {
+  position: relative;
+  overflow: hidden;
+}
+
+.p-button.p-button-icon-only {
+  width: 3rem;
+  padding: 0.75rem 0;
+}
+
+.p-fileupload-buttonbar .p-button.p-button-outlined {
+  background-color: transparent;
+  color: #06b6d4;
+  border: 4px solid !important;
+}
+
+.p-button-icon-only {
+  justify-content: center;
+}
+
+.p-button {
+  margin: 0;
+  display: inline-flex;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  vertical-align: bottom;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+  background: #06b6d4;
+  border: 1px solid #06b6d4;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.3rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+    box-shadow 0.2s;
+  border-radius: 6px;
+}
+
+.p-button.p-fileupload-choose input[type='file'] {
+  display: none;
+}
+
+.pi-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+.pi {
+  font-family: primeicons;
+  font-size: 1rem;
+  /* speak: none; */
+  font-style: normal;
+  font-weight: 400;
+  font-feature-settings: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.p-button-icon-only .p-button-label {
+  visibility: hidden;
+  width: 0;
+  flex: 0 0 auto;
+}
+
+.p-button .p-button-label {
+  transition-duration: 0.2s;
+}
+
+.p-button-label {
+  font-weight: 500;
+}
+
+.p-ink {
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 100%;
+  transform: scale(0);
+}
+
+.p-button.p-button-success.p-button-outlined,
+.p-button-group.p-button-success > .p-button.p-button-outlined,
+.p-splitbutton.p-button-success > .p-button.p-button-outlined,
+.p-fileupload-choose.p-button-success.p-button-outlined {
+  background-color: transparent;
+  color: #22c55e;
+  border: 4px solid;
+}
+
+.p-button.p-button-success,
+.p-button-group.p-button-success > .p-button,
+.p-splitbutton.p-button-success > .p-button,
+.p-fileupload-choose.p-button-success {
+  color: #ffffff;
+  background: #22c55e;
+  border: 4px solid #22c55e;
+}
+
+.p-button:disabled {
+  cursor: default;
+}
+
+.p-disabled,
+.p-component:disabled {
+  opacity: 0.6;
+}
+
+.p-button.p-button-danger.p-button-outlined,
+.p-button-group.p-button-danger > .p-button.p-button-outlined,
+.p-splitbutton.p-button-danger > .p-button.p-button-outlined,
+.p-fileupload-choose.p-button-danger.p-button-outlined {
+  background-color: transparent;
+  color: #ef4444;
+  border: 4px solid;
+}
+
+.p-button.p-button-danger,
+.p-button-group.p-button-danger > .p-button,
+.p-splitbutton.p-button-danger > .p-button,
+.p-fileupload-choose.p-button-danger {
+  color: #ffffff;
+  background: #ef4444;
+  border: 4px solid #ef4444;
+}
+
+.p-button.p-button-icon-only.p-button-rounded {
+  border-radius: 50%;
+  height: 3rem;
+}
+
+.p-disabled,
+.p-component:disabled {
+  opacity: 0.6;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.gap-3 {
+  gap: 1rem !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.p-progressbar {
+  position: relative;
+  overflow: hidden;
+  border: 0 none;
+  height: 1.5rem;
+  background: #e5e7eb;
+  border-radius: 6px;
+}
+
+.p-progressbar-determinate .p-progressbar-value-animate {
+  transition: width 1s ease-in-out;
+}
+
+.p-progressbar-determinate .p-progressbar-value {
+  height: 100%;
+  width: 0%;
+  position: absolute;
+  border: 0 none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.p-progressbar .p-progressbar-value {
+  border: 0 none;
+  margin: 0;
+  background: #06b6d4;
+}
+
+.p-tag.p-tag-warning {
+  background-color: #f97316;
+  color: #ffffff;
+}
+
+// File Upload - Message Bar 
+.p-message {
+  margin: 1rem 0;
+  border-radius: 3px;
+}
+.p-message .p-message-wrapper {
+  padding: 1rem 1.5rem;
+}
+.p-message .p-message-close {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  // background: transparent;
+  background: #73000c;  //cross icon not displaying. so temporaray it added.
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  display: contents;
+}
+.p-message .p-message-close:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.p-message .p-message-close:focus-visible {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #fcbb6c;
+}
+.p-message .p-message-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.p-message .p-message-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+.p-message .p-message-icon.p-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.p-message .p-message-summary {
+  font-weight: 700;
+}
+.p-message .p-message-detail {
+  margin-left: 0.5rem;
+  margin-right: 1.5rem;
+}
+
+/*Information*/
+.p-message.p-message-info {
+  background: #b3e5fc;
+  border: solid #0891cf;
+  border-width: 0 0 0 6px;
+  color: #044868;
+}
+.p-message.p-message-info .p-message-icon {
+  color: #044868;
+}
+.p-message.p-message-info .p-message-close {
+  color: #044868;
+}
+
+/*Success*/
+.p-message.p-message-success {
+  background: #c8e6c9;
+  border: solid #439446;
+  border-width: 0 0 0 6px;
+  color: #224a23;
+}
+.p-message.p-message-success .p-message-icon {
+  color: #224a23;
+}
+.p-message.p-message-success .p-message-close {
+  color: #224a23;
+}
+
+/*Warning*/
+.p-message.p-message-warn {
+  background: #ffecb3;
+  border: solid #d9a300;
+  border-width: 0 0 0 6px;
+  color: #6d5100;
+}
+.p-message.p-message-warn .p-message-icon {
+  color: #6d5100;
+}
+.p-message.p-message-warn .p-message-close {
+  color: #6d5100;
+}
+
+/*Error */
+.p-message.p-message-error {
+  background: #ffcdd2;
+  border: solid #e60017;
+  border-width: 0 0 0 6px;
+  color: #73000c;
+}
+.p-message.p-message-error .p-message-icon {
+  color: #73000c;
+}
+.p-message.p-message-error .p-message-close-icon {
+  color: #73000c;
+}
+
+
+
+// Prime React - Toaster 
+.p-toast {
+  opacity: 0.9;
+}
+.p-toast .p-toast-message {
+  margin: 0 0 1rem 0;
+  box-shadow: none;
+  border-radius: 3px;
+}
+.p-toast .p-toast-message .p-toast-message-content {
+  padding: 1rem;
+  border-width: 0 0 0 6px;
+}
+.p-toast .p-toast-message .p-toast-message-content .p-toast-message-text {
+  margin: 0 0 0 1rem;
+}
+.p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon {
+  font-size: 2rem;
+}
+.p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon.p-icon {
+  width: 2rem;
+  height: 2rem;
+}
+.p-toast .p-toast-message .p-toast-message-content .p-toast-summary {
+  font-size: 20px;
+  font-weight: 500;
+}
+.p-toast .p-toast-message .p-toast-message-content .p-toast-detail {
+  margin: 0.5rem 0 0 0;
+}
+.p-toast .p-toast-message .p-toast-icon-close {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.p-toast .p-toast-message .p-toast-icon-close:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.p-toast .p-toast-message .p-toast-icon-close:focus-visible {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #fcbb6c;
+}
+.p-toast .p-toast-message.p-toast-message-info {
+  background: #b3e5fc;
+  border: solid #0891cf;
+  border-width: 0 0 0 6px;
+  color: #044868;
+}
+.p-toast .p-toast-message.p-toast-message-info .p-toast-message-icon,
+.p-toast .p-toast-message.p-toast-message-info .p-toast-icon-close {
+  color: #044868;
+}
+.p-toast .p-toast-message.p-toast-message-success {
+  background: #c8e6c9;
+  border: solid #439446;
+  border-width: 0 0 0 6px;
+  color: #224a23;
+}
+.p-toast .p-toast-message.p-toast-message-success .p-toast-message-icon,
+.p-toast .p-toast-message.p-toast-message-success .p-toast-icon-close {
+  color: #224a23;
+}
+.p-toast .p-toast-message.p-toast-message-warn {
+  background: #ffecb3;
+  border: solid #d9a300;
+  border-width: 0 0 0 6px;
+  color: #6d5100;
+}
+.p-toast .p-toast-message.p-toast-message-warn .p-toast-message-icon,
+.p-toast .p-toast-message.p-toast-message-warn .p-toast-icon-close {
+  color: #6d5100;
+}
+.p-toast .p-toast-message.p-toast-message-error {
+  background: #ffcdd2;
+  border: solid #e60017;
+  border-width: 0 0 0 6px;
+  color: #73000c;
+}
+.p-toast .p-toast-message.p-toast-message-error .p-toast-message-icon,
+.p-toast .p-toast-message.p-toast-message-error .p-toast-icon-close {
+  color: #73000c;
+}
+
+
+// Checkbox 
+.p-checkbox {
+  position: relative;
+  display: inline-flex;
+  user-select: none;
+  vertical-align: bottom;
+}
+.p-checkbox-input {
+  appearance: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  z-index: 1;
+  outline: 0 none;
+  cursor: pointer;
+}
+.p-checkbox-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.p-checkbox {
+  width: 20px;
+  height: 20px;
+}
+.p-checkbox .p-checkbox-input {
+  border: 2px solid #383838;
+  border-radius: 3px;
+}
+.p-checkbox .p-checkbox-box {
+  border: 2px solid #383838;
+  background: #121212;
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 3px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  outline-color: transparent;
+}
+.p-checkbox .p-checkbox-box .p-checkbox-icon {
+  transition-duration: 0.2s;
+  color: #212529;
+  font-size: 14px;
+}
+.p-checkbox .p-checkbox-box .p-checkbox-icon.p-icon {
+  width: 14px;
+  height: 14px;
+}
+.p-checkbox .p-checkbox-box {
+  border: 2px solid #383838;
+  background: #121212;
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 3px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  outline-color: transparent;
+}
+.p-checkbox .p-checkbox-box .p-checkbox-icon {
+  transition-duration: 0.2s;
+  color: #212529;
+  font-size: 14px;
+}
+.p-checkbox .p-checkbox-box .p-checkbox-icon.p-icon {
+  width: 14px;
+  height: 14px;
+}
+.p-checkbox.p-highlight .p-checkbox-box {
+  border-color: #f5a540;
+  background: #f5a540;
+}
+.p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+  border-color: #f5a540;
+}
+.p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+  border-color: #f5a540;;
+  background: #f5a540;;
+  color: #212529;
+}
+.p-checkbox:not(.p-disabled):has(.p-checkbox-input:focus-visible) .p-checkbox-box {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px transparent;
+  border-color: #f5a540;
+}
+.p-checkbox.p-invalid > .p-checkbox-box {
+  border-color: #ef9a9a;
+}
+.p-checkbox.p-variant-filled .p-checkbox-box {
+  background-color: #383838;
+}
+.p-checkbox.p-variant-filled.p-highlight .p-checkbox-box {
+  background: #f5a540;
+}
+.p-checkbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+  background-color: #383838;
+}
+.p-checkbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+  background: #2396f2;
+}
+.p-input-filled .p-checkbox .p-checkbox-box {
+  background-color: #383838;
+}
+.p-input-filled .p-checkbox.p-highlight .p-checkbox-box {
+  background: #f5a540;
+}
+.p-input-filled .p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+  background-color: #383838;
+}
+.p-input-filled .p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+  background: #2396f2;
+}
+.p-checkbox {
+  position: relative;
+  display: inline-flex;
+  user-select: none;
+  vertical-align: bottom;
+}
+.p-checkbox-input {
+  cursor: pointer;
+}
+.p-checkbox-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.p-tristatecheckbox.p-variant-filled .p-checkbox-box {
+  background-color: #383838;
+}
+.p-tristatecheckbox.p-variant-filled.p-highlight .p-checkbox-box {
+  background: #f5a540;
+}
+.p-tristatecheckbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {
+  background-color: #383838;
+}
+.p-tristatecheckbox.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover).p-highlight .p-checkbox-box {
+  background: #2396f2;
+}
+
+
+
+// Avatar
+.p-avatar {
+  background-color: #383838;
+  border-radius: 3px;
+}
+.p-avatar.p-avatar-lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+}
+.p-avatar.p-avatar-lg .p-avatar-icon {
+  font-size: 1.5rem;
+}
+.p-avatar.p-avatar-xl {
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+}
+.p-avatar.p-avatar-xl .p-avatar-icon {
+  font-size: 2rem;
+}
+.p-avatar-circle {
+  border-radius: 50%;
+}
+.p-avatar-group .p-avatar {
+  border: 2px solid #1e1e1e;
+} 
+
+
+//Badge
+.p-badge {
+  background: #64b5f6;
+  color: #212529;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.p-badge.p-badge-secondary {
+  background-color: #78909c;
+  color: #ffffff;
+}
+.p-badge.p-badge-success {
+  background-color: #c5e1a5;
+  color: #121212;
+}
+.p-badge.p-badge-info {
+  background-color: #81d4fa;
+  color: #121212;
+}
+.p-badge.p-badge-warning {
+  background-color: #ffe082;
+  color: #121212;
+}
+.p-badge.p-badge-danger {
+  background-color: #f48fb1;
+  color: #121212;
+}
+.p-badge.p-badge-lg {
+  font-size: 1.125rem;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+}
+.p-badge.p-badge-xl {
+  font-size: 1.5rem;
+  min-width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+}
+
+
+//MultiSelect Dropdown
+.p-multiselect {
+  display: inline-flex;
+  cursor: pointer;
+  user-select: none;
+}
+.p-multiselect-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.p-multiselect-label-container {
+  overflow: hidden;
+  flex: 1 1 auto;
+  cursor: pointer;
+}
+.p-multiselect-label {
+  display: block;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.p-multiselect-label-empty {
+  overflow: hidden;
+  visibility: hidden;
+}
+.p-multiselect-token {
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+.p-multiselect-token-icon {
+  cursor: pointer;
+}
+.p-multiselect .p-multiselect-panel {
+  min-width: 100%;
+}
+.p-multiselect-items-wrapper {
+  overflow: auto;
+}
+.p-multiselect-items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.p-multiselect-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+.p-multiselect-item-group {
+  cursor: auto;
+}
+.p-multiselect-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.p-multiselect-filter-container {
+  position: relative;
+  flex: 1 1 auto;
+}
+.p-multiselect-filter-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5rem;
+}
+.p-multiselect-filter-container .p-inputtext {
+  width: 100%;
+}
+.p-multiselect-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  margin-left: auto;
+}
+.p-fluid .p-multiselect {
+  display: flex;
+}
+.p-multiselect {
+  background: hsl(0, 0%, 10%);
+  border: 1px solid hsl(0, 0%, 30%);
+  // transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  color: #afafaf;
+  padding: 0.7rem 0.75rem;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+// .p-multiselect:not(.p-disabled):hover {
+//   border-color: var(--hover-color);
+// }
+
+.p-multiselect:not(.p-disabled).p-focus {
+  // outline: 0 none;
+  // outline-offset: 0;
+  // box-shadow: 0 0 0 1px #93cbf9;
+  // border-color: #64b5f6;
+  outline-offset: 0;
+  outline: 0.5px solid var(--hover-color);
+  border: 0; 
+}
+.p-multiselect.p-variant-filled {
+  background: #383838;
+}
+.p-multiselect.p-variant-filled:not(.p-disabled):hover {
+  background-color: #383838;
+}
+.p-multiselect.p-variant-filled:not(.p-disabled).p-focus {
+  background-color: #383838;
+}
+.p-multiselect .p-multiselect-label {
+  // padding: 0.5rem 0.5rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.p-multiselect .p-multiselect-label.p-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.p-multiselect.p-multiselect-chip .p-multiselect-token {
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  background: #383838;
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 16px;
+}
+.p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon {
+  margin-left: 0.5rem;
+}
+.p-multiselect .p-multiselect-trigger {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  // width: 2.357rem;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.p-multiselect.p-invalid.p-component {
+  border-color: #ef9a9a;
+}
+.p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-label {
+  padding: 0.25rem 0.5rem;
+}
+.p-multiselect-panel {
+  background: #1e1e1e;
+  color: rgba(255, 255, 255, 0.87);
+  border: 1px solid #383838;
+  border-radius: 3px;
+  margin-top: 8px !important;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.p-multiselect-panel .p-multiselect-header {
+  padding: 0.5rem 1rem;
+  border-bottom: 0 none;
+  color: rgba(255, 255, 255, 0.87);
+  background: #1e1e1e;
+  margin: 0;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom: 0.5px solid hsl(0, 0%, 30%);
+}
+.p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-inputtext {
+  padding-right: 1.5rem;
+}
+.p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-multiselect-filter-icon {
+  right: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.p-multiselect-panel .p-multiselect-header .p-checkbox {
+  margin-right: 0.5rem;
+}
+.p-multiselect-panel .p-multiselect-header .p-multiselect-close {
+  margin-left: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  border: 0 none;
+  background: transparent;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.p-multiselect-panel .p-multiselect-header .p-multiselect-close:enabled:hover {
+  color: rgba(255, 255, 255, 0.87);
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.03);
+}
+.p-multiselect-panel .p-multiselect-header .p-multiselect-close:focus-visible {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #93cbf9;
+}
+.p-multiselect-panel .p-multiselect-items {
+  padding: 0.5rem 0;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border: 0 none;
+  color: rgba(255, 255, 255, 0.87);
+  background: transparent;
+  transition: box-shadow 0.2s;
+  border-radius: 0;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item:first-child {
+  margin-top: 0;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item:last-child {
+  margin-bottom: 0;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+  color: rgba(255, 255, 255, 0.87);
+  background: rgba(100, 181, 246, 0.16);
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight.p-focus {
+  background: rgba(100, 181, 246, 0.24);
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled).p-focus {
+  color: rgba(255, 255, 255, 0.87);
+  background: rgba(255, 255, 255, 0.03);
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox {
+  margin-right: 0.5rem;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item-group {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.87);
+  background: #1e1e1e;
+  font-weight: 600;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-empty-message {
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.87);
+  background: transparent;
+}
+.p-multiselect-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

@@ -1,0 +1,194 @@
+/*--------------------------------------------------------------
+1. Basic Color Variable
+----------------------------------------------------------------*/
+
+$white: #fff;
+$black: #000;
+$primary: #F5A540;
+$secondary: #040D10;
+$ternary: #999696;
+$border: #4F4836;
+$yellow: #F5A540;
+$about_bg: #040D10;
+:root {
+    --body-font-family: "Prompt", sans-serif;
+    --heading-font-family: "Oswald", sans-serif;	//Baskervville
+    --yellow-color: #F5A540;
+    --body-color: #C8C8C8;
+    --body-bg-color: #040D10;
+    --heading-color: #F5A540;
+    --border-color: #4F4836;
+    --common-color-white: #FFF;
+    --common-color-black: #000000;
+}
+
+/*--------------------------------------------------------------
+  24. Portfolio
+----------------------------------------------------------------*/
+
+.ak-portfolio-details-border {
+    // @include ak-hr;
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+    max-width: 250px;
+    margin-top: 125px;
+    position: absolute;
+}
+
+.portfolio-section {
+    display: flex;
+    gap: 108px;
+    align-content: center;
+    .portfolio-info {
+        flex-shrink: 0;
+        h2 {
+            margin-top: 85px;
+            margin-bottom: 85px;
+        }
+        h6 {
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            border-bottom: 1px solid $border;
+            word-spacing: 10px;
+            span {
+                color: $white;
+                text-transform: capitalize;
+                font-family: Prompt;
+            }
+        }
+    }
+    .portfolio-slider {
+        overflow: hidden;
+    }
+}
+
+.portfolio-details {
+    display: flex;
+    align-items: center;
+    .portfolio-details-text {
+        padding-right: 30px;
+        border-right: 1px solid $border;
+    }
+    .portfolio-details-icon {
+        padding-left: 40px;
+        display: flex;
+        gap: 15px;
+        h6 {
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+        a:hover>svg>path {
+            fill: $yellow;
+        }
+    }
+}
+
+@media screen and (max-width: 1740px) {
+    .ak-portfolio-details-border {
+        position: relative;
+        display: none;
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .ak-portfolio-details-border {
+        position: relative;
+        display: none;
+        margin-top: 0px;
+    }
+    .portfolio-section {
+        flex-wrap: wrap;
+        gap: 60px;
+        .portfolio-info {
+            flex-shrink: 0;
+            h2 {
+                margin-top: 0px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio-section {
+        flex-wrap: wrap;
+        gap: 30px;
+        .portfolio-info {
+            flex-shrink: 1;
+            .anim-title-3 {
+                margin-top: 0px;
+                margin-bottom: 30px;
+                font-size: 32px;
+            }
+        }
+    }
+    .portfolio-details {
+        flex-wrap: wrap;
+        .portfolio-details-text {
+            padding: 0px;
+            border: none;
+        }
+        .portfolio-details-icon {
+            margin-top: 30px;
+            padding: 0px;
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+  15. Food Item
+----------------------------------------------------------------*/
+
+.ak-card.ak-style-1 {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    transition: all 0.5s ease;
+    .ak-card-img {
+        width: 100%;
+    }
+    .card-info {
+        position: absolute;
+        margin: 0px 30px 37px 30px;
+        left: 5%;
+        bottom: -60px;
+        opacity: 0;
+        background-color: #040D10;
+        transition: all 0.3s ease-in-out;
+        .card-text {
+            padding: 45px 50px 45px 30px;
+            .card-title {
+                color: $yellow;
+            }
+            .card-subtitle {
+                color: $white;
+                &:hover {
+                    color: $yellow;
+                }
+            }
+        }
+    }
+    &:hover>.card-info {
+        bottom: 0px;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 772px) {
+    .ak-card.ak-style-1 {
+        .card-info {
+            left: 0%;
+            margin: 0px 37px 37px 37px;
+            .card-text {
+                padding: 38px 20px 38px 19px;
+                .card-title {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}

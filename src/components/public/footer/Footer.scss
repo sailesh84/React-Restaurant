@@ -1,0 +1,208 @@
+/*--------------------------------------------------------------
+1. Basic Color Variable
+----------------------------------------------------------------*/
+
+$white: #fff;
+$black: #000;
+$primary: #F5A540;
+$secondary: #040D10;
+$ternary: #999696;
+$border: #4F4836;
+$yellow: #F5A540;
+$about_bg: #040D10;
+:root {
+    --body-font-family: "Prompt", sans-serif;
+    --heading-font-family: "Oswald", sans-serif;	//Baskervville
+    --yellow-color: #F5A540;
+    --body-color: #C8C8C8;
+    --body-bg-color: #040D10;
+    --heading-color: #F5A540;
+    --border-color: #4F4836;
+    --common-color-white: #FFF;
+    --common-color-black: #000000;
+}
+
+/*--------------------------------------------------------------
+  9. Footer
+----------------------------------------------------------------*/
+
+.ak-hr-container {
+    position: relative;
+    .ak-footer-hr-top {
+        width: 100%;
+        height: 1px;
+        background: var(--border-color);
+    }
+    .ak-footer-hr-bottom {
+        width: 100%;
+        height: 1px;
+        background: var(--border-color);
+        position: absolute;
+        right: 0px;
+    }
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.ak-braner-logo {
+    .footer-log-elem {
+        cursor: pointer;
+        display: inline-block;
+    }
+    &.footer-logo:hover {
+        .footer-log-icon>svg>path {
+            stroke: $yellow;
+        }
+    }
+}
+
+.footer-time-border {
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.ak-footer.ak-style-1 {
+    position: relative;
+    .footer-bg-img {
+        position: absolute;
+        width: 20%;
+        height: 70%;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.footer-main {
+    padding: 70px 50px;
+    .footer-eamil-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        .footer-email {
+            a {
+                font-size: 35px;
+                color: $white;
+            }
+            &::after {
+                content: '';
+                display: block;
+                width: 0%;
+                height: 2px;
+                background-color: $white;
+                transition: width 0.3s;
+            }
+        }
+        .footer-email:hover::after {
+            width: 100%;
+        }
+        .footer-menu {
+            ul {
+                text-decoration: none;
+                text-transform: uppercase;
+                color: $white;
+                list-style: none;
+                display: flex;
+                gap: 100px;
+                margin: 0;
+                padding: 0;
+                flex-shrink: 1;
+                flex-wrap: wrap;
+            }
+        }
+    }
+    .footer-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+        color: $white;
+        text-align: start;
+        .footer-btn {
+            &.style-1 {
+                border: 1px solid $white;
+                padding: 18px 43px;
+                display: inline;
+                &:hover {
+                    border: 1px solid $yellow;
+                }
+            }
+            .reservation-btn {
+                padding: 18px 36px;
+                @media screen and (max-width: 767px) {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                }
+
+                color: $black;
+                outline: none;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 18px;
+                border: none;
+                text-transform: uppercase;
+                transition: all 0.35s;
+                position: relative;
+                border-color: transparent;
+                width: 100%;
+                left: 0;
+                border-radius: 0px;
+                background-color: $white;
+                &:hover {
+                    width: 100%;
+                    background-color: transparent;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {}
+
+@media screen and (max-width: 991px) {
+    .footer-main {
+        .footer-eamil-menu {
+            .footer-menu {
+                ul {
+                    gap: 55px;
+                    margin: 30px 0px;
+                }
+            }
+        }
+        .footer-info {
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footer-main {
+        padding: 30px 0px;
+        .footer-eamil-menu {
+            .footer-menu {
+                ul {
+                    gap: 30px 80px;
+                }
+            }
+        }
+        .footer-info {
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+    }
+    .ak-footer.ak-style-1 {
+        position: relative;
+        .footer-bg-img {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}

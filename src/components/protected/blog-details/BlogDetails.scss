@@ -1,0 +1,168 @@
+/*--------------------------------------------------------------
+1. Basic Color Variable
+----------------------------------------------------------------*/
+
+$white: #fff;
+$black: #000;
+$primary: #F5A540;
+$secondary: #040D10;
+$ternary: #999696;
+$border: #4F4836;
+$yellow: #F5A540;
+$about_bg: #040D10;
+:root {
+    --body-font-family: "Prompt", sans-serif;
+    --heading-font-family: "Oswald", sans-serif;	//Baskervville
+    --yellow-color: #F5A540;
+    --body-color: #C8C8C8;
+    --body-bg-color: #040D10;
+    --heading-color: #F5A540;
+    --border-color: #4F4836;
+    --common-color-white: #FFF;
+    --common-color-black: #000000;
+}
+
+
+/*--------------------------------------------------------------
+  23. Blog Details
+----------------------------------------------------------------*/
+
+.comment-list {
+    list-style: none;
+    margin: 0px;
+    margin-right: 50px;
+    padding: 0px;
+    .comment {
+        padding: 30px 0px 0px 0px;
+        p {
+            padding: 5px 0px;
+        }
+        .url {
+            color: $white;
+            &:hover {
+                color: $yellow;
+            }
+        }
+        .reply {
+            color: $yellow;
+        }
+        .reply>:hover {
+            color: $white;
+        }
+        .comment-author {
+            .avatar {
+                border-radius: 50%;
+            }
+        }
+        .children {
+            margin-left: 30px;
+            list-style: none;
+            .comment-author {
+                .avatar {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .comment-list {
+        margin-right: 0px;
+        .comment {
+            .children {
+                margin-left: 0px;
+            }
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+  25. Contact
+----------------------------------------------------------------*/
+
+.contact-content {
+    width: 85vw;
+    display: flex;
+    .contact-form-title {
+        margin-bottom: 60px;
+    }
+    .contact-form {
+        width: 40%;
+        .from-input {
+            padding-right: 8px;
+            input {
+                background-color: transparent;
+                border: 1px solid $border;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+        }
+        textarea {
+            box-shadow: none;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid $border;
+            padding: 10px;
+            margin-bottom: 10px;
+            &:focus {
+                border: 1px solid $border;
+            }
+        }
+        .contact-btn {
+            border: none;
+            background-color: $white;
+            color: $black;
+            padding: 18px 45px;
+            margin-top: 50px;
+        }
+    }
+    .contact-map {
+        width: 60%;
+        .ak-google-map {
+            height: 500px;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .contact-content {
+        width: 100%;
+        flex-direction: column;
+        .contact-form-title {
+            margin-bottom: 20px;
+        }
+        .contact-form {
+            width: 100%;
+            margin-bottom: 60px;
+        }
+        .contact-map {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .contact-content {
+        width: 100%;
+        flex-direction: column;
+        .contact-form-title {
+            margin-bottom: 20px;
+        }
+        .contact-form {
+            width: 100%;
+            margin-bottom: 0px;
+            .anim-title-3 {
+                font-size: 32px;
+            }
+        }
+        .contact-map {
+            width: 100%;
+            margin-top: 60px;
+            .ak-google-map {
+                height: 400px;
+            }
+        }
+    }
+}
