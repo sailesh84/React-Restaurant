@@ -1,0 +1,28 @@
+<ngb-alert [type]="typeModal" [dismissible]="true" (close)="errorForm = false" *ngIf="errorForm">
+  <strong>{{typeModal | uppercase}} !</strong> {{ errorMessageForm }}
+</ngb-alert>
+<form role="form" #registerForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="on">
+  <div class="form-content">
+    <div class="form-group">
+      <input type="text" [(ngModel)]="model.email" name="email" class="form-control input-underline input-lg"
+             id="email_register" placeholder="Email" required="required" (keyup.enter)="onSubmit()"/>
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="model.buyerName" name="buyerName" class="form-control input-underline input-lg"
+             id="name_register" placeholder="Name" required="required" (keyup.enter)="onSubmit()"/>
+    </div>
+    <div class="form-group">
+      <textarea [(ngModel)]="model.reason" name="reason" class="form-control input-underline textarea-lg"
+                id="reason_register" rows="8" placeholder="Reason" required="required"></textarea>
+    </div>
+  </div>
+  <a class="btn rounded-btn" href="javascript:void(0)" (click)="onSubmit()">
+    <div class="spinner-border spinner-border-sm" role="status" style="margin-left: -0.5em !important;"
+         [ngClass]="{'d-none': !submitted, 'd-inline-block': submitted}">
+      <span class="sr-only">Loading...</span>
+    </div>
+    Register
+  </a>
+  &nbsp;
+  <a class="btn rounded-btn"  href="/login">Log in</a>
+</form>

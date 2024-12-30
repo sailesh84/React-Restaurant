@@ -1,0 +1,57 @@
+<div class="row mt-5 mb-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="alert alert-warning" role="alert">
+  This page is a proposal weather comparison dashboard
+</div>
+
+<div *ngIf="state.isLoaded === true && state.canConnect === true">
+  <form class="text-primary">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <span>Please choose a : </span>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col xl-6">
+        <div class="form-group">
+          <label for="select_forecaster_one">forecaster 1</label>
+          <select class="custom-select custom-select-lg mb-3" [(ngModel)]="forecasters.forecaster_one"
+                  id="select_forecaster_one" name="forecaster_one" (change)="selectForecasterOne($event)"
+          >
+            <option *ngFor="let f of forecastersList; index as i; trackBy: trackByFn" [value]="f._id">{{ f.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col xl-6">
+        <div class="form-group">
+          <label for="select_forecaster_two">forecaster 2</label>
+          <select class="custom-select custom-select-lg mb-3" [(ngModel)]="forecasters.forecaster_two"
+                  id="select_forecaster_two" name="forecaster_two" (change)="selectForecasterTwo($event)"
+          >
+            <option *ngFor="let f of forecastersList; index as i; trackBy: trackByFn" [value]="f._id">{{ f.name }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col xl-6" *ngFor="let opt of chartOptions; index as i;
+    trackBy: trackByFn">
+      <highcharts-chart [Highcharts]="highcharts" [constructorType]="'stockChart'" [options]="opt" [(update)]="updateFlag"
+                        [oneToOne]="oneToOneFlag" style="width: 100%; height: 500px; display: block;max-height: 500px;">
+      </highcharts-chart>
+    </div>
+  </div>
+</div>

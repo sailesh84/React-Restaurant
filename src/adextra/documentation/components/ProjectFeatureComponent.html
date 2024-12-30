@@ -1,0 +1,1432 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>infield-analysis-portal documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">infield-analysis-portal documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ProjectFeatureComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/protected/projects/project-feature/project-feature.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-project-feature</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./project-feature.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./project-feature.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#client$">client$</a>
+                            </li>
+                            <li>
+                                <a href="#contact">contact</a>
+                            </li>
+                            <li>
+                                <a href="#forecast">forecast</a>
+                            </li>
+                            <li>
+                                <a href="#forecaster">forecaster</a>
+                            </li>
+                            <li>
+                                <a href="#forecasters">forecasters</a>
+                            </li>
+                            <li>
+                                <a href="#forecasts">forecasts</a>
+                            </li>
+                            <li>
+                                <a href="#forecastUpdated">forecastUpdated</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isForecastersDead$">isForecastersDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isProjectDead$">isProjectDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isUserDead$">isUserDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isVesselDead$">isVesselDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isWeatherDead$">isWeatherDead$</a>
+                            </li>
+                            <li>
+                                <a href="#project">project</a>
+                            </li>
+                            <li>
+                                <a href="#state">state</a>
+                            </li>
+                            <li>
+                                <a href="#vessel">vessel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getData">getData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getUpdatedDate">getUpdatedDate</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onForecasterChange">onForecasterChange</a>
+                            </li>
+                            <li>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#projectID">projectID</a>
+                            </li>
+                            <li>
+                                <a href="#vesselID">vesselID</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(projectsService: <a href="../injectables/ProjectsService.html">ProjectsService</a>, titlePageService: <a href="../injectables/TitlePageService.html">TitlePageService</a>, vesselsService: <a href="../injectables/VesselsService.html">VesselsService</a>, clientsService: <a href="../injectables/ClientsService.html">ClientsService</a>, usersService: <a href="../injectables/UsersService.html">UsersService</a>, weatherService: <a href="../injectables/WeatherService.html">WeatherService</a>, forecastersService: <a href="../injectables/ForecastersService.html">ForecastersService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>projectsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProjectsService.html" target="_self" >ProjectsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>titlePageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TitlePageService.html" target="_self" >TitlePageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>vesselsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/VesselsService.html" target="_self" >VesselsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>clientsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ClientsService.html" target="_self" >ClientsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>usersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>weatherService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WeatherService.html" target="_self" >WeatherService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>forecastersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ForecastersService.html" target="_self" >ForecastersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectID"></a>
+                        <b>projectID</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;-1&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:24</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="vesselID"></a>
+                        <b>vesselID</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;-1&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getData"></a>
+                    <span class="name">
+                        <b>
+                            getData
+                        </b>
+                        <a href="#getData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:70</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUpdatedDate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            getUpdatedDate
+                        </b>
+                        <a href="#getUpdatedDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUpdatedDate()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:127</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onForecasterChange"></a>
+                    <span class="name">
+                        <b>
+                            onForecasterChange
+                        </b>
+                        <a href="#onForecasterChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onForecasterChange($event: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:123</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                        <b>
+                            refresh
+                        </b>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refresh()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:119</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="client$"></a>
+                        <span class="name">
+                            <b>
+                            client$</b>
+                            <a href="#client$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/HttpResponse.html" target="_self" >Observable&lt;HttpResponse&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contact"></a>
+                        <span class="name">
+                            <b>
+                            contact</b>
+                            <a href="#contact"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forecast"></a>
+                        <span class="name">
+                            <b>
+                            forecast</b>
+                            <a href="#forecast"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forecaster"></a>
+                        <span class="name">
+                            <b>
+                            forecaster</b>
+                            <a href="#forecaster"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forecasters"></a>
+                        <span class="name">
+                            <b>
+                            forecasters</b>
+                            <a href="#forecasters"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Forecaster.html" target="_self" >Forecaster[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forecasts"></a>
+                        <span class="name">
+                            <b>
+                            forecasts</b>
+                            <a href="#forecasts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forecastUpdated"></a>
+                        <span class="name">
+                            <b>
+                            forecastUpdated</b>
+                            <a href="#forecastUpdated"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isForecastersDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isForecastersDead$</b>
+                            <a href="#isForecastersDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isProjectDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isProjectDead$</b>
+                            <a href="#isProjectDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isUserDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isUserDead$</b>
+                            <a href="#isUserDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isVesselDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isVesselDead$</b>
+                            <a href="#isVesselDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isWeatherDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isWeatherDead$</b>
+                            <a href="#isWeatherDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="project"></a>
+                        <span class="name">
+                            <b>
+                            project</b>
+                            <a href="#project"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Project.html" target="_self" >Project</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="state"></a>
+                        <span class="name">
+                            <b>
+                            state</b>
+                            <a href="#state"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{ isLoaded: false, canConnect: null }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="vessel"></a>
+                        <span class="name">
+                            <b>
+                            vessel</b>
+                            <a href="#vessel"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Vessel.html" target="_self" >Vessel</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/protected/projects/project-feature/project-feature.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnDestroy, OnInit} from &#x27;@angular/core&#x27;;
+import {ProjectsService} from &#x27;@app/core/services/projects.service&#x27;;
+import {Project} from &#x27;@app/shared/models/project&#x27;;
+import {User} from &#x27;@app/shared/models/user&#x27;;
+import {TitlePageService} from &#x27;@app/core/services/title-page.service&#x27;;
+import {Vessel} from &#x27;@app/shared/models/vessel&#x27;;
+import {VesselsService} from &#x27;@app/core/services/vessels.service&#x27;;
+import {UsersService} from &#x27;@app/core/services/users.service&#x27;;
+import {WeatherService} from &#x27;@app/core/services/weather.service&#x27;;
+import {forkJoin, Observable, Subject} from &#x27;rxjs&#x27;;
+import {takeUntil} from &#x27;rxjs/operators&#x27;;
+import {Client} from &#x27;@app/shared/models/client&#x27;;
+import {ClientsService} from &#x27;@app/core/services/clients.service&#x27;;
+import {HttpResponse} from &#x27;@app/shared/models/http-response&#x27;;
+import {ForecastersService} from &#x27;@app/core/services/forecasters.service&#x27;;
+import {Forecaster} from &#x27;@app/shared/models/forecaster&#x27;;
+
+@Component({
+  selector: &#x27;app-project-feature&#x27;,
+  templateUrl: &#x27;./project-feature.component.html&#x27;,
+  styleUrls: [&#x27;./project-feature.component.scss&#x27;]
+})
+export class ProjectFeatureComponent implements OnInit, OnDestroy {
+  @Input() projectID &#x3D; &#x27;-1&#x27;;
+  @Input() vesselID &#x3D; &#x27;-1&#x27;;
+
+  state &#x3D; { isLoaded: false, canConnect: null };
+
+  project: Project;
+  vessel: Vessel;
+  forecastUpdated;
+  forecasts: any[];
+  contact: User;
+  forecasters: Forecaster[];
+  forecaster: string;
+  forecast: any;
+
+  client$: Observable&lt;HttpResponse&gt;;
+
+  private isProjectDead$ &#x3D; new Subject();
+  private isWeatherDead$ &#x3D; new Subject();
+  private isVesselDead$ &#x3D; new Subject();
+  private isUserDead$ &#x3D; new Subject();
+  private isForecastersDead$ &#x3D; new Subject();
+
+  constructor(
+    private projectsService: ProjectsService,
+    private titlePageService: TitlePageService,
+    private vesselsService: VesselsService,
+    private clientsService: ClientsService,
+    private usersService: UsersService,
+    private weatherService: WeatherService,
+    private forecastersService: ForecastersService
+  ) {
+    this.titlePageService.setTitle(&#x27;Field Analysis&#x27;);
+  }
+
+  ngOnInit() {
+    this.getData();
+  }
+
+  ngOnDestroy(): void {
+    this.isForecastersDead$.next();
+    this.isProjectDead$.next();
+    this.isWeatherDead$.next();
+    this.isVesselDead$.next();
+    this.isUserDead$.next();
+  }
+
+  getData() {
+    forkJoin([
+      this.forecastersService.getForecasters().pipe(takeUntil(this.isForecastersDead$)),
+      this.weatherService.getForecastsWithoutForecaster(this.projectID, this.vesselID).pipe(takeUntil(this.isWeatherDead$)),
+      this.projectsService.getProject(this.projectID).pipe(takeUntil(this.isProjectDead$)),
+      this.vesselsService.getVessel(this.vesselID).pipe(takeUntil(this.isVesselDead$)),
+      ]
+    ).subscribe((responses) &#x3D;&gt; {
+      this.forecasters &#x3D; responses[0].data;
+      if (this.forecasters &amp;&amp; this.forecasters.length &gt; 0) {
+        this.forecaster &#x3D; this.forecasters[0]._id;
+      }
+      this.project &#x3D; responses[2].data;
+      this.vessel &#x3D; responses[3].data;
+      this.forecasts &#x3D; responses[1].data;
+      this.forecastUpdated &#x3D; this.getUpdatedDate();
+      this.client$ &#x3D; this.clientsService.getClient(this.project.client);
+
+      if (this.vessel) {
+        if (this.project.vessels[this.vessel._id]) {
+          this.usersService.getUserById(this.project.vessels[this.vessel._id].contact).pipe(takeUntil(this.isUserDead$))
+            .subscribe((resp) &#x3D;&gt; {
+            this.contact &#x3D; resp.data;
+            this.state.canConnect &#x3D; true;
+            this.state.isLoaded &#x3D; true;
+          }, (err) &#x3D;&gt; {
+            this.contact &#x3D; null;
+            this.state.canConnect &#x3D; true;
+            this.state.isLoaded &#x3D; true;
+          });
+        } else {
+          this.contact &#x3D; null;
+          this.state.canConnect &#x3D; true;
+          this.state.isLoaded &#x3D; true;
+        }
+      }
+    }, error &#x3D;&gt; {
+      this.forecasters &#x3D; [];
+      this.forecaster &#x3D; null;
+      this.forecasts &#x3D; [];
+      this.project &#x3D; null;
+      this.vessel &#x3D; null;
+      this.contact &#x3D; null;
+      this.forecastUpdated &#x3D; null;
+      this.state.canConnect &#x3D; false;
+      this.state.isLoaded &#x3D; true;
+    });
+  }
+
+  refresh(): void {
+    this.getData();
+  }
+
+  onForecasterChange($event: {}): void {
+    this.forecastUpdated &#x3D; this.getUpdatedDate();
+  }
+
+  private getUpdatedDate(): number {
+    const forecast &#x3D; this.forecasts.find((elt) &#x3D;&gt; elt.forecaster &#x3D;&#x3D;&#x3D; this.forecaster);
+    this.forecast &#x3D; null;
+    if (forecast) {
+      this.forecast &#x3D; forecast;
+      return forecast.dateUpdated;
+    }
+    return null;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Page Heading --&gt;
+&lt;div class&#x3D;&quot;align-items-center justify-content-between mb-4&quot; *ngIf&#x3D;&quot;state.isLoaded &#x3D;&#x3D;&#x3D; true &amp;&amp;
+      state.canConnect &#x3D;&#x3D;&#x3D; true&quot;&gt;
+  &lt;div class&#x3D;&quot;row justify-content-center&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 mr-auto&quot;&gt;
+      &lt;h1 class&#x3D;&quot;h3 mb-2 text-section text-truncate&quot;&gt;
+        {{ project?.code }} - {{ (client$ | async)?.data?.name | uppercase }} {{ project?.name }}
+      &lt;/h1&gt;
+      &lt;h3 class&#x3D;&quot;h5 mb-0 text-secondary&quot;&gt;
+        Weather forecast :
+        &lt;span *ngIf&#x3D;&quot;forecastUpdated&quot;&gt; {{ forecastUpdated | momentDate: &#x27;dd LLL yyyy HH:mm (zzzz)&#x27; : (project?.timezone) ?
+          project?.timezone : &#x27;UTC&#x27; }}&lt;/span&gt;
+      &lt;/h3&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-md-flex d-lg-flex d-xl-flex justify-content-end ml-auto&quot;&gt;
+      &lt;app-project-feature-contact-card [contact]&#x3D;&quot;contact&quot;&gt;&lt;/app-project-feature-contact-card&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;row justify-content-center bg-white mt-4&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;div class&#x3D;&quot;input-group input-group-sm&quot;&gt;
+        &lt;div class&#x3D;&quot;input-group-prepend&quot;&gt;
+              &lt;span class&#x3D;&quot;input-group-text&quot;&gt;
+                &lt;i class&#x3D;&quot;material-icons md-center md-sm&quot;&gt;cast&lt;/i&gt;
+              &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;ng-select [items]&#x3D;&quot;forecasters&quot; bindLabel&#x3D;&quot;name&quot; bindValue&#x3D;&quot;_id&quot; [(ngModel)]&#x3D;&quot;forecaster&quot;
+                   placeholder&#x3D;&quot;Select a forecaster&quot; class&#x3D;&quot;form-control ng-select-info&quot;
+                   (change)&#x3D;&quot;onForecasterChange($event)&quot;&gt;
+          &lt;ng-template ng-label-tmp let-item&#x3D;&quot;item&quot;&gt;
+            {{item?.name}}
+          &lt;/ng-template&gt;
+          &lt;ng-template ng-option-tmp let-item&#x3D;&quot;item&quot; let-search&#x3D;&quot;searchTerm&quot;&gt;
+            {{item?.name}}
+          &lt;/ng-template&gt;
+        &lt;/ng-select&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-12 mt-4&quot;&gt;
+      &lt;app-project-feature-view *ngIf&#x3D;&quot;state.isLoaded &#x3D;&#x3D;&#x3D; true &amp;&amp; state.canConnect &#x3D;&#x3D;&#x3D; true&quot; [project]&#x3D;&quot;project&quot;
+                                [vesselID]&#x3D;&quot;vesselID&quot; [session]&#x3D;&quot;(forecast) ? forecast.session : null&quot; [forecaster]&#x3D;&quot;forecaster&quot;&gt;
+      &lt;/app-project-feature-view&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;row mt-5&quot; *ngIf&#x3D;&quot;state.isLoaded &#x3D;&#x3D;&#x3D; true &amp;&amp; state.canConnect !&#x3D;&#x3D; true&quot;&gt;
+  &lt;div class&#x3D;&quot;col-12&quot;&gt;
+    &lt;div class&#x3D;&quot;error-content-loading text-danger text-center&quot;&gt;
+      &lt;div class&#x3D;&quot;connection-error&quot;&gt;
+        &lt;p&gt;Connection error&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;refresh&quot;&gt;
+        &lt;button class&#x3D;&quot;btn btn-outline-danger&quot; (click)&#x3D;&quot;refresh()&quot;&gt;
+          &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;refresh&lt;/i&gt; Refresh
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./project-feature.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.input-group {
+  .input-group-append &gt; .input-group-text, .input-group-prepend &gt; .input-group-text {
+    color: #009dd6;
+    border-color: #009dd6;
+    background-color: transparent;
+  }
+  input, input.form-control{
+    color: #009dd6;
+    border-color: #009dd6;
+  }
+  input::placeholder, input.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 1; /* Firefox */
+    color: #009dd6;
+  }
+  input:-ms-input-placeholder, input.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #009dd6;
+  }
+  input::-ms-input-placeholder, input.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #009dd6;
+  }
+  input:focus, input.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 157, 214, 0.5);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Page Heading --><div class="align-items-center justify-content-between mb-4" *ngIf="state.isLoaded === true &&      state.canConnect === true">  <div class="row justify-content-center">    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 mr-auto">      <h1 class="h3 mb-2 text-section text-truncate">        {{ project?.code }} - {{ (client$ | async)?.data?.name | uppercase }} {{ project?.name }}      </h1>      <h3 class="h5 mb-0 text-secondary">        Weather forecast :        <span *ngIf="forecastUpdated"> {{ forecastUpdated | momentDate: \'dd LLL yyyy HH:mm (zzzz)\' : (project?.timezone) ?          project?.timezone : \'UTC\' }}</span>      </h3>    </div>    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-md-flex d-lg-flex d-xl-flex justify-content-end ml-auto">      <app-project-feature-contact-card [contact]="contact"></app-project-feature-contact-card>    </div>  </div>  <div class="row justify-content-center bg-white mt-4">    <div class="col-12">      <div class="input-group input-group-sm">        <div class="input-group-prepend">              <span class="input-group-text">                <i class="material-icons md-center md-sm">cast</i>              </span>        </div>        <ng-select [items]="forecasters" bindLabel="name" bindValue="_id" [(ngModel)]="forecaster"                   placeholder="Select a forecaster" class="form-control ng-select-info"                   (change)="onForecasterChange($event)">          <ng-template ng-label-tmp let-item="item">            {{item?.name}}          </ng-template>          <ng-template ng-option-tmp let-item="item" let-search="searchTerm">            {{item?.name}}          </ng-template>        </ng-select>      </div>    </div>    <div class="col-12 mt-4">      <app-project-feature-view *ngIf="state.isLoaded === true && state.canConnect === true" [project]="project"                                [vesselID]="vesselID" [session]="(forecast) ? forecast.session : null" [forecaster]="forecaster">      </app-project-feature-view>    </div>  </div></div><div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">  <div class="col-12">    <div class="error-content-loading text-danger text-center">      <div class="connection-error">        <p>Connection error</p>      </div>      <div class="refresh">        <button class="btn btn-outline-danger" (click)="refresh()">          <i class="material-icons md-center">refresh</i> Refresh        </button>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-home'},{'name': 'AccessDeniedComponent', 'selector': 'app-access-denied'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminPanelFeatureComponent', 'selector': 'app-admin-panel-feature'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationsAccessesComponent', 'selector': 'app-applications-accesses'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'CountriesComponent', 'selector': 'app-countries'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardFeatureProjectCardComponent', 'selector': 'app-dashboard-feature-project-card'},{'name': 'DashboardFeatureProjectProductComponent', 'selector': 'app-dashboard-feature-project-product'},{'name': 'DashboardFeatureProjectProgressbarComponent', 'selector': 'app-dashboard-feature-project-progressbar'},{'name': 'DashboardFeatureProjectUpatedDateComponent', 'selector': 'app-dashboard-feature-project-upated-date'},{'name': 'DashboardFeaturesComponent', 'selector': 'app-dashboard-features'},{'name': 'DashboardMapCardComponent', 'selector': 'app-dashboard-map-card'},{'name': 'DownloadCenterComponent', 'selector': 'app-download-center'},{'name': 'ExplanationsComponent', 'selector': 'app-explanations'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastersComponent', 'selector': 'app-forecasters'},{'name': 'HistoryComponent', 'selector': 'app-history'},{'name': 'HistoryFeatureAnalysisComponent', 'selector': 'app-history-feature-analysis'},{'name': 'HistoryFeatureForecastsComponent', 'selector': 'app-history-feature-forecasts'},{'name': 'HistoryFeatureInfoComponent', 'selector': 'app-history-feature-info'},{'name': 'HistoryFeaturesComponent', 'selector': 'app-history-features'},{'name': 'HistoryFeatureSummaryComponent', 'selector': 'app-history-feature-summary'},{'name': 'HistoryFeatureViewComponent', 'selector': 'app-history-feature-view'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginFeatureComponent', 'selector': 'app-login-feature'},{'name': 'LogsComponent', 'selector': 'app-logs'},{'name': 'MapLocationLogsComponent', 'selector': 'app-map-location-logs'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsCenterComponent', 'selector': 'app-notifications-center'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileFeatureCardComponent', 'selector': 'app-profile-feature-card'},{'name': 'ProfileFeatureComponent', 'selector': 'app-profile-feature'},{'name': 'ProjectFeatureAnalysisComponent', 'selector': 'app-project-feature-analysis'},{'name': 'ProjectFeatureCompareComponent', 'selector': 'app-project-feature-compare'},{'name': 'ProjectFeatureComponent', 'selector': 'app-project-feature'},{'name': 'ProjectFeatureContactCardComponent', 'selector': 'app-project-feature-contact-card'},{'name': 'ProjectFeatureForecastsComponent', 'selector': 'app-project-feature-forecasts'},{'name': 'ProjectFeatureInfoComponent', 'selector': 'app-project-feature-info'},{'name': 'ProjectFeatureSummaryComponent', 'selector': 'app-project-feature-summary'},{'name': 'ProjectFeatureViewComponent', 'selector': 'app-project-feature-view'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProtectedComponent', 'selector': 'app-protected'},{'name': 'RegionsComponent', 'selector': 'app-regions'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterFeatureComponent', 'selector': 'app-register-feature'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsFeatureComponent', 'selector': 'app-requests-feature'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SchedulerFeatureGanttComponent', 'selector': 'app-scheduler-feature-gantt'},{'name': 'SchedulerFeaturesComponent', 'selector': 'app-scheduler-features'},{'name': 'SchedulerFeatureTableComponent', 'selector': 'app-scheduler-feature-table'},{'name': 'SchedulerFeatureViewComponent', 'selector': 'app-scheduler-feature-view'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UploadComponent', 'selector': 'app-upload'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VesselsComponent', 'selector': 'app-vessels'},{'name': 'VesselsTypesComponent', 'selector': 'app-vessel-type'},{'name': 'WeatherComponent', 'selector': 'app-weather'},{'name': 'WindyComponent', 'selector': 'app-windy'}];
+    var DIRECTIVES = [{'name': 'RisksProgressbarDirective', 'selector': '[appRisksProgressbar]'}];
+    var ACTUAL_COMPONENT = {'name': 'ProjectFeatureComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProjectFeatureComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

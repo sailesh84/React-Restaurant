@@ -1,0 +1,78 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .material-icons {
+      font-size: 15px;
+    } 
+  
+    .text-section {
+      text-align: center;
+    }
+  
+    .modal-title {
+      font-size: 18px;
+    }
+
+    .custom-switch {
+      margin-top: 0px
+    }
+
+    .custom-switch-edit {
+      margin-top: 25px;
+    }
+  }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .custom-switch-edit, .custom-switch {
+    margin-top: 28px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .custom-switch {
+    margin-top: 25px;
+  }
+}
+
+// Validation styles
+.ng-value {
+  font-size: .9em;
+  margin-bottom: 5px;
+  color: rgb(255, 255, 255);
+  background-color: #9b0808;
+  border-radius: 2px;
+  margin-right: 5px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.ng-value-icon {
+  display: inline-block;
+  padding: 1px 5px;
+  cursor: pointer;
+}
+
+.ng-value-icon.left {
+  border-right: 1px solid #580505;
+}
+
+.ng-value-label {
+  display: inline-block;
+  padding: 1px 5px;
+}
+
+.display-4{
+  font-size: 1.5rem;
+}
+
+.jumbotron {
+  padding: 1rem;
+}
+
+label {
+  .required {
+      color: red;
+  }
+}
+  

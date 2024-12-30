@@ -1,0 +1,27 @@
+.upload-drop-zone {
+  height: auto;
+  border-width: 2px;
+  color: #ccc;
+  border-style: dashed;
+  border-color: #ccc;
+  line-height: 200px;
+  text-align: center
+}
+
+.upload-drop-zone > img {
+  width: auto;
+  max-width: 100%;
+}
+
+.upload-drop-zone:hover, .upload-drop-zone.dragover{
+  border-color: #00a3e0;
+  color: #00a3e0;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .image-preview-input-title, .btn-outline-success {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+}

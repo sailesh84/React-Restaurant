@@ -1,0 +1,35 @@
+<ngb-tabset>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Information</b></ng-template>
+    <ng-template ngbTabContent>
+      <app-history-feature-info [project]="project" [vessel]="vessel" [productType]="productType" [productName]="productName" [contactID]="contactID"></app-history-feature-info>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Summary</b></ng-template>
+    <ng-template ngbTabContent>
+      <app-history-feature-summary [analysis]="analysis" [explanation]="explanation" [timezone]="project?.timezone">
+      </app-history-feature-summary>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Analysis</b></ng-template>
+    <ng-template ngbTabContent>
+      <app-history-feature-analysis [analysis]="analysis" [timezone]="project?.timezone">
+      </app-history-feature-analysis>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Forecasts</b></ng-template>
+    <ng-template ngbTabContent>
+      <app-history-feature-forecasts [project]="project" [vessel]="vessel" [forecaster]="forecaster" [forecast]="forecast"
+        [timezone]="project?.timezone" [session]="session">
+      </app-history-feature-forecasts>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+<!-- Content Row
+<div class="row">
+  <div class="col-xl-12 col-md-12 mb-12">
+  </div>
+</div> -->

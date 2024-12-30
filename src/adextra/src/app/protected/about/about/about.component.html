@@ -1,0 +1,94 @@
+<!--<div role="main" class="container-fluid">-->
+<!--  <div class="container" id="container_main">-->
+<!--    <h1 class="cover-heading text-center">Welcome to Offshore Weather Forecast Portal</h1>-->
+<!--    <div class="alert alert-secondary text-center" role="alert">-->
+<!--      You need to have an account for use the application.-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!-- Page Heading -->
+<div class="d-flex align-items-center justify-content-between mb-4 d-md-none">
+  <h1 class="h3 mb-0 text-section">{{ title }}</h1>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 border border-info">
+    <div class="toolbar d-flex">
+      <span class="my-icon" [ngClass]="{ active: isOutlineShown }" (click)="toggleOutline()" title="Toggle Outline">
+        <i class="material-icons md-center md-24">toc</i>
+      </span>
+      <span class="my-icon" (click)="rotate(-90)" title="Rotate Left">
+        <i class="material-icons md-center md-24">rotate_left</i>
+      </span>
+      <span class="my-icon" (click)="rotate(90)" title="Rotate Right">
+        <i class="material-icons md-center md-24">rotate_right</i>
+      </span>
+      <span class="my-icon" (click)="incrementZoom(0.1)" title="Zoom In">
+        <i class="material-icons md-center md-24">zoom_in</i>
+      </span>
+      <span class="my-icon" (click)="incrementZoom(-0.1)" title="Zoom Out">
+        <i class="material-icons md-center md-24">zoom_out</i>
+      </span>
+      <span class="my-icon" [ngClass]="{ active: fitToPage }" (click)="fitToPage = !fitToPage" title="Toggle Fit Page">
+        <i class="material-icons md-center md-24">insert_drive_file</i>
+      </span>
+      <span class="my-icon" [ngClass]="{ active: showAll }" (click)="showAll = !showAll" title="Toggle Show All">
+        <i class="material-icons md-center md-24">unfold_more</i>
+      </span>
+      <ng-container *ngIf="!showAll">
+        <span class="my-icon" style="margin-left: 32rem;" (click)="incrementPage(-1)" title="Previous Page">
+          <i class="material-icons md-center md-24">navigate_before</i>
+        </span>
+        <div>
+          <input type="number" class="page-num" placeholder="Page" [(ngModel)]="page" pattern="-?[0-9]*(\.[0-9]+)?" />
+          <span *ngIf="pdf">of {{ pdf.numPages }}</span>
+        </div>
+        <span class="my-icon" (click)="incrementPage(1)" title="Next Page">
+          <i class="material-icons md-center md-24">navigate_next</i>
+        </span>
+      </ng-container>
+      <label class="my-icon ml-auto" for="searchbox" title="Search..">
+        <i class="material-icons md-center md-24">search</i>
+      </label>
+      <input
+        #queryInp type="text" id="searchbox" name="searchbox" class="searchbox mr-5" placeholder="Search..."
+        [value]="pdfQuery" (input)="searchQueryChanged(queryInp.value)"
+        (keyup.enter)="searchQueryChanged(queryInp.value)"
+      />
+    </div>
+    <div class="pdf-body">
+      <div *ngIf="isOutlineShown" class="outline">
+        <span *ngIf="!outline">Not outline</span>
+        <ul *ngFor="let item of outline" class="outline-list">
+          <li>
+            <a (click)="navigateTo(item.dest)"> {{ item.title }} </a>
+
+            <ul *ngFor="let child of item.items">
+              <li>
+                <a (click)="navigateTo(child.dest)"> {{ child.title }} </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <pdf-viewer style="max-height: 70vh !important; height: 70vh !important;"
+        [src]="pdfSrc"
+        [(page)]="page"
+        [rotation]="rotation"
+        [original-size]="originalSize"
+        [fit-to-page]="fitToPage"
+        (after-load-complete)="afterLoadComplete($event)"
+        [zoom]="zoom"
+        [show-all]="showAll"
+        [stick-to-page]="stickToPage"
+        [render-text]="renderText"
+        [external-link-target]="'blank'"
+        [autoresize]="autoresize"
+        (error)="onError($event)"
+      ></pdf-viewer>
+    </div>
+  </div>
+</div>

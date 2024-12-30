@@ -1,0 +1,34 @@
+<li class="nav-item dropdown no-arrow mx-1" ngbDropdown placement="bottom-left">
+  <a class="nav-link dropdown-toggle" id="alertsDropdown" role="button" data-toggle="dropdown"
+     aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+    <i class="material-icons md-center text-primary" *ngIf="iconNotification">{{ iconNotification }}</i>
+    <!-- Counter - Alerts -->
+    <span class="badge badge-pill badge-info badge-counter" *ngIf="counter || counter > 0">{{ counter }}</span>
+  </a>
+  <!-- Dropdown - Alerts -->
+  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in dropdown-list"
+       aria-labelledby="userDropdown" ngbDropdownMenu *ngIf="state.isLoaded === true && state.canConnect === true">
+    <h6 class="dropdown-header">
+      Last requests
+    </h6>
+    <a class="dropdown-item d-flex align-items-center" routerLink="/admin-requests" ngbDropdownItem
+       *ngFor="let r of requests">
+      <div class="mr-3">
+        <div class="icon-circle bg-primary">
+          <i class="material-icons md-center md-24 text-white">receipt</i>
+        </div>
+      </div>
+      <div>
+        <div class="text-secondary">{{ r?.createdAt | date: 'dd LLL yyyy HH:mm (zzzz)' : 'UTC' }}</div>
+        <div class="text-secondary">
+          By <span class="badge badge-light badge-light-contrast">{{ r?.buyerName }}</span>
+        </div>
+        <span class="font-weight-bold">{{ getSummary(r?.reason) }}</span>
+      </div>
+    </a>
+    <span class="dropdown-item text-center text-primary d-flex align-items-center" *ngIf="!counter || counter < 1">
+      No requests
+    </span>
+    <a class="dropdown-item text-center text-primary" routerLink="/admin-requests">Show all requests</a>
+  </div>
+</li>

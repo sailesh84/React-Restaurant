@@ -1,0 +1,61 @@
+.passed {
+    height: 20px;
+    width: 20px;
+    background-color: #90ed7d;
+    display: grid;
+    margin-right: 3.0rem;
+    margin-top: 5px;
+  }
+  
+  .failed {
+    height: 20px;
+    width: 20px;
+    background-color: #f15c80;
+    display: grid;
+    margin-right: 2.5rem;
+    margin-top: 5px;
+  }
+  
+  .swell {
+    height: 20px;
+    width: 20px;
+    background-color: #8d0f94;
+    display: grid;
+    margin-right: 2.5rem;
+    margin-top: 5px;
+  }
+  
+  .wind {
+    height: 20px;
+    width: 20px;
+    background-color: #0f4094;
+    display: grid;
+    margin-top: 5px;
+  }
+  
+  .failed-calculation {
+    height: 20px;
+    width: 20px;
+    background-color: #b8b8b8;
+    display: grid;
+    margin-top: 5px;
+  }
+  
+  .completed {
+    height: 20px;
+    width: 20px;
+    background-color: #082269;
+    margin-top: 10px;
+    display: grid;
+    margin-right: 5rem;
+    margin-top: 5px;
+  }
+  
+  div > p {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 2em;
+    width: 10em;
+    margin-top: 2px;
+  }

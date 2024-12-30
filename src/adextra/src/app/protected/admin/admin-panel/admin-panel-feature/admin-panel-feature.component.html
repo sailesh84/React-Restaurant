@@ -1,0 +1,105 @@
+<!-- Content Row -->
+<div class="row">
+  <div class="col-12">
+    <div class="card shadow parent-card">
+      <div class="card-header py-3 row no-gutters align-items-center">
+        <div class="col mr-2">
+          <h5 class="m-0 font-weight-bold text-primary">Main section</h5>
+        </div>
+      </div>
+      <div class="card-body row p-1 pl-2 pr-2">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-2 mb-lg-3 mt-lg-3"
+             *ngFor="let panel of (panels?.section1 || []); index as i; trackBy: trackByFn">
+          <div class="card shadow h-100 py-2 link-panel" [ngClass]="panel.colorBorder" [routerLink]="panel.href">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="h6 font-weight-bold text-uppercase mb-1" [ngClass]="panel.colorTitle">
+                    {{ panel.title }}
+                  </div>
+                  <!--<div class="h6mb-0 font-weight-bold text-gray-800">$40,000</div>-->
+                </div>
+                <div class="col-auto">
+                  <i class="material-icons md-center md-36 text-gray-500">{{ panel.icon }}</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card shadow parent-card mt-5">
+      <div class="card-header py-3 row no-gutters align-items-center">
+        <div class="col mr-2">
+          <h5 class="m-0 font-weight-bold text-primary">Other section</h5>
+        </div>
+      </div>
+      <div class="card-body row p-1 pl-2 pr-2">
+        <ng-template [ngIf]="isAdmin()">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-2 mb-lg-3 mt-lg-3"
+               *ngFor="let panel of (panels?.section2 || []); index as i; trackBy: trackByFn">
+            <div class="card shadow h-100 py-2 link-panel" [ngClass]="panel.colorBorder" [routerLink]="panel.href">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="h6 font-weight-bold text-uppercase mb-1" [ngClass]="panel.colorTitle">
+                      {{ panel.title }}
+                    </div>
+                    <!--            <div class="h6mb-0 font-weight-bold text-gray-800">$40,000</div>-->
+                  </div>
+                  <div class="col-auto">
+                    <i class="material-icons md-center md-36 text-gray-500">{{ panel.icon }}</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]="isLead()">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-2 mb-lg-3 mt-lg-3"
+               *ngFor="let panel of (panels?.section3 || []); index as i; trackBy: trackByFn">
+            <div class="card shadow h-100 py-2 link-panel" [ngClass]="panel.colorBorder" [routerLink]="panel.href">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="h6 font-weight-bold text-uppercase mb-1" [ngClass]="panel.colorTitle">
+                      {{ panel.title }}
+                    </div>
+                    <!--            <div class="h6mb-0 font-weight-bold text-gray-800">$40,000</div>-->
+                  </div>
+                  <div class="col-auto">
+                    <i class="material-icons md-center md-36 text-gray-500">{{ panel.icon }}</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]="isGeneral()">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-2 mb-lg-3 mt-lg-3"
+               *ngFor="let panel of (panels?.section4 || []); index as i; trackBy: trackByFn">
+            <div class="card shadow h-100 py-2 link-panel" [ngClass]="panel.colorBorder" [routerLink]="panel.href">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="h6 font-weight-bold text-uppercase mb-1" [ngClass]="panel.colorTitle">
+                      {{ panel.title }}
+                    </div>
+                    <!--            <div class="h6mb-0 font-weight-bold text-gray-800">$40,000</div>-->
+                  </div>
+                  <div class="col-auto">
+                    <i class="material-icons md-center md-36 text-gray-500">{{ panel.icon }}</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<!-- Content Row -->
+<div class="row">
+  <div class="col-12">
+    <ngb-tabset>
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Gantt</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-scheduler-feature-gantt [scheduler]="scheduler" [timezone]="timezone"></app-scheduler-feature-gantt>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Table</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-scheduler-feature-table [scheduler]="scheduler"></app-scheduler-feature-table>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Modular Analysis</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-scheduler-feature-modular-analysis [scheduler]="scheduler"></app-scheduler-feature-modular-analysis>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>

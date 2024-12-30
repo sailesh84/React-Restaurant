@@ -1,0 +1,196 @@
+<div class="card shadow" *ngIf="user && projects">
+  <div class="card-header">
+    <div class="media">
+      <img [src]="user?.image" alt="" class="align-self-center mr-3 img-thumbnail img-fluid avatar-image">
+      <div class="media-body">
+        <h4 class="font-weight-bold text-primary">{{ user?.firstname + ' ' + user?.lastname | uppercase }}</h4>
+        <button class="mt-2 btn btn-link text-info" (click)="openModalChangeAvatar()">Change avatar...</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorForm = false" *ngIf="errorForm">
+      <strong>Warning !</strong> {{ errorMessageForm }}
+    </ngb-alert>
+    <form role="form" #profileForm="ngForm" (ngSubmit)="onSubmit()" class="text-primary">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstname_input">First Name</label>
+          <input type="text" class="form-control-plaintext" id="firstname_input" [(ngModel)]="user.firstname"
+                 name="firstname" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastname_input">Last Name</label>
+          <input type="text" class="form-control-plaintext" id="lastname_input" [(ngModel)]="user.lastname"
+                 name="lastname" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email_input">Email</label>
+          <input type="email" class="form-control-plaintext" id="email_input" [(ngModel)]="user.email" name="email"
+                 disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="job_input">Job</label>
+          <input type="text" class="form-control-plaintext" id="job_input" [(ngModel)]="user.job" name="job" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="phone_input">Phone</label>
+          <international-phone-number [maxlength]="20" [allowDropdown]="true"
+                                      id="phone_input" [(ngModel)]="user?.phones[0]" name="phone"
+          >
+          </international-phone-number>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="mobile_input">Mobile</label>
+          <international-phone-number [maxlength]="20" [allowDropdown]="true"
+                                      id="mobile_input" [(ngModel)]="user?.phones[1]" name="mobile"
+          >
+          </international-phone-number>
+        </div>
+        <div class="form-group col-6">
+          <label for="language_input">Favourite language</label>
+          <ng-select [items]="languages" [(ngModel)]="user.language" id="language_input" name="language"
+                     bindLabel="name" bindValue="id">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="30" [src]="getImage(item.id)" alt=""/> {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="30" [src]="getImage(item.id)" alt=""/> {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="favourite_project_input">Favourite project(s) (Max : {{limit}} project(s))</label>
+          <ng-select [items]="projects" [(ngModel)]="user.favouriteProjects" id="favourite_project_input" name="favouriteProjects"
+                     bindLabel="name" bindValue="_id" [multiple]="true" [maxSelectedItems]="limit" [closeOnSelect]="false"
+                     [searchFn]="projectSearchFn">
+            <ng-template ng-label-tmp let-item="item" let-clear="clear">
+              <span class="ng-value-label">{{item?.code}} - {{getClient(item?.client)?.name | uppercase}} {{item?.name}}</span>
+              <span class="ng-value-icon right" style="display: inline-block;" (click)="clear(item)" aria-hidden="true">×</span>
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item">
+              <span>{{item?.code}} - {{getClient(item?.client)?.name | uppercase}} {{item?.name}}</span>
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <br/>
+      <div class="form-row">
+        <div class="form-group col-md-4" *ngFor="let n of user.notifications; index as i; trackBy: trackByFn">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" name="enabled" [attr.id]="n.type + '_alert_input'"
+                   [(ngModel)]="n.enabled" [ngModelOptions]="{standalone: true}" [disabled]="n.type === 'sms'"
+            >
+            <label class="custom-control-label" [htmlFor]="n.type + '_alert_input'">
+              {{ n.type.substr(0, 1).toUpperCase() + n.type.substr(1)}} alert
+            </label>
+          </div>
+        </div>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-outline-primary mr-3">Save</button>
+      <!-- <button type="button" class="btn btn-outline-primary" (click)="openModalChangePassword()">Change password</button> -->
+    </form>
+  </div>
+</div>
+
+<ng-template #modalUpdateAvatar let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Change avatar </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_avatar">Avatar type</label>
+          <ng-select [items]="avatars" [(ngModel)]="avatar" id="edit_avatar" name="avatar"
+                     bindLabel="name" bindValue="id">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="30" [src]="item.icon" alt=""/> {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="30" [src]="item.icon" alt=""/> {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-info" (click)="updateAvatar(modal)" ngbAutofocus>
+      <i class="material-icons md-center">lock</i>Save
+    </button>
+    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalResetPassword let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Reset user password </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="old_user_password">Old Password</label>
+          <div class="input-group">
+            <input type="{{ this.typeInputNewPassword }}" class="form-control" id="old_user_password" name="oldPassword"
+                   [(ngModel)]="oldPassword"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-outline-dark" type="button" (click)="showHidePassword()">
+                <i class="material-icons md-center">{{ this.iconButtonshowHidePassword }}</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="reset_user_password">New Password</label>
+          <div class="input-group">
+            <input type="{{ this.typeInputNewPassword }}" class="form-control" id="reset_user_password" name="password"
+                   [(ngModel)]="user.password"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-outline-dark" type="button" (click)="showHidePassword()">
+                <i class="material-icons md-center">{{ this.iconButtonshowHidePassword }}</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="col-12">
+      <div class="alert alert-warning" role="alert">
+        Do you want to reset your password ?
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" (click)="resetPassword(modal)" ngbAutofocus>
+      <i class="material-icons md-center">lock</i>Yes
+    </button>
+    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+      <i class="material-icons md-center">cancel</i>No
+    </button>
+  </div>
+</ng-template>

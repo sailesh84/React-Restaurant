@@ -1,0 +1,3 @@
+<div class="agm-map" leaflet [leafletOptions]="options" [leafletZoom]="zoom" [leafletCenter]="center" *ngIf="ready">
+        <div *ngFor="let loc of locations; index as i; trackBy: trackByFn" [leafletLayer]="getMarker(loc)"></div>
+</div>

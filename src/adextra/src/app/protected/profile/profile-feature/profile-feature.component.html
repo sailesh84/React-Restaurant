@@ -1,0 +1,21 @@
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Content Row -->
+<div class="row" *ngIf="state.isLoaded === true && state.canConnect === true">
+  <div class="col-xl-12 col-md-12 mb-12">
+    <app-profile-feature-card [user]="user" [projects]="projects" [clients]="clients"></app-profile-feature-card>
+  </div>
+</div>

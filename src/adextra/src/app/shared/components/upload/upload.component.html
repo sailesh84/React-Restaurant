@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    <span>{{ title }}</span>
+  </div>
+  <div class="card-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="fileError = false" *ngIf="fileError">
+      <strong>Warning !</strong> {{ errorMessage }}
+    </ngb-alert>
+    <ngb-alert [type]="'success'" [dismissible]="true" (close)="fileSuccess = false" *ngIf="fileSuccess">
+      <strong>File upload succeeded</strong>
+    </ngb-alert>
+    <div class="input-group">
+      <!-- Input -->
+      <input type="text" class="form-control mb-3" disabled="disabled" style="height: 40px !important;"
+        [value]="(file) ? file.name : ''">
+      <div class="input-group-append" style="height: 40px !important;">
+        <button class="btn btn-outline-secondary" type="button" (click)="addFile.click()">
+          <i class="material-icons md-center">folder_open</i>
+          <span class="image-preview-input-title">Browse</span>
+          <input type="file" accept="image/*" class="d-none" #addFile (change)="preview(addFile.files)"
+            name="uploadFile" />
+        </button>
+        <button class="btn btn-outline-success" type="button" (click)="uploadFile()" *ngIf="!noUpload">
+          <span class="btn-label"><i class="material-icons md-center">cloud_upload</i></span> Upload
+        </button>
+      </div>
+    </div>
+    <br />
+    <!-- Drop Zone -->
+    <div class="upload-drop-zone" id="drop-zone" (dragover)="dragover($event)" (drop)="drop($event)"
+      (dragleave)="dragleave($event)">
+      <img [src]="previewImg" width="auto" *ngIf="previewImg; else noPreview" alt="" />
+      <ng-template #noPreview>
+        <i class="material-icons md-center md-48 text-center">save_alt</i>
+        Or drag and drop images here
+      </ng-template>
+    </div>
+  </div>
+</div>

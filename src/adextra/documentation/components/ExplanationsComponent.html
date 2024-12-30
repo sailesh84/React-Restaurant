@@ -1,0 +1,4071 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>infield-analysis-portal documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">infield-analysis-portal documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ExplanationsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/protected/admin/admin-explanations/explanations/explanations.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-explanations</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./explanations.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./explanations.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#analysis">analysis</a>
+                            </li>
+                            <li>
+                                <a href="#analysisList">analysisList</a>
+                            </li>
+                            <li>
+                                <a href="#clients">clients</a>
+                            </li>
+                            <li>
+                                <a href="#config">config</a>
+                            </li>
+                            <li>
+                                <a href="#countries">countries</a>
+                            </li>
+                            <li>
+                                <a href="#dtElement">dtElement</a>
+                            </li>
+                            <li>
+                                <a href="#dtOptions">dtOptions</a>
+                            </li>
+                            <li>
+                                <a href="#dtTrigger">dtTrigger</a>
+                            </li>
+                            <li>
+                                <a href="#editorBis">editorBis</a>
+                            </li>
+                            <li>
+                                <a href="#editorOne">editorOne</a>
+                            </li>
+                            <li>
+                                <a href="#errorMessageModal">errorMessageModal</a>
+                            </li>
+                            <li>
+                                <a href="#errorModal">errorModal</a>
+                            </li>
+                            <li>
+                                <a href="#explanation">explanation</a>
+                            </li>
+                            <li>
+                                <a href="#explanations">explanations</a>
+                            </li>
+                            <li>
+                                <a href="#forecasters">forecasters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isAnalysisDead$">isAnalysisDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isClientsDead$">isClientsDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isCountriesDead$">isCountriesDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isExplanationsDead$">isExplanationsDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isForecastersDead$">isForecastersDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isLogsDead$">isLogsDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isProjectDead$">isProjectDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isSocketEventDead$">isSocketEventDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isVesselsDead$">isVesselsDead$</a>
+                            </li>
+                            <li>
+                                <a href="#log">log</a>
+                            </li>
+                            <li>
+                                <a href="#modalAdd">modalAdd</a>
+                            </li>
+                            <li>
+                                <a href="#modalDelete">modalDelete</a>
+                            </li>
+                            <li>
+                                <a href="#modalEdit">modalEdit</a>
+                            </li>
+                            <li>
+                                <a href="#modalView">modalView</a>
+                            </li>
+                            <li>
+                                <a href="#projects">projects</a>
+                            </li>
+                            <li>
+                                <a href="#projectSearchFn">projectSearchFn</a>
+                            </li>
+                            <li>
+                                <a href="#resetCache">resetCache</a>
+                            </li>
+                            <li>
+                                <a href="#socketEvent">socketEvent</a>
+                            </li>
+                            <li>
+                                <a href="#state">state</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                            <li>
+                                <a href="#vessels">vessels</a>
+                            </li>
+                            <li>
+                                <a href="#vesselsList">vesselsList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addRow">addRow</a>
+                            </li>
+                            <li>
+                                <a href="#analysisSearchFn">analysisSearchFn</a>
+                            </li>
+                            <li>
+                                <a href="#deleteRow">deleteRow</a>
+                            </li>
+                            <li>
+                                <a href="#getAnalysis">getAnalysis</a>
+                            </li>
+                            <li>
+                                <a href="#getClient">getClient</a>
+                            </li>
+                            <li>
+                                <a href="#getFlags">getFlags</a>
+                            </li>
+                            <li>
+                                <a href="#getForecaster">getForecaster</a>
+                            </li>
+                            <li>
+                                <a href="#getProject">getProject</a>
+                            </li>
+                            <li>
+                                <a href="#getProjectName">getProjectName</a>
+                            </li>
+                            <li>
+                                <a href="#getShortId">getShortId</a>
+                            </li>
+                            <li>
+                                <a href="#getVessel">getVessel</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeContentCkeditor">onChangeContentCkeditor</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeNoteCkeditor">onChangeNoteCkeditor</a>
+                            </li>
+                            <li>
+                                <a href="#onForecasterChange">onForecasterChange</a>
+                            </li>
+                            <li>
+                                <a href="#onProjectChange">onProjectChange</a>
+                            </li>
+                            <li>
+                                <a href="#onReady">onReady</a>
+                            </li>
+                            <li>
+                                <a href="#onVesselChange">onVesselChange</a>
+                            </li>
+                            <li>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                <a href="#saveEditRow">saveEditRow</a>
+                            </li>
+                            <li>
+                                <a href="#verifyExplanation">verifyExplanation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(modalService: NgbModal, explanationsService: <a href="../injectables/ExplanationsService.html">ExplanationsService</a>, vesselsService: <a href="../injectables/VesselsService.html">VesselsService</a>, projectsService: <a href="../injectables/ProjectsService.html">ProjectsService</a>, countriesService: <a href="../injectables/CountriesService.html">CountriesService</a>, clientsService: <a href="../injectables/ClientsService.html">ClientsService</a>, forecastersService: <a href="../injectables/ForecastersService.html">ForecastersService</a>, analysisService: <a href="../injectables/AnalysisService.html">AnalysisService</a>, titlePageService: <a href="../injectables/TitlePageService.html">TitlePageService</a>, userSharingService: <a href="../injectables/UserSharingService.html">UserSharingService</a>, logsService: <a href="../injectables/LogsService.html">LogsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:92</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>modalService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgbModal</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>explanationsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ExplanationsService.html" target="_self" >ExplanationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>vesselsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/VesselsService.html" target="_self" >VesselsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>projectsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProjectsService.html" target="_self" >ProjectsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>countriesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CountriesService.html" target="_self" >CountriesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>clientsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ClientsService.html" target="_self" >ClientsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>forecastersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ForecastersService.html" target="_self" >ForecastersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>analysisService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnalysisService.html" target="_self" >AnalysisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>titlePageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TitlePageService.html" target="_self" >TitlePageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userSharingService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserSharingService.html" target="_self" >UserSharingService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LogsService.html" target="_self" >LogsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addRow"></a>
+                    <span class="name">
+                        <b>
+                            addRow
+                        </b>
+                        <a href="#addRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addRow(modal: NgbActiveModal)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="394"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:394</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>modal</td>
+                                    <td>
+                                            <code>NgbActiveModal</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="analysisSearchFn"></a>
+                    <span class="name">
+                        <b>
+                            analysisSearchFn
+                        </b>
+                        <a href="#analysisSearchFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>analysisSearchFn(term: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, item: <a href="../interfaces/Analysis.html">Analysis</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="544"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:544</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>item</td>
+                                    <td>
+                                                <code><a href="../interfaces/Analysis.html" target="_self" >Analysis</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteRow"></a>
+                    <span class="name">
+                        <b>
+                            deleteRow
+                        </b>
+                        <a href="#deleteRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteRow(modal: NgbActiveModal)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="440"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:440</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>modal</td>
+                                    <td>
+                                            <code>NgbActiveModal</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAnalysis"></a>
+                    <span class="name">
+                        <b>
+                            getAnalysis
+                        </b>
+                        <a href="#getAnalysis"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAnalysis(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="488"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:488</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Analysis.html" target="_self" >Analysis</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClient"></a>
+                    <span class="name">
+                        <b>
+                            getClient
+                        </b>
+                        <a href="#getClient"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClient(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="480"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:480</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Client.html" target="_self" >Client</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFlags"></a>
+                    <span class="name">
+                        <b>
+                            getFlags
+                        </b>
+                        <a href="#getFlags"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFlags(project: <a href="../interfaces/Project.html">Project</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="463"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:463</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>project</td>
+                                    <td>
+                                                <code><a href="../interfaces/Project.html" target="_self" >Project</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getForecaster"></a>
+                    <span class="name">
+                        <b>
+                            getForecaster
+                        </b>
+                        <a href="#getForecaster"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getForecaster(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="484"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:484</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Forecaster.html" target="_self" >Forecaster</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProject"></a>
+                    <span class="name">
+                        <b>
+                            getProject
+                        </b>
+                        <a href="#getProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getProject(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="472"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:472</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Project.html" target="_self" >Project</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProjectName"></a>
+                    <span class="name">
+                        <b>
+                            getProjectName
+                        </b>
+                        <a href="#getProjectName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getProjectName(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="492"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:492</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>projectId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getShortId"></a>
+                    <span class="name">
+                        <b>
+                            getShortId
+                        </b>
+                        <a href="#getShortId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getShortId(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="534"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:534</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVessel"></a>
+                    <span class="name">
+                        <b>
+                            getVessel
+                        </b>
+                        <a href="#getVessel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getVessel(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="476"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:476</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Vessel.html" target="_self" >Vessel</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="338"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:338</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="346"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:346</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeContentCkeditor"></a>
+                    <span class="name">
+                        <b>
+                            onChangeContentCkeditor
+                        </b>
+                        <a href="#onChangeContentCkeditor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChangeContentCkeditor(undefined: <a href="../interfaces/Event.html">ChangeEvent</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="360"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:360</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                                <code><a href="../interfaces/Event.html" target="_self" >ChangeEvent</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeNoteCkeditor"></a>
+                    <span class="name">
+                        <b>
+                            onChangeNoteCkeditor
+                        </b>
+                        <a href="#onChangeNoteCkeditor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChangeNoteCkeditor(undefined: <a href="../interfaces/Event.html">ChangeEvent</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="364"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:364</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                                <code><a href="../interfaces/Event.html" target="_self" >ChangeEvent</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onForecasterChange"></a>
+                    <span class="name">
+                        <b>
+                            onForecasterChange
+                        </b>
+                        <a href="#onForecasterChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onForecasterChange(event: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="523"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:523</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onProjectChange"></a>
+                    <span class="name">
+                        <b>
+                            onProjectChange
+                        </b>
+                        <a href="#onProjectChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onProjectChange(event: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="506"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:506</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onReady"></a>
+                    <span class="name">
+                        <b>
+                            onReady
+                        </b>
+                        <a href="#onReady"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onReady(editor)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="369"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:369</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>editor</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onVesselChange"></a>
+                    <span class="name">
+                        <b>
+                            onVesselChange
+                        </b>
+                        <a href="#onVesselChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onVesselChange(event: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="517"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:517</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                        <b>
+                            refresh
+                        </b>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refresh()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="376"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:376</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveEditRow"></a>
+                    <span class="name">
+                        <b>
+                            saveEditRow
+                        </b>
+                        <a href="#saveEditRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveEditRow(modal: NgbActiveModal)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="417"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:417</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>modal</td>
+                                    <td>
+                                            <code>NgbActiveModal</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifyExplanation"></a>
+                    <span class="name">
+                        <b>
+                            verifyExplanation
+                        </b>
+                        <a href="#verifyExplanation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>verifyExplanation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="385"
+                            class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:385</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="analysis"></a>
+                        <span class="name">
+                            <b>
+                            analysis</b>
+                            <a href="#analysis"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Analysis.html" target="_self" >Analysis[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="analysisList"></a>
+                        <span class="name">
+                            <b>
+                            analysisList</b>
+                            <a href="#analysisList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Analysis.html" target="_self" >Analysis[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:65</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clients"></a>
+                        <span class="name">
+                            <b>
+                            clients</b>
+                            <a href="#clients"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Client.html" target="_self" >Client[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:62</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="config"></a>
+                        <span class="name">
+                            <b>
+                            config</b>
+                            <a href="#config"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    toolbar: [
+      &#x27;heading&#x27;, &#x27;|&#x27;, &#x27;fontSize&#x27;, &#x27;fontFamily&#x27;, &#x27;|&#x27;, &#x27;bold&#x27;, &#x27;italic&#x27;, &#x27;strikethrough&#x27;, &#x27;underline&#x27;, &#x27;highlight&#x27;, &#x27;|&#x27;, &#x27;alignment&#x27;, &#x27;|&#x27;,
+     &#x27;numberedList&#x27;, &#x27;bulletedList&#x27;, &#x27;|&#x27;, &#x27;link&#x27;, &#x27;blockQuote&#x27;, &#x27;insertTable&#x27;, &#x27;tableColumn&#x27;, &#x27;tableRow&#x27;, &#x27;mergeTableCells&#x27;, &#x27;|&#x27;, &#x27;undo&#x27;,
+      &#x27;redo&#x27;
+    ]
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="countries"></a>
+                        <span class="name">
+                            <b>
+                            countries</b>
+                            <a href="#countries"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Country.html" target="_self" >Country[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:66</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtElement"></a>
+                        <span class="name">
+                            <b>
+                            dtElement</b>
+                            <a href="#dtElement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>DataTableDirective</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(DataTableDirective, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:79</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtOptions"></a>
+                        <span class="name">
+                            <b>
+                            dtOptions</b>
+                            <a href="#dtOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dtTrigger"></a>
+                        <span class="name">
+                            <b>
+                            dtTrigger</b>
+                            <a href="#dtTrigger"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject&lt;any&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:81</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editorBis"></a>
+                        <span class="name">
+                            <b>
+                            editorBis</b>
+                            <a href="#editorBis"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>DecoupledEditor</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editorOne"></a>
+                        <span class="name">
+                            <b>
+                            editorOne</b>
+                            <a href="#editorOne"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>DecoupledEditor</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessageModal"></a>
+                        <span class="name">
+                            <b>
+                            errorMessageModal</b>
+                            <a href="#errorMessageModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>null</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorModal"></a>
+                        <span class="name">
+                            <b>
+                            errorModal</b>
+                            <a href="#errorModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="explanation"></a>
+                        <span class="name">
+                            <b>
+                            explanation</b>
+                            <a href="#explanation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Explanation.html" target="_self" >Explanation</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{_id: &#x27;-1&#x27;, text: CONTENT, project: null, vessel: null, note: NOTE, analysis: null, forecaster: null}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="explanations"></a>
+                        <span class="name">
+                            <b>
+                            explanations</b>
+                            <a href="#explanations"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Explanation.html" target="_self" >Explanation[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forecasters"></a>
+                        <span class="name">
+                            <b>
+                            forecasters</b>
+                            <a href="#forecasters"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Forecaster.html" target="_self" >Forecaster[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:63</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isAnalysisDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isAnalysisDead$</b>
+                            <a href="#isAnalysisDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:92</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isClientsDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isClientsDead$</b>
+                            <a href="#isClientsDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:90</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isCountriesDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isCountriesDead$</b>
+                            <a href="#isCountriesDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:88</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isExplanationsDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isExplanationsDead$</b>
+                            <a href="#isExplanationsDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:89</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isForecastersDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isForecastersDead$</b>
+                            <a href="#isForecastersDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:91</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isLogsDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isLogsDead$</b>
+                            <a href="#isLogsDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:86</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isProjectDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isProjectDead$</b>
+                            <a href="#isProjectDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:85</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isSocketEventDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isSocketEventDead$</b>
+                            <a href="#isSocketEventDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:84</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isVesselsDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isVesselsDead$</b>
+                            <a href="#isVesselsDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:87</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="log"></a>
+                        <span class="name">
+                            <b>
+                            log</b>
+                            <a href="#log"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Log.html" target="_self" >Log</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{ _id: &#x27;-1&#x27;, date: 0, userAgent: &#x27;&#x27;, severity: 0, user: &#x27;&#x27;, sourceIP: &#x27;&#x27;, message: &#x27;&#x27; }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:69</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalAdd"></a>
+                        <span class="name">
+                            <b>
+                            modalAdd</b>
+                            <a href="#modalAdd"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;modalAdd&#x27;, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:74</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalDelete"></a>
+                        <span class="name">
+                            <b>
+                            modalDelete</b>
+                            <a href="#modalDelete"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;modalDelete&#x27;, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:76</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalEdit"></a>
+                        <span class="name">
+                            <b>
+                            modalEdit</b>
+                            <a href="#modalEdit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;modalEdit&#x27;, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:75</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalView"></a>
+                        <span class="name">
+                            <b>
+                            modalView</b>
+                            <a href="#modalView"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;modalView&#x27;, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:73</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projects"></a>
+                        <span class="name">
+                            <b>
+                            projects</b>
+                            <a href="#projects"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Project.html" target="_self" >Project[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:60</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projectSearchFn"></a>
+                        <span class="name">
+                            <b>
+                            projectSearchFn</b>
+                            <a href="#projectSearchFn"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="550" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:550</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resetCache"></a>
+                        <span class="name">
+                            <b>
+                            resetCache</b>
+                            <a href="#resetCache"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="socketEvent"></a>
+                        <span class="name">
+                            <b>
+                            socketEvent</b>
+                            <a href="#socketEvent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:82</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="state"></a>
+                        <span class="name">
+                            <b>
+                            state</b>
+                            <a href="#state"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{ isLoaded: false, canConnect: null }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:71</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <span class="name">
+                            <b>
+                            title</b>
+                            <a href="#title"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;Explanations management&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="vessels"></a>
+                        <span class="name">
+                            <b>
+                            vessels</b>
+                            <a href="#vessels"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Vessel.html" target="_self" >Vessel[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:61</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="vesselsList"></a>
+                        <span class="name">
+                            <b>
+                            vesselsList</b>
+                            <a href="#vesselsList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Vessel.html" target="_self" >Vessel[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/protected/admin/admin-explanations/explanations/explanations.component.ts:59</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import {DataTableDirective} from &#x27;angular-datatables&#x27;;
+import {forkJoin, Observable, Subject} from &#x27;rxjs&#x27;;
+import {NgbActiveModal, NgbModal} from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+import {ExplanationsService} from &#x27;@app/core/services/explanations.service&#x27;;
+import {Explanation} from &#x27;@app/shared/models/explanation&#x27;;
+import * as DecoupledEditor from &#x27;@ckeditor/ckeditor5-build-decoupled-document&#x27;;
+import {ChangeEvent} from &#x27;@ckeditor/ckeditor5-angular&#x27;;
+import {TitlePageService} from &#x27;@app/core/services/title-page.service&#x27;;
+import {Log} from &#x27;@app/shared/models/log&#x27;;
+import {UserSharingService} from &#x27;@app/core/services/user-sharing.service&#x27;;
+import {LogsService} from &#x27;@app/core/services/logs.service&#x27;;
+import {Project} from &#x27;@app/shared/models/project&#x27;;
+import {Vessel} from &#x27;@app/shared/models/vessel&#x27;;
+import {VesselsService} from &#x27;@app/core/services/vessels.service&#x27;;
+import {ProjectsService} from &#x27;@app/core/services/projects.service&#x27;;
+import {Country} from &#x27;@app/shared/models/country&#x27;;
+import {CountriesService} from &#x27;@app/core/services/countries.service&#x27;;
+import {CONTENT, NOTE} from &#x27;@app/shared/mocks/explanations-model&#x27;;
+import {takeUntil} from &#x27;rxjs/operators&#x27;;
+import {ClientsService} from &#x27;@app/core/services/clients.service&#x27;;
+import {Forecaster} from &#x27;@app/shared/models/forecaster&#x27;;
+import {ForecastersService} from &#x27;@app/core/services/forecasters.service&#x27;;
+import {AnalysisService} from &#x27;@app/core/services/analysis.service&#x27;;
+import {Client} from &#x27;@app/shared/models/client&#x27;;
+import {Analysis} from &#x27;@app/shared/models/analysis&#x27;;
+import * as moment from &#x27;moment-timezone&#x27;;
+import {splitText} from &#x27;@app/shared/helpers/string&#x27;;
+
+@Component({
+  selector: &#x27;app-explanations&#x27;,
+  templateUrl: &#x27;./explanations.component.html&#x27;,
+  styleUrls: [&#x27;./explanations.component.scss&#x27;]
+})
+export class ExplanationsComponent implements AfterViewInit, OnDestroy, OnInit {
+  title &#x3D; &#x27;Explanations management&#x27;;
+
+  resetCache &#x3D; false;
+
+  errorModal &#x3D; false;
+  errorMessageModal &#x3D; null;
+
+  editorOne &#x3D; DecoupledEditor;
+  editorBis &#x3D; DecoupledEditor;
+
+  config &#x3D; {
+    toolbar: [
+      &#x27;heading&#x27;, &#x27;|&#x27;, &#x27;fontSize&#x27;, &#x27;fontFamily&#x27;, &#x27;|&#x27;, &#x27;bold&#x27;, &#x27;italic&#x27;, &#x27;strikethrough&#x27;, &#x27;underline&#x27;, &#x27;highlight&#x27;, &#x27;|&#x27;, &#x27;alignment&#x27;, &#x27;|&#x27;,
+     &#x27;numberedList&#x27;, &#x27;bulletedList&#x27;, &#x27;|&#x27;, &#x27;link&#x27;, &#x27;blockQuote&#x27;, &#x27;insertTable&#x27;, &#x27;tableColumn&#x27;, &#x27;tableRow&#x27;, &#x27;mergeTableCells&#x27;, &#x27;|&#x27;, &#x27;undo&#x27;,
+      &#x27;redo&#x27;
+    ]
+  };
+
+  dtOptions: any &#x3D; {};
+  explanations: Explanation[];
+
+  explanation: Explanation &#x3D; {_id: &#x27;-1&#x27;, text: CONTENT, project: null, vessel: null, note: NOTE, analysis: null, forecaster: null};
+
+  vesselsList: Vessel[] &#x3D; [];
+  projects: Project[];
+  vessels: Vessel[];
+  clients: Client[];
+  forecasters: Forecaster[];
+  analysis: Analysis[];
+  analysisList: Analysis[] &#x3D; [];
+  countries: Country[];
+
+
+  log: Log &#x3D; { _id: &#x27;-1&#x27;, date: 0, userAgent: &#x27;&#x27;, severity: 0, user: &#x27;&#x27;, sourceIP: &#x27;&#x27;, message: &#x27;&#x27; };
+
+  state &#x3D; { isLoaded: false, canConnect: null };
+
+  @ViewChild(&#x27;modalView&#x27;, { static: true }) modalView: ElementRef;
+  @ViewChild(&#x27;modalAdd&#x27;, { static: true }) modalAdd: ElementRef;
+  @ViewChild(&#x27;modalEdit&#x27;, { static: true }) modalEdit: ElementRef;
+  @ViewChild(&#x27;modalDelete&#x27;, { static: true }) modalDelete: ElementRef;
+
+  @ViewChild(DataTableDirective, { static: true })
+  dtElement: DataTableDirective;
+
+  dtTrigger: Subject&lt;any&gt; &#x3D; new Subject&lt;any&gt;();
+  socketEvent: Observable&lt;any&gt;;
+
+  private isSocketEventDead$ &#x3D; new Subject();
+  private isProjectDead$ &#x3D; new Subject();
+  private isLogsDead$ &#x3D; new Subject();
+  private isVesselsDead$ &#x3D; new Subject();
+  private isCountriesDead$ &#x3D; new Subject();
+  private isExplanationsDead$ &#x3D; new Subject();
+  private isClientsDead$ &#x3D; new Subject();
+  private isForecastersDead$ &#x3D; new Subject();
+  private isAnalysisDead$ &#x3D; new Subject();
+
+  constructor(
+    private modalService: NgbModal,
+    private explanationsService: ExplanationsService,
+    private vesselsService: VesselsService,
+    private projectsService: ProjectsService,
+    private countriesService: CountriesService,
+    private clientsService: ClientsService,
+    private forecastersService: ForecastersService,
+    private analysisService: AnalysisService,
+    private titlePageService: TitlePageService,
+    private userSharingService: UserSharingService,
+    private logsService: LogsService
+  ) {
+    this.titlePageService.setTitle(this.title);
+  }
+
+  ngOnInit() {
+    const that &#x3D; this;
+
+    this.dtOptions &#x3D; {
+      responsive: true,
+      pagingType: &#x27;full_numbers&#x27;,
+      pageLength: 10,
+      order: [[ 5, &#x27;desc&#x27; ]],
+      deferRender: true,
+      ajax: (dataTablesParameters: any, callback) &#x3D;&gt; {
+        forkJoin([
+          that.countriesService.getCountries(that.resetCache).pipe(takeUntil(this.isCountriesDead$)),
+          that.projectsService.getEnabledProjects(that.resetCache).pipe(takeUntil(this.isProjectDead$)),
+          that.vesselsService.getEnabledVessels(that.resetCache).pipe(takeUntil(this.isVesselsDead$)),
+          that.explanationsService.getExplanations(that.resetCache).pipe(takeUntil(this.isExplanationsDead$)),
+          that.clientsService.getClients(that.resetCache).pipe(takeUntil(this.isClientsDead$)),
+          that.forecastersService.getForecasters(that.resetCache).pipe(takeUntil(this.isForecastersDead$)),
+          that.analysisService.getAllAnalysis(that.resetCache).pipe(takeUntil(this.isAnalysisDead$)),
+          ]
+        ).subscribe((response) &#x3D;&gt; {
+          that.countries &#x3D; response[0].data;
+          that.projects &#x3D; response[1].data;
+          that.vessels &#x3D; response[2].data;
+          that.clients &#x3D; response[4].data;
+          that.forecasters &#x3D; response[5].data;
+          that.analysis &#x3D; response[6].data;
+          that.vesselsList &#x3D; [];
+          that.analysisList &#x3D; [];
+          that.explanations &#x3D; response[3].data;
+          that.state.canConnect &#x3D; true;
+          that.state.isLoaded &#x3D; true;
+          that.resetCache &#x3D; false;
+          callback({
+            data: that.explanations
+          });
+        }, error &#x3D;&gt; {
+          that.countries &#x3D; [];
+          that.projects &#x3D; [];
+          that.vessels &#x3D; [];
+          that.vesselsList &#x3D; [];
+          that.analysisList &#x3D; [];
+          that.clients &#x3D; [];
+          that.forecasters &#x3D; [];
+          that.analysis &#x3D; [];
+          that.explanations &#x3D; [];
+          that.state.canConnect &#x3D; false;
+          that.state.isLoaded &#x3D; true;
+          callback({
+            data: []
+          });
+        });
+      },
+      columns: [{data: null}, { data: &#x27;text&#x27; }, { data: &#x27;project&#x27; }, { data: &#x27;vessel&#x27; }, { data: &#x27;forecaster&#x27; },
+        { data: &#x27;analysis&#x27; }],
+      columnDefs: [
+        {
+          orderable: false,
+          targets: [0],
+          className: &#x27;td-action&#x27;,
+          render: (data, type, full, meta) &#x3D;&gt; {
+            return &#x27;&lt;div class&#x3D;&quot;btn-group btn-group-sm&quot; role&#x3D;&quot;group&quot;&gt;&#x27; +
+              &#x27;&lt;button class&#x3D;&quot;btn btn-outline-dark btn-view btn-sm&quot;&gt;&lt;i class&#x3D;&quot;material-icons md-center md-sm&quot;&gt;remove_red_eye&lt;/i&gt;&#x27; +
+              &#x27;&lt;/button&gt;&#x27; +
+              &#x27;&lt;button class&#x3D;&quot;btn btn-outline-info btn-edit btn-sm&quot;&gt;&lt;i class&#x3D;&quot;material-icons md-center md-sm&quot;&gt;edit&lt;/i&gt;&lt;/button&gt;&#x27; +
+              &#x27;&lt;button class&#x3D;&quot;btn btn-outline-danger btn-delete btn-sm&quot;&gt;&lt;i class&#x3D;&quot;material-icons md-center md-sm&quot;&gt;delete&lt;/i&gt;&lt;/button&gt;&#x27; +
+              &#x27;&lt;/div&gt;&#x27;;
+          }
+        },
+        {
+          targets: [1],
+          render: (data, type, full, meta) &#x3D;&gt; {
+            return splitText(String(data), 15, true) + &#x27;...&#x27;;
+          }
+        },
+        {
+          targets: [2],
+          render: (data, type, full, meta) &#x3D;&gt; {
+            if (data !&#x3D;&#x3D; &#x27;&#x27; || data !&#x3D;&#x3D; undefined || data !&#x3D;&#x3D; null) {
+              const project &#x3D; that.getProject(data);
+              if (project &#x3D;&#x3D;&#x3D; undefined) {
+                return &#x27;&#x27;;
+              } else {
+                const images &#x3D; this.getFlags(project);
+                const client &#x3D; that.getClient(project.client);
+                let render &#x3D; &#x27;&lt;div class&#x3D;&quot;row&quot;&gt;&lt;div class&#x3D;&quot;col-2&quot;&gt;&#x27;;
+                for (const img of images) {
+                  render +&#x3D; &#x60;&lt;img src&#x3D;&quot;${img}&quot; alt&#x3D;&quot;&quot; height&#x3D;&quot;auto&quot; width&#x3D;&quot;45&quot;&gt;&#x60;;
+                }
+                render +&#x3D; &#x27;&lt;/div&gt;&lt;div class&#x3D;&quot;col-10&quot;&gt;&#x27;;
+                if (client) {
+                  render +&#x3D; &#x60;&lt;span&gt;${project.code} - ${client.name} ${project.name}&lt;/span&gt;&#x60;;
+                } else {
+                  render +&#x3D; &#x60;&lt;span&gt;${project.code} - ${project.name}&lt;/span&gt;&#x60;;
+                }
+                render +&#x3D; &#x27;&lt;/div&gt;&lt;/div&gt;&#x27;;
+                return render;
+              }
+            } else {
+              return &#x27;&#x27;;
+            }
+          }
+        },
+        {
+          targets: [3],
+          render: (data, type, full, meta) &#x3D;&gt; {
+            if (data !&#x3D;&#x3D; &#x27;&#x27; || data !&#x3D;&#x3D; undefined || data !&#x3D;&#x3D; null) {
+              const vessel &#x3D; that.getVessel(data);
+              if (vessel &#x3D;&#x3D;&#x3D; undefined) {
+                return &#x27;&#x27;;
+              } else {
+                return &#x60;&lt;img  alt&#x3D;&quot;&quot; src&#x3D;&quot;${vessel.image}&quot; width&#x3D;&quot;90&quot; height&#x3D;&quot;39.705&quot;/&gt; &lt;span&gt;${vessel.name}&lt;/span&gt;&#x60;;
+              }
+            } else {
+              return &#x27;&#x27;;
+            }
+          }
+        }, {
+          targets: [4],
+          render: (data, type, full, meta) &#x3D;&gt; {
+            if (data !&#x3D;&#x3D; &#x27;&#x27; || data !&#x3D;&#x3D; undefined || data !&#x3D;&#x3D; null) {
+              const forecaster &#x3D; that.getForecaster(data);
+              if (forecaster &#x3D;&#x3D;&#x3D; undefined) {
+                return &#x27;&#x27;;
+              } else {
+                return forecaster.name;
+              }
+            } else {
+              return &#x27;&#x27;;
+            }
+          }
+        }, {
+          targets: [5],
+          render: (data, type, full, meta) &#x3D;&gt; {
+            if (data !&#x3D;&#x3D; &#x27;&#x27; || data !&#x3D;&#x3D; undefined || data !&#x3D;&#x3D; null) {
+              const analysis &#x3D; that.getAnalysis(data);
+              const project &#x3D; that.getProject(full.project);
+              if (analysis &#x3D;&#x3D;&#x3D; undefined) {
+                return null;
+              } else {
+                if (type &#x3D;&#x3D;&#x3D; &#x27;sort&#x27;) {
+                  return analysis.date;
+                }
+                let render &#x3D; &#x27;&#x27;;
+                if (analysis.date !&#x3D;&#x3D; 0) {
+                  if (project &amp;&amp; project.timezone) {
+                    render &#x3D; moment(analysis.date).tz(project.timezone).format(&#x27;DD MMM YYYY HH:mm:ss (GMT Z)&#x27;);
+                  } else {
+                    render &#x3D; moment(analysis.date).format(&#x27;DD MMM YYYY HH:mm:ss (GMT Z)&#x27;);
+                  }
+                } else {
+                  render &#x3D; &#x27;&#x27;;
+                }
+                return render;
+              }
+            } else {
+              return null;
+            }
+          }
+        },
+      ],
+      dom:
+        &#x27;&lt;&quot;row&quot;&lt;&quot;col-sm-3 col-12&quot;l&gt;&lt;&quot;col-sm-6 col-8 text-center&quot;B&gt;&lt;&quot;col-sm-3 col-12&quot;f&gt;&gt;&#x27; +
+        &#x27;&lt;&quot;row&quot;&lt;&quot;col-sm-12 col-12&quot;tr&gt;&gt;&#x27; +
+        &#x27;&lt;&quot;row&quot;&lt;&quot;col-sm-5 col-12&quot;i&gt;&lt;&quot;col-sm-7 col-12&quot;p&gt;&gt;&#x27;,
+      stateSave: true,
+      buttons: [
+        {
+          extend: &#x27;colvis&#x27;,
+          className: &#x27;btn-outline-success btn-sm&#x27;,
+          init: (api, node, config) &#x3D;&gt; {
+            $(node).removeClass(&#x27;btn-secondary&#x27;);
+          }
+        }, {
+          text: &#x27;&lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;add&lt;/i&gt; Add&#x27;,
+          key: &#x27;1&#x27;,
+          className: &#x27;btn-outline-success btn-sm&#x27;,
+          action: (e, dt, node, config) &#x3D;&gt; {
+            this.explanation &#x3D; {_id: &#x27;-1&#x27;, text: CONTENT, project: null, vessel: null, note: NOTE, analysis: null, forecaster: null};
+            this.modalService.open(this.modalAdd, { centered: true, size: &#x27;xl&#x27;, backdrop: &#x27;static&#x27;, scrollable: true });
+          },
+          init: (api, node, config) &#x3D;&gt; {
+            $(node).removeClass(&#x27;btn-secondary&#x27;);
+          }
+        }
+      ],
+      rowCallback: (row: Node, data: Explanation, index: number) &#x3D;&gt; {
+        const self &#x3D; this;
+        // Unon first in order to avoid any duplicate handler
+        // (see https://github.com/l-lin/angular-datatables/issues/87)
+        const eltView &#x3D; $(&#x27;td&#x27;, row).find(&#x27;button.btn-view&#x27;);
+        if (eltView) {
+          eltView.off(&#x27;click&#x27;);
+          eltView.on(&#x27;click&#x27;, () &#x3D;&gt; {
+            that.explanation &#x3D; Object.assign({}, data);
+            that.modalService.open(that.modalView, { centered: true, size: &#x27;xl&#x27;, backdrop: &#x27;static&#x27;, scrollable: true });
+          });
+        }
+        const eltEdit &#x3D; $(&#x27;td&#x27;, row).find(&#x27;button.btn-edit&#x27;);
+        if (eltEdit) {
+          eltEdit.off(&#x27;click&#x27;);
+          eltEdit.on(&#x27;click&#x27;, () &#x3D;&gt; {
+            that.explanation &#x3D; Object.assign({}, data);
+            const project &#x3D; that.getProject(that.explanation.project);
+            if (project) {
+              that.vesselsList &#x3D; that.vessels.slice().filter((elt) &#x3D;&gt; project.vessels[elt._id]);
+            }
+            that.analysisList &#x3D; that.analysis.slice().filter((elt) &#x3D;&gt; {
+              return elt.forecaster &#x3D;&#x3D;&#x3D; that.explanation.forecaster &amp;&amp; elt.project &#x3D;&#x3D;&#x3D; that.explanation.project &amp;&amp;
+                elt.vessel &#x3D;&#x3D;&#x3D; that.explanation.vessel;
+            });
+            that.modalService.open(that.modalEdit, { centered: true, size: &#x27;xl&#x27;, backdrop: &#x27;static&#x27;, scrollable: true });
+          });
+        }
+        const eltDelete &#x3D; $(&#x27;td&#x27;, row).find(&#x27;button.btn-delete&#x27;);
+        if (eltDelete) {
+          eltDelete.off(&#x27;click&#x27;);
+          eltDelete.on(&#x27;click&#x27;, () &#x3D;&gt; {
+            that.explanation &#x3D; Object.assign({}, data);
+            that.modalService.open(that.modalDelete, { centered: true, size: &#x27;lg&#x27;, backdrop: &#x27;static&#x27;});
+          });
+        }
+        return row;
+      }
+    };
+
+    this.socketEvent &#x3D; this.explanationsService.socketEvent;
+  }
+
+  ngAfterViewInit(): void {
+    this.dtTrigger.next();
+    this.socketEvent.pipe(takeUntil(this.isSocketEventDead$)).subscribe(() &#x3D;&gt; {
+      this.resetCache &#x3D; true;
+      this.refresh();
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
+    this.isSocketEventDead$.next();
+    this.isProjectDead$.next();
+    this.isLogsDead$.next();
+    this.isVesselsDead$.next();
+    this.isCountriesDead$.next();
+    this.isExplanationsDead$.next();
+    this.isClientsDead$.next();
+    this.isAnalysisDead$.next();
+    this.isForecastersDead$.next();
+  }
+
+  onChangeContentCkeditor({ editor }: ChangeEvent ) {
+    this.explanation.text &#x3D; editor.getData();
+  }
+
+  onChangeNoteCkeditor({ editor }: ChangeEvent ) {
+    this.explanation.note &#x3D; editor.getData();
+  }
+
+
+  onReady( editor ) {
+    editor.ui.getEditableElement().parentElement.insertBefore(
+      editor.ui.view.toolbar.element,
+      editor.ui.getEditableElement()
+    );
+  }
+
+  refresh(): void {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) &#x3D;&gt; {
+      // Destroy the table first
+      dtInstance.destroy();
+      // Call the dtTrigger to rerender again
+      this.dtTrigger.next();
+    });
+  }
+
+  verifyExplanation() {
+    for (const prop in this.explanation) {
+      if (prop !&#x3D;&#x3D; &#x27;_id&#x27; &amp;&amp; (this.explanation[prop] &#x3D;&#x3D;&#x3D; undefined || this.explanation[prop] &#x3D;&#x3D;&#x3D; null || this.explanation[prop] &#x3D;&#x3D;&#x3D; &#x27;&#x27;)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  addRow(modal: NgbActiveModal): void {
+    // save in db
+    if (this.verifyExplanation() &#x3D;&#x3D;&#x3D; true) {
+      this.explanationsService.addExplanation(this.explanation).pipe(takeUntil(this.isExplanationsDead$)).subscribe((response) &#x3D;&gt; {
+        this.explanation &#x3D; {_id: &#x27;-1&#x27;, text: CONTENT, project: null, vessel: null, note: NOTE, analysis: null, forecaster: null};
+        modal.close(&#x27;Close click&#x27;);
+        const tempLog &#x3D; Object.assign({}, this.log);
+        const user &#x3D; this.userSharingService.currentUser;
+        tempLog.user &#x3D; (user.firstname + &#x27; &#x27; + user.lastname).trim();
+        tempLog.date &#x3D; Date.now();
+        tempLog.severity &#x3D; 1;
+        tempLog.message &#x3D; &#x60;Added the explanation #${response.data._id}&#x60;;
+        this.logsService.addLog(tempLog).pipe(takeUntil(this.isLogsDead$)).subscribe();
+      }, (error) &#x3D;&gt; {
+        this.errorModal &#x3D; true;
+        this.errorMessageModal &#x3D; &#x27;An error occurred on the server side.&#x27;;
+      });
+    } else {
+      this.errorModal &#x3D; true;
+      this.errorMessageModal &#x3D; &#x27;Please complete all projects.&#x27;;
+    }
+  }
+
+  saveEditRow(modal: NgbActiveModal) {
+    // save in db
+    if (this.verifyExplanation() &#x3D;&#x3D;&#x3D; true) {
+      this.explanationsService.updateExplanation(this.explanation).pipe(takeUntil(this.isExplanationsDead$)).subscribe((response) &#x3D;&gt; {
+        this.explanation &#x3D; {_id: &#x27;-1&#x27;, text: CONTENT, project: null, vessel: null, note: NOTE, analysis: null, forecaster: null};
+        modal.close(&#x27;Close click&#x27;);
+        const tempLog &#x3D; Object.assign({}, this.log);
+        const user &#x3D; this.userSharingService.currentUser;
+        tempLog.user &#x3D; (user.firstname + &#x27; &#x27; + user.lastname).trim();
+        tempLog.date &#x3D; Date.now();
+        tempLog.severity &#x3D; 1;
+        tempLog.message &#x3D; &#x60;Updated the explanation #${response.data._id}&#x60;;
+        this.logsService.addLog(tempLog).pipe(takeUntil(this.isLogsDead$)).subscribe();
+      }, (error) &#x3D;&gt; {
+        this.errorModal &#x3D; true;
+        this.errorMessageModal &#x3D; &#x27;An error occurred on the server side.&#x27;;
+      });
+    } else {
+      this.errorModal &#x3D; true;
+      this.errorMessageModal &#x3D; &#x27;Please complete all projects.&#x27;;
+    }
+  }
+
+  deleteRow(modal: NgbActiveModal) {
+    // save in db
+    if (this.explanation._id !&#x3D;&#x3D; undefined || this.explanation._id !&#x3D;&#x3D; null || this.explanation._id !&#x3D;&#x3D; &#x27;&#x27;) {
+      this.explanationsService.deleteExplanation(this.explanation._id).pipe(takeUntil(this.isExplanationsDead$)).subscribe((response) &#x3D;&gt; {
+        this.explanation &#x3D; {_id: &#x27;-1&#x27;, text: CONTENT, project: null, vessel: null, note: NOTE, analysis: null, forecaster: null};
+        modal.close(&#x27;Close click&#x27;);
+        const tempLog &#x3D; Object.assign({}, this.log);
+        const user &#x3D; this.userSharingService.currentUser;
+        tempLog.user &#x3D; (user.firstname + &#x27; &#x27; + user.lastname).trim();
+        tempLog.date &#x3D; Date.now();
+        tempLog.severity &#x3D; 2;
+        tempLog.message &#x3D; &#x60;Deleted the explanation #${response.data}&#x60;;
+        this.logsService.addLog(tempLog).pipe(takeUntil(this.isLogsDead$)).subscribe();
+      }, (error) &#x3D;&gt; {
+        this.errorModal &#x3D; true;
+        this.errorMessageModal &#x3D; &#x27;An error occurred on the server side.&#x27;;
+      });
+    } else {
+      this.errorModal &#x3D; true;
+      this.errorMessageModal &#x3D; &#x27;No explanation to delete.&#x27;;
+    }
+  }
+
+  getFlags(project: Project): string[] {
+    const countries &#x3D; this.countries.filter((c) &#x3D;&gt; project.countries.includes(c._id));
+    if (countries !&#x3D;&#x3D; undefined) {
+      return countries.slice().map((elt) &#x3D;&gt; &#x60;./assets/images/flags/${elt.code}.svg&#x60;);
+    } else {
+      return [];
+    }
+  }
+
+  getProject(id: string): Project {
+    return this.projects.find(p &#x3D;&gt; p._id &#x3D;&#x3D;&#x3D; id);
+  }
+
+  getVessel(id: string): Vessel {
+    return this.vessels.find(v &#x3D;&gt; v._id &#x3D;&#x3D;&#x3D; id);
+  }
+
+  getClient(id: string): Client {
+    return this.clients.find(c &#x3D;&gt; c._id &#x3D;&#x3D;&#x3D; id);
+  }
+
+  getForecaster(id: string): Forecaster {
+    return this.forecasters.find(f &#x3D;&gt; f._id &#x3D;&#x3D;&#x3D; id);
+  }
+
+  getAnalysis(id: string): Analysis {
+    return this.analysis.find(a &#x3D;&gt; a._id &#x3D;&#x3D;&#x3D; id);
+  }
+
+  getProjectName(projectId: string): string {
+    let projectName &#x3D; &#x27;&#x27;;
+    const project &#x3D; this.getProject(projectId);
+    if (project) {
+      const client &#x3D; this.getClient(project.client);
+      projectName +&#x3D; &#x60;${project.code} -&#x60;;
+      if (client) {
+        projectName +&#x3D; &#x60; ${client.name}&#x60;;
+      }
+      projectName +&#x3D; &#x60; ${project.name}&#x60;;
+    }
+    return projectName;
+  }
+
+  onProjectChange(event: {}): void {
+    this.explanation.vessel &#x3D; null;
+    this.explanation.forecaster &#x3D; null;
+    this.explanation.analysis &#x3D; null;
+    this.vesselsList &#x3D; [];
+    this.analysisList &#x3D; [];
+    if (event) {
+      this.vesselsList &#x3D; this.vessels.slice().filter((elt) &#x3D;&gt; (event as Project).vessels[elt._id]);
+    }
+  }
+
+  onVesselChange(event: {}): void {
+    this.explanation.forecaster &#x3D; null;
+    this.explanation.analysis &#x3D; null;
+    this.analysisList &#x3D; [];
+  }
+
+  onForecasterChange(event: {}): void {
+    this.explanation.analysis &#x3D; null;
+    this.analysisList &#x3D; [];
+    if (event) {
+      this.analysisList &#x3D; this.analysis.slice().filter((elt) &#x3D;&gt; {
+        return elt.forecaster &#x3D;&#x3D;&#x3D; this.explanation.forecaster &amp;&amp; elt.project &#x3D;&#x3D;&#x3D; this.explanation.project &amp;&amp;
+          elt.vessel &#x3D;&#x3D;&#x3D; this.explanation.vessel;
+      });
+    }
+  }
+
+  getShortId(id: string): string {
+    if (!id) {
+      return &#x27;&#x27;;
+    }
+    if (id.length &lt;&#x3D; 8) {
+      return id;
+    }
+    return &#x60;${id.slice(0, 4)}...${id.slice(-4)}&#x60;;
+  }
+
+  analysisSearchFn(term: string, item: Analysis): boolean {
+    term &#x3D; term.toLowerCase();
+    const formattedDate &#x3D; moment.utc(item.date).format(&#x27;DD MMM YYYY HH:mm (z Z)&#x27;).trim().toLowerCase();
+    return item._id.trim().toLowerCase().includes(term) || formattedDate.includes(term);
+  }
+
+  projectSearchFn &#x3D; (term: string, item: Project): boolean  &#x3D;&gt; {
+    term &#x3D; term.toLowerCase();
+    const c &#x3D; this.getClient(item.client);
+    const client &#x3D; (c) ? c.name : &#x27;&#x27;;
+    return item.name.trim().toLowerCase().includes(term) || item.code.trim().toLowerCase().includes(term) ||
+      client.trim().toLowerCase().includes(term);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Page Heading --&gt;
+&lt;div class&#x3D;&quot;d-flex align-items-center justify-content-between mb-4 d-md-none&quot;&gt;
+  &lt;h1 class&#x3D;&quot;h3 mb-0 text-section&quot;&gt;{{ title }}&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;!-- Content Row --&gt;
+&lt;div class&#x3D;&quot;row&quot; [ngClass]&#x3D;&quot;{&#x27;mb-5&#x27;: state.isLoaded &#x3D;&#x3D;&#x3D; true &amp;&amp; state.canConnect !&#x3D;&#x3D; true}&quot;&gt;
+  &lt;div class&#x3D;&quot;col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12&quot;&gt;
+    &lt;table datatable [dtOptions]&#x3D;&quot;dtOptions&quot; [dtTrigger]&#x3D;&quot;dtTrigger&quot; class&#x3D;&quot;table table-bordered table-hover
+    dt-responsive&quot; style&#x3D;&quot;width:100%&quot;
+    &gt;
+      &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th style&#x3D;&quot;width: 125px;&quot; data-orderable&#x3D;&quot;false&quot;&gt;Action&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 300px;&quot;&gt;Content&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 300px;&quot;&gt;Project&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 200px;&quot;&gt;Vessel&lt;/th&gt;
+        &lt;th&gt;Forecaster&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 250px;&quot;&gt;Analysis&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;/thead&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;row mt-5&quot; *ngIf&#x3D;&quot;state.isLoaded &#x3D;&#x3D;&#x3D; true &amp;&amp; state.canConnect !&#x3D;&#x3D; true&quot;&gt;
+  &lt;div class&#x3D;&quot;col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12&quot;&gt;
+    &lt;div class&#x3D;&quot;error-content-loading text-danger text-center&quot;&gt;
+      &lt;div class&#x3D;&quot;connection-error&quot;&gt;
+        &lt;p&gt;Connection error&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;refresh&quot;&gt;
+        &lt;button class&#x3D;&quot;btn btn-outline-danger&quot; (click)&#x3D;&quot;refresh()&quot;&gt;
+          &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;refresh&lt;/i&gt; Refresh
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;ng-template #modalView let-modal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;h4 class&#x3D;&quot;modal-title&quot;&gt;View explanation #{{ explanation._id }}&lt;/h4&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;modal.dismiss(&#x27;Cross click&#x27;)&quot;&gt;
+      &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;div&gt; &lt;!-- form --&gt;
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;view_explanation_project&quot;&gt;Project&lt;/label&gt;
+          &lt;span class&#x3D;&quot;element-view&quot; id&#x3D;&quot;view_explanation_project&quot;&gt;{{ getProjectName(explanation?.project) }}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;view_explanation_vessel&quot;&gt;Vessel&lt;/label&gt;
+          &lt;span class&#x3D;&quot;element-view&quot; id&#x3D;&quot;view_explanation_vessel&quot;&gt;{{ getVessel(explanation?.vessel)?.name }}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;view_explanation_forecaster&quot;&gt;Forecaster&lt;/label&gt;
+          &lt;span class&#x3D;&quot;element-view&quot; id&#x3D;&quot;view_explanation_forecaster&quot;&gt;
+            {{ getForecaster(explanation?.forecaster)?.name }}
+          &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;view_explanation_analysis&quot;&gt;Analysis&lt;/label&gt;
+          &lt;span class&#x3D;&quot;element-view&quot; id&#x3D;&quot;view_explanation_analysis&quot;&gt;
+            Analysis from {{ getAnalysis(explanation?.analysis)?.date | momentDate: &#x27;EEE dd LLL yyyy HH:mm:ss (zzzz)&#x27; :
+            (getProject(explanation?.project)?.timezone) ? getProject(explanation?.project)?.timezone : &#x27;UTC&#x27; }}
+          &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group col-12&quot;&gt;
+          &lt;label for&#x3D;&quot;view_explanation_text&quot;&gt;Contents&lt;/label&gt;
+          &lt;div style&#x3D;&quot;height: 250px; max-height: 250px; overflow-x: hidden; overflow-y: auto; white-space: pre-line&quot;
+               class&#x3D;&quot;element-view&quot; id&#x3D;&quot;view_explanation_text&quot; [innerHTML]&#x3D;&quot;explanation.text&quot;
+          &gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group col-12&quot;&gt;
+          &lt;label for&#x3D;&quot;view_explanation_note&quot;&gt;Notes&lt;/label&gt;
+          &lt;div style&#x3D;&quot;height: 100px; max-height: 100px; overflow-x: hidden; overflow-y: auto; white-space: pre-line&quot;
+               class&#x3D;&quot;element-view&quot; id&#x3D;&quot;view_explanation_note&quot; [innerHTML]&#x3D;&quot;explanation.note&quot;
+          &gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-dark&quot; (click)&#x3D;&quot;modal.close(&#x27;Close click&#x27;)&quot; ngbAutofocus&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;close&lt;/i&gt;Close
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #modalAdd let-modal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;h4 class&#x3D;&quot;modal-title&quot;&gt;Add explanation&lt;/h4&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;modal.dismiss(&#x27;Cross click&#x27;)&quot;&gt;
+      &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;ngb-alert [type]&#x3D;&quot;&#x27;warning&#x27;&quot; [dismissible]&#x3D;&quot;true&quot; (close)&#x3D;&quot;errorModal &#x3D; false&quot; *ngIf&#x3D;&quot;errorModal&quot;&gt;
+      &lt;strong&gt;Warning !&lt;/strong&gt; {{ errorMessageModal }}
+    &lt;/ngb-alert&gt;
+    &lt;form role&#x3D;&quot;form&quot;&gt;
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;add_explanation_project&quot;&gt;Project&lt;/label&gt;
+          &lt;ng-select id&#x3D;&quot;add_explanation_project&quot; [items]&#x3D;&quot;projects&quot; bindLabel&#x3D;&quot;name&quot; bindValue&#x3D;&quot;_id&quot; name&#x3D;&quot;project&quot;
+                     [(ngModel)]&#x3D;&quot;explanation.project&quot; (change)&#x3D;&quot;onProjectChange($event)&quot; [searchFn]&#x3D;&quot;projectSearchFn&quot;
+          &gt;
+            &lt;ng-template ng-label-tmp let-item&#x3D;&quot;item&quot;&gt;
+              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+            &lt;/ng-template&gt;
+            &lt;ng-template ng-option-tmp let-item&#x3D;&quot;item&quot; let-search&#x3D;&quot;searchTerm&quot;&gt;
+              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+            &lt;/ng-template&gt;
+          &lt;/ng-select&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;add_explanation_vessel&quot;&gt;Vessel&lt;/label&gt;
+          &lt;ng-select id&#x3D;&quot;add_explanation_vessel&quot; [items]&#x3D;&quot;vesselsList&quot; bindLabel&#x3D;&quot;name&quot; bindValue&#x3D;&quot;_id&quot; name&#x3D;&quot;vessel&quot;
+                     [(ngModel)]&#x3D;&quot;explanation.vessel&quot;  (change)&#x3D;&quot;onVesselChange($event)&quot;
+          &gt;
+            &lt;ng-template ng-label-tmp let-item&#x3D;&quot;item&quot;&gt;
+              &lt;img height&#x3D;&quot;20&quot; width&#x3D;&quot;70&quot; [src]&#x3D;&quot;item.image&quot; alt&#x3D;&quot;&quot;/&gt;
+              {{item.name}}
+            &lt;/ng-template&gt;
+            &lt;ng-template ng-option-tmp let-item&#x3D;&quot;item&quot; let-index&#x3D;&quot;index&quot; let-search&#x3D;&quot;searchTerm&quot;&gt;
+              &lt;img height&#x3D;&quot;20&quot; width&#x3D;&quot;70&quot; [src]&#x3D;&quot;item.image&quot; alt&#x3D;&quot;&quot;/&gt;
+              {{item.name}}
+            &lt;/ng-template&gt;
+          &lt;/ng-select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;add_explanation_forecaster&quot;&gt;Forecaster&lt;/label&gt;
+          &lt;ng-select id&#x3D;&quot;add_explanation_forecaster&quot; [items]&#x3D;&quot;forecasters&quot; bindLabel&#x3D;&quot;name&quot; bindValue&#x3D;&quot;_id&quot; name&#x3D;&quot;forecaster&quot;
+                     [(ngModel)]&#x3D;&quot;explanation.forecaster&quot;  (change)&#x3D;&quot;onForecasterChange($event)&quot;&gt;
+          &lt;/ng-select&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;add_explanation_analysis&quot;&gt;Analysis&lt;/label&gt;
+          &lt;ng-select id&#x3D;&quot;add_explanation_analysis&quot; [items]&#x3D;&quot;analysisList&quot; bindLabel&#x3D;&quot;name&quot; bindValue&#x3D;&quot;_id&quot; name&#x3D;&quot;analysis&quot;
+                     [(ngModel)]&#x3D;&quot;explanation.analysis&quot; [searchFn]&#x3D;&quot;analysisSearchFn&quot;&gt;
+            &lt;ng-template ng-label-tmp let-item&#x3D;&quot;item&quot;&gt;
+              Analysis from {{ item?.date | date: &#x27;dd LLL yyyy HH:mm (zzzz)&#x27; : &#x27;UTC&#x27; }} (#{{ getShortId(item?._id) }})
+            &lt;/ng-template&gt;
+            &lt;ng-template ng-option-tmp let-item&#x3D;&quot;item&quot; let-search&#x3D;&quot;searchTerm&quot;&gt;
+              Analysis from {{ item?.date | date: &#x27;dd LLL yyyy HH:mm (zzzz)&#x27; : &#x27;UTC&#x27; }} (#{{ getShortId(item?._id) }})
+            &lt;/ng-template&gt;
+          &lt;/ng-select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group col-12&quot;&gt;
+          &lt;label for&#x3D;&quot;add_explanation_text&quot;&gt;Content&lt;/label&gt;
+          &lt;ckeditor [editor]&#x3D;&quot;editorOne&quot; [(ngModel)]&#x3D;&quot;explanation.text&quot; name&#x3D;&quot;text&quot; id&#x3D;&quot;add_explanation_text&quot;
+                    (change)&#x3D;&quot;onChangeContentCkeditor($event)&quot; (ready)&#x3D;&quot;onReady($event)&quot; [config]&#x3D;&quot;config&quot;&gt;
+          &lt;/ckeditor&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group col-12&quot;&gt;
+          &lt;label for&#x3D;&quot;add_explanation_note&quot;&gt;Notes&lt;/label&gt;
+          &lt;ckeditor [editor]&#x3D;&quot;editorBis&quot; [(ngModel)]&#x3D;&quot;explanation.note&quot; name&#x3D;&quot;note&quot; id&#x3D;&quot;add_explanation_note&quot;
+                    (change)&#x3D;&quot;onChangeNoteCkeditor($event)&quot; (ready)&#x3D;&quot;onReady($event)&quot; [config]&#x3D;&quot;config&quot;&gt;
+          &lt;/ckeditor&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;addRow(modal)&quot; ngbAutofocus&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;save&lt;/i&gt;Save
+    &lt;/button&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;modal.close(&#x27;Close click&#x27;)&quot;&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;cancel&lt;/i&gt;Cancel
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #modalEdit let-modal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;h4 class&#x3D;&quot;modal-title&quot;&gt;Edit explanation #{{ explanation._id }}&lt;/h4&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;modal.dismiss(&#x27;Cross click&#x27;)&quot;&gt;
+      &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;ngb-alert [type]&#x3D;&quot;&#x27;warning&#x27;&quot; [dismissible]&#x3D;&quot;true&quot; (close)&#x3D;&quot;errorModal &#x3D; false&quot; *ngIf&#x3D;&quot;errorModal&quot;&gt;
+      &lt;strong&gt;Warning !&lt;/strong&gt; {{ errorMessageModal }}
+    &lt;/ngb-alert&gt;
+    &lt;form role&#x3D;&quot;form&quot;&gt;
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;edit_explanation_project&quot;&gt;Project&lt;/label&gt;
+          &lt;ng-select id&#x3D;&quot;edit_explanation_project&quot; [items]&#x3D;&quot;projects&quot; bindLabel&#x3D;&quot;name&quot; bindValue&#x3D;&quot;_id&quot; name&#x3D;&quot;project&quot;
+                     [(ngModel)]&#x3D;&quot;explanation.project&quot; (change)&#x3D;&quot;onProjectChange($event)&quot; [searchFn]&#x3D;&quot;projectSearchFn&quot;
+          &gt;
+            &lt;ng-template ng-label-tmp let-item&#x3D;&quot;item&quot;&gt;
+              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+            &lt;/ng-template&gt;
+            &lt;ng-template ng-option-tmp let-item&#x3D;&quot;item&quot; let-search&#x3D;&quot;searchTerm&quot;&gt;
+              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+            &lt;/ng-template&gt;
+          &lt;/ng-select&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;edit_explanation_vessel&quot;&gt;Vessel&lt;/label&gt;
+          &lt;ng-select id&#x3D;&quot;edit_explanation_vessel&quot; [items]&#x3D;&quot;vesselsList&quot; bindLabel&#x3D;&quot;name&quot; bindValue&#x3D;&quot;_id&quot; name&#x3D;&quot;vessel&quot;
+                     [(ngModel)]&#x3D;&quot;explanation.vessel&quot;  (change)&#x3D;&quot;onVesselChange($event)&quot;
+          &gt;
+            &lt;ng-template ng-label-tmp let-item&#x3D;&quot;item&quot;&gt;
+              &lt;img height&#x3D;&quot;20&quot; width&#x3D;&quot;70&quot; [src]&#x3D;&quot;item.image&quot; alt&#x3D;&quot;&quot;/&gt;
+              {{item.name}}
+            &lt;/ng-template&gt;
+            &lt;ng-template ng-option-tmp let-item&#x3D;&quot;item&quot; let-index&#x3D;&quot;index&quot; let-search&#x3D;&quot;searchTerm&quot;&gt;
+              &lt;img height&#x3D;&quot;20&quot; width&#x3D;&quot;70&quot; [src]&#x3D;&quot;item.image&quot; alt&#x3D;&quot;&quot;/&gt;
+              {{item.name}}
+            &lt;/ng-template&gt;
+          &lt;/ng-select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;edit_explanation_forecaster&quot;&gt;Forecaster&lt;/label&gt;
+          &lt;ng-select id&#x3D;&quot;edit_explanation_forecaster&quot; [items]&#x3D;&quot;forecasters&quot; bindLabel&#x3D;&quot;name&quot; bindValue&#x3D;&quot;_id&quot; name&#x3D;&quot;forecaster&quot;
+                     [(ngModel)]&#x3D;&quot;explanation.forecaster&quot;  (change)&#x3D;&quot;onForecasterChange($event)&quot;&gt;
+          &lt;/ng-select&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group col-6&quot;&gt;
+          &lt;label for&#x3D;&quot;edit_explanation_analysis&quot;&gt;Analysis&lt;/label&gt;
+          &lt;ng-select id&#x3D;&quot;edit_explanation_analysis&quot; [items]&#x3D;&quot;analysisList&quot; bindLabel&#x3D;&quot;name&quot; bindValue&#x3D;&quot;_id&quot; name&#x3D;&quot;analysis&quot;
+                     [(ngModel)]&#x3D;&quot;explanation.analysis&quot; [searchFn]&#x3D;&quot;analysisSearchFn&quot;&gt;
+            &lt;ng-template ng-label-tmp let-item&#x3D;&quot;item&quot;&gt;
+              Analysis from {{ item?.date | date: &#x27;dd LLL yyyy HH:mm (zzzz)&#x27; : &#x27;UTC&#x27; }} (#{{ getShortId(item?._id) }})
+            &lt;/ng-template&gt;
+            &lt;ng-template ng-option-tmp let-item&#x3D;&quot;item&quot; let-search&#x3D;&quot;searchTerm&quot;&gt;
+              Analysis from {{ item?.date | date: &#x27;dd LLL yyyy HH:mm (zzzz)&#x27; : &#x27;UTC&#x27; }} (#{{ getShortId(item?._id) }})
+            &lt;/ng-template&gt;
+          &lt;/ng-select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group col-12&quot;&gt;
+          &lt;label for&#x3D;&quot;edit_explanation_text&quot;&gt;Content&lt;/label&gt;
+          &lt;ckeditor [editor]&#x3D;&quot;editorOne&quot; [(ngModel)]&#x3D;&quot;explanation.text&quot; name&#x3D;&quot;text&quot; id&#x3D;&quot;edit_explanation_text&quot;
+                    (change)&#x3D;&quot;onChangeContentCkeditor($event)&quot; (ready)&#x3D;&quot;onReady($event)&quot; [config]&#x3D;&quot;config&quot;&gt;
+          &lt;/ckeditor&gt;
+&lt;!--          &lt;textarea name&#x3D;&quot;text&quot; cols&#x3D;&quot;30&quot; rows&#x3D;&quot;10&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;explanation.text&quot;--&gt;
+&lt;!--                    id&#x3D;&quot;edit_explanation_text&quot;--&gt;
+&lt;!--          &gt;--&gt;
+&lt;!--          &lt;/textarea&gt;--&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-row&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group col-12&quot;&gt;
+          &lt;label for&#x3D;&quot;edit_explanation_note&quot;&gt;Notes&lt;/label&gt;
+          &lt;ckeditor [editor]&#x3D;&quot;editorBis&quot; [(ngModel)]&#x3D;&quot;explanation.note&quot; name&#x3D;&quot;note&quot; id&#x3D;&quot;edit_explanation_note&quot;
+                    (change)&#x3D;&quot;onChangeNoteCkeditor($event)&quot; (ready)&#x3D;&quot;onReady($event)&quot; [config]&#x3D;&quot;config&quot;&gt;
+          &lt;/ckeditor&gt;
+          &lt;!--          &lt;textarea name&#x3D;&quot;text&quot; cols&#x3D;&quot;30&quot; rows&#x3D;&quot;10&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;explanation.text&quot;--&gt;
+          &lt;!--                    id&#x3D;&quot;edit_explanation_text&quot;--&gt;
+          &lt;!--          &gt;--&gt;
+          &lt;!--          &lt;/textarea&gt;--&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;saveEditRow(modal)&quot; ngbAutofocus&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;save&lt;/i&gt;Save
+    &lt;/button&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;modal.close(&#x27;Close click&#x27;)&quot;&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;cancel&lt;/i&gt;Cancel
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #modalDelete let-modal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;h4 class&#x3D;&quot;modal-title&quot;&gt;Delete explanation&lt;/h4&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;modal.dismiss(&#x27;Cross click&#x27;)&quot;&gt;
+      &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;ngb-alert [type]&#x3D;&quot;&#x27;warning&#x27;&quot; [dismissible]&#x3D;&quot;true&quot; (close)&#x3D;&quot;errorModal &#x3D; false&quot; *ngIf&#x3D;&quot;errorModal&quot;&gt;
+      &lt;strong&gt;Warning !&lt;/strong&gt; {{ errorMessageModal }}
+    &lt;/ngb-alert&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;div class&#x3D;&quot;alert alert-warning&quot; role&#x3D;&quot;alert&quot;&gt;
+        Do you want to delete the row of ID {{ explanation._id }} ?
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;deleteRow(modal)&quot; ngbAutofocus&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;delete&lt;/i&gt;Yes
+    &lt;/button&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-dark&quot; (click)&#x3D;&quot;modal.close(&#x27;Close click&#x27;)&quot;&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;cancel&lt;/i&gt;No
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./explanations.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.custom-control.custom-checkbox {
+  margin-top: 2rem !important;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Page Heading --><div class="d-flex align-items-center justify-content-between mb-4 d-md-none">  <h1 class="h3 mb-0 text-section">{{ title }}</h1></div><!-- Content Row --><div class="row" [ngClass]="{\'mb-5\': state.isLoaded === true && state.canConnect !== true}">  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover    dt-responsive" style="width:100%"    >      <thead>      <tr>        <th style="width: 125px;" data-orderable="false">Action</th>        <th style="width: 300px;">Content</th>        <th style="width: 300px;">Project</th>        <th style="width: 200px;">Vessel</th>        <th>Forecaster</th>        <th style="width: 250px;">Analysis</th>      </tr>      </thead>    </table>  </div></div><div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">    <div class="error-content-loading text-danger text-center">      <div class="connection-error">        <p>Connection error</p>      </div>      <div class="refresh">        <button class="btn btn-outline-danger" (click)="refresh()">          <i class="material-icons md-center">refresh</i> Refresh        </button>      </div>    </div>  </div></div><ng-template #modalView let-modal>  <div class="modal-header">    <h4 class="modal-title">View explanation #{{ explanation._id }}</h4>    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss(\'Cross click\')">      <span aria-hidden="true">&times;</span>    </button>  </div>  <div class="modal-body">    <div> <!-- form -->      <div class="form-row">        <div class="form-group col-6">          <label for="view_explanation_project">Project</label>          <span class="element-view" id="view_explanation_project">{{ getProjectName(explanation?.project) }}</span>        </div>        <div class="form-group col-6">          <label for="view_explanation_vessel">Vessel</label>          <span class="element-view" id="view_explanation_vessel">{{ getVessel(explanation?.vessel)?.name }}</span>        </div>        <div class="form-group col-6">          <label for="view_explanation_forecaster">Forecaster</label>          <span class="element-view" id="view_explanation_forecaster">            {{ getForecaster(explanation?.forecaster)?.name }}          </span>        </div>        <div class="form-group col-6">          <label for="view_explanation_analysis">Analysis</label>          <span class="element-view" id="view_explanation_analysis">            Analysis from {{ getAnalysis(explanation?.analysis)?.date | momentDate: \'EEE dd LLL yyyy HH:mm:ss (zzzz)\' :            (getProject(explanation?.project)?.timezone) ? getProject(explanation?.project)?.timezone : \'UTC\' }}          </span>        </div>        <div class="form-group col-12">          <label for="view_explanation_text">Contents</label>          <div style="height: 250px; max-height: 250px; overflow-x: hidden; overflow-y: auto; white-space: pre-line"               class="element-view" id="view_explanation_text" [innerHTML]="explanation.text"          >          </div>        </div>        <div class="form-group col-12">          <label for="view_explanation_note">Notes</label>          <div style="height: 100px; max-height: 100px; overflow-x: hidden; overflow-y: auto; white-space: pre-line"               class="element-view" id="view_explanation_note" [innerHTML]="explanation.note"          >          </div>        </div>      </div>    </div>  </div>  <div class="modal-footer">    <button type="button" class="btn btn-dark" (click)="modal.close(\'Close click\')" ngbAutofocus>      <i class="material-icons md-center">close</i>Close    </button>  </div></ng-template><ng-template #modalAdd let-modal>  <div class="modal-header">    <h4 class="modal-title">Add explanation</h4>    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss(\'Cross click\')">      <span aria-hidden="true">&times;</span>    </button>  </div>  <div class="modal-body">    <ngb-alert [type]="\'warning\'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">      <strong>Warning !</strong> {{ errorMessageModal }}    </ngb-alert>    <form role="form">      <div class="form-row">        <div class="form-group col-6">          <label for="add_explanation_project">Project</label>          <ng-select id="add_explanation_project" [items]="projects" bindLabel="name" bindValue="_id" name="project"                     [(ngModel)]="explanation.project" (change)="onProjectChange($event)" [searchFn]="projectSearchFn"          >            <ng-template ng-label-tmp let-item="item">              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}            </ng-template>            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}            </ng-template>          </ng-select>        </div>        <div class="form-group col-6">          <label for="add_explanation_vessel">Vessel</label>          <ng-select id="add_explanation_vessel" [items]="vesselsList" bindLabel="name" bindValue="_id" name="vessel"                     [(ngModel)]="explanation.vessel"  (change)="onVesselChange($event)"          >            <ng-template ng-label-tmp let-item="item">              <img height="20" width="70" [src]="item.image" alt=""/>              {{item.name}}            </ng-template>            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">              <img height="20" width="70" [src]="item.image" alt=""/>              {{item.name}}            </ng-template>          </ng-select>        </div>      </div>      <div class="form-row">        <div class="form-group col-6">          <label for="add_explanation_forecaster">Forecaster</label>          <ng-select id="add_explanation_forecaster" [items]="forecasters" bindLabel="name" bindValue="_id" name="forecaster"                     [(ngModel)]="explanation.forecaster"  (change)="onForecasterChange($event)">          </ng-select>        </div>        <div class="form-group col-6">          <label for="add_explanation_analysis">Analysis</label>          <ng-select id="add_explanation_analysis" [items]="analysisList" bindLabel="name" bindValue="_id" name="analysis"                     [(ngModel)]="explanation.analysis" [searchFn]="analysisSearchFn">            <ng-template ng-label-tmp let-item="item">              Analysis from {{ item?.date | date: \'dd LLL yyyy HH:mm (zzzz)\' : \'UTC\' }} (#{{ getShortId(item?._id) }})            </ng-template>            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">              Analysis from {{ item?.date | date: \'dd LLL yyyy HH:mm (zzzz)\' : \'UTC\' }} (#{{ getShortId(item?._id) }})            </ng-template>          </ng-select>        </div>      </div>      <div class="form-row">        <div class="form-group col-12">          <label for="add_explanation_text">Content</label>          <ckeditor [editor]="editorOne" [(ngModel)]="explanation.text" name="text" id="add_explanation_text"                    (change)="onChangeContentCkeditor($event)" (ready)="onReady($event)" [config]="config">          </ckeditor>        </div>      </div>      <div class="form-row">        <div class="form-group col-12">          <label for="add_explanation_note">Notes</label>          <ckeditor [editor]="editorBis" [(ngModel)]="explanation.note" name="note" id="add_explanation_note"                    (change)="onChangeNoteCkeditor($event)" (ready)="onReady($event)" [config]="config">          </ckeditor>        </div>      </div>    </form>  </div>  <div class="modal-footer">    <button type="button" class="btn btn-success" (click)="addRow(modal)" ngbAutofocus>      <i class="material-icons md-center">save</i>Save    </button>    <button type="button" class="btn btn-danger" (click)="modal.close(\'Close click\')">      <i class="material-icons md-center">cancel</i>Cancel    </button>  </div></ng-template><ng-template #modalEdit let-modal>  <div class="modal-header">    <h4 class="modal-title">Edit explanation #{{ explanation._id }}</h4>    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss(\'Cross click\')">      <span aria-hidden="true">&times;</span>    </button>  </div>  <div class="modal-body">    <ngb-alert [type]="\'warning\'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">      <strong>Warning !</strong> {{ errorMessageModal }}    </ngb-alert>    <form role="form">      <div class="form-row">        <div class="form-group col-6">          <label for="edit_explanation_project">Project</label>          <ng-select id="edit_explanation_project" [items]="projects" bindLabel="name" bindValue="_id" name="project"                     [(ngModel)]="explanation.project" (change)="onProjectChange($event)" [searchFn]="projectSearchFn"          >            <ng-template ng-label-tmp let-item="item">              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}            </ng-template>            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}            </ng-template>          </ng-select>        </div>        <div class="form-group col-6">          <label for="edit_explanation_vessel">Vessel</label>          <ng-select id="edit_explanation_vessel" [items]="vesselsList" bindLabel="name" bindValue="_id" name="vessel"                     [(ngModel)]="explanation.vessel"  (change)="onVesselChange($event)"          >            <ng-template ng-label-tmp let-item="item">              <img height="20" width="70" [src]="item.image" alt=""/>              {{item.name}}            </ng-template>            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">              <img height="20" width="70" [src]="item.image" alt=""/>              {{item.name}}            </ng-template>          </ng-select>        </div>      </div>      <div class="form-row">        <div class="form-group col-6">          <label for="edit_explanation_forecaster">Forecaster</label>          <ng-select id="edit_explanation_forecaster" [items]="forecasters" bindLabel="name" bindValue="_id" name="forecaster"                     [(ngModel)]="explanation.forecaster"  (change)="onForecasterChange($event)">          </ng-select>        </div>        <div class="form-group col-6">          <label for="edit_explanation_analysis">Analysis</label>          <ng-select id="edit_explanation_analysis" [items]="analysisList" bindLabel="name" bindValue="_id" name="analysis"                     [(ngModel)]="explanation.analysis" [searchFn]="analysisSearchFn">            <ng-template ng-label-tmp let-item="item">              Analysis from {{ item?.date | date: \'dd LLL yyyy HH:mm (zzzz)\' : \'UTC\' }} (#{{ getShortId(item?._id) }})            </ng-template>            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">              Analysis from {{ item?.date | date: \'dd LLL yyyy HH:mm (zzzz)\' : \'UTC\' }} (#{{ getShortId(item?._id) }})            </ng-template>          </ng-select>        </div>      </div>      <div class="form-row">        <div class="form-group col-12">          <label for="edit_explanation_text">Content</label>          <ckeditor [editor]="editorOne" [(ngModel)]="explanation.text" name="text" id="edit_explanation_text"                    (change)="onChangeContentCkeditor($event)" (ready)="onReady($event)" [config]="config">          </ckeditor><!--          <textarea name="text" cols="30" rows="10" class="form-control" [(ngModel)]="explanation.text"--><!--                    id="edit_explanation_text"--><!--          >--><!--          </textarea>-->        </div>      </div>      <div class="form-row">        <div class="form-group col-12">          <label for="edit_explanation_note">Notes</label>          <ckeditor [editor]="editorBis" [(ngModel)]="explanation.note" name="note" id="edit_explanation_note"                    (change)="onChangeNoteCkeditor($event)" (ready)="onReady($event)" [config]="config">          </ckeditor>          <!--          <textarea name="text" cols="30" rows="10" class="form-control" [(ngModel)]="explanation.text"-->          <!--                    id="edit_explanation_text"-->          <!--          >-->          <!--          </textarea>-->        </div>      </div>    </form>  </div>  <div class="modal-footer">    <button type="button" class="btn btn-success" (click)="saveEditRow(modal)" ngbAutofocus>      <i class="material-icons md-center">save</i>Save    </button>    <button type="button" class="btn btn-danger" (click)="modal.close(\'Close click\')">      <i class="material-icons md-center">cancel</i>Cancel    </button>  </div></ng-template><ng-template #modalDelete let-modal>  <div class="modal-header">    <h4 class="modal-title">Delete explanation</h4>    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss(\'Cross click\')">      <span aria-hidden="true">&times;</span>    </button>  </div>  <div class="modal-body">    <ngb-alert [type]="\'warning\'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">      <strong>Warning !</strong> {{ errorMessageModal }}    </ngb-alert>    <div class="col-12">      <div class="alert alert-warning" role="alert">        Do you want to delete the row of ID {{ explanation._id }} ?      </div>    </div>  </div>  <div class="modal-footer">    <button type="button" class="btn btn-danger" (click)="deleteRow(modal)" ngbAutofocus>      <i class="material-icons md-center">delete</i>Yes    </button>    <button type="button" class="btn btn-dark" (click)="modal.close(\'Close click\')">      <i class="material-icons md-center">cancel</i>No    </button>  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-home'},{'name': 'AccessDeniedComponent', 'selector': 'app-access-denied'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminPanelFeatureComponent', 'selector': 'app-admin-panel-feature'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationsAccessesComponent', 'selector': 'app-applications-accesses'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'CountriesComponent', 'selector': 'app-countries'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardFeatureProjectCardComponent', 'selector': 'app-dashboard-feature-project-card'},{'name': 'DashboardFeatureProjectProductComponent', 'selector': 'app-dashboard-feature-project-product'},{'name': 'DashboardFeatureProjectProgressbarComponent', 'selector': 'app-dashboard-feature-project-progressbar'},{'name': 'DashboardFeatureProjectUpatedDateComponent', 'selector': 'app-dashboard-feature-project-upated-date'},{'name': 'DashboardFeaturesComponent', 'selector': 'app-dashboard-features'},{'name': 'DashboardMapCardComponent', 'selector': 'app-dashboard-map-card'},{'name': 'DownloadCenterComponent', 'selector': 'app-download-center'},{'name': 'ExplanationsComponent', 'selector': 'app-explanations'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastersComponent', 'selector': 'app-forecasters'},{'name': 'HistoryComponent', 'selector': 'app-history'},{'name': 'HistoryFeatureAnalysisComponent', 'selector': 'app-history-feature-analysis'},{'name': 'HistoryFeatureForecastsComponent', 'selector': 'app-history-feature-forecasts'},{'name': 'HistoryFeatureInfoComponent', 'selector': 'app-history-feature-info'},{'name': 'HistoryFeaturesComponent', 'selector': 'app-history-features'},{'name': 'HistoryFeatureSummaryComponent', 'selector': 'app-history-feature-summary'},{'name': 'HistoryFeatureViewComponent', 'selector': 'app-history-feature-view'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginFeatureComponent', 'selector': 'app-login-feature'},{'name': 'LogsComponent', 'selector': 'app-logs'},{'name': 'MapLocationLogsComponent', 'selector': 'app-map-location-logs'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsCenterComponent', 'selector': 'app-notifications-center'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileFeatureCardComponent', 'selector': 'app-profile-feature-card'},{'name': 'ProfileFeatureComponent', 'selector': 'app-profile-feature'},{'name': 'ProjectFeatureAnalysisComponent', 'selector': 'app-project-feature-analysis'},{'name': 'ProjectFeatureCompareComponent', 'selector': 'app-project-feature-compare'},{'name': 'ProjectFeatureComponent', 'selector': 'app-project-feature'},{'name': 'ProjectFeatureContactCardComponent', 'selector': 'app-project-feature-contact-card'},{'name': 'ProjectFeatureForecastsComponent', 'selector': 'app-project-feature-forecasts'},{'name': 'ProjectFeatureInfoComponent', 'selector': 'app-project-feature-info'},{'name': 'ProjectFeatureSummaryComponent', 'selector': 'app-project-feature-summary'},{'name': 'ProjectFeatureViewComponent', 'selector': 'app-project-feature-view'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProtectedComponent', 'selector': 'app-protected'},{'name': 'RegionsComponent', 'selector': 'app-regions'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterFeatureComponent', 'selector': 'app-register-feature'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsFeatureComponent', 'selector': 'app-requests-feature'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SchedulerFeatureGanttComponent', 'selector': 'app-scheduler-feature-gantt'},{'name': 'SchedulerFeaturesComponent', 'selector': 'app-scheduler-features'},{'name': 'SchedulerFeatureTableComponent', 'selector': 'app-scheduler-feature-table'},{'name': 'SchedulerFeatureViewComponent', 'selector': 'app-scheduler-feature-view'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UploadComponent', 'selector': 'app-upload'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VesselsComponent', 'selector': 'app-vessels'},{'name': 'VesselsTypesComponent', 'selector': 'app-vessel-type'},{'name': 'WeatherComponent', 'selector': 'app-weather'},{'name': 'WindyComponent', 'selector': 'app-windy'}];
+    var DIRECTIVES = [{'name': 'RisksProgressbarDirective', 'selector': '[appRisksProgressbar]'}];
+    var ACTUAL_COMPONENT = {'name': 'ExplanationsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ExplanationsComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

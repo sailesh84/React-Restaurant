@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 512 512"
+   version="1.1"
+   sodipodi:docname="windows-logo.svg"
+   inkscape:version="0.92.0 r15299">
+  <metadata
+     id="metadata5802">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs5800" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview5798"
+     showgrid="false"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="283.7701"
+     inkscape:cy="143.29078"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <polygon
+     points="106.67 363.43 224 380.96 224 266.67 106.67 266.67 106.67 363.43"
+     fill="#434040"
+     id="polygon5787"
+     style="stroke-width:13.3;stroke-miterlimit:4;stroke-dasharray:none;stroke:#512d6d;stroke-opacity:1;fill:none" />
+  <polygon
+     points="245.33 381.8 405.33 405.33 405.33 266.67 245.33 266.67 245.33 381.8"
+     fill="#434040"
+     id="polygon5789"
+     style="stroke-width:13.3;stroke-miterlimit:4;stroke-dasharray:none;stroke:#512d6d;stroke-opacity:1;fill:none" />
+  <polygon
+     points="245.33 245.33 405.33 245.33 405.33 106.67 245.33 130.2 245.33 245.33"
+     fill="#434040"
+     id="polygon5791"
+     style="stroke-width:13.3;stroke-miterlimit:4;stroke-dasharray:none;fill:none;stroke:#512d6d;stroke-opacity:1" />
+  <polygon
+     points="224 132.6 106.67 150.16 106.67 245.33 224 245.33 224 132.6"
+     fill="#434040"
+     id="polygon5793"
+     style="fill:none;stroke:#512d6d;stroke-opacity:1;stroke-width:13.3;stroke-miterlimit:4;stroke-dasharray:none" />
+  <g
+     id="g6390" />
+</svg>

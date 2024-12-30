@@ -1,0 +1,44 @@
+.agm-map {
+  height: 55vh !important;
+}
+
+// Validation Styles
+.ng-value {
+  font-size: .9em;
+  margin-bottom: 5px;
+  color: rgb(255, 255, 255);
+  background-color: #9b0808;
+  border-radius: 2px;
+  margin-right: 5px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.ng-value-icon {
+  display: inline-block;
+  padding: 1px 5px;
+  cursor: pointer;
+}
+
+.ng-value-icon.left {
+  border-right: 1px solid #580505;
+}
+
+.ng-value-label {
+  display: inline-block;
+  padding: 1px 5px;
+}
+
+.display-4{
+  font-size: 1.5rem;
+}
+
+.jumbotron {
+  padding: 1rem;
+}
+
+label {
+  .required {
+      color: red;
+  }
+}

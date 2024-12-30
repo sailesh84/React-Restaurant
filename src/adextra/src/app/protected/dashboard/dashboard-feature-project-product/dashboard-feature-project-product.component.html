@@ -1,0 +1,9 @@
+<strong>Product : </strong>
+<span class="badge badge-pill text-truncate" style="border: 1px dashed #000; color: #fff; max-width: 100% !important;"
+  *ngIf="product" [ngStyle]="{'backgroundColor': product?.color}">
+  <!-- {{ product?.name | uppercase }} : {{ productName | uppercase }} : {{ name | uppercase }} -->
+  {{ product?.name | uppercase }} : {{ isProdName === true ? productName : name }}
+
+</span>
+
+

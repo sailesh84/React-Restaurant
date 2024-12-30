@@ -1,0 +1,242 @@
+.input-group {
+  .input-group-append > .input-group-text, .input-group-prepend > .input-group-text {
+    color: #009dd6;
+    border-color: #009dd6;
+    background-color: transparent;
+  }
+  input, input.form-control{
+    color: #009dd6;
+    border-color: #009dd6;
+  }
+  input::placeholder, input.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 1; /* Firefox */
+    color: #009dd6;
+  }
+  input:-ms-input-placeholder, input.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #009dd6;
+  }
+  input::-ms-input-placeholder, input.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #009dd6;
+  }
+  input:focus, input.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 157, 214, 0.5);
+  }
+}
+
+.list-unstyled > .media {
+	margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+    -webkit-transition: .1s cubic-bezier(.165,.84,.44,1);
+    transition: all .1s cubic-bezier(.165,.84,.44,1);
+}
+
+// .list-unstyled > .vessel-border{
+// 	border-left: 2rem solid #a1a1a1;
+// }
+
+// @media (min-width: 1200px){
+// 	.vessel-name{
+// 		-webkit-writing-mode: vertical-rl;
+// 		-ms-writing-mode: tb-rl;
+// 		writing-mode: vertical-rl;
+// 		-webkit-text-orientation: sideways;
+// 		text-orientation: sideways;
+// 		-webkit-transform: rotate(-180deg);
+// 		transform: rotate(-180deg);
+// 		margin: 1rem 1rem 1rem -25px!important;
+// 		height: -webkit-max-content;
+// 		height: -moz-max-content;
+// 		height: max-content;
+// 		text-align: center;
+// 		position: relative;
+// 		color: #fff;
+// 		font-size: 10pt;
+// 	}
+	
+// 	.vessel-image{
+// 		width: 25%!important;
+// 	}
+// }
+
+//Badge styles
+.ng-select.ng-select-single .ng-select-container .ng-value-container, .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge-light-contrast {
+  border: 1px solid #343a40!important;
+}
+
+.user-badge {
+  height: 2rem!important;
+  padding-top: 0!important;
+  padding-left: 0!important;
+}
+
+.badge-pill {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 1.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.95rem;
+  -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.avatar-circle {
+  margin-top: -1px!important;
+  margin-left: -1px!important;
+  height: 2rem!important;
+  width: 2rem!important;
+  border-radius: 1rem!important;
+  margin-right: 0.25rem!important;
+}
+
+// # CSS for Project (also Favourite Project) Bar starts #------------
+.vessel-name {
+  color: white;
+  font-size: 10pt;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .vessel-name {
+    margin: -25px 1rem 1rem 1rem !important;
+    width: 100%;
+    position: relative;
+  }
+
+  .vessel-image {
+    width: 85% !important;
+  }
+
+  .vessel-border {
+    border-top: 2rem solid #a1a1a1;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .vessel-name {
+    margin: -25px 1rem 1rem 1rem !important;
+    width: 100%;
+    position: relative;
+  }
+
+  .vessel-image {
+    width: 40% !important;
+  }
+
+  .vessel-border {
+    border-top: 2rem solid #a1a1a1;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .vessel-name {
+    margin: -25px 1rem 1rem 1rem !important;
+    width: 100%;
+    position: relative;
+  }
+
+  .vessel-image {
+    width: 85% !important;
+  }
+
+  .vessel-border {
+    border-top: 2rem solid #a1a1a1;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .vessel-name {
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    transform: rotate(-180deg);
+    margin: 1rem 1rem 1rem -25px !important;
+    height: max-content;
+    text-align: center;
+    position: relative;
+  }
+
+  .vessel-image {
+    width: 85% !important;
+  }
+
+  .vessel-border {
+    border-left: 2rem solid #a1a1a1;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .vessel-border {
+    border-left: 2rem solid #a1a1a1;
+  }
+
+  .vessel-name {
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    transform: rotate(-180deg);
+    margin: 1rem 1rem 1rem -25px !important;
+    height: max-content;
+    text-align: center;
+    position: relative;
+  }
+
+  .vessel-image {
+    width: 25% !important;
+  }
+}
+// # CSS for Project (also Favourite Project) Bar ends #------------
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    h5, .h5 {
+      font-size: 1.05rem;
+      text-align: left !important;
+  }
+
+  .media-body {
+    text-align: center;
+  }
+
+  .ng-value > .text-primary, .ng-value > strong {
+    font-size: 12px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  h5, .h5 {
+      font-size: 1.05rem;
+  }
+
+  .media-body {
+    text-align: center;
+  }
+
+  .ng-value > .text-primary, .ng-value > strong {
+    font-size: 12px;
+  }
+}

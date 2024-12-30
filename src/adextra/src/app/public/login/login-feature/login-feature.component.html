@@ -1,0 +1,94 @@
+<form role="form" #loginForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="on">
+  <div class="form-content">
+    <!-- <div class="form-group">
+      <input type="text" formControlName="username" name="username" class="form-control input-underline input-lg"
+             id="username_login" placeholder="Username" required="required" aria-label="" (keyup.enter)="onSubmit()"/>
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger text-left">
+        <span *ngIf="username.errors.required">
+          <i class="material-icons md-center">error_outline</i> Username is required.
+        </span>
+        <span *ngIf="username.errors.minlength">
+          <i class="material-icons md-center">error_outline</i> Username must be at least 2 characters long.
+        </span>
+      </div>
+    </div> -->
+    <div class="form-group">
+      <!-- <input type="password" formControlName="password" name="password" class="form-control input-underline input-lg"
+             id="password_login" placeholder="Password" required="required" aria-label=""  (keyup.enter)="onSubmit()"/>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger text-left">
+        <span *ngIf="password.errors.required">
+          <i class="material-icons md-center">error_outline</i> Password is required.
+        </span>
+        <span *ngIf="password.errors.minlength">
+          <i class="material-icons md-center">error_outline</i> Password must be at least 2 characters long.
+        </span>
+      </div> -->
+    </div>
+    <!-- <div class="form-group">
+      <select class="custom-select select-underline select-lg" formControlName="type" name="type" id="type_login"
+              placeholder="Account type" required="required" aria-label="" >
+        <option value="internal">Technip employees</option>
+        <option value="external">Partner</option>
+      </select>
+      <div *ngIf="type.invalid && (type.dirty || type.touched)" class="text-danger text-left">
+        <span *ngIf="type.errors.required">
+          <i class="material-icons md-center">error_outline</i> Account type is required.
+        </span>
+      </div>
+    </div> -->
+
+  
+
+  </div>
+
+  <!-- <button type="button" class="btn btn-link mb-5 btn-forget-password" (click)="showResetPasswordModal()">
+    Forget password ?
+  </button> -->
+  <br>
+
+  <a class="btn rounded-btn " style="width: 40%; font-size: larger;" href="javascript:void(0)" (click)="login()">
+    <div class="spinner-border spinner-border-sm d-none" role="status" style="margin-left: -0.5em !important;">
+      <span class="sr-only">Loading...</span>
+    </div>
+    Login
+  </a>
+
+  <!-- <div class="form-group">
+    <button [disabled]="!captchaResolved" type="submit" class="btn btn-primary rounded-btn"
+      [ngClass]="{'disabled': !loginForm.valid}">Login</button>
+    </div> -->
+    <!-- <a class="btn rounded-btn"  href="/register">Register</a> -->
+  
+  <!-- <a class="btn rounded-btn" href="javascript:void(0)" (click)="onCancel()">Cancel</a> -->
+
+</form>
+
+<ng-template #modalResetPassword let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Forget password ?</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="typeModal" [dismissible]="true" (close)="closeModal = true" *ngIf="messageModal"
+      [innerHTML]="messageModal">
+    </ngb-alert>
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="email_reset_password">Email</label>
+          <input type="email" class="form-control" id="email_reset_password" name="email" [(ngModel)]="emailReset" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="resetPassword(modal)" ngbAutofocus>
+      <i class="material-icons md-center">send</i>Send
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>

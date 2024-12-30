@@ -1,0 +1,16 @@
+.bs-stepper .step-trigger {
+  color: $dark;
+}
+
+.bs-stepper .active .step-trigger {
+  color: $secondary;
+}
+
+.active .bs-stepper-circle {
+  background-color: $secondary;
+}
+
+.bs-stepper-circle {
+  background-color: $dark;
+}
+

@@ -1,0 +1,35 @@
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <app-sidebar [isCollapsed]="hideSidebar" [levelAccess]="userAccess" class="bg-gradient-primary"></app-sidebar>
+  <!-- End of Sidebar -->
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+      <app-navbar (collapseSidebarEvent)="collapseSidebarEvent($event)"></app-navbar>
+      <!-- End of Topbar -->
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <app-loader></app-loader>
+        <app-feedback></app-feedback>
+        <router-outlet></router-outlet>
+      </div>
+      <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+<!--    <app-footer></app-footer>-->
+    <!-- End of Footer -->
+
+  </div>
+  <!-- End of Content Wrapper -->
+
+</div>

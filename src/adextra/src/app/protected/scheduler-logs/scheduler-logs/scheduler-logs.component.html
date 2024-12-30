@@ -1,0 +1,154 @@
+<!-- Page Heading -->
+<div class="d-flex align-items-center justify-content-between mb-4 d-md-none">
+    <h1 class="h3 mb-0 text-section">{{ title }}</h1>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow mb-4 parent-card">
+            <div class="card-header py-3 pl-1 pr-1 row no-gutters align-items-center">
+                                <!-- Range type List  -->
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 col-xl-2 mr-2 ml-2">
+                                    <div class="input-group input-group-sm">
+                                        <ng-select [items]="rangeTypeList" ngbTooltip="please select the type of date filter you want, you may filter by timerange or a specific date and time" bindLabel="name" bindValue="_id"
+                                            [(ngModel)]="rangeType" placeholder="Select a Timerange type"
+                                            class="form-control ng-select-info" (change)="onRageTypeChange($event)">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                <!-- Timerange List  -->
+                <div *ngIf="rangeType == 0" class="col-xs-6 col-sm-6 col-md-6 col-lg-2 col-xl-2 mr-2 ml-2">
+                    <div class="input-group input-group-sm">
+                        <ng-select ngbTooltip="select the desired time range you want to filter the scheduler logs" [items]="timerangeList" bindLabel="name" bindValue="_id"
+                            [(ngModel)]="schedulerLogs.timerange" placeholder="Select a Timerange"
+                            class="form-control ng-select-info" (change)="onTimerangeChange($event)">
+                        </ng-select>
+                    </div>
+                </div>
+                <!-- Start Date  -->
+                <div *ngIf="rangeType == 1" class="col-xs-6 col-sm-6 col-md-6 col-lg-2 col-xl-2 mr-2">
+                    <div ngbTooltip="Select the desired time and date to filter the logs, please select the date considering your timezone, it will search for the respective UTC time in the logs." class="input-group input-group-sm">
+                        <input placeholder="Enter a start date" class="form-control" name="start"
+                            (blur)="inputBlur($event)" [ngModel]="schedulerLogs.start | date: inputDatetimeFormat"
+                            (change)="onInputChange($event)" [disabled]="isDisabled" />
+
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" [ngbPopover]="calendarContent"
+                                [disabled]="disabled" type="button">
+                                <i class="material-icons md-center md-xs">calendar_today</i>
+                            </button>
+                        </div>
+                    </div>
+                    <ng-template #calendarContent>
+                        <div>
+                            <div>
+                                <ngb-datepicker id="dp" #dp name="datepicker" [ngModel]="datetime"
+                                    (ngModelChange)="onDateChange($event, dp)">
+                                </ngb-datepicker>
+                                <ngb-timepicker #tp name="timepicker" [ngModel]="datetime"
+                                    (ngModelChange)="onTimeChange($event, tp)" [seconds]="seconds" [hourStep]="hourStep"
+                                    [minuteStep]="minuteStep" [secondStep]="secondStep">
+                                </ngb-timepicker>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+                <!-- End Date  -->
+                <div *ngIf="rangeType == 1" class="col-xs-6 col-sm-6 col-md-6 col-lg-2 col-xl-2 mr-2">
+                    <div ngbTooltip="Select the desired time and date to filter the logs, please select the date considering your timezone, it will search for the respective UTC time in the logs." class="input-group input-group-sm">
+                        <div class="input-group input-group-sm">
+                            <input placeholder="Enter a end date" class="form-control" name="end"
+                                (blur)="inputBlur($event)" [ngModel]="schedulerLogs.end | date: inputDatetimeFormat"
+                                (change)="onInputChange($event)" [disabled]="isDisabled" />
+
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" [ngbPopover]="calendarContent1"
+                                    [disabled]="disabled" type="button">
+                                    <i class="material-icons md-center md-xs">calendar_today</i>
+                                </button>
+                            </div>
+                        </div>
+                        <ng-template #calendarContent1>
+                            <div>
+                                <div>
+                                    <ngb-datepicker id="dp1" #dp1 name="datepicker" [ngModel]="dateEndtime"
+                                        (ngModelChange)="onEndDateChange($event, dp1)">
+                                    </ngb-datepicker>
+                                    <ngb-timepicker #tp1 name="timepicker" [ngModel]="dateEndtime"
+                                        (ngModelChange)="onEndTimeChange($event, tp1)" [seconds]="seconds"
+                                        [hourStep]="hourStep" [minuteStep]="minuteStep" [secondStep]="secondStep">
+                                    </ngb-timepicker>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+                <!-- Server Instance List  -->
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 col-xl-2 mr-2">
+                    <div class="input-group input-group-sm">
+                        <ng-select [items]="virtualMachineList" ngbTooltip="please select the virtual machine the scheduler is running, you can find it in schedulers page, it is the VM field" bindLabel="shortName" bindValue="serverName"
+                            [(ngModel)]="schedulerLogs.server_instance" placeholder="Select a Server Instance"
+                            class="form-control ng-select-info" (change)="onServerInstanceChange($event)">
+                        </ng-select>
+                    </div>
+                </div>
+                <!-- Severity Level List  -->
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 col-xl-2 mr-2">
+                    <div class="input-group input-group-sm">
+                        <ng-select ngbTooltip="select the log severity log you want to filter, to see all logs please select option ALL" [items]="severityLevelList" bindLabel="name" bindValue="_id"
+                            [(ngModel)]="schedulerLogs.severity_level" placeholder="Select a Severity Level"
+                            class="form-control ng-select-info" (change)="onSeverityLevelChange($event)">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-1 col-xl-1">
+                    <button class="btn btn-primary btn-sm" (click)="submitSchedulerLogs()">
+                        Submit
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="card-body" id="panel-body-analysis-history">
+                <div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="error-content-loading text-danger text-center">
+                            <div class="connection-error">
+                                <p>Connection error</p>
+                            </div>
+                            <div class="refresh">
+                                <button class="btn btn-outline-danger" (click)="refresh()">
+                                    <i class="material-icons md-center">refresh</i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <ngb-tabset>
+                            <ngb-tab>
+                                <ng-template ngbTabTitle><b>Information</b></ng-template>
+                                <ng-template ngbTabContent>
+                                    <div *ngIf="state.isLoaded === true && state.canConnect === true; else noInfo">
+                                        <app-scheduler-logs-info [timeRange]="schedulerLogs.timerange"
+                                            [serverInstance]="schedulerLogs.server_instance"
+                                            [severityLevel]="schedulerLogs.severity_level" [start]="schedulerLogs.start"
+                                            [end]="schedulerLogs.end">
+                                        </app-scheduler-logs-info>
+                                    </div>
+                                    <ng-template #noInfo>
+                                        <div class="col-12 mt-5 text-center text-secondary text-lg">
+                                            No information to display.
+                                        </div>
+                                    </ng-template>
+                                </ng-template>
+                            </ngb-tab>
+                        </ngb-tabset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+<!-- Content Row -->
+<div class="row" [ngClass]="{'mb-5': state.isLoaded === true && state.canConnect !== true}">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover
+    dt-responsive" style="width:100%"
+    >
+      <thead>
+      <tr>
+        <th style="width: 130px;" data-orderable="false">Action</th>
+        <th>Reason</th>
+        <th>Type</th>
+        <th style="width: 180px;">Created at</th>
+        <th style="width: 180px;" >Closed at</th>
+        <th>Status</th>
+        <th>Managed by</th>
+      </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalView let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">View request</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div> <!-- form -->
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="view_request_id">ID</label>
+          <span class="element-view" id="view_request_id">{{ request._id }}</span>
+        </div>
+        <div class="form-group col-12">
+          <label for="view_request_reason">Reason</label>
+          <div style="height: 250px; max-height: 250px; overflow-x: hidden; overflow-y: auto; white-space: pre-line"
+               class="element-view" id="view_request_reason" [innerHTML]="request.reason"
+          >
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_request_created_at">Created At</label>
+          <span class="element-view" id="view_request_created_at">
+            {{ request.createdAt | date: 'EEE dd LLL yyyy HH:mm:ss (zzzz)' : 'UTC' }}
+          </span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_request_closed_at">Closed At</label>
+          <span class="element-view" id="view_request_closed_at">
+            {{ (request.closedAt === 0) ? '' : request.closedAt | momentDate: 'EEE dd LLL yyyy HH:mm:ss (zzzz)' : 'UTC' }}
+          </span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_request_buyer_type">Type</label>
+          <div class="element-view" id="view_request_buyer_type" [innerHTML]="getBadges('type', request.type)"></div>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_request_status">Status</label>
+          <div class="element-view" id="view_request_status" [innerHTML]="getBadges('status', request.status)"></div>
+        </div>
+        <div class="form-group col-12">
+          <label for="view_request_managed_by">Managed By</label>
+          <div style="height: 100px; max-height: 100px; overflow-x: hidden; overflow-y: auto;"
+               class="element-view" id="view_request_managed_by"
+          >
+            <div *ngFor="let p of request.managedBy; index as i; trackBy: trackByFn"><span>{{ p }}</span><br /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')" ngbAutofocus>
+      <i class="material-icons md-center">close</i>Close
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalAdd let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add request</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="add_request_buyer_name">Buyer name</label>
+          <input type="text" class="form-control" [(ngModel)]="request.buyerName" id="add_request_buyer_name"
+                 name="buyerName" disabled
+          />
+        </div>
+        <div class="form-group col-6">
+          <label for="add_request_email">Buyer email</label>
+          <input type="text" class="form-control" [(ngModel)]="request.email" id="add_request_email"
+                 name="email" disabled
+          />
+        </div>
+        <div class="form-group col-12">
+          <label for="add_request_reason">Reason</label>
+          <textarea cols="30" rows="10" class="form-control" [(ngModel)]="request.reason" id="add_request_reason"
+                    name="reason"
+          >
+          </textarea>
+        </div>
+        <div class="form-group col-6">
+          <label for="add_request_type">Type</label>
+          <select class="custom-select form-control" [(ngModel)]="request.type" id="add_request_type"
+                  name="type" disabled
+          >
+            <option [ngValue]="0">Registration</option>
+            <option [ngValue]="1" selected>Other</option>
+          </select>
+        </div>
+        <div class="form-group col-6">
+          <label for="add_request_status">Status</label>
+          <select class="custom-select form-control" [(ngModel)]="request.status" id="add_request_status"
+                  name="status" disabled
+          >
+            <option [ngValue]="0" selected>Created</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="addRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>

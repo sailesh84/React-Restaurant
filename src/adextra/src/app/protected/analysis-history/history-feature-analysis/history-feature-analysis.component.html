@@ -1,0 +1,16 @@
+<div *ngIf="analysis; else noCharts" class="col-12">
+  <ng-select [items]="wOptionList" bindLabel="name" bindValue="value" name="wo" [(ngModel)]="selectedWoptionList"
+    placeholder="Select Weatherwaning" class="ng-select-info"
+    style="max-width: 100%; margin-top: 10px; margin-bottom: 10px; float: right;" (change)="onWoptionListChange($event, opt)"
+    [clearable]="false" [hidden]="isDisplayWo">
+  </ng-select>
+  <highcharts-chart [Highcharts]="highcharts" [options]="opt" [(update)]="updateFlag" [oneToOne]="oneToOneFlag"
+    style="width: 100%; height: 500px; display: block;max-height: 500px;"
+    *ngFor="let opt of optionsGeneratedCharts; index as i; trackBy: trackByFn">
+  </highcharts-chart>
+</div>
+<ng-template #noCharts>
+  <div class="col-12 mt-5 text-center text-secondary text-lg">
+    No charts to display.
+  </div>
+</ng-template>

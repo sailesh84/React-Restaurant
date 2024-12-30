@@ -1,0 +1,32 @@
+.input-group {
+  .input-group-append > .input-group-text, .input-group-prepend > .input-group-text {
+    color: #009dd6;
+    border-color: #009dd6;
+    background-color: transparent;
+  }
+  select, select.custom-select{
+    color: #009dd6;
+    border-color: #009dd6;
+  }
+  select::placeholder, select.custom-select::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 1; /* Firefox */
+    color: #009dd6;
+  }
+  select:-ms-input-placeholder, select.custom-select:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #009dd6;
+  }
+  select::-ms-input-placeholder, select.custom-select::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #009dd6;
+  }
+  select:focus, select.custom-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 157, 214, 0.5);
+  }
+}
+
+.pdf-wrapper {
+  opacity: 0;
+  height: 0px;
+}

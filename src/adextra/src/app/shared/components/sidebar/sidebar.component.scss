@@ -1,0 +1,72 @@
+.chevron_toggle {
+  font-weight: 900;
+  margin-right: 0.1rem;
+  color: white !important;
+}
+.img-custom {
+  max-height: 45px !important;
+  width: auto !important;
+}
+
+.sidebar-toggled {
+  width: 0 !important;
+  overflow: hidden;
+}
+
+// animation and transition effects
+.animated {
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+.sidebar{
+  -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
+  transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
+}
+
+.sidebar:before {
+  opacity: 0;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transition: all .35s ease-in-out;
+  transform: translate3d(0,0,0);
+  transition: all .35s ease-in-out;
+}
+
+.sidebar:hover:before {
+  opacity: 1;
+  display: block;
+  -webkit-transform: translate3d(-100px,0,0);
+  -webkit-transition: all .35s ease-in-out;
+  transform: translate3d(-100px,0,0);
+  transition: all .35s ease-in-out;
+}
+
+.sidebar-toggled:hover{
+  top: 0;
+  -webkit-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
+}
+
+.sidebar-toggled:before {
+  opacity: 0;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transition: all .35s ease-in-out;
+  transform: all .35s ease-in-out;
+  transition: translate3d(0,0,0);
+}
+
+.sidebar-toggled:hover:before {
+  opacity: 1;
+  display: block;
+  -webkit-transform: translate3d(-100px,0,0);
+  -webkit-transition: all .35s ease-in-out;
+  transform: translate3d(-100px,0,0);
+  transition: translate3d(-100px,0,0);
+}

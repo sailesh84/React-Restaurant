@@ -1,0 +1,5 @@
+<span *ngIf="forecast">
+  <strong>Last update : </strong>{{ forecast?.dateUpdated |
+  momentDate: 'dd LLL yyyy HH:mm (zzzz)' : (timezone) ? timezone : 'UTC' }}
+</span>
+

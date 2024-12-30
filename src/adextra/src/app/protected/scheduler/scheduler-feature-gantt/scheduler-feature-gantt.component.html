@@ -1,0 +1,16 @@
+<div *ngIf="scheduler && scheduler._id; else noSchedulerBlock">
+  <highcharts-chart [Highcharts]="highcharts" [constructorType]="'ganttChart'" [options]="chartOptions"
+                    style="width: 100%; height: 100%; display: block; max-height: 100%;"
+
+  >
+  </highcharts-chart>
+</div>
+<ng-template #noSchedulerBlock>
+  <div class="row">
+    <div class="col-12">
+      <h3 class="text-secondary text-center mt-5">
+        No scheduler to show
+      </h3>
+    </div>
+  </div>
+</ng-template>

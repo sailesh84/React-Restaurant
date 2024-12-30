@@ -1,0 +1,69 @@
+<div class="row m-2">
+  <div class="col-12">
+    <div class="row no-gutters">
+      <div class="col-12">
+        <div *ngIf="(this.scheduler.modularList && this.scheduler.modularList.length > 0) else noTableToShow" class="table-responsive">
+          <label>Modular Analysis</label>
+          <!-- Content Row -->
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <table datatable [dtOptions]="dtOptions"  class="table table-bordered table-hover
+                dt-responsive" style="width:100%">
+                      <thead>
+                          <tr>
+                              <th style="width: 125px;" data-orderable="false">Action</th>
+                              <th>Scheduler Name</th>
+                              <th>Modular Analysis Info</th>
+                              <th>Enabled</th>
+                          </tr>
+                      </thead>
+                  </table>
+              </div>
+            </div>
+        </div>
+        <ng-template #noTableToShow>
+          <h3 class="text-secondary text-center mt-5">
+            No modular analysis to show
+          </h3>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalRefresh let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title">Enable modular analysis</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+          <strong>Warning !</strong> {{ errorMessageModal }}
+      </ngb-alert>
+      <div class="col-12">
+          <div *ngIf="refreshSuccessRespType; else elseBlock" class="alert alert-warning" role="alert">
+              Do you want to enable the modular analysis ({{modularAnalysis.name}})? Pressing Yes will schedule it to 5 minutes from now.
+          </div>
+          <ng-template #elseBlock>
+              <div class="alert alert-warning" role="alert">
+                  {{refreshSuccesResp}}
+              </div>
+          </ng-template>
+      </div>
+  </div>
+  <div class="modal-footer">
+      <div *ngIf="refreshSuccessRespType; else elseFBlock">
+          <button type="button" class="btn btn-success" (click)="scheduleModularAnalysis(modal)" ngbAutofocus>
+              <i class="material-icons md-center">enable</i>Yes
+          </button>
+          <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+              <i class="material-icons md-center">cancel</i>No
+          </button>
+      </div>
+      <ng-template #elseFBlock>
+          <button type="button" class="btn btn-primary" (click)="accept(modal)">Ok</button>
+      </ng-template>
+  </div>
+</ng-template>

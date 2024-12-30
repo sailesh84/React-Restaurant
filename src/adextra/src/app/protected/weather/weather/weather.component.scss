@@ -1,0 +1,23 @@
+@media only screen and (max-height: 700px) {
+  .embed_weather {
+    min-height: 58vh;
+  }
+}
+
+@media only screen and (min-height: 700px) and (max-height: 900px) {
+  .embed_weather {
+    min-height: 65vh;
+  }
+}
+
+@media only screen and (min-height: 900px) and (max-height: 1400px) {
+  .embed_weather {
+    min-height: 75vh;
+  }
+}
+
+@media only screen and (min-height: 1400px) {
+  .embed_weather {
+    min-height: 85vh;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="row mt-5 mb-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+    <div class="col-12">
+        <div class="error-content-loading text-danger text-center">
+            <div class="connection-error">
+                <p>Connection error</p>
+            </div>
+            <div class="refresh">
+                <button class="btn btn-outline-danger" (click)="refresh()">
+                    <i class="material-icons md-center">refresh</i> Refresh
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="state.isLoaded === true && state.canConnect === true">
+    <div *ngIf="weatherInterpreter; else noCharts">
+
+        <ng-container *ngIf="weatherInterpreter.message === 'Error with API forecaster'; else noMessage">
+            <div class="col-12 mt-5 text-center text-secondary text-lg">
+                {{isnoChartsMessage}}
+            </div>
+        </ng-container>
+
+        <ng-template #noMessage>
+            <!-- <ng-select [items]="wOptionList" bindLabel="name" bindValue="value" name="wo" [(ngModel)]="selectedWoptionList"
+          placeholder="Select Weatherwaning" class="ng-select-info"
+          style="max-width: 100%; margin-top: 10px; float: right; width: 200px;" (change)="onWoptionListChange($event, opt)"
+          [clearable]="false" [hidden]="isDisplayWo">
+        </ng-select> -->
+
+            <h3 class="h5 mt-3 text-secondary" style="font-size: 16px;">Weather interpreter time : {{wtDateTime | momentDate: 'dd
+                LLL yyyy HH:mm (zzzz)' : (project?.timezone) ?
+                project?.timezone : 'UTC'}}</h3>
+
+            <highcharts-chart [Highcharts]="highcharts" [constructorType]="'stockChart'" [options]="chartOptions"
+                style="width: 100%; height: 700px; display: block; max-height: 700px;" class="mt-4">
+            </highcharts-chart>
+        </ng-template>
+    </div>
+    <ng-template #noCharts>
+        <div class="col-12 mt-5 text-center text-secondary text-lg">
+            No charts to display.
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,153 @@
+<!-- Page Heading -->
+<div class="d-flex align-items-center justify-content-between mb-4 d-md-none">
+  <h1 class="h3 mb-0 text-section">{{ title }}</h1>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-5 mt-2">
+    <h3 class="text-muted text-center">Available as desktop app</h3>
+  </div>
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="card-columns">
+      <div class="card mr-3">
+        <img src="./assets/images/windows-logo.svg" class="card-img-top" alt="windows">
+        <div class="card-body text-sm-center">
+          <div class="card-title text-primary">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xl-11"><h5>WINDOWS</h5></div>
+                <div class="col-xl-1">
+                  <button type="button" class="btn btn-link" (click)="collapsePanel(0)"
+                          [attr.aria-expanded]="!isCollapsePanels[0]" aria-controls="collapse_section_0">
+                    <i class="material-icons md-center">{{ expandIcons[0] }}</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="collapse_section_0" [ngbCollapse]="isCollapsePanels[0]">
+          <ul class="list-group list-group-flush no-gutters">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">NSIS Installer</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">ZIP Archive</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">Portable App</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card mr-3">
+        <img src="./assets/images/mac-logo.svg" class="card-img-top" alt="mac">
+        <div class="card-body text-sm-center">
+          <div class="card-title text-primary">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xl-11">
+                  <h5>MAC</h5>
+                </div>
+                <div class="col-xl-1">
+                  <button type="button" class="btn btn-link" (click)="collapsePanel(1)"
+                          [attr.aria-expanded]="!isCollapsePanels[1]" aria-controls="collapse_section_1">
+                    <i class="material-icons md-center">{{ expandIcons[1] }}</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="collapse_section_1" [ngbCollapse]="isCollapsePanels[1]">
+          <ul class="list-group list-group-flush no-gutters">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">PKG Installer</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">TGZ Archive</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">DMG</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/images/linux-logo.svg" class="card-img-top" alt="linux">
+        <div class="card-body text-sm-center">
+          <div class="card-title text-primary">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xl-11"><h5>LINUX</h5></div>
+                <div class="col-xl-1">
+                  <button type="button" class="btn btn-link" (click)="collapsePanel(2)"
+                          [attr.aria-expanded]="!isCollapsePanels[2]" aria-controls="collapse_section_2">
+                    <i class="material-icons md-center">{{ expandIcons[2] }}</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="collapse_section_2" [ngbCollapse]="isCollapsePanels[2]">
+          <ul class="list-group list-group-flush no-gutters">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">DEB Installer</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">SNAP App</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">TGZ Archive</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-info">AppImage</span>
+              <div class="btn-group btn-group-sm" role="group">
+                <a href="javascript:void(0)" class="btn btn-outline-dark">32 bit</a>
+                <a href="javascript:void(0)" class="btn btn-outline-dark">64 bit</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

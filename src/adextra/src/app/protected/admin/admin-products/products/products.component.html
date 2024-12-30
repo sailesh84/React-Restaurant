@@ -1,0 +1,162 @@
+<!-- Page Heading -->
+<div class="d-flex align-items-center justify-content-between mb-4 d-md-none">
+  <h1 class="h3 mb-0 text-section">{{ title }}</h1>
+</div>
+
+<!-- Content Row -->
+<div class="row" [ngClass]="{'mb-5': state.isLoaded === true && state.canConnect !== true}">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover
+    dt-responsive" style="width:100%">
+      <thead>
+        <tr>
+          <th style="width: 85px;" data-orderable="false">Action</th>
+          <th>Name</th>
+          <th style="width: 150px;">Color</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalAdd let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); validationModal = false;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+      <h1 class="display-4">Required Information</h1>
+      <ng-container *ngFor="let itemVM of validateVM">
+        <div class="ng-value">
+          <span class="ng-value-label">{{itemVM}}</span>
+        </div>
+      </ng-container>
+    </div>
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="add_product_name">Name <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" [(ngModel)]="product.name" id="add_product_name" name="name" />
+        </div>
+        <div class="form-group col-12">
+          <label for="add_product_color">Color</label>
+          <span class="form-control" id="add_product_color" name="color" [(colorPicker)]="product.color"
+            [style.background]="product.color" [cpOKButton]="true" [cpCancelButton]="true" [cpPosition]="'bottom'"
+            [cpCancelButtonClass]="'btn btn-outline-primary btn-xs'"
+            [cpOKButtonClass]="'btn btn-outline-primary btn-xs'"></span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="addRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); validationModal = false;">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); validationModal = false;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+      <h1 class="display-4">Required Information</h1>
+      <ng-container *ngFor="let itemVM of validateVM">
+        <div class="ng-value">
+          <span class="ng-value-label">{{itemVM}}</span>
+        </div>
+      </ng-container>
+    </div>
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_product_name">Name <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" [(ngModel)]="product.name" id="edit_product_name" name="name" />
+        </div>
+        <div class="form-group col-12">
+          <label for="edit_product_color">Color</label>
+          <span class="form-control" id="edit_product_color" name="color" [(colorPicker)]="product.color"
+            [style.background]="product.color" [cpOKButton]="true" [cpCancelButton]="true" [cpPosition]="'bottom'"
+            [cpCancelButtonClass]="'btn btn-outline-primary btn-xs'"
+            [cpOKButtonClass]="'btn btn-outline-primary btn-xs'"></span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="saveEditRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); validationModal = false;">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Delete product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <div class="col-12">
+      <div *ngIf="deleteSuccessRespType; else elseBlock" class="alert alert-warning" role="alert">
+        Do you want to delete the row of ID {{ product._id }} ?
+      </div>
+      <ng-template #elseBlock>
+        <div class="alert alert-warning" role="alert">
+          {{deleteSuccesResp}}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div *ngIf="deleteSuccessRespType; else elseFBlock">
+      <button type="button" class="btn btn-danger" (click)="deleteRow(modal)" ngbAutofocus>
+        <i class="material-icons md-center">delete</i>Yes
+      </button>
+      <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+        <i class="material-icons md-center">cancel</i>No
+      </button>
+    </div>
+    <ng-template #elseFBlock>
+      <button type="button" class="btn btn-primary" (click)="accept(modal)">Ok</button>
+    </ng-template>
+  </div>
+</ng-template>

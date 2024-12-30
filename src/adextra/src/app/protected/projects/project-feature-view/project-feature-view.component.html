@@ -1,0 +1,86 @@
+<!-- Content Row -->
+<div class="row">
+  <div class="col-xl-12 col-md-12 mb-12" id="analysis-tab-body">
+    <ngb-tabset>
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Summary</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-project-feature-summary [project]="project" [vesselID]="vesselID" [session]="session"
+            [forecaster]="forecaster" [schedulerID]="schedulerID" [isAlphaFactor]="isAlphaFactor"
+            (isCurrentForecasterActive)="checkCurrentForecasterStatusFromSummary($event)">
+          </app-project-feature-summary>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Analysis</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-project-feature-analysis [projectID]="project._id" [vesselID]="vesselID" [session]="session"
+            [forecaster]="forecaster"
+            (isCurrentForecasterActive)="checkCurrentForecasterStatusFromAnalysis($event)">
+          </app-project-feature-analysis>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Weather Forecaster</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-project-feature-forecasts [project]="project" [vesselID]="vesselID" [session]="session"
+            [forecaster]="forecaster"
+            (isCurrentForecasterActive)="checkCurrentForecasterStatusFromWF($event)">
+          </app-project-feature-forecasts>
+        </ng-template>
+      </ngb-tab>
+
+      <!-- <ngb-tab *ngIf="isFatigue">
+        <ng-template ngbTabTitle><b>Fatigue</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-project-feature-result [project]="project" [vesselID]="vesselID" [projectTypeID]="projectTypeID"
+            [session]="session" [schedulerID]="schedulerID">
+          </app-project-feature-result>
+        </ng-template>
+      </ngb-tab> -->
+
+      <ngb-tab>
+        <!-- <ng-template ngbTabTitle><b>Current Forecaster</b></ng-template> -->
+        <ng-template ngbTabTitle><b>Current Forecaster</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-project-feature-result [project]="project" [vesselID]="vesselID" [projectTypeID]="projectTypeID"
+            [session]="session" [schedulerID]="schedulerID" [schedulerCurrent]="schedulerCurrent"
+            [schedulerCurrentData]="schedulerCurrentData" (isCurrentForecasterActive)="checkCurrentForecasterStatus($event)">
+          </app-project-feature-result>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Weather Interpreter</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-project-weather-interpreter [project]="project" [projectID]="project._id" [vesselID]="vesselID"
+            [projectTypeID]="projectTypeID" [forecaster]="forecaster" [session]="session"
+            (isCurrentForecasterActive)="checkCurrentForecasterStatusFromWI($event)">
+          </app-project-weather-interpreter>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Information</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-project-feature-info [project]="project" [vesselID]="vesselID" [projectTypeID]="projectTypeID"
+            [productName]="productName" [contactID]="contactID"
+            (isCurrentForecasterActive)="checkCurrentForecasterStatusFromInformation($event)">
+          </app-project-feature-info>
+        </ng-template>
+      </ngb-tab>
+
+      <!-- <ngb-tab>
+        <ng-template ngbTabTitle><b>Scheduler progress status</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-project-feature-result [project]="project" [vesselID]="vesselID" [projectTypeID]="projectTypeID"
+            [session]="session" [schedulerID]="schedulerID">
+          </app-project-feature-result>
+        </ng-template>
+      </ngb-tab> -->
+
+    </ngb-tabset>
+  </div>
+</div>

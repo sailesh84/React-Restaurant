@@ -1,0 +1,510 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>infield-analysis-portal documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">infield-analysis-portal documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+<ol class="breadcrumb">
+  <li>Miscellaneous</li>
+  <li>Variables</li>
+</ol>
+
+<section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#config" title="src/app/shared/modules/ng-sockets.module.ts"><b>config</b>&nbsp;&nbsp;&nbsp;(src/.../ng-sockets.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CONTENT" title="src/app/shared/mocks/explanations-model.ts"><b>CONTENT</b>&nbsp;&nbsp;&nbsp;(src/.../explanations-model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DATE_ADAPTERS" title="src/app/core/adapters/index.ts"><b>DATE_ADAPTERS</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DATE_FORMATTERS" title="src/app/core/formatters/index.ts"><b>DATE_FORMATTERS</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#HTTP_INTERCEPTOR_PROVIDERS" title="src/app/core/interceptors/index.ts"><b>HTTP_INTERCEPTOR_PROVIDERS</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NOTE" title="src/app/shared/mocks/explanations-model.ts"><b>NOTE</b>&nbsp;&nbsp;&nbsp;(src/.../explanations-model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SERVICE_PROVIDERS" title="src/app/core/services/index.ts"><b>SERVICE_PROVIDERS</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/shared/modules/ng-sockets.module.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="config"></a>
+                        <span class="name">
+                            <b>
+                            config</b>
+                            <a href="#config"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>SocketIoConfig</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{ url: environment.socket_server, options: {} }</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This variable represents the necessary parameters for open a connection with the WebSocket server.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/shared/mocks/explanations-model.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CONTENT"></a>
+                        <span class="name">
+                            <b>
+                            CONTENT</b>
+                            <a href="#CONTENT"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&lt;p&gt;Presented Infield Analyses are based on the MeteoGroup weather forecast data. Analyses are performed applying &#x27; +
+  &#x27;split waves (i.e. 2 wave trains: wind wave and swell wave) to better represent irregularity of sea and reduce the conservatism &#x27; +
+  &#x27;obtained by regular unidirectional analysis as performed and presented in installation analysis report.&lt;/p&gt;&lt;p&gt;It should be noted that &#x27; +
+  &#x27;while Infield analyses are performed on forecasted weather, office based installation analysis report has a set upper limit taken as &#x27; +
+  &#x27;3.5m Hs, based on the field metocean information. This limit does not mean that, subjected to a higher wave, product or vessel limits &#x27; +
+  &#x27;would be compromised.&lt;/p&gt;&lt;p&gt;The attached results summary table is showing the main product and equipment loads, and the product &#x27; +
+  &#x27;stress, for each of the installation stages. The results are presented as unity check, based on the maximum allowable loads and &#x27; +
+  &#x27;stress. The results summary is provided to give a better idea on obtained loads and stresses, as well as the criticality of the &#x27; +
+  &#x27;product/equipment, during the specific operation.&lt;/p&gt;&lt;p&gt;Seastates acceptability is indicating all the limiting parameters are within &#x27; +
+  &#x27;their acceptable limits, however the final decision on whether to commence or continue lay is the responsibility of the OCM and &#x27; +
+  &#x27;vessel master in consultation with the client representative. This decision must be based on interpretation of all available data, &#x27; +
+  &#x27;including but not limited to installation analysis, weather forecast, on site observations and infield analysis.&lt;/p&gt;&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="NOTE"></a>
+                        <span class="name">
+                            <b>
+                            NOTE</b>
+                            <a href="#NOTE"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&lt;p&gt;Additional Notes:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Infield analyses have only been performed in case the limiting Installation &#x27; +
+  &#x27;Analysis Report seastates are below the Weather forecast combined Hs values.&lt;/li&gt;&lt;/ul&gt;&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/core/adapters/index.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DATE_ADAPTERS"></a>
+                        <span class="name">
+                            <b>
+                            DATE_ADAPTERS</b>
+                            <a href="#DATE_ADAPTERS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  {provide: NgbDateAdapter, useClass: TimestampAdapter},
+  {provide: NgbTimeAdapter, useClass: TimeAdapter}
+]</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This variable contains the custom date adapter for the NgbDateAdapter module.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/core/formatters/index.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DATE_FORMATTERS"></a>
+                        <span class="name">
+                            <b>
+                            DATE_FORMATTERS</b>
+                            <a href="#DATE_FORMATTERS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  {provide: NgbDateParserFormatter, useClass: TimestampFormatter}
+]</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This variable contains the custom date formatter for the NgbDateParserFormatter module.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/environments/environment.prod.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="environment"></a>
+                        <span class="name">
+                            <b>
+                            environment</b>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  production: true,
+  socket_server: &#x27;/&#x27;,
+  api_server: &#x27;/api/v1/&#x27;,
+  // socket_server: &#x27;http://10.146.18.139:3000/&#x27;,
+  // api_server: &#x27;http://10.146.18.139:3000/api/v1/&#x27;,
+  vapid_public: &#x27;BK39_ntdZJU9TKiu5fjbxNmlrRZyN-EmnwcnvV6CD_Jmc7YkWgblTOWmpvJ8tzx1poZG2Gv76tZIT3WNbojaXJU&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This variable is used for the production mode.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="environment"></a>
+                        <span class="name">
+                            <b>
+                            environment</b>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  production: false,
+  socket_server: &#x27;/&#x27;,
+  api_server: &#x27;/api/&#x27;,
+  vapid_public: &#x27;BK39_ntdZJU9TKiu5fjbxNmlrRZyN-EmnwcnvV6CD_Jmc7YkWgblTOWmpvJ8tzx1poZG2Gv76tZIT3WNbojaXJU&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This variable is used for the development mode.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/core/interceptors/index.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="HTTP_INTERCEPTOR_PROVIDERS"></a>
+                        <span class="name">
+                            <b>
+                            HTTP_INTERCEPTOR_PROVIDERS</b>
+                            <a href="#HTTP_INTERCEPTOR_PROVIDERS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: ConvertInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: RetryInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: ProfilerInterceptor, multi: true },
+]</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This variable contains the HTTP interceptors list to loading.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/core/services/index.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SERVICE_PROVIDERS"></a>
+                        <span class="name">
+                            <b>
+                            SERVICE_PROVIDERS</b>
+                            <a href="#SERVICE_PROVIDERS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  AnalysisService,
+  AuthenticationService,
+  CacheService,
+  ErrorService,
+  EventsService,
+  ExplanationsService,
+  ProjectsService,
+  LoaderService,
+  PushNotificationService,
+  TitlePageService,
+  UsersService,
+  VesselsTypesService,
+  WeatherService,
+  WebsocketsServiceService,
+  ForecastersService,
+  RequestsService,
+  NotificationsService,
+  CountriesService,
+  VesselsService,
+  UserSharingService,
+  LogsService,
+  ProfilerService,
+  UploadService,
+  RegionsService,
+  ClientsService,
+  ProductsService,
+  ApplicationsAccessesService,
+  SchedulersService
+]</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This variable contains the service providers list to loading.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

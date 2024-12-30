@@ -1,0 +1,15 @@
+$border-sides: (
+  'top',
+  'left',
+  'bottom',
+  'right'
+);
+
+
+@each $color, $value in $theme-colors {
+  @each $position in $border-sides {
+    .border-#{$position}-#{$color} {
+      border-#{$position}: .25rem solid $value !important;
+    }
+  }
+}

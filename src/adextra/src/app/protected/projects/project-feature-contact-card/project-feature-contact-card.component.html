@@ -1,0 +1,12 @@
+<table class="h6 mb-0 contact-field-card" *ngIf="contact">
+  <tr>
+    <td colspan="2">For further information, please contact {{ contact?.firstname + ' ' + contact?.lastname}}</td>
+  </tr>
+  <tr>
+    <td style="min-width: 60px;">Email : </td><td style="text-align: right;"><a [href]="'mailto:' + contact?.email">{{ contact?.email }}</a></td>
+  </tr>
+  <tr>
+    <td style="min-width: 60px;">Phone : </td><td style="text-align: right;">{{ contact?.phones[0] }}</td>
+  </tr>
+</table>
+

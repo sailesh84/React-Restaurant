@@ -1,0 +1,74 @@
+<div class="card border-left-info shadow h-100 py-2">
+  <div class="card-body p-2">
+    <div class="row no-gutters align-items-center justify-content-center">
+      <div class="col-md-12 justify-content-center d-flex icon-card mb-3">
+        <i class="material-icons text-info md-center">my_location</i>
+      </div>
+      <div class="col-md-12 mb-3">
+        <div class="h5 font-weight-bold text-info text-uppercase justify-content-center d-flex mb-1">
+          <span class="text-truncate d-inline-block" style="max-width: 100% !important;">
+            {{ project?.code }} - {{ getClient(project?.client)?.name }} {{ project?.name }}
+          </span>
+          <i class="material-icons text-info custom-pointer" placement="right" [ngbTooltip]="getMessage()"
+            (click)="addOrDeleteToFavouriteProjects(!isFavourite())">{{ getIcon() }}</i>
+        </div>
+        <div class="row no-gutters align-items-center justify-content-center mb-2">
+          <div class="col-auto">
+            <div class="text-sm mb-0 mr-0 font-weight-bold text-gray-800">{{ project?.description }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-outline-info" (click)="collapsePanel()" [attr.aria-expanded]="!isCollapsed"
+          [attr.aria-controls]="'collapse_project_' + project?._id">
+          <i class="material-icons md-center">{{ expandIcon }}</i>
+        </button>
+      </div>
+    </div>
+    <div class="row no-gutters align-items-center collapse-list" [attr.id]="'collapse_project_' + project?._id"
+      [ngbCollapse]="isCollapsed">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <ul class="list-unstyled">
+          <li class="media row no-gutters align-items-center vessel-border" *ngFor="let vessel of filterVessel() | filter:searchVesselsText:vessels;
+                    index as i; trackBy: trackByFn" [attr.aria-id]="vessel?.vessel_id"
+            [routerLink]="['/projects', {pr: project?._id, ve: vessel?.vessel_id, pt: vessel?.Product_Details?.productType, pn: vessel?.Product_Details?.productName, contact: vessel?.Product_Details?.contact}]"
+            [ngStyle]="{'border-color': getBorderLeftColorVesselType(vessel?.vessel_id)}">
+            <h6 class="vessel-name">{{getVesselName(vessel?.vessel_id)}}</h6>
+            <img [src]="getVesselImage(vessel?.vessel_id)" class="m-3 img-fluid col-auto vessel-image" alt="">
+          
+            <div class="col mt-2 pl-1 pr-1">
+              <div class="media-body">
+                <h6 class="mt-0 mb-3 text-primary">
+                  <app-dashboard-feature-project-product
+                    [product]="getProduct(vessel?.Product_Details?.productType, vessel?.vessel_id)"
+                    [name]="getProductName(vessel?.Product_Details?.productType, vessel?.Product_Details?.contact, vessel?.vessel_id)"
+                    [productName]="vessel?.Product_Details?.productName">
+                  </app-dashboard-feature-project-product>
+                </h6>
+                <span *ngIf="getVesselVirtual(vessel?.vessel_id); else elseBlock"><strong>Forecast only</strong></span>
+                <ng-template #elseBlock>
+                  <ng-template let-items [ngTemplateOutlet]="temp" #temp
+                    [ngTemplateOutletContext]="{$implicit: getLastSession(project?._id, vessel?.vessel_id, vessel?.Product_Details?.productType, vessel?.Product_Details?.productName)}">
+                    <div class="row" *ngFor="let item of items; index as i; trackBy: trackByFn">
+                      <h6 class="mt-0 mb-1 text-primary col-12">
+                        <app-dashboard-feature-project-upated-date
+                          [forecast]="getForecast(project?._id, vessel?.vessel_id, item.productTypeId, item.session)"
+                          [timezone]="project?.timezone">
+                        </app-dashboard-feature-project-upated-date>
+                      </h6>
+                      <app-dashboard-feature-project-progressbar [project]="project?.name" [product]="vessel?.Product_Details?.productName" 
+                      [analysis]="item" class="col-12 mb-3">
+                      </app-dashboard-feature-project-progressbar>
+                    </div>
+                    <span *ngIf="items.length < 1"><strong>No analysis yet</strong></span>
+                  </ng-template>
+                </ng-template>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

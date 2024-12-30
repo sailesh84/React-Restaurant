@@ -1,0 +1,34 @@
+<div *ngIf="analysis; else noCharts" class="col-12">
+  <ng-container *ngFor="let color of colorList">
+    <div [class]="color.value">
+      <p>{{color.title}}</p>
+    </div>
+  </ng-container>
+  <ng-template #modalHelp let-modal>
+    <div class="modal-header text-primary">
+      <h4 class="modal-title" id="modal-basic-title">Explanations</h4>
+      <button type="button" class="close text-primary" aria-label="Close"
+              (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div [innerHTML]="explanation?.text"></div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-primary" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  <highcharts-chart [Highcharts]="highcharts" [constructorType]="'stockChart'" [options]="chartOptions"
+    style="width: 100%; height: 700px; display: block; max-height: 700px;" class="mt-4">
+  </highcharts-chart>
+  <br /><br />
+
+  <div [innerHTML]="explanation?.note"></div>
+</div>
+<ng-template #noCharts>
+  <div class="col-12 mt-5 text-center text-secondary text-lg">
+    No charts to display.
+  </div>
+</ng-template>

@@ -1,0 +1,111 @@
+<div class="row" *ngIf="forecast; else noCharts">
+  <div class="col-10 mt-2">
+    <div class="input-group input-group-sm mt-1">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="material-icons md-center md-sm">square_foot</i>
+        </span>
+      </div>
+      <select class="custom-select custom-select-sm ng-select-info" [(ngModel)]="unit" id="select_unit_system"
+        name="unit">
+        <option value="0">International System</option>
+        <option value="1">Imperial System</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-2 mt-2">
+    <button type="button" class="btn btn-success" (click)="createPdf()" [disabled]="isDisabledBtn" ngbAutofocus>
+      {{downloadPDFBtnText}}
+    </button>
+  </div>
+  <div #pdfContent class="col-12 pdf-wrapper" id="pdfContent">
+    <div id="htmlData">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Date - Time</th>
+            <th>Total Sea Hmax</th>
+            <th>Total Sea Hs</th>
+            <th>Swell Hs</th>
+            <th>Swell Tp</th>
+            <th>Swell Direction</th>
+            <th>Windsea Hs</th>
+            <th>Windesea Tp</th>
+            <th>Windsea Direction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let foreG of forecasterForGraphResponse; let i = index">
+            <td>{{ filteredForecasterName === 'StormGeo' ? foreG.time :
+              filteredForecasterName === 'Met' ? foreG.ForecastDateTime :
+              filteredForecasterName === 'Infoplaza' ? foreG.timestamp :
+              filteredForecasterName === 'Weathernews' ? foreG.forecast_time : ''}}</td>
+            <td>{{ filteredForecasterName === 'StormGeo' ? foreG.wave_height_max :
+              filteredForecasterName === 'Met' ? foreG.TotalWaveMaximumHeight :
+              filteredForecasterName === 'Infoplaza' ? foreG.elements.maximumWaveHeight :
+              filteredForecasterName === 'Weathernews' ? foreG.SGFHGT_Max : ''}}</td>
+            <td>{{ filteredForecasterName === 'StormGeo' ? foreG.wave_height_total_sea_significant :
+              filteredForecasterName === 'Met' ? foreG.TotalWaveHeight :
+              filteredForecasterName === 'Infoplaza' ? foreG.elements.significantWaveHeight :
+              filteredForecasterName === 'Weathernews' ? foreG.SGFHGT : ''}}</td>
+            <td>{{ filteredForecasterName === 'StormGeo' ? foreG.swell_height :
+              filteredForecasterName === 'Met' ? foreG.SwellHeight :
+              filteredForecasterName === 'Infoplaza' ? foreG.elements.significantHeightSwell :
+              filteredForecasterName === 'Weathernews' ? foreG.SWLHGT : ''}}</td>
+            <td>{{ filteredForecasterName === 'StormGeo' ? foreG.peak_period_swell :
+              filteredForecasterName === 'Met' ? foreG.SwellPeakPeriod :
+              filteredForecasterName === 'Infoplaza' ? foreG.elements.peakPeriodSwell :
+              filteredForecasterName === 'Weathernews' ? foreG.SWLPER : ''}}</td>
+            <td>{{ filteredForecasterName === 'StormGeo' ? foreG.swell_direction_average :
+              filteredForecasterName === 'Met' ? foreG.SwellDirection :
+              filteredForecasterName === 'Infoplaza' ? foreG.elements.peakDirectionSwell :
+              filteredForecasterName === 'Weathernews' ? foreG.SWLDIR : ''}}</td>
+            <td>{{ filteredForecasterName === 'StormGeo' ? foreG.wind_wave_height :
+              filteredForecasterName === 'Met' ? foreG.WindWaveHeight :
+              filteredForecasterName === 'Infoplaza' ? foreG.elements.significantHeightWindWaves :
+              filteredForecasterName === 'Weathernews' ? foreG.SEAHGT : ''}}</td>
+            <td>{{ filteredForecasterName === 'StormGeo' ? foreG.peak_period_wind_waves :
+              filteredForecasterName === 'Met' ? foreG.WindWavePeakPeriod :
+              filteredForecasterName === 'Infoplaza' ? foreG.elements.peakPeriodWindWaves :
+              filteredForecasterName === 'Weathernews' ? foreG.SEAPER : ''}}</td>
+            <td>{{ filteredForecasterName === 'StormGeo' ? foreG.wind_wave_direction :
+              filteredForecasterName === 'Met' ? foreG.WindWaveDirection :
+              filteredForecasterName === 'Infoplaza' ? foreG.elements.peakDirectionWindWaves :
+              filteredForecasterName === 'Weathernews' ? foreG.SEADIR : ''}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of USERS">
+              <td>{{user.id}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.phone}}</td>
+          </tr>
+        </tbody>
+    </table> -->
+    </div>
+  </div>
+  <div class="col-12" *ngFor="let opt of optionsGeneratedCharts; index as i;
+    trackBy: trackByFn">
+    <highcharts-chart [Highcharts]="highcharts" [constructorType]="'stockChart'" [options]="opt" [(update)]="updateFlag"
+      [oneToOne]="oneToOneFlag" style="width: 100%; height: 500px; display: block;max-height: 500px;">
+    </highcharts-chart>
+  </div>
+</div>
+
+<ng-template #noCharts>
+  <div class="col-12 mt-5 text-center text-secondary text-lg">
+    No charts to display.
+  </div>
+</ng-template>

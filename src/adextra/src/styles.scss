@@ -1,0 +1,329 @@
+@import "../node_modules/@ng-select/ng-select/themes/default.theme.css";
+
+@import "../node_modules/leaflet/dist/leaflet.css";
+.leaflet-div-icon {
+  background: none !important;
+  border: none !important;
+}
+.leaflet-interactive {
+  cursor: grab !important;
+}
+
+// regular style toast
+@import '../node_modules/ngx-toastr/toastr';
+
+@import '../node_modules/bs-stepper/dist/css/bs-stepper.min.css';
+
+@import "assets/scss/sb-admin-2.scss";
+
+//Flag fix
+.flag { background-image: url('assets/icons/countryflags.jpg') !important; }
+
+// ICONS
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+}
+
+#page-top {
+  padding-right: 0px !important;
+}
+
+.bg-secondary {
+  background-color: rgba(176, 176, 176) !important;
+}
+
+.navbar {
+  padding: 0px;
+}
+
+/* Règles pour la taille des icônes. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.material-icons.md-xs { font-size: 16px; }
+
+.material-icons.md-sm { font-size: 20px; }
+
+/* Règles pour définir différentes couleurs aux icônes. */
+.material-icons.md-grey {
+  color: rgb(155, 155, 155);
+  cursor: pointer;
+}
+.material-icons.md-grey:hover {
+  color: rgb(105, 105, 105) !important;
+}
+.material-icons.md-dark-grey {
+  color: rgb(85, 85, 85);
+  cursor: pointer;
+}
+.material-icons.md-dark-grey:hover {
+  color: rgb(65, 65, 65) !important;
+}
+.material-icons.md-center { vertical-align: middle; }
+
+/* Extra small devices (phones, 600px and down) */
+@media(max-width: 600px) {
+  .material-icons {
+    font-size: 30px;
+  }
+
+  .btn-outline-success > span >.material-icons {
+    font-size: 15px;
+  } 
+
+  .icon-card > .material-icons {
+    font-size: 25px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .material-icons {
+    font-size: 30px;
+  }
+
+  .btn-outline-success > span >.material-icons {
+    font-size: 20px;
+  } 
+
+  .icon-card > .material-icons {
+    font-size: 25px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .material-icons {
+    font-size: 30px;
+  }
+
+  .btn-outline-success > span >.material-icons {
+    font-size: 25px;
+  } 
+
+  .icon-card > .material-icons {
+    font-size: 30px;
+  }
+}
+
+.ck-editor__editable_inline {
+  min-height: 300px !important;
+}
+
+.overflow-cell {
+  text-overflow: ellipsis !important;
+}
+
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred {
+  border: 1px solid #c4c4c4 !important;
+  border-radius: 2px !important;
+
+  /* Set vertical boundaries for the document editor. */
+  max-height: 700px;
+
+  /* This element is a flex container for easier rendering. */
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.element-view {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6e707e;
+  background-color: #eaecf4;
+  opacity: 1;
+  background-clip: padding-box;
+  border: 1px solid #d1d3e2;
+  border-radius: 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  img {
+    margin-top: -0.65rem !important;
+  }
+}
+
+/** Extend style ng-select with Bootstrap 4 **/
+.input-group {
+  .form-control.ng-select, .ng-select {
+    border: none;
+    padding: 0;
+    .ng-select-container {
+      min-height: 100% !important;
+      height: 100% !important;
+    }
+  }
+  .form-control.ng-select:not(:last-child), .ng-select:not(:last-child) {
+    .ng-select-container {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  .form-control.ng-select:not(:first-child), .ng-select:not(:first-child) {
+    .ng-select-container {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  .form-control.ng-select.ng-select-info, .ng-select.ng-select-info  {
+    .ng-placeholder, .ng-value, .ng-select-container {
+      color: #009dd6 !important;
+    }
+    .ng-select-container {
+      border-color: #009dd6;
+    }
+  }
+  .form-control.ng-select.ng-select-info:focus, .ng-select.ng-select-info:focus {
+    .ng-select-container {
+      box-shadow: 0 0 0 0.2rem rgba(0, 157, 214, 0.5) !important;
+    }
+  }
+}
+
+.input-group-addon.flagInput {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6e707e;
+  background-color: #eaecf4;
+  opacity: 1;
+  background-clip: padding-box;
+  border: 1px solid #d1d3e2;
+  border-radius: 0.35rem 0 0 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.dropbtn.btn {
+  span.arrow-down {
+    margin-top: 10px !important;
+    margin-left: 5px !important;
+  }
+}
+
+// scrollbar
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #009DD6;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #009DD6;
+}
+
+// datatable override
+
+.table td {
+  vertical-align: middle !important;
+  padding: 0.25rem !important;
+}
+
+.table td.td-action {
+  text-align: center !important;
+}
+
+.user-badge {
+  height: 2rem !important;
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+}
+
+.avatar-circle {
+  margin-top: -1px !important;
+  margin-left: -1px !important;
+  height: 2rem !important;
+  width: 2rem !important;
+  border-radius: 1rem !important;
+  margin-right: 0.25rem !important;
+}
+
+.badge-light-contrast {
+  border: 1px solid #343a40 !important;
+}
+
+.ng2-pdf-viewer-container {
+  max-height: 100vh !important;
+  height: 100vh !important;
+}
+
+
+@media only screen and (min-height: 700px) {
+  .ng2-pdf-viewer-container {
+    height: 75vh !important;
+    max-height: 75vh !important;
+  }
+}
+
+@media only screen and (min-height: 900px) and (max-height: 1400px) {
+  .ng2-pdf-viewer-container {
+    height: 80vh !important;
+    max-height: 80vh !important;
+  }
+
+}
+
+.modal-side .modal-dialog{
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  margin: 0;
+  top: 10px;
+  right: 10px;
+}
+
+@media (min-width: 992px){
+  .modal-lg{
+    max-width: 500px;
+  }
+}
+
+.navbar-expand .navbar-toggler {
+  display: block !important;
+}
+
+.navbar-light .navbar-toggler {
+  border-color: transparent;
+}

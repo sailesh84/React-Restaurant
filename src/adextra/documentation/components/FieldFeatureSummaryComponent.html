@@ -1,0 +1,2037 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>infield-analysis-portal documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">infield-analysis-portal documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ProjectFeatureSummaryComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-field-feature-summary</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./field-feature-summary.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./field-feature-summary.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#analysis">analysis</a>
+                            </li>
+                            <li>
+                                <a href="#chartOptions">chartOptions</a>
+                            </li>
+                            <li>
+                                <a href="#explanations">explanations</a>
+                            </li>
+                            <li>
+                                <a href="#highcharts">highcharts</a>
+                            </li>
+                            <li>
+                                <a href="#max">max</a>
+                            </li>
+                            <li>
+                                <a href="#min">min</a>
+                            </li>
+                            <li>
+                                <a href="#modalHelp">modalHelp</a>
+                            </li>
+                            <li>
+                                <a href="#socketEvent1">socketEvent1</a>
+                            </li>
+                            <li>
+                                <a href="#socketEvent2">socketEvent2</a>
+                            </li>
+                            <li>
+                                <a href="#state">state</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getAnalysis">getAnalysis</a>
+                            </li>
+                            <li>
+                                <a href="#getBooleanColour">getBooleanColour</a>
+                            </li>
+                            <li>
+                                <a href="#getExplanations">getExplanations</a>
+                            </li>
+                            <li>
+                                <a href="#getScaleColour">getScaleColour</a>
+                            </li>
+                            <li>
+                                <a href="#getSeries">getSeries</a>
+                            </li>
+                            <li>
+                                <a href="#getZones">getZones</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#open">open</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#fieldID">fieldID</a>
+                            </li>
+                            <li>
+                                <a href="#vesselID">vesselID</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(analysisService: <a href="../injectables/AnalysisService.html">AnalysisService</a>, explanationsService: <a href="../injectables/ExplanationsService.html">ExplanationsService</a>, modalService: NgbModal)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>analysisService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnalysisService.html" target="_self" >AnalysisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>explanationsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ExplanationsService.html" target="_self" >ExplanationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgbModal</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fieldID"></a>
+                        <b>fieldID</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>-1</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="vesselID"></a>
+                        <b>vesselID</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;-1&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:36</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAnalysis"></a>
+                    <span class="name">
+                        <b>
+                            getAnalysis
+                        </b>
+                        <a href="#getAnalysis"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAnalysis(reset: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>reset</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBooleanColour"></a>
+                    <span class="name">
+                        <b>
+                            getBooleanColour
+                        </b>
+                        <a href="#getBooleanColour"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBooleanColour(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="419"
+                            class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:419</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getExplanations"></a>
+                    <span class="name">
+                        <b>
+                            getExplanations
+                        </b>
+                        <a href="#getExplanations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getExplanations(resetEpl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, resetAls: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>resetEpl</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>resetAls</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getScaleColour"></a>
+                    <span class="name">
+                        <b>
+                            getScaleColour
+                        </b>
+                        <a href="#getScaleColour"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getScaleColour(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="392"
+                            class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:392</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSeries"></a>
+                    <span class="name">
+                        <b>
+                            getSeries
+                        </b>
+                        <a href="#getSeries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSeries()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="534"
+                            class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:534</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>any[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getZones"></a>
+                    <span class="name">
+                        <b>
+                            getZones
+                        </b>
+                        <a href="#getZones"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getZones()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="429"
+                            class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:429</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>any[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="open"></a>
+                    <span class="name">
+                        <b>
+                            open
+                        </b>
+                        <a href="#open"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>open(content)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>content</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="analysis"></a>
+                        <span class="name">
+                            <b>
+                            analysis</b>
+                            <a href="#analysis"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Analysis.html" target="_self" >Analysis</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="chartOptions"></a>
+                        <span class="name">
+                            <b>
+                            chartOptions</b>
+                            <a href="#chartOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="explanations"></a>
+                        <span class="name">
+                            <b>
+                            explanations</b>
+                            <a href="#explanations"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Explanation.html" target="_self" >Explanation[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="highcharts"></a>
+                        <span class="name">
+                            <b>
+                            highcharts</b>
+                            <a href="#highcharts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Highcharts</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="max"></a>
+                        <span class="name">
+                            <b>
+                            max</b>
+                            <a href="#max"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="min"></a>
+                        <span class="name">
+                            <b>
+                            min</b>
+                            <a href="#min"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalHelp"></a>
+                        <span class="name">
+                            <b>
+                            modalHelp</b>
+                            <a href="#modalHelp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;modalHelp&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="socketEvent1"></a>
+                        <span class="name">
+                            <b>
+                            socketEvent1</b>
+                            <a href="#socketEvent1"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="socketEvent2"></a>
+                        <span class="name">
+                            <b>
+                            socketEvent2</b>
+                            <a href="#socketEvent2"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="state"></a>
+                        <span class="name">
+                            <b>
+                            state</b>
+                            <a href="#state"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{ isLoaded: false, canConnect: null }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/protected/fields/field-feature-summary/project-feature-summary.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import * as Highcharts from &#x27;highcharts&#x27;;
+import HC_stock from &#x27;highcharts/modules/stock&#x27;;
+import HC_boost from &#x27;highcharts/modules/boost&#x27;;
+import HC_exporting from &#x27;highcharts/modules/exporting&#x27;;
+import HC_offline_exporting from &#x27;highcharts/modules/offline-exporting&#x27;;
+import HC_no_data_to_display from &#x27;highcharts/modules/no-data-to-display&#x27;;
+import HC_drag_panes from &#x27;highcharts/modules/drag-panes&#x27;;
+import HC_accessibility from &#x27;highcharts/modules/accessibility&#x27;;
+import {AnalysisService} from &#x27;@app/core/services/analysis.service&#x27;;
+import {Analysis} from &#x27;@app/shared/models/analysis&#x27;;
+import {ExplanationsService} from &#x27;@app/core/services/explanations.service&#x27;;
+import {Explanation} from &#x27;@app/shared/models/explanation&#x27;;
+import {Observable} from &#x27;rxjs&#x27;;
+import {NgbModal} from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+HC_stock(Highcharts);
+HC_boost(Highcharts);
+HC_exporting(Highcharts);
+HC_offline_exporting(Highcharts);
+HC_no_data_to_display(Highcharts);
+HC_drag_panes(Highcharts);
+HC_accessibility(Highcharts);
+
+
+// const chart &#x3D; Highcharts.Chart.prototype;
+// chart.xAxis[0].setExtremes(chart.xAxis[0].min, chart.xAxis[0].min + (24 * 3600 * 1000), false);
+// chart.redraw();
+
+@Component({
+  selector: &#x27;app-field-feature-summary&#x27;,
+  templateUrl: &#x27;./field-feature-summary.component.html&#x27;,
+  styleUrls: [&#x27;./field-feature-summary.component.scss&#x27;]
+})
+export class ProjectFeatureSummaryComponent implements OnInit, AfterViewInit {
+  @Input() fieldID &#x3D; -1;
+  @Input() vesselID &#x3D; &#x27;-1&#x27;;
+
+  state &#x3D; { isLoaded: false, canConnect: null };
+
+  analysis: Analysis;
+
+  explanations: Explanation[];
+
+  @ViewChild(&#x27;modalHelp&#x27;) modalHelp: ElementRef;
+
+  min: number;
+  max: number;
+  highcharts &#x3D; Highcharts;
+  chartOptions &#x3D; {};
+
+  socketEvent1: Observable&lt;any&gt;;
+  socketEvent2: Observable&lt;any&gt;;
+
+  constructor(private analysisService: AnalysisService, private explanationsService: ExplanationsService, private modalService: NgbModal) {
+    //
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: &#x27;modal-basic-title&#x27;, size: &#x27;lg&#x27;}).result.then((result) &#x3D;&gt; {
+      // this.closeResult &#x3D; &#x60;Closed with: ${result}&#x60;;
+    }, (reason) &#x3D;&gt; {
+      // this.closeResult &#x3D; &#x60;Dismissed ${this.getDismissReason(reason)}&#x60;;
+    });
+  }
+
+
+  ngOnInit() {
+    this.getExplanations();
+
+    this.socketEvent1 &#x3D; this.explanationsService.socketEvent;
+    this.socketEvent2 &#x3D; this.analysisService.socketEvent;
+  }
+
+  ngAfterViewInit(): void {
+    this.socketEvent1.subscribe(() &#x3D;&gt; {
+      this.getExplanations(true, false);
+    });
+    this.socketEvent1.subscribe(() &#x3D;&gt; {
+      this.getExplanations(false, true);
+    });
+  }
+
+  getExplanations(resetEpl: boolean &#x3D; false, resetAls: boolean &#x3D; false): void {
+    this.explanationsService.getExplanations(resetEpl).subscribe((response) &#x3D;&gt; {
+      this.explanations &#x3D; response.data;
+      this.getAnalysis(resetAls);
+    });
+  }
+
+  getAnalysis(reset: boolean &#x3D; false): void {
+    const that &#x3D; this;
+    this.analysisService.getAnalysis(this.fieldID, this.vesselID).subscribe(response &#x3D;&gt; {
+      this.analysis &#x3D; response.data;
+      this.state.canConnect &#x3D; true;
+      this.state.isLoaded &#x3D; true;
+
+      this.chartOptions &#x3D; {
+        chart: {
+          zoomType: &#x27;x&#x27;,
+        },
+        exporting: {
+          menuItemDefinitions: {
+            // Custom definition
+            help: {
+              onclick() {
+                that.open(that.modalHelp);
+              },
+              text: &#x27;Help&#x27;
+            }
+          },
+          buttons: {
+            contextButton: {
+              menuItems: [
+                &#x27;help&#x27;,
+                &#x27;separator&#x27;,
+                &#x27;viewFullscreen&#x27;,
+                &#x27;printChart&#x27;,
+                &#x27;separator&#x27;,
+                &#x27;downloadPNG&#x27;,
+                &#x27;downloadJPEG&#x27;,
+                &#x27;downloadPDF&#x27;,
+                &#x27;downloadSVG&#x27;
+              ]
+            }
+          }
+        },
+        legend: {
+          enabled: false
+        },
+        boost: {
+          useGPUTranslations: true
+        },
+        noData: {
+          style: {
+            fontWeight: &#x27;bold&#x27;,
+            fontSize: &#x27;15px&#x27;,
+            color: &#x27;#303030&#x27;
+          }
+        },
+        title: {
+          text: &#x27;Summary of Weather Forecast Analysis Results&#x27;
+        },
+        scrollbar: {
+          barBackgroundColor: &#x27;#009dd6&#x27;,
+          barBorderRadius: 7,
+          barBorderWidth: 0,
+          buttonBackgroundColor: &#x27;#009dd6&#x27;,
+          buttonBorderWidth: 0,
+          buttonBorderRadius: 7,
+          trackBackgroundColor: &#x27;none&#x27;,
+          trackBorderWidth: 1,
+          trackBorderRadius: 8,
+          trackBorderColor: &#x27;#00a3e0&#x27;
+        },
+        rangeSelector: {
+          buttonTheme: { // styles for the buttons
+            fill: &#x27;none&#x27;,
+            stroke: &#x27;#009dd6&#x27;,
+            &#x27;stroke-width&#x27;: 1,
+            r: 8,
+            width: 32,
+            style: {
+              color: &#x27;#009dd6&#x27;,
+              fontWeight: &#x27;bold&#x27;
+            },
+            states: {
+              hover: {
+                fill: &#x27;#009dd6&#x27;,
+                style: {
+                  color: &#x27;white&#x27;
+                }
+              },
+              select: {
+                fill: &#x27;#009dd6&#x27;,
+                style: {
+                  color: &#x27;white&#x27;
+                }
+              }
+            }
+          },
+          inputBoxBorderColor: &#x27;#009dd6&#x27;,
+          inputBoxWidth: 120,
+          inputBoxHeight: 18,
+          inputStyle: {
+            color: &#x27;#009dd6&#x27;,
+            fontWeight: &#x27;bold&#x27;
+          },
+          labelStyle: {
+            color: &#x27;#512d6d&#x27;,
+            fontWeight: &#x27;bold&#x27;
+          },
+          buttons: [{
+            type: &#x27;day&#x27;,
+            count: 1,
+            text: &#x27;24h&#x27;,
+            events: {
+              click() {
+                Highcharts.charts.forEach((chart) &#x3D;&gt; {
+                  if (chart !&#x3D;&#x3D; undefined) {
+                    chart.xAxis[0].setExtremes(chart.xAxis[0].min, chart.xAxis[0].min + (24 * 3600 * 1000), false);
+                    chart.redraw();
+                  }
+                });
+              }
+            }
+          }, {
+            type: &#x27;day&#x27;,
+            count: 2,
+            text: &#x27;48h&#x27;,
+            events: {
+              click() {
+                Highcharts.charts.forEach((chart) &#x3D;&gt; {
+                  if (chart !&#x3D;&#x3D; undefined) {
+                    chart.xAxis[0].setExtremes(chart.xAxis[0].min, chart.xAxis[0].min + (24 * 3600 * 1000 * 2), false);
+                    chart.redraw();
+                  }
+                });
+              }
+            }
+          }, {
+            type: &#x27;day&#x27;,
+            count: 3,
+            text: &#x27;72h&#x27;,
+            events: {
+              click() {
+                Highcharts.charts.forEach((chart) &#x3D;&gt; {
+                  if (chart !&#x3D;&#x3D; undefined) {
+                    chart.xAxis[0].setExtremes(chart.xAxis[0].min, chart.xAxis[0].min + (24 * 3600 * 1000 * 3), false);
+                    chart.redraw();
+                  }
+                });
+              }
+            }
+          }, {
+            type: &#x27;all&#x27;,
+            text: &#x27;Reset&#x27;,
+            events: {
+              click() {
+                Highcharts.charts.forEach((chart) &#x3D;&gt; {
+                  if (chart !&#x3D;&#x3D; undefined) {
+                    chart.xAxis[0].setExtremes(chart.xAxis[0].min, chart.xAxis[0].max, false);
+                    chart.redraw();
+                  }
+                });
+              }
+            }
+          }],
+          inputDateFormat: &#x27;%a %e %b %H:%M&#x27;,
+          inputEditDateFormat: &#x27;%a %e %b %H:%M&#x27;,
+        },
+        navigator: {
+          height: 80,
+          outlineColor: &#x27;#00a3e0&#x27;,
+          maskFill: &#x27;rgba(0, 163 , 224, 0.05)&#x27;,
+          series: {
+            type: &#x27;areaspline&#x27;,
+            fillOpacity: 0.75,
+            lineWidth: 1,
+            marker: {
+              enabled: true
+            },
+            dataLabels: {
+              enabled: true,
+              formatter() {
+                return Highcharts.numberFormat(this.y, 1);
+              }
+            }
+          },
+          xAxis: {
+            tickWidth: 0,
+            lineWidth: 0,
+            gridLineWidth: 1,
+            pointInterval: 24 * 3600 * 1000,
+            tickPixelInterval: 200,
+            type: &#x27;datetime&#x27;,
+            dateTimeLabelFormats: {
+              day: &#x27;%a %e %b %H:%M&#x27;
+            },
+            labels: {
+              align: &#x27;left&#x27;,
+              style: {
+                color: &#x27;black&#x27;
+              },
+              x: 3,
+              y: -4
+            }
+          }
+        },
+        xAxis: {
+          id: &#x27;main&#x27;,
+          lineColor: &#x27;#000&#x27;,
+          lineWidth: 1,
+          gridLineColor: &#x27;#000&#x27;,
+          pointInterval: 24 * 3600 * 1000,
+          tickPixelInterval: 50,
+          type: &#x27;datetime&#x27;,
+          dateTimeLabelFormats: {
+            day: &#x27;%a %e %b %H:%M&#x27;
+          }
+        },
+        yAxis: [{
+          lineColor: &#x27;#000&#x27;,
+          lineWidth: 1,
+          gridLineColor: &#x27;#000&#x27;,
+          allowDecimals: true,
+          tickPixelInterval: 50,
+          className: &#x27;highcharts-color-0&#x27;,
+          title: { text: &#x27;&#x27; },
+          min: 0,
+          labels: {
+            format: &#x27;{value:.1f}&#x27;,
+            formatter() {
+              return (this.value &gt;&#x3D; 0) ? Highcharts.numberFormat(this.value, 1) : &#x27;&#x27;;
+            }
+          },
+          height: &#x27;60%&#x27;,
+          opposite: false,
+        }, {
+          lineColor: &#x27;#000&#x27;,
+          lineWidth: 0,
+          gridLineColor: &#x27;#000&#x27;,
+          className: &#x27;highcharts-color-0&#x27;,
+          title: { text: &#x27;&#x27; },
+          opposite: true,
+          top: &#x27;65%&#x27;,
+          height: &#x27;35%&#x27;,
+          visible: false,
+        }],
+        tooltip: {
+          crosshairs: true,
+          shared: true,
+          useHTML: true,
+          formatter() {
+            const points &#x3D; this.points.reverse();
+            let message &#x3D; &#x27;&lt;span style&#x3D;&quot;font-weight: bold;&quot;&gt;&#x27; + Highcharts.dateFormat(&#x27;%a %e %b %H:%M&#x27;, this.x) + &#x27;&lt;/span&gt;&lt;table&gt;&#x27;;
+            points.forEach((point) &#x3D;&gt; {
+              let state;
+              if (point.color &#x3D;&#x3D;&#x3D; &#x27;#34495e&#x27;) {
+                state &#x3D; &#x27;Completed&#x27;;
+              } else if (point.color &#x3D;&#x3D;&#x3D; &#x27;#90ed7d&#x27;) {
+                state &#x3D; &#x27;Passed&#x27;;
+              } else {
+                state &#x3D; &#x27;Failed&#x27;;
+              }
+              message +&#x3D; &#x27;&lt;tr&gt;&lt;td&gt;&lt;span style&#x3D;&quot;color: &#x27; + point.color + &#x27;&quot;&gt;\u25CF&lt;/span&gt; &#x27; + point.series.name + &#x27; : &lt;/td&gt;&lt;td style&#x3D;&quot;&#x27; +
+                &#x27;text-align: right&quot;&gt;&lt;b&gt;&#x27; + state + &#x27;&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#x27;;
+            });
+            message +&#x3D; &#x27;&lt;/table&gt;&#x27;;
+            return message;
+          },
+        },
+        plotOptions: {
+          areaspline: {
+            dataLabels: {
+              enabled: true,
+              formatter() {
+                return Highcharts.numberFormat(this.y, 1);
+              }
+            },
+            showInLegend: false,
+            enableMouseTracking: false,
+            zoneAxis: &#x27;x&#x27;,
+            zones: this.getZones()
+          },
+          column: {
+            stacking: &#x27;normal&#x27;,
+            showInLegend: true,
+            pointWidth: 25,
+            pointPadding: 0.2,
+          }
+        },
+        credits: {
+          enabled: false
+        },
+        series: this.getSeries(),
+        responsive: {
+          rules: [{
+            condition: {
+              maxWidth: 500
+            },
+            chartOptions: {
+            }
+          }]
+        }
+      };
+
+      this.min &#x3D; Math.min(...this.analysis.cols[0].subcols[0].data);
+      this.max &#x3D; Math.max(...this.analysis.cols[0].subcols[0].data);
+    });
+  }
+
+  getScaleColour(value: number) {
+    let [highMaxR, highMaxG, highMaxB] &#x3D; [248, 105, 107];
+    let [lowMaxR, lowMaxG, lowMaxB] &#x3D; [99, 190, 123];
+    const [midMaxR, midMaxG, midMaxB] &#x3D; [255, 235, 132];
+    let max &#x3D; this.max;
+    let min &#x3D; this.min;
+
+    if (Math.round(max - min) &#x3D;&#x3D;&#x3D; 0) { return &#x60;${highMaxR}, ${highMaxG}, ${highMaxB}&#x60;; }
+
+    const midPoint &#x3D; (max + min) / 2;
+    if (value &gt; midPoint) {
+      [lowMaxR, lowMaxG, lowMaxB] &#x3D; [midMaxR, midMaxG, midMaxB];
+      min &#x3D; midPoint;
+    } else {
+      [highMaxR, highMaxG, highMaxB] &#x3D; [midMaxR, midMaxG, midMaxB];
+      max &#x3D; midPoint;
+    }
+
+    const percentage &#x3D; Math.abs((value - min) / (max - min));
+
+    const redVal &#x3D; Math.round(lowMaxR + ((highMaxR - lowMaxR) * percentage));
+    const greenVal &#x3D; Math.round(lowMaxG + ((highMaxG - lowMaxG) * percentage));
+    const blueVal &#x3D; Math.round(lowMaxB + ((highMaxB - lowMaxB) * percentage));
+
+    return &#x60;${redVal}, ${greenVal}, ${blueVal}&#x60;;
+  }
+
+  getBooleanColour(value: any) {
+    if (value &#x3D;&#x3D;&#x3D; true) {
+      return &#x60;${0}, ${176}, ${80}&#x60;;
+    } else if (value &#x3D;&#x3D;&#x3D; false) {
+      return &#x60;${203}, ${44}, ${48}&#x60;;
+    } else {
+      return &#x27;none&#x27;;
+    }
+  }
+
+  getZones(): any[] {
+    // Fails counter
+
+    const tabCountFails &#x3D; [];
+    let nbRows &#x3D; this.analysis.cols.length - 1;
+    let minus &#x3D; 0;
+    this.analysis.cols[0].subcols[0].data.forEach((value, i) &#x3D;&gt; {
+      let countFails &#x3D; 0;
+
+      for (let j &#x3D; 1; j &lt; this.analysis.cols.length; j++) {
+        let acceptable &#x3D; this.analysis.cols[j].subcols[this.analysis.cols[j].subcols.length - 1].data;
+        if (acceptable.length &#x3D;&#x3D;&#x3D; 0) {
+          acceptable &#x3D; new Array(this.analysis.cols[0].subcols[0].data.length).fill(&#x27;&#x27;);
+          minus++;
+        }
+        if (acceptable[i] &#x3D;&#x3D;&#x3D; false) {
+          countFails++;
+        }
+      }
+      tabCountFails.push({date: this.analysis.rows[i], count: countFails});
+    });
+    minus &#x3D; minus / this.analysis.cols[0].subcols[0].data.length;
+    nbRows -&#x3D; minus;
+
+    // Zone generator
+
+    const zones &#x3D; [];
+
+    let endDate &#x3D; null;
+    let color &#x3D; &#x27;&#x27;;
+    let fillColor &#x3D; &#x27;&#x27;;
+
+    for (let index &#x3D; 0; index &lt; tabCountFails.length - 1; index++) {
+      if (index &lt;&#x3D; 0) {
+        if (tabCountFails[index].count &lt;&#x3D; 0) {
+          color &#x3D; &#x27;rgba(99, 190, 123, 1)&#x27;;
+          fillColor &#x3D; &#x27;rgba(99, 190, 123, 0.2)&#x27;;
+        } else if (tabCountFails[index].count &gt; 0 &amp;&amp; tabCountFails[index].count &lt; nbRows) {
+          color &#x3D; &#x27;rgba(255, 193, 7, 1)&#x27;;
+          fillColor &#x3D; &#x27;rgba(255, 193, 7, 0.2)&#x27;;
+        } else {
+          color &#x3D; &#x27;rgba(248, 105, 107, 1)&#x27;;
+          fillColor &#x3D; &#x27;rgba(248, 105, 107, 0.2)&#x27;;
+        }
+      } else {
+        if (tabCountFails[index].count &lt;&#x3D; 0) {
+          if (tabCountFails[index + 1].count &lt;&#x3D; 0) { // Case V -&gt; V
+            // nothing
+          } else if (tabCountFails[index + 1].count &gt; 0 &amp;&amp; tabCountFails[index + 1].count &lt; nbRows) { // Case V -&gt; A
+            endDate &#x3D; tabCountFails[index].date;
+            zones.push({value: endDate, fillColor, color});
+            color &#x3D; &#x27;rgba(255, 193, 7, 1)&#x27;;
+            fillColor &#x3D; &#x27;rgba(255, 193, 7, 0.2)&#x27;;
+          } else  {  // Case V -&gt; F
+            endDate &#x3D; tabCountFails[index].date;
+            zones.push({value: endDate, fillColor, color});
+            color &#x3D; &#x27;rgba(248, 105, 107, 1)&#x27;;
+            fillColor &#x3D; &#x27;rgba(248, 105, 107, 0.2)&#x27;;
+          }
+        } else if (tabCountFails[index].count &gt; 0 &amp;&amp; tabCountFails[index].count &lt; nbRows) {
+          if (tabCountFails[index + 1].count &lt;&#x3D; 0) { // Case A -&gt; V
+            endDate &#x3D; tabCountFails[index + 1].date;
+            zones.push({value: endDate, fillColor, color});
+            color &#x3D; &#x27;rgba(99, 190, 123, 1)&#x27;;
+            fillColor &#x3D; &#x27;rgba(99, 190, 123, 0.2)&#x27;;
+          } else if (tabCountFails[index + 1].count &gt; 0 &amp;&amp; tabCountFails[index + 1].count &lt; nbRows) { // Case A -&gt; A
+            // nothing
+          } else  {  // Case A -&gt; F
+            endDate &#x3D; tabCountFails[index].date;
+            zones.push({value: endDate, fillColor, color});
+            color &#x3D; &#x27;rgba(248, 105, 107, 1)&#x27;;
+            fillColor &#x3D; &#x27;rgba(248, 105, 107, 0.2)&#x27;;
+          }
+        } else {
+          if (tabCountFails[index + 1].count &lt;&#x3D; 0) { // Case F -&gt; V
+            endDate &#x3D; tabCountFails[index + 1].date;
+            zones.push({value: endDate, fillColor, color});
+            color &#x3D; &#x27;rgba(99, 190, 123, 1)&#x27;;
+            fillColor &#x3D; &#x27;rgba(99, 190, 123, 0.2)&#x27;;
+          } else if (tabCountFails[index + 1].count &gt; 0 &amp;&amp; tabCountFails[index + 1].count &lt; nbRows) { // Case F -&gt; A
+            endDate &#x3D; tabCountFails[index + 1].date;
+            zones.push({value: endDate, fillColor, color});
+            color &#x3D; &#x27;rgba(255, 193, 7, 1)&#x27;;
+            fillColor &#x3D; &#x27;rgba(255, 193, 7, 0.2)&#x27;;
+          } else  {  // Case F -&gt; F
+            // nothing
+          }
+        }
+      }
+    }
+    const lastElt &#x3D; tabCountFails[tabCountFails.length - 1];
+    if (lastElt.count &lt;&#x3D; 0) {
+      color &#x3D; &#x27;rgba(99, 190, 123, 1)&#x27;;
+      fillColor &#x3D; &#x27;rgba(99, 190, 123, 0.2)&#x27;;
+    } else if (lastElt.count &gt; 0 &amp;&amp; lastElt.count &lt; nbRows) {
+      color &#x3D; &#x27;rgba(255, 193, 7, 1)&#x27;;
+      fillColor &#x3D; &#x27;rgba(255, 193, 7, 0.2)&#x27;;
+    } else {
+      color &#x3D; &#x27;rgba(248, 105, 107, 1)&#x27;;
+      fillColor &#x3D; &#x27;rgba(248, 105, 107, 0.2)&#x27;;
+    }
+    zones.push({fillColor, color});
+    return zones;
+  }
+
+  getSeries(): any[] {
+    const series &#x3D; [{
+      color: &#x27;&#x27;,
+      name: &#x27;&#x27;,
+      data: this.analysis.cols[0].subcols[0].data.slice().map((item, index) &#x3D;&gt; [this.analysis.rows[index], item]),
+      type: &#x27;areaspline&#x27;,
+      yAxis: 0,
+      marker: {
+        enabled: true,
+        radius: 4.5
+      },
+    }];
+
+    const nbRows &#x3D; this.analysis.cols.length - 1;
+
+    const temp &#x3D; [];
+
+    for (let i &#x3D; 1; i &lt; this.analysis.cols.length; i++) {
+      const tempRow &#x3D; {name: this.analysis.cols[i].title, values: []};
+      let acceptable &#x3D; this.analysis.cols[i].subcols[this.analysis.cols[i].subcols.length - 1].data;
+      if (acceptable.length &#x3D;&#x3D;&#x3D; 0) {
+        acceptable &#x3D; new Array(this.analysis.cols[0].subcols[0].data.length).fill(&#x27;&#x27;);
+      }
+      acceptable.forEach((item, j) &#x3D;&gt; {
+        if (item &#x3D;&#x3D;&#x3D; undefined || item &#x3D;&#x3D;&#x3D; null || item &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+          tempRow.values.push([this.analysis.rows[j], 0]); // completed
+        } else {
+          if (item &#x3D;&#x3D;&#x3D; true) {
+            tempRow.values.push([this.analysis.rows[j], 1]); // passed
+          } else {
+            tempRow.values.push([this.analysis.rows[j], 2]); // failed
+          }
+        }
+      });
+      temp.push(tempRow);
+    }
+
+    temp.reverse().forEach((row) &#x3D;&gt; {
+      series.push({
+        name: row.name,
+        data: row.values.slice().map((item) &#x3D;&gt; {
+          let color;
+          if (item[1] &#x3D;&#x3D;&#x3D; 0) {
+            color &#x3D; &#x27;#34495e&#x27;;
+          } else if (item[1] &#x3D;&#x3D;&#x3D; 1) {
+            color &#x3D; &#x27;#90ed7d&#x27;;
+          } else {
+            color &#x3D; &#x27;#f15c80&#x27;;
+          }
+          return {x: item[0], y: - (0.7 / nbRows), color, borderWidth: 1, borderColor: &#x27;white&#x27;};
+        }),
+        color: null,
+        type: &#x27;column&#x27;,
+        yAxis: 1,
+        marker: null,
+      });
+    });
+
+    return  series;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!--&lt;div style&#x3D;&quot;margin-top: 24rem !important;&quot; *ngIf&#x3D;&quot;!state.isLoaded&quot;&gt;--&gt;
+&lt;!--  &lt;div class&#x3D;&quot;loader&quot;&gt;--&gt;
+&lt;!--    &lt;div class&#x3D;&quot;outer&quot;&gt;&lt;/div&gt;--&gt;
+&lt;!--    &lt;div class&#x3D;&quot;middle&quot;&gt;&lt;/div&gt;--&gt;
+&lt;!--    &lt;div class&#x3D;&quot;inner&quot;&gt;&lt;/div&gt;--&gt;
+&lt;!--    &lt;div class&#x3D;&quot;text-primary text-center text-loader&quot;&gt;Loading ...&lt;/div&gt;--&gt;
+&lt;!--  &lt;/div&gt;--&gt;
+&lt;!--&lt;/div&gt;--&gt;
+&lt;!--&lt;div style&#x3D;&quot;margin-top: 24rem !important;&quot; *ngIf&#x3D;&quot;state.isLoaded &amp;&amp; !state.canConnect&quot;&gt;--&gt;
+&lt;!--  &lt;div class&#x3D;&quot;error-content-loading text-danger text-center&quot;&gt;--&gt;
+&lt;!--    &lt;div className&#x3D;&quot;connection-error&quot;&gt;--&gt;
+&lt;!--      &lt;p&gt;Erreur de connexion&lt;/p&gt;--&gt;
+&lt;!--    &lt;/div&gt;--&gt;
+&lt;!--    &lt;div className&#x3D;&quot;refresh&quot;&gt;--&gt;
+&lt;!--      &lt;button class&#x3D;&quot;btn btn-outline-danger&quot; (click)&#x3D;&quot;refresh()&quot;&gt;--&gt;
+&lt;!--        &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;refresh&lt;/i&gt; Refresh--&gt;
+&lt;!--      &lt;/button&gt;--&gt;
+&lt;!--    &lt;/div&gt;--&gt;
+&lt;!--  &lt;/div&gt;--&gt;
+&lt;!--&lt;/div&gt;--&gt;
+&lt;div *ngIf&#x3D;&quot;state.isLoaded &amp;&amp; state.canConnect&quot;&gt;
+&lt;!--  &lt;div [innerHTML]&#x3D;&quot;explanations[0].text&quot;&gt;&lt;/div&gt;--&gt;
+  &lt;ng-template #modalHelp let-modal&gt;
+    &lt;div class&#x3D;&quot;modal-header text-primary&quot;&gt;
+      &lt;h4 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;modal-basic-title&quot;&gt;Explanations&lt;/h4&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close text-primary&quot; aria-label&#x3D;&quot;Close&quot;
+              (click)&#x3D;&quot;modal.dismiss(&#x27;Cross click&#x27;)&quot;
+      &gt;
+        &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+      &lt;div [innerHTML]&#x3D;&quot;explanations[0].text&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-outline-primary&quot; (click)&#x3D;&quot;modal.close(&#x27;Close click&#x27;)&quot;&gt;Close&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+  &lt;highcharts-chart [Highcharts]&#x3D;&quot;highcharts&quot; [constructorType]&#x3D;&quot;&#x27;stockChart&#x27;&quot; [options]&#x3D;&quot;chartOptions&quot;
+                    style&#x3D;&quot;width: 100%; height: 700px; display: block; max-height: 700px;&quot;
+  &gt;
+  &lt;/highcharts-chart&gt;
+  &lt;br /&gt;&lt;br /&gt;
+&lt;!--  &lt;div class&#x3D;&quot;table-responsive&quot;&gt;--&gt;
+&lt;!--    &lt;table class&#x3D;&quot;table table-bordered table-sm&quot;&gt;--&gt;
+&lt;!--      &lt;thead&gt;--&gt;
+&lt;!--      &lt;tr&gt;--&gt;
+&lt;!--        &lt;th colspan&#x3D;&quot;35&quot; class&#x3D;&quot;text-center&quot;&gt;Summary of Weather Forecast Analysis Results&lt;/th&gt;--&gt;
+&lt;!--      &lt;/tr&gt;--&gt;
+&lt;!--      &lt;tr&gt;--&gt;
+&lt;!--        &lt;th&gt;Weather Forecast : {{ analysis.rows[0] | date: &#x27;E, dd LLL, HHmm&#x27; : &#x27;UTC&#x27; }}&lt;/th&gt;--&gt;
+&lt;!--        &lt;th class&#x3D;&quot;table-secondary rotate-th&quot;&gt;--&gt;
+&lt;!--          &lt;div class&#x3D;&quot;prim&quot;&gt;&lt;span&gt;{{ analysis.min.title1 }}&lt;/span&gt;&lt;/div&gt;--&gt;
+&lt;!--          &lt;div class&#x3D;&quot;secon&quot;&gt;&lt;span&gt;{{ analysis.min.title2 }}&lt;/span&gt;&lt;/div&gt;--&gt;
+&lt;!--        &lt;/th&gt;--&gt;
+&lt;!--        &lt;th class&#x3D;&quot;table-dark-grey rotate-th&quot; *ngFor&#x3D;&quot;let date of analysis.rows&quot;&gt;--&gt;
+&lt;!--          &lt;div&gt;&lt;span&gt;{{ date | date: &#x27;E  dd LLL  HH:mm&#x27; : &#x27;UTC&#x27; }}&lt;/span&gt;&lt;/div&gt;--&gt;
+&lt;!--        &lt;/th&gt;--&gt;
+&lt;!--      &lt;/tr&gt;--&gt;
+&lt;!--      &lt;/thead&gt;--&gt;
+&lt;!--      &lt;tbody&gt;--&gt;
+&lt;!--      &lt;tr *ngFor&#x3D;&quot;let col of analysis.cols; index as i&quot;&gt;--&gt;
+&lt;!--        &lt;ng-template *ngIf&#x3D;&quot;i &#x3D;&#x3D;&#x3D; 0; then thenBlock; else elseBlock&quot;&gt;&lt;/ng-template&gt;--&gt;
+&lt;!--        &lt;ng-template #thenBlock&gt;--&gt;
+&lt;!--          &lt;td class&#x3D;&quot;text-left&quot; &gt;{{ col.title }}&lt;/td&gt;--&gt;
+&lt;!--          &lt;td class&#x3D;&quot;text-center table-secondary&quot; style&#x3D;&quot;font-weight: bold;&quot;&gt;{{ analysis.min.subtitle }}&lt;/td&gt;--&gt;
+&lt;!--          &lt;td class&#x3D;&quot;text-center&quot; *ngFor&#x3D;&quot;let value of col.subcols[col.subcols.length -1].data&quot;--&gt;
+&lt;!--              [appScaleColour]&#x3D;&quot;getScaleColour(value)&quot;--&gt;
+&lt;!--          &gt;--&gt;
+&lt;!--            {{ value | number: &#x27;1.1-1&#x27; }}--&gt;
+&lt;!--          &lt;/td&gt;--&gt;
+&lt;!--        &lt;/ng-template&gt;--&gt;
+&lt;!--        &lt;ng-template #elseBlock&gt;--&gt;
+&lt;!--          &lt;td class&#x3D;&quot;text-left&quot; style&#x3D;&quot;font-weight: bold;&quot;&gt;{{ col.title }}&lt;/td&gt;--&gt;
+&lt;!--          &lt;td class&#x3D;&quot;text-center table-secondary&quot; style&#x3D;&quot;font-weight: bold;&quot;&gt;{{ analysis.min.data[i-1] }}&lt;/td&gt;--&gt;
+&lt;!--          &lt;ng-template *ngIf&#x3D;&quot;col.subcols[col.subcols.length - 1].data.length &#x3D;&#x3D;&#x3D; 0; then thenBlock2; else elseBlock2&quot;&gt;--&gt;
+&lt;!--          &lt;/ng-template&gt;--&gt;
+&lt;!--          &lt;ng-template #thenBlock2&gt;--&gt;
+&lt;!--            &lt;td class&#x3D;&quot;text-center&quot; *ngFor&#x3D;&quot;let value of analysis.cols[0].subcols[0].data&quot;--&gt;
+&lt;!--                [appBooleanColour]&#x3D;&quot;getBooleanColour(&#x27;&#x27;)&quot;--&gt;
+&lt;!--            &gt;--&gt;
+&lt;!--            &lt;/td&gt;--&gt;
+&lt;!--          &lt;/ng-template&gt;--&gt;
+&lt;!--          &lt;ng-template #elseBlock2&gt;--&gt;
+&lt;!--            &lt;td class&#x3D;&quot;text-center&quot; *ngFor&#x3D;&quot;let value of col.subcols[col.subcols.length - 1].data&quot;--&gt;
+&lt;!--                [appBooleanColour]&#x3D;&quot;getBooleanColour(value)&quot;--&gt;
+&lt;!--            &gt;--&gt;
+&lt;!--            &lt;/td&gt;--&gt;
+&lt;!--          &lt;/ng-template&gt;--&gt;
+&lt;!--        &lt;/ng-template&gt;--&gt;
+&lt;!--      &lt;/tr&gt;--&gt;
+&lt;!--      &lt;/tbody&gt;--&gt;
+&lt;!--    &lt;/table&gt;--&gt;
+&lt;!--  &lt;/div&gt;--&gt;
+&lt;!--  &lt;br /&gt;&lt;br /&gt;--&gt;
+
+  &lt;div [innerHTML]&#x3D;&quot;explanations[1].text&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./field-feature-summary.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.table th {
+  vertical-align: top !important;
+}
+
+.table td {
+  vertical-align: center !important;
+}
+
+.table-dark-grey {
+  background-color: #d1d3e2;
+}
+
+.table-bordered th, .table-bordered td {
+  border-color: #000 !important;
+}
+
+.rotate-th {
+  /* Something you can count on */
+  height: 140px;
+  white-space: nowrap;
+}
+
+th.rotate-th &gt; div {
+  transform:
+    /* Magic Numbers */
+    translate(0px, 90px)
+      /* 45 is really 360 - 90 */
+    rotate(270deg);
+  width: 30px;
+}
+
+th.rotate-th &gt; div.prim {
+  transform:
+    /* Magic Numbers */
+    translate(-5px, 90px)
+      /* 45 is really 360 - 90 */
+    rotate(270deg);
+  width: 30px;
+}
+
+th.rotate-th &gt; div.secon {
+  transform:
+    /* Magic Numbers */
+    translate(10px, 60px)
+      /* 45 is really 360 - 90 */
+    rotate(270deg);
+  width: 30px;
+}
+
+
+.table {
+  font-size: 0.75rem !important;
+  color: black;
+}
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!--<div style="margin-top: 24rem !important;" *ngIf="!state.isLoaded">--><!--  <div class="loader">--><!--    <div class="outer"></div>--><!--    <div class="middle"></div>--><!--    <div class="inner"></div>--><!--    <div class="text-primary text-center text-loader">Loading ...</div>--><!--  </div>--><!--</div>--><!--<div style="margin-top: 24rem !important;" *ngIf="state.isLoaded && !state.canConnect">--><!--  <div class="error-content-loading text-danger text-center">--><!--    <div className="connection-error">--><!--      <p>Erreur de connexion</p>--><!--    </div>--><!--    <div className="refresh">--><!--      <button class="btn btn-outline-danger" (click)="refresh()">--><!--        <i class="material-icons md-center">refresh</i> Refresh--><!--      </button>--><!--    </div>--><!--  </div>--><!--</div>--><div *ngIf="state.isLoaded && state.canConnect"><!--  <div [innerHTML]="explanations[0].text"></div>-->  <ng-template #modalHelp let-modal>    <div class="modal-header text-primary">      <h4 class="modal-title" id="modal-basic-title">Explanations</h4>      <button type="button" class="close text-primary" aria-label="Close"              (click)="modal.dismiss(\'Cross click\')"      >        <span aria-hidden="true">&times;</span>      </button>    </div>    <div class="modal-body">      <div [innerHTML]="explanations[0].text"></div>    </div>    <div class="modal-footer">      <button type="button" class="btn btn-outline-primary" (click)="modal.close(\'Close click\')">Close</button>    </div>  </ng-template>  <highcharts-chart [Highcharts]="highcharts" [constructorType]="\'stockChart\'" [options]="chartOptions"                    style="width: 100%; height: 700px; display: block; max-height: 700px;"  >  </highcharts-chart>  <br /><br /><!--  <div class="table-responsive">--><!--    <table class="table table-bordered table-sm">--><!--      <thead>--><!--      <tr>--><!--        <th colspan="35" class="text-center">Summary of Weather Forecast Analysis Results</th>--><!--      </tr>--><!--      <tr>--><!--        <th>Weather Forecast : {{ analysis.rows[0] | date: \'E, dd LLL, HHmm\' : \'UTC\' }}</th>--><!--        <th class="table-secondary rotate-th">--><!--          <div class="prim"><span>{{ analysis.min.title1 }}</span></div>--><!--          <div class="secon"><span>{{ analysis.min.title2 }}</span></div>--><!--        </th>--><!--        <th class="table-dark-grey rotate-th" *ngFor="let date of analysis.rows">--><!--          <div><span>{{ date | date: \'E  dd LLL  HH:mm\' : \'UTC\' }}</span></div>--><!--        </th>--><!--      </tr>--><!--      </thead>--><!--      <tbody>--><!--      <tr *ngFor="let col of analysis.cols; index as i">--><!--        <ng-template *ngIf="i === 0; then thenBlock; else elseBlock"></ng-template>--><!--        <ng-template #thenBlock>--><!--          <td class="text-left" >{{ col.title }}</td>--><!--          <td class="text-center table-secondary" style="font-weight: bold;">{{ analysis.min.subtitle }}</td>--><!--          <td class="text-center" *ngFor="let value of col.subcols[col.subcols.length -1].data"--><!--              [appScaleColour]="getScaleColour(value)"--><!--          >--><!--            {{ value | number: \'1.1-1\' }}--><!--          </td>--><!--        </ng-template>--><!--        <ng-template #elseBlock>--><!--          <td class="text-left" style="font-weight: bold;">{{ col.title }}</td>--><!--          <td class="text-center table-secondary" style="font-weight: bold;">{{ analysis.min.data[i-1] }}</td>--><!--          <ng-template *ngIf="col.subcols[col.subcols.length - 1].data.length === 0; then thenBlock2; else elseBlock2">--><!--          </ng-template>--><!--          <ng-template #thenBlock2>--><!--            <td class="text-center" *ngFor="let value of analysis.cols[0].subcols[0].data"--><!--                [appBooleanColour]="getBooleanColour(\'\')"--><!--            >--><!--            </td>--><!--          </ng-template>--><!--          <ng-template #elseBlock2>--><!--            <td class="text-center" *ngFor="let value of col.subcols[col.subcols.length - 1].data"--><!--                [appBooleanColour]="getBooleanColour(value)"--><!--            >--><!--            </td>--><!--          </ng-template>--><!--        </ng-template>--><!--      </tr>--><!--      </tbody>--><!--    </table>--><!--  </div>--><!--  <br /><br />-->  <div [innerHTML]="explanations[1].text"></div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-home'},{'name': 'AccessDeniedComponent', 'selector': 'app-access-denied'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminPanelFeatureComponent', 'selector': 'app-admin-panel-feature'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardFeatureFieldCardComponent', 'selector': 'app-dashboard-feature-project-card'},{'name': 'DashboardFeatureFieldProgressbarComponent', 'selector': 'app-dashboard-feature-project-progressbar'},{'name': 'DashboardFeaturesComponent', 'selector': 'app-dashboard-features'},{'name': 'DashboardMapCardComponent', 'selector': 'app-dashboard-map-card'},{'name': 'ExplanationsComponent', 'selector': 'app-explanations'},{'name': 'FieldFeatureChartsComponent', 'selector': 'app-field-feature-charts'},{'name': 'FieldFeatureCompareComponent', 'selector': 'app-field-feature-compare'},{'name': 'FieldFeatureComponent', 'selector': 'app-field-feature'},{'name': 'FieldFeatureComputeComponent', 'selector': 'app-field-feature-compute'},{'name': 'FieldFeatureContactCardComponent', 'selector': 'app-field-feature-contact-card'},{'name': 'ProjectFeatureSummaryComponent', 'selector': 'app-field-feature-summary'},{'name': 'FieldFeatureViewComponent', 'selector': 'app-field-feature-view'},{'name': 'FieldsComponent', 'selector': 'app-projects'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastersComponent', 'selector': 'app-forecasters'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginFeatureComponent', 'selector': 'app-login-feature'},{'name': 'LogsComponent', 'selector': 'app-logs'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileFeatureCardComponent', 'selector': 'app-profile-feature-card'},{'name': 'ProfileFeatureComponent', 'selector': 'app-profile-feature'},{'name': 'ProtectedComponent', 'selector': 'app-protected'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterFeatureComponent', 'selector': 'app-register-feature'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsFeatureComponent', 'selector': 'app-requests-feature'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VesselsComponent', 'selector': 'app-vessels'},{'name': 'VesselsTypesComponent', 'selector': 'app-vessel-type'},{'name': 'WeatherComponent', 'selector': 'app-weather'},{'name': 'WindyComponent', 'selector': 'app-windy'}];
+    var DIRECTIVES = [{'name': 'RisksProgressbarDirective', 'selector': '[appRisksProgressbar]'}];
+    var ACTUAL_COMPONENT = {'name': 'ProjectFeatureSummaryComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProjectFeatureSummaryComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

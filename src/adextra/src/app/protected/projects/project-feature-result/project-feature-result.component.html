@@ -1,0 +1,80 @@
+<!-- <div class="row no-gutters mt-4 mb-4">
+    <div class="col-12">
+        <div class="col-12 mt-5 text-center text-secondary text-lg">
+            <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions"
+                style="width: 100%; height: 700px; display: block; max-height: 700px;" class="mt-4">
+            </highcharts-chart>
+        </div>
+    </div>
+</div> -->
+
+<div class="row mt-5 mb-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+    <div class="col-12">
+        <div class="error-content-loading text-danger text-center">
+            <div class="connection-error">
+                <p>Connection error</p>
+            </div>
+            <div class="refresh">
+                <button class="btn btn-outline-danger" (click)="refresh()">
+                    <i class="material-icons md-center">refresh</i> Refresh
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngIf="state.isLoaded === true && state.canConnect === true"> -->
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngIf="fatigue; else noCharts" class="col-12">
+                <div *ngFor="let chart of chartArray; index as i; trackBy: trackByFn">
+                    <highcharts-chart [Highcharts]="highcharts" [options]="chartArray[i]"
+                        style="width: 100%; height: 700px; display: block; max-height: 700px;" class="mt-4">
+                    </highcharts-chart>
+                </div>
+            </div>
+            <ng-template #noCharts>
+                <div class="col-12 mt-5 text-center text-secondary text-lg">
+                    No charts to display.
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+    <!-- <div *ngIf="fatigue; else noCharts" class="col-12">
+        <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions"
+            style="width: 100%; height: 700px; display: block; max-height: 700px;" class="mt-4">
+        </highcharts-chart>
+    </div> -->
+    <!-- <div class="container">
+        <table class="table table-bordered table-responsive">
+            <tbody>
+                <tr>
+                    <td><b>DateTime (Hrs.)</b></td>
+                    <td *ngFor="let item of fatigue;">
+                        <ng-container>{{item.Datetime | date:"HH"}}</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Actual Damage</b></td>
+                    <td *ngFor="let item of fatigue;">
+                        <ng-container *ngIf="item.isDamgeSame">{{item.Damage}}</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>StormGeo Forecasted Damage</b></td>
+                    <td *ngFor="let item of fatigue;">
+                        <ng-container *ngIf="!item.isDamgeSame">{{item.Damage}}</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>DTN Forecasted Damage</b></td>
+                    <td *ngFor="let item of fatigue;">
+                        <ng-container *ngIf="!item.isDamgeSame">{{item.Damage_1}}</ng-container>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
+</div>

@@ -1,0 +1,22 @@
+a.dropdown-item:hover {
+  border-left: .25rem solid #512d6d; // #4873df;
+  border-right: .25rem solid #512d6d; //  #4873df;
+  border-radius: 0.25rem;
+  min-height: 100%;
+  background-color: rgba(72,115,223, 0.15);
+  color: #512d6d !important; // #4873df !important;
+
+  .material-icons {
+    color: #512d6d !important; // #4873df !important;
+  }
+
+  .icon-circle > .material-icons {
+    color: #ffffff !important; // #4873df !important;
+  }
+}
+
+span.dropdown-item {
+  line-height: 1;
+  font-size: 1.2rem;
+  cursor: default !important;
+}

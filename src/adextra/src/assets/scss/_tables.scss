@@ -1,0 +1,7 @@
+.table {
+  background-color: $white;
+}
+
+.table.dataTable.nowrap th, table.dataTable.nowrap td {
+  text-overflow: ellipsis !important;
+}

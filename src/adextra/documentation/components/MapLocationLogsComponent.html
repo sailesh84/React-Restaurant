@@ -1,0 +1,765 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>infield-analysis-portal documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">infield-analysis-portal documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>MapLocationLogsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-map-location-logs</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./map-location-logs.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./map-location-logs.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#center">center</a>
+                            </li>
+                            <li>
+                                <a href="#options">options</a>
+                            </li>
+                            <li>
+                                <a href="#ready">ready</a>
+                            </li>
+                            <li>
+                                <a href="#zoom">zoom</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getMarker">getMarker</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#trackByFn">trackByFn</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#locations">locations</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="locations"></a>
+                        <b>locations</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts:12</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMarker"></a>
+                    <span class="name">
+                        <b>
+                            getMarker
+                        </b>
+                        <a href="#getMarker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMarker(location)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>location</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Marker</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByFn"></a>
+                    <span class="name">
+                        <b>
+                            trackByFn
+                        </b>
+                        <a href="#trackByFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackByFn(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>item</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="center"></a>
+                        <span class="name">
+                            <b>
+                            center</b>
+                            <a href="#center"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>latLng([ 55.9412846, -3.275378 ])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="options"></a>
+                        <span class="name">
+                            <b>
+                            options</b>
+                            <a href="#options"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    layers: [ tileLayer(&#x27;http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#x27;, { attribution: &#x27;Open Street Map&#x27; }) ],
+    zoom: this.zoom,
+    center: this.center
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ready"></a>
+                        <span class="name">
+                            <b>
+                            ready</b>
+                            <a href="#ready"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="zoom"></a>
+                        <span class="name">
+                            <b>
+                            zoom</b>
+                            <a href="#zoom"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>4</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/protected/admin/admin-logs/map-location-logs/map-location-logs.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnInit} from &#x27;@angular/core&#x27;;
+import {divIcon, latLng, Marker, marker, tileLayer} from &#x27;leaflet&#x27;;
+import {formatNumber} from &#x27;@app/shared/helpers/math&#x27;;
+
+@Component({
+  selector: &#x27;app-map-location-logs&#x27;,
+  templateUrl: &#x27;./map-location-logs.component.html&#x27;,
+  styleUrls: [&#x27;./map-location-logs.component.scss&#x27;]
+})
+export class MapLocationLogsComponent implements OnInit {
+
+  @Input() locations: {ip: string, latitude: number, longitude: number, countConnection: number}[] &#x3D; [];
+
+  // Leaflet bindings
+  zoom &#x3D; 4;
+  center &#x3D; latLng([ 55.9412846, -3.275378 ]);
+  options &#x3D; {
+    layers: [ tileLayer(&#x27;http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#x27;, { attribution: &#x27;Open Street Map&#x27; }) ],
+    zoom: this.zoom,
+    center: this.center
+  };
+  ready &#x3D; false;
+
+  constructor() {}
+
+  ngOnInit() {
+    if (this.locations.length &gt; 0) {
+      let centerX &#x3D; 0;
+      let centerY &#x3D; 0;
+      for (const f of this.locations) {
+        centerX +&#x3D; f.latitude;
+        centerY +&#x3D; f.longitude;
+      }
+      this.center &#x3D; latLng([ centerX / this.locations.length, centerY / this.locations.length ]);
+    }
+    this.ready &#x3D; true;
+  }
+
+  getMarker(location): Marker {
+    return marker(
+      [location.latitude, location.longitude],
+      {
+        icon: divIcon({
+          html: &#x27;&lt;i class&#x3D;&quot;material-icons md-48 md-center text-secondary&quot;&gt;business&lt;/i&gt;&#x27;,
+          iconSize: [ 48, 48 ]
+        }),
+        title: location.ip,
+        alt: &#x27;field-marker-&#x27; + location.ip
+      }
+    ).bindTooltip(
+      &#x60;&lt;div style&#x3D;&quot;width: 120px&quot;&gt;&lt;table&gt;&lt;tbody&gt;
+       &lt;tr class&#x3D;&quot;text-secondary&quot;&gt;&lt;td class&#x3D;&quot;text-left&quot;&gt;&lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;dns&lt;/i&gt;&lt;/td&gt;
+       &lt;td class&#x3D;&quot;text-left&quot;&gt;${location.ip}&lt;/td&gt;&lt;/tr&gt;&lt;tr class&#x3D;&quot;text-secondary&quot;&gt;&lt;td class&#x3D;&quot;text-left&quot;&gt;
+       &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;language&lt;/i&gt;&lt;/td&gt;&lt;td class&#x3D;&quot;text-left&quot;&gt;Lat : ${formatNumber(
+         location.latitude, 3, 4, 4)}&lt;/td&gt;&lt;/tr&gt;&lt;tr class&#x3D;&quot;text-secondary&quot;&gt;
+       &lt;td class&#x3D;&quot;text-left&quot;&gt;&lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;language&lt;/i&gt;&lt;/td&gt;&lt;td class&#x3D;&quot;text-left&quot;&gt;Lon : ${formatNumber(
+         location.longitude, 3, 4, 4)}
+       &lt;/td&gt;&lt;/tr&gt;&lt;tr class&#x3D;&quot;text-secondary&quot;&gt;&lt;td class&#x3D;&quot;text-left&quot;&gt;&lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;desktop_windows&lt;/i&gt;&lt;/td
+       &gt;&lt;td class&#x3D;&quot;text-left&quot;&gt;Connection(s) : ${location.countConnection}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&#x60;,
+      {permanent: true, direction: &#x27;top&#x27;, offset: [0, -22]});
+  }
+
+  trackByFn(index: number, item: any): any {
+    return index; // or item._id;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;agm-map&quot; leaflet [leafletOptions]&#x3D;&quot;options&quot; [leafletZoom]&#x3D;&quot;zoom&quot; [leafletCenter]&#x3D;&quot;center&quot; *ngIf&#x3D;&quot;ready&quot;&gt;
+        &lt;div *ngFor&#x3D;&quot;let loc of locations; index as i; trackBy: trackByFn&quot; [leafletLayer]&#x3D;&quot;getMarker(loc)&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./map-location-logs.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.agm-map {
+  height: 95vh !important;
+  width: 100% !important;
+}
+
+.leaflet-tooltip-left {
+  margin-left: -65px !important;
+}
+
+@media only screen and (min-height: 700px) and (max-height: 900px){
+  .agm-map {
+    height: 70.3125vh !important;
+  }
+}
+
+@media only screen and (min-height: 900px) and (max-height: 1400px) {
+  .agm-map {
+    height: 77vh !important;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="agm-map" leaflet [leafletOptions]="options" [leafletZoom]="zoom" [leafletCenter]="center" *ngIf="ready">        <div *ngFor="let loc of locations; index as i; trackBy: trackByFn" [leafletLayer]="getMarker(loc)"></div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-home'},{'name': 'AccessDeniedComponent', 'selector': 'app-access-denied'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminPanelFeatureComponent', 'selector': 'app-admin-panel-feature'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationsAccessesComponent', 'selector': 'app-applications-accesses'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'CountriesComponent', 'selector': 'app-countries'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardFeatureProjectCardComponent', 'selector': 'app-dashboard-feature-project-card'},{'name': 'DashboardFeatureProjectProductComponent', 'selector': 'app-dashboard-feature-project-product'},{'name': 'DashboardFeatureProjectProgressbarComponent', 'selector': 'app-dashboard-feature-project-progressbar'},{'name': 'DashboardFeatureProjectUpatedDateComponent', 'selector': 'app-dashboard-feature-project-upated-date'},{'name': 'DashboardFeaturesComponent', 'selector': 'app-dashboard-features'},{'name': 'DashboardMapCardComponent', 'selector': 'app-dashboard-map-card'},{'name': 'DownloadCenterComponent', 'selector': 'app-download-center'},{'name': 'ExplanationsComponent', 'selector': 'app-explanations'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastersComponent', 'selector': 'app-forecasters'},{'name': 'HistoryComponent', 'selector': 'app-history'},{'name': 'HistoryFeatureAnalysisComponent', 'selector': 'app-history-feature-analysis'},{'name': 'HistoryFeatureForecastsComponent', 'selector': 'app-history-feature-forecasts'},{'name': 'HistoryFeatureInfoComponent', 'selector': 'app-history-feature-info'},{'name': 'HistoryFeaturesComponent', 'selector': 'app-history-features'},{'name': 'HistoryFeatureSummaryComponent', 'selector': 'app-history-feature-summary'},{'name': 'HistoryFeatureViewComponent', 'selector': 'app-history-feature-view'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginFeatureComponent', 'selector': 'app-login-feature'},{'name': 'LogsComponent', 'selector': 'app-logs'},{'name': 'MapLocationLogsComponent', 'selector': 'app-map-location-logs'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsCenterComponent', 'selector': 'app-notifications-center'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileFeatureCardComponent', 'selector': 'app-profile-feature-card'},{'name': 'ProfileFeatureComponent', 'selector': 'app-profile-feature'},{'name': 'ProjectFeatureAnalysisComponent', 'selector': 'app-project-feature-analysis'},{'name': 'ProjectFeatureCompareComponent', 'selector': 'app-project-feature-compare'},{'name': 'ProjectFeatureComponent', 'selector': 'app-project-feature'},{'name': 'ProjectFeatureContactCardComponent', 'selector': 'app-project-feature-contact-card'},{'name': 'ProjectFeatureForecastsComponent', 'selector': 'app-project-feature-forecasts'},{'name': 'ProjectFeatureInfoComponent', 'selector': 'app-project-feature-info'},{'name': 'ProjectFeatureSummaryComponent', 'selector': 'app-project-feature-summary'},{'name': 'ProjectFeatureViewComponent', 'selector': 'app-project-feature-view'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProtectedComponent', 'selector': 'app-protected'},{'name': 'RegionsComponent', 'selector': 'app-regions'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterFeatureComponent', 'selector': 'app-register-feature'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsFeatureComponent', 'selector': 'app-requests-feature'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SchedulerFeatureGanttComponent', 'selector': 'app-scheduler-feature-gantt'},{'name': 'SchedulerFeaturesComponent', 'selector': 'app-scheduler-features'},{'name': 'SchedulerFeatureTableComponent', 'selector': 'app-scheduler-feature-table'},{'name': 'SchedulerFeatureViewComponent', 'selector': 'app-scheduler-feature-view'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UploadComponent', 'selector': 'app-upload'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VesselsComponent', 'selector': 'app-vessels'},{'name': 'VesselsTypesComponent', 'selector': 'app-vessel-type'},{'name': 'WeatherComponent', 'selector': 'app-weather'},{'name': 'WindyComponent', 'selector': 'app-windy'}];
+    var DIRECTIVES = [{'name': 'RisksProgressbarDirective', 'selector': '[appRisksProgressbar]'}];
+    var ACTUAL_COMPONENT = {'name': 'MapLocationLogsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MapLocationLogsComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

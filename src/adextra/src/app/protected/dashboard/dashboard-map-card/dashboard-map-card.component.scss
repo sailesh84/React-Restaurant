@@ -1,0 +1,19 @@
+.agm-map {
+  height: 94vh !important;
+}
+
+.leaflet-tooltip-left {
+  margin-left: -65px !important;
+}
+
+@media only screen and (min-height: 700px) and (max-height: 900px){
+  .agm-map {
+    height: 69.3125vh !important;
+  }
+}
+
+@media only screen and (min-height: 900px) and (max-height: 1400px) {
+  .agm-map {
+    height: 76vh !important;
+  }
+}

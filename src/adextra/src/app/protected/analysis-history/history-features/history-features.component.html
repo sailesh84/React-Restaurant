@@ -1,0 +1,170 @@
+<!-- Content Row -->
+<div class="row">
+  <div class="col-12">
+    <div class="card shadow mb-4 parent-card">
+      <div class="card-header py-3 pl-1 pr-1 row no-gutters align-items-center">
+        <!-- Countries List  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-2 hf-btm hf-gutters">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons md-center md-sm">public</i>
+              </span>
+            </div>
+            <ng-select [items]="countries" bindLabel="name" bindValue="_id" [(ngModel)]="filter.country"
+              placeholder="Select Country" class="form-control ng-select-info" (change)="onCountryChange($event)">
+            </ng-select>
+          </div>
+        </div>
+        <!-- Project List  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 hf-btm hf-gutters">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons md-center md-sm">my_location</i>
+              </span>
+            </div>
+            <ng-select [items]="projects" bindLabel="name" bindValue="_id" [(ngModel)]="filter.project"
+              placeholder="Select a project" class="form-control ng-select-info" [searchFn]="projectSearchFn"
+              (change)="onProjectChange($event)">
+              <ng-template ng-label-tmp let-item="item">
+                {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+              </ng-template>
+            </ng-select>
+          </div>
+        </div>
+        <!-- Vessel List  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-2 hf-btm hf-gutters">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons md-center md-sm">directions_boat</i>
+              </span>
+            </div>
+            <ng-select [items]="filteredVessels" bindLabel="name" bindValue="_id" [(ngModel)]="filter.vessel"
+              placeholder="Select a vessel" class="form-control ng-select-info" (change)="onVesselChange($event)">
+              <ng-template ng-label-tmp let-item="item">
+                <img height="20" width="70" [src]="item.image" alt="" />
+                {{item?.name}}
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                <img height="20" width="70" [src]="item.image" alt="" />
+                {{item?.name}}
+              </ng-template>
+            </ng-select>
+          </div>
+        </div>
+        <!-- Product List  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-2 hf-btm hf-gutters">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons md-center md-sm">settings_input_component</i>
+              </span>
+            </div>
+            <ng-select [items]="filteredProducts" bindLabel="prodTypeName" bindValue="prodTypeName" [(ngModel)]="filter.product"
+              placeholder="Select a product" class="form-control ng-select-info" (change)="onProductTypeChange($event)">
+            </ng-select>
+          </div>
+        </div>
+        <!-- Forecasters List  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-2 hf-btm hf-gutters">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons md-center md-sm">cast</i>
+              </span>
+            </div>
+            <ng-select [items]="filteredForecasters" bindLabel="name" bindValue="_id" [(ngModel)]="filter.forecaster"
+              placeholder="Select a forecaster" class="form-control ng-select-info"
+              (change)="onForecasterChange($event)">
+              <ng-template ng-label-tmp let-item="item">
+                {{item?.name}}
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                {{item?.name}}
+              </ng-template>
+            </ng-select>
+          </div>
+        </div>
+        <!-- Year of Execution List  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-2 hf-btm hf-gutters">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons md-center md-sm">calendar_month</i>
+              </span>
+            </div>
+            <ng-select [items]="filteredYearOfExecution" bindLabel="value" bindValue="_id"
+              [(ngModel)]="filter.yrOfExecution" placeholder="Select Year" (change)="onYrOfExecChange($event)"
+              class="form-control ng-select-info">
+            </ng-select>
+          </div>
+        </div>
+        <!-- Forecast List  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 hf-btm hf-gutters">
+          <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons md-center md-sm">wb_sunny</i>
+              </span>
+            </div>
+            <ng-select [items]="filteredForecasts" bindLabel="name" bindValue="_id" [(ngModel)]="filter.forecast"
+              placeholder="Select a forecast" class="form-control ng-select-info" [searchFn]="forecastSearchFn"
+              (change)="onForecastChange($event)">
+              <ng-template ng-label-tmp let-item="item">
+                Forecast from {{ item?.dateUpdated | momentDate: 'dd LLL yyyy HH:mm (zzzz)' :
+                (getSelectedProject()?.timezone) ? getSelectedProject()?.timezone : 'UTC' }} (#{{ getShortId(item?._id)
+                }})
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                Forecast from {{ item?.dateUpdated | momentDate: 'dd LLL yyyy HH:mm (zzzz)' :
+                (getSelectedProject()?.timezone) ? getSelectedProject()?.timezone : 'UTC' }} (#{{ getShortId(item?._id)
+                }})
+              </ng-template>
+            </ng-select>
+            <div class="input-group-append">
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-outline-info btn-xs" type="button" (click)="onUpSelect()">
+                  <i class="material-icons md-center md-xs">arrow_upward</i>
+                </button>
+                <button class="btn btn-outline-info btn-xs" type="button" (click)="onDownSelect()">
+                  <i class="material-icons md-center md-xs">arrow_downward</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body" id="panel-body-analysis-history">
+        <div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="error-content-loading text-danger text-center">
+              <div class="connection-error">
+                <p>Connection error</p>
+              </div>
+              <div class="refresh">
+                <button class="btn btn-outline-danger" (click)="refresh()">
+                  <i class="material-icons md-center">refresh</i> Refresh
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="state.isLoaded === true && state.canConnect === true">
+          <div *ngIf="filter.forecast" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <app-history-feature-view [analysis]="getSelectedAnalysis()" [forecast]="getSelectedForecast()"
+              [explanation]="getSelectedExplanation()" [project]="getSelectedProject()" [vessel]="getSelectedVessel()"
+              [productType]="getSeletedProductT()" [productName]="seletedProductTypeName" [contactID]="seletedContactId"
+              [forecaster]="filter.forecaster" [session]="(selectedForecasts) ? selectedForecasts.session : null">
+            </app-history-feature-view>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

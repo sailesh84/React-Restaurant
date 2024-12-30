@@ -1,0 +1,231 @@
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Content Row -->
+<div class="row" *ngIf="state.isLoaded === true && state.canConnect === true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="card shadow mb-4 parent-card">
+      <div class="card-header py-3 row no-gutters align-items-center">
+        <div class="col mr-2">
+          <h5 class="m-0 font-weight-bold text-primary">Projects</h5>
+        </div>
+      </div>
+
+      <div class="card-body" id="panel-body-projects">
+        <div class="row">
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div class="card">
+              <div class="card-header py-3 row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <h5 class="m-0 font-weight-bold text-primary">Map</h5>
+                </div>
+              </div>
+
+              <div class="card-body" style="height: 84.5vh !important; max-height: 84.5vh !important; overflow-y: auto">
+                
+                <!-- <div class="row" style="margin-bottom: 10px;">
+                  <div class="col mr-2 d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                    <div class="input-group input-group-sm">
+                      <input type="search" class="form-control" placeholder="Enter a vessel name" aria-label="project search"
+                        [value]="initialVesselValue" (input)="onVesselInput($event)">
+                      <div class="input-group-append">
+                        <span class="input-group-text"><i class="material-icons md-center md-sm">search</i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- <div class="row">
+                  <div class="col mr-2 d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                    <div class="input-group input-group-sm">
+                      <input type="search" class="form-control" placeholder="Enter a project name" aria-label="project search"
+                        [value]="initialProjectValue" (input)="onProjectInput($event)">
+                      <div class="input-group-append">
+                        <span class="input-group-text"><i class="material-icons md-center md-sm">search</i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <div class="row">
+                  <highcharts-chart [Highcharts]="highcharts" [constructorType]="'mapChart'" [options]="chartOptions"
+                    style="width: 100%; height: 100%; display: block; max-height: 100%;">
+                  </highcharts-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+            <div class="card">
+              <div class="card-header py-3 row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <h5 class="m-0 font-weight-bold text-primary">Filters</h5>
+                </div>
+                <div class="col-8 col-xl-5">
+                  <!-- <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons md-center md-sm">explore</i>
+                      </span>
+                    </div>
+
+                    <ng-select [items]="regions" bindLabel="name" bindValue="_id" [(ngModel)]="region" groupBy="continent"
+                      placeholder="Select a region" [clearable]="false" class="form-control ng-select-info"
+                      (change)="onChangeRegion($event)">
+                      <ng-template ng-optgroup-tmp let-item="item">
+                        {{ getContinent(item.continent)}}
+                      </ng-template>
+                    </ng-select>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="card-body">
+
+                <div class="row" style="margin-bottom: 10px;">
+                  <div class="col mr-2 d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                    <div class="input-group input-group-sm">
+                      <!-- <input type="search" class="form-control" placeholder="Enter a vessel name" aria-label="project search"
+                        [(ngModel)]="searchVesselsText"> -->
+                      <input type="search" class="form-control" placeholder="Enter a vessel name" aria-label="project search"
+                        [value]="initialVesselValue" (input)="onVesselInput($event)">
+                      <div class="input-group-append">
+                        <span class="input-group-text"><i class="material-icons md-center md-sm">search</i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 10px;">
+                  <div class="col mr-2 d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                    <div class="input-group input-group-sm">
+                      <!-- <input type="search" class="form-control" placeholder="Enter a project name" aria-label="project search"
+                        [(ngModel)]="searchText" (textChange)="onChangeProject($event)"> -->
+                      <input type="search" class="form-control" placeholder="Enter a project name" aria-label="project search"
+                        [value]="initialProjectValue" (input)="onProjectInput($event)">
+                      <div class="input-group-append">
+                        <span class="input-group-text"><i class="material-icons md-center md-sm">search</i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <app-dashboard-map-card [markers]="projects" [vesselsTypes]="vesselsTypes" [vessels]="vessels" [countries]="countries"
+                  [region]="getRegion()">
+                </app-dashboard-map-card>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+            <div class="card">
+              <div class="card-header py-3 row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <h5 class="m-0 font-weight-bold text-primary">Projects List</h5>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-outline-info btn-sm" (click)="showFilters()"
+                    [attr.aria-expanded]="isShowedFilters" aria-controls="collapse_filter_projects">
+                    <i class="material-icons md-center md-sm">add</i> Filters <i class="material-icons md-center md-sm">
+                      {{ expandIcon }}</i>
+                  </button>
+                </div>
+                
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div class="row no-gutters align-items-center mt-4" id="collapse_filter_projects"
+                    [ngbCollapse]="!isShowedFilters">
+                    <div class="col-12 mr-2">
+                      <div class="form-inline">
+                        <!-- <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none mb-2" style="width: 100%">
+                          <div class="input-group input-group-sm">
+                            <input type="search" class="form-control" placeholder="Enter a project name"
+                              aria-label="project search" [(ngModel)]="searchText">
+                            <div class="input-group-append">
+                              <span class="input-group-text"><i class="material-icons md-center md-sm">search</i></span>
+                            </div>
+                          </div>
+                        </div> -->
+                        
+                        <label class="my-1 mr-2" for="propSelect">Properties</label>
+                        <select class="custom-select custom-select-sm my-1 mr-sm-2" id="propSelect"
+                          [(ngModel)]="filterForm.prop" (change)="onChangeProperties($event)">
+                          <option value="name">Name</option>
+                          <option value="code">Code</option>
+                          <option value="client_name">Client</option>
+                        </select>
+
+                        <label class="my-1 mr-2" for="orderSelect">Sort By</label>
+                        <select class="custom-select custom-select-sm my-1 mr-sm-2" id="orderSelect"
+                          [(ngModel)]="filterForm.sortBy" (change)="onChangeSorting($event)">
+                          <option value="1">Asc</option>
+                          <option value="-1">Desc</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body" id="panel-body-projects" style="height: 84.5vh !important; max-height: 85.5vh !important;">
+                <div class="row">
+                  <div class="col-12">
+                    <h3 class="text-secondary text-center mb-2">
+                      <i class="material-icons md-center">stars</i>
+                      {{ favoriteProjects.length < 1 ? 'Not Favourite' : 'My favourites' }} </h3>
+                  </div>
+                  <app-dashboard-feature-project-card *ngFor="let project of favoriteProjects; index as i; trackBy: trackByFn"
+                    [project]="project" [vesselsTypes]="vesselsTypes" [vessels]="vessels" [clients]="clients" [analysis]="analysis"
+                    [forecasts]="forecasts" [products]="products" class="col-12 mb-2">
+                  </app-dashboard-feature-project-card>
+                </div>
+                <hr class="mb-4 custom-hr" *ngIf="!isVisitor()">
+                <div class="row" *ngIf="!isVisitor()">
+                  <div class="col-12">
+                    <h3 class="text-secondary text-center mt-5" *ngIf="projectsCount() < 1">
+                      No active projects to show
+                    </h3>
+                  </div>
+                  <app-dashboard-feature-project-card *ngFor="let project of paginateData; index as i; trackBy: trackByFn"
+                    [project]="project" [vesselsTypes]="vesselsTypes" [vessels]="vessels" [clients]="clients" [analysis]="analysis"
+                    [forecasts]="forecasts" [products]="products" [searchVesselsText]="searchVesselsText"
+                    [isCollapsedPanel]="isCollapsedPanel" [expandIconItem]="expandIcon" class="col-12 mb-2">
+                  </app-dashboard-feature-project-card>
+                  <!-- <ng-template #project>
+                                </ng-template> -->
+                  <!-- <ng-container *ngIf="searchVesselsText.trim().length > 0; else project">
+                                  <app-dashboard-feature-project-card *ngFor="let project of getFilteredVessels(); index as i; trackBy: trackByFn"
+                                                                      [project]="project" [vesselsTypes]="vesselsTypes" [vessels]="vessels"
+                                                                      [clients]="clients" [analysis]="analysis" [forecasts]="forecasts"
+                                                                      [products]="products"
+                                                                      class="col-12 mb-2"
+                                  >
+                                  </app-dashboard-feature-project-card>
+                                </ng-container> -->
+                  <div class="col-12">
+                    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                      (pageChange)="getPremiumData();">
+                    </ngb-pagination>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,146 @@
+.input-lg {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 0;
+}
+.input-underline {
+  background: 0 0;
+  border: none;
+  box-shadow: none;
+  border-bottom: 5px solid rgba(81, 45, 109, 0.5);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #512d6d;
+}
+.input-underline:focus {
+  border-bottom: 5px solid #512d6d;
+  box-shadow: none;
+}
+
+.select-lg {
+  height: 48px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 0;
+}
+.select-underline {
+  border: none;
+  box-shadow: none;
+  border-bottom: 5px solid rgba(81, 45, 109, 0.5);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #512d6d;
+}
+.select-underline:focus {
+  border-bottom: 5px solid #512d6d;
+  box-shadow: none;
+}
+
+.rounded-btn {
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  background: #512d6d;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  line-height: 40px;
+  padding: 0 25px;
+}
+.rounded-btn:hover,
+.rounded-btn:focus,
+.rounded-btn:visited {
+  color: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(255, 255, 255, 1);
+  outline: none;
+  box-shadow: none;
+}
+
+.rounded-btn:active {
+  color: rgba(255, 255, 255, 1);
+  border: 2px solid #512d6d;
+  background-color: #512d6d;
+  outline: none;
+  box-shadow: none;
+}
+
+.form-group {
+  padding: 8px 0;
+  input::-webkit-input-placeholder, select::-webkit-input-placeholder {
+    color: rgba(81, 45, 109, 0.6) !important;
+  }
+
+  input:-moz-placeholder select:-moz-placeholder {
+    /* Firefox 18- */
+    color: rgba(81, 45, 109, 0.6) !important;
+  }
+
+  input::-moz-placeholder select::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgba(81, 45, 109, 0.6) !important;
+  }
+
+  input:-ms-input-placeholder select:-ms-input-placeholder {
+    color: rgba(81, 45, 109, 0.6) !important; /* 255, 255, 255 */
+  }
+}
+.form-content {
+  padding: 40px 0 0;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-bottom: 5px solid #42A948; /* green */
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.ng-touched.ng-invalid:not(form)  {
+  border-bottom: 5px solid #cb2c30;/* #a94442; /* red */
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.btn-forget-password {
+  font-weight: bold;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .rounded-btn, .input-lg, .select-lg, .btn-forget-password {
+    font-size: 0.7rem !important;
+  }
+  .input-lg, .select-lg {
+    padding: 0px 16px;
+  }
+  .form-content {
+    padding: 15px 0 0;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .rounded-btn, .input-lg, .select-lg, .btn-forget-password {
+    font-size: 0.8rem !important;
+  }
+  .input-lg, .select-lg {
+    padding: 0px 16px;
+  }
+  .form-content {
+    padding: 15px 0 0;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .rounded-btn, .input-lg, .select-lg, .btn-forget-password {
+    font-size: 0.9rem !important;
+  }
+  .input-lg, .select-lg {
+    padding: 0px 16px;
+  }
+  .form-content {
+    padding: 15px 0 0;
+  }
+}

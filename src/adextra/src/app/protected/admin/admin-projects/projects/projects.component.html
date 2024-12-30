@@ -1,0 +1,618 @@
+<!-- Page Heading -->
+<div class="d-flex align-items-center justify-content-between mb-4 d-md-none">
+  <h1 class="h3 mb-0 text-section">{{ title }}</h1>
+</div>
+
+<!-- Description Row -->
+<div class="row" [ngClass]="{'mb-5': state.isLoaded === true && state.canConnect !== true}">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover
+    dt-responsive" style="width:100%">
+      <thead>
+        <tr>
+          <th style="width: 85px;" data-orderable="false">Action</th>
+          <th style="width: 100px;">Name</th>
+          <th style="width: 50px;">Code</th>
+          <th style="width: 150px;">Client</th>
+          <th style="width: 30px;">Latitude</th>
+          <th style="width: 30px;">Longitude</th>
+          <th style="width: 30px;">Countries</th>
+          <th style="width: 50px;">Region</th>
+          <th style="width: 30px;">Status</th>
+          <th style="width: 60px;">Timezone</th>
+          <th style="width: 200px;">Vessels</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalView let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">View project</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="view_project_name">Name</label>
+          <span class="element-view" id="view_project_name">{{ project?.name }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_project_region">Region</label>
+          <span class="element-view" id="view_project_region">
+            <i class="material-icons md-center">explore</i> {{ regionToString(project?.region) }}
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="view_project_code">Code</label>
+          <span class="element-view" id="view_project_code">{{ project?.code }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_project_client">Client</label>
+          <span class="element-view" id="view_project_client" style="height: 60px;">
+            <img [src]="getClient(project.client)?.image" alt="" height="45" style="margin-top: 0 !important;"> {{
+            getClient(project.client)?.name }}
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="view_project_description">Description</label>
+          <div class="element-view" id="view_project_description" [innerHTML]="project?.description"
+            style="height: 250px; max-height: 250px; overflow-x: hidden; overflow-y: auto; white-space: pre-line">
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-4">
+          <label for="view_project_latitude">Latitude</label>
+          <span class="element-view" id="view_project_latitude">{{ project?.latitude }}</span>
+        </div>
+        <div class="form-group col-4">
+          <label for="view_project_longitude">Longitude</label>
+          <span class="element-view" id="view_project_longitude">{{ project?.longitude }}</span>
+        </div>
+        <div class="form-group col-4">
+          <label for="view_project_timezone">Timezone</label>
+          <span class="element-view" id="view_project_timezone">{{ project?.timezone }}</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="view_project_marker">Marker</label>
+          <div class="element-view" id="view_project_marker" style="height: 65px;">
+            <img [src]="project?.marker" alt="" height="45" style="margin-top: 0 !important;">
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_project_status">Status</label>
+          <span class="element-view" id="view_project_status" style="height: 65px;">
+            <span class="badge badge-pill"
+              [ngClass]="{'badge-danger': project?.disabled, 'badge-success': !project?.disabled}">
+              {{ (project?.disabled) ? 'Disabled' : 'Enabled'}}
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-4">
+          <label for="view_project_countries">Countries</label>
+          <div></div>
+          <div class="element-view" id="view_project_countries"
+            style="height: 250px; max-height: 250px; overflow-x: hidden; overflow-y: auto; white-space: pre-line">
+            <ng-template ngFor let-item [ngForOf]="project?.countries" let-i="index" [ngForTrackBy]="trackByFn">
+              <span>
+                <img [src]="getCountryFlag(this.getCountry(item))" alt="" height="30" style="margin-top: 0 !important;">
+                {{ this.getCountry(item)?.name }}
+              </span><br>
+            </ng-template>
+          </div>
+        </div>
+        <div class="form-group col-8">
+          <label for="view_project_vessels">Vessel(s)</label>
+          <div class="element-view" id="view_project_vessels"
+            style="height: 250px; max-height: 250px; overflow-y: auto">
+            <ng-template ngFor let-item [ngForOf]="vesselsProjects || []" let-i="index" [ngForTrackBy]="trackByFn">
+              <div class="row mb-2 pb-2 border-seperator">
+                <div class="col-4">
+                  <span [style.color]="getVesselType(getVessel(item.vessel_id).type.toString()).color">
+                    <i class="material-icons md-center">directions_boat</i> {{ getVessel(item.vessel_id).name }}
+                  </span>
+                </div>
+                <div class="col-4" style="padding: 0.2rem 0.75rem 0 0;">
+                  <div class="progress" style="height: 1.5rem; border: 0.1rem dashed black">
+                    <div class="progress-bar" role="progressbar" *ngFor="let p of getProductsForVessel(item.Product_Details); ind as i;
+                    trackBy: trackByFn" [attr.aria-valuenow]="100 / products.length" aria-valuemin="0"
+                      aria-valuemax="100" [style.width]="(100 / products.length) + '%'" [style.background]="p?.color"
+                      placement="left" [ngbTooltip]="p?.name">
+                      {{ p?.occ }}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <ng-template let-item [ngTemplateOutlet]="elt" #elt
+                    [ngTemplateOutletContext]="{$implicit: getContact(item.Product_Details.contact)}">
+                    <span class="badge badge-pill badge-light user-badge badge-light-contrast">
+                      <img [src]="item.image" alt="" class="avatar-circle" style="margin-top: 0 !important;">
+                      {{ item.firstname + ' ' + item.lastname}}
+                    </span>
+                  </ng-template>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')" ngbAutofocus>
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalAdd let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add project</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); validationModal = false;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+      <h1 class="display-4">Required Information</h1>
+      <ng-container *ngFor="let itemVM of validateVM">
+        <div class="ng-value">
+          <span class="ng-value-label">{{itemVM}}</span>
+        </div>
+      </ng-container>
+    </div>
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal"
+      style="white-space: pre-line;">
+      <!-- <strong>Warning !</strong>  -->
+      {{ errorMessageModal }}
+    </ngb-alert>
+    <form role="form" class="add-form">
+      <div class="form-row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="add_project_name">Name <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="add_project_name" name="name" [(ngModel)]="project.name" />
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="add_project_region">Region <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_project_region" [items]="regions" bindLabel="name" bindValue="_id" name="regions"
+            [(ngModel)]="project.region" groupBy="continent">
+            <ng-template ng-optgroup-tmp let-item="item">
+              {{ getContinent(item.continent)}}
+            </ng-template>
+            <ng-template ng-label-tmp let-item="item">
+              <i class="material-icons md-center">explore</i> {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <i class="material-icons md-center">explore</i> {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="add_project_code">Project Code <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="add_project_code" name="code" [(ngModel)]="project.code" />
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="add_project_client">Client <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_project_client" name="client" [items]="clients" [(ngModel)]="project.client"
+            bindLabel="name" bindValue="_id">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="30" width="auto" alt="" [src]="item.image" /> {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="30" width="auto" alt="" [src]="item.image" /> {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="add_project_description">Description <abbr class="required" title="required">*</abbr></label>
+          <textarea class="form-control" id="add_project_description" name="description" rows="6"
+            [(ngModel)]="project.description"></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="add_project_latitude">Latitude (in degrees)</label>
+          <input type="number" class="form-control" id="add_project_latitude" name="latitude"
+            [(ngModel)]="project.latitude" />
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="add_project_longitude">Longitude (in degrees)</label>
+          <input type="number" class="form-control" id="add_project_longitude" name="longitude"
+            [(ngModel)]="project.longitude" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+          <label for="add_project_countries">Countries <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_project_countries" [items]="countries" bindLabel="name" bindValue="_id" name="country"
+            [(ngModel)]="project.countries" [multiple]="true">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="30" width="auto" [src]="getCountryFlag(item)" alt="" />
+              {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="30" width="auto" [src]="getCountryFlag(item)" alt="" />
+              {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+        <div class="form-group col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+          <label for="add_project_timezone">Timezone <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_project_timezone" [items]="timezonesBuffer" name="timezone" [virtualScroll]="true"
+            [(ngModel)]="project.timezone" groupBy="continent" bindLabel="value" bindValue="value" [loading]="loading"
+            appendTo="#add_project_timezone" [typeahead]="input$" #addSelect (scroll)="onScroll($event)"
+            (scrollToEnd)="onScrollToEnd(addSelect.searchTerm)">
+            >
+            <ng-template ng-optgroup-tmp let-item="item">
+              {{item.continent || 'Unnamed group'}}
+            </ng-template>
+          </ng-select>
+        </div>
+        <div class="form-group col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+          <div class="custom-control custom-checkbox" style="margin-top: 2.5rem !important;">
+            <input type="checkbox" class="custom-control-input" id="add_project_status" name="disabled"
+              [(ngModel)]="project.disabled" [ngModelOptions]="{standalone: true}">
+            <label class="custom-control-label" for="add_project_status">Disabled</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="add_project_vessels">Vessel(s)</label>
+          <table class="table-bordered table table-sm table-striped" id="add_project_vessels">
+            <thead>
+              <tr>
+                <th style="width: 25%">Vessel</th>
+                <th style="width: 25%">Product type</th>
+                <th style="width: 25%">Product name</th>
+                <th style="width: 25%">Contact</th>
+                <th style="width: 25%">Hide Scheduler</th>
+                <th style="width: 20px;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let vessel of vesselsProjects; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                <td>
+                  <ng-select [items]="vessels" bindLabel="name" bindValue="_id" [(ngModel)]="vessel[0]" name="vessel">
+                    <ng-template ng-label-tmp let-item="item">
+                      <img height="35" width="auto" alt="" [src]="item.image || ''" /> {{item.name}}
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <img height="35" width="auto" alt="" [src]="item.image || ''" /> {{item.name}}
+                    </ng-template>
+                  </ng-select>
+                </td>
+                <td>
+                  <ng-select [items]="products" bindLabel="name" bindValue="_id" [(ngModel)]="vessel[1]['productType']"
+                    name="productType">
+                    <ng-template ng-label-tmp let-item="item">
+                      <span class="badge badge-pill" [style.background]="item.color">{{item.name}}</span>
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span class="badge badge-pill" [style.background]="item.color">{{item.name}}</span>
+                    </ng-template>
+                  </ng-select>
+                </td>
+                <td>
+                  <input type="text" class="form-control" placeholder="Enter a product name" name="productName"
+                    [(ngModel)]="vessel[1]['productName']" aria-label="">
+                </td>
+                <td>
+                  <ng-select [items]="contacts" bindLabel="name" bindValue="_id" name="contact"
+                    [(ngModel)]="vessel[1]['contact']" [searchFn]="contactSearchFn">
+                    <ng-template ng-label-tmp let-item="item">
+                      <span class="badge badge-pill badge-light user-badge badge-light-contrast">
+                        <img [src]="item.image" alt="" class="avatar-circle"> {{ item.firstname + ' ' + item.lastname}}
+                      </span>
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span class="badge badge-pill badge-light user-badge badge-light-contrast">
+                        <img [src]="item.image" alt="" class="avatar-circle"> {{ item.firstname + ' ' + item.lastname}}
+                      </span>
+                    </ng-template>
+                  </ng-select>
+                </td>
+                <td>
+                  <ng-select name="hideScheduler" [items]="schedulerStatus" [(ngModel)]="vessel[1]['hideScheduler']" 
+                    bindLabel="label" bindValue="value" [hidden]="isDisabledSchedulerStatus" placeholder="Select Status"
+                    (change)="hideVesselsOfScheduler($event)" [searchable]="false" [clearable]="false">
+                  </ng-select>
+                </td>
+                <td>
+                  <button class="btn-xs btn btn-danger" (click)="deleteVesselRow(i)">
+                    <i class="material-icons md-center">delete</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-outline-success btn-sm" (click)="addVesselRow()">
+            <i class="material-icons md-center">add</i>Add row
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="addRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); validationModal = false;">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit project</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); validationModal = false;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+      <h1 class="display-4">Required Information</h1>
+      <ng-container *ngFor="let itemVM of validateVM">
+        <div class="ng-value">
+          <span class="ng-value-label">{{itemVM}}</span>
+        </div>
+      </ng-container>
+    </div>
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal"
+      style="white-space: pre-line;">
+      <!-- <strong>Warning !</strong>  -->
+      {{ errorMessageModal }}
+    </ngb-alert>
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="edit_project_name">Name <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="edit_project_name" name="name" [(ngModel)]="project.name" />
+        </div>
+        <div class="form-group col-6">
+          <label for="edit_project_region">Region <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_project_region" [items]="regions" bindLabel="name" bindValue="_id" name="regions"
+            [(ngModel)]="project.region" groupBy="continent">
+            <ng-template ng-optgroup-tmp let-item="item">
+              {{ getContinent(item.continent)}}
+            </ng-template>
+            <ng-template ng-label-tmp let-item="item">
+              <i class="material-icons md-center">explore</i> {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <i class="material-icons md-center">explore</i> {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="edit_project_code">Project Code <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="edit_project_code" name="code" [(ngModel)]="project.code" />
+        </div>
+        <div class="form-group col-6">
+          <label for="edit_project_client">Client <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_project_client" name="client" [items]="clients" [(ngModel)]="project.client"
+            bindLabel="name" bindValue="_id">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="30" width="auto" alt="" [src]="item.image" /> {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="30" width="auto" alt="" [src]="item.image" /> {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_project_description">Description <abbr class="required" title="required">*</abbr></label>
+          <textarea class="form-control" id="edit_project_description" name="description" rows="6"
+            [(ngModel)]="project.description"></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="edit_project_latitude">Latitude (in degrees)</label>
+          <input type="number" class="form-control" id="edit_project_latitude" name="latitude"
+            [(ngModel)]="project.latitude" />
+        </div>
+        <div class="form-group col-6">
+          <label for="edit_project_longitude">Longitude (in degrees)</label>
+          <input type="number" class="form-control" id="edit_project_longitude" name="longitude"
+            [(ngModel)]="project.longitude" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-5">
+          <label for="edit_project_countries">Countries</label>
+          <ng-select id="edit_project_countries" [items]="countries" bindLabel="name" bindValue="_id" name="country"
+            [(ngModel)]="project.countries" [multiple]="true">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="30" width="auto" [src]="getCountryFlag(item)" alt="" />
+              {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="30" width="auto" [src]="getCountryFlag(item)" alt="" />
+              {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+        <div class="form-group col-5">
+          <label for="edit_project_timezone">Timezone <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_project_timezone" [items]="timezonesBuffer" name="timezone" [virtualScroll]="true"
+            [(ngModel)]="project.timezone" groupBy="continent" bindLabel="value" bindValue="value" [loading]="loading"
+            appendTo="#edit_project_timezone" [typeahead]="input$" #editSelect (scroll)="onScroll($event)"
+            (scrollToEnd)="onScrollToEnd(editSelect.searchTerm)">>
+            >
+            <ng-template ng-optgroup-tmp let-item="item">
+              {{item.continent || 'Unnamed group'}}
+            </ng-template>
+          </ng-select>
+        </div>
+        <div class="form-group col-2">
+          <div class="custom-control custom-checkbox" style="margin-top: 2.5rem !important;">
+            <input type="checkbox" class="custom-control-input" id="edit_project_status" name="disabled"
+              [(ngModel)]="project.disabled" [ngModelOptions]="{standalone: true}" (change)="onDisabledProject($event)">
+            <label class="custom-control-label" for="edit_project_status">Disabled</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_project_vessels">Vessel(s)</label>
+          <table class="table-bordered table table-sm table-striped" id="edit_project_vessels">
+            <thead>
+              <tr>
+                <th style="width: 25%">Vessel</th>
+                <th style="width: 25%">Product type</th>
+                <th style="width: 25%">Product name</th>
+                <th style="width: 25%">Contact</th>
+                <th style="width: 25%">Hide Scheduler</th>
+                <th style="width: 20px;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let vessel of vesselsProjectsEdit; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                <td>
+                  <ng-select [items]="vessels" bindLabel="name" bindValue="_id" [(ngModel)]="vessel.vessel_id"
+                    name="vessel">
+                    <ng-template ng-label-tmp let-item="item">
+                      <img height="35" width="auto" alt="" [src]="item.image || ''" /> {{item.name}}
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <img height="35" width="auto" alt="" [src]="item.image || ''" /> {{item.name}}
+                    </ng-template>
+                  </ng-select>
+                </td>
+                <td>
+                  <ng-select [items]="products" bindLabel="name" bindValue="_id"
+                    [(ngModel)]="vessel['Product_Details']['productType']" name="productType">
+                    <ng-template ng-label-tmp let-item="item">
+                      <span class="badge badge-pill" [style.background]="item.color">{{item.name}}</span>
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span class="badge badge-pill" [style.background]="item.color">{{item.name}}</span>
+                    </ng-template>
+                  </ng-select>
+                </td>
+                <td>
+                  <input type="text" class="form-control" placeholder="Enter a product name" name="productName"
+                    [(ngModel)]="vessel['Product_Details']['productName']" aria-label="">
+                </td>
+                <td>
+                  <ng-select [items]="contacts" bindLabel="name" bindValue="_id" name="contact"
+                    [searchFn]="contactSearchFn" [(ngModel)]="vessel['Product_Details']['contact']">
+                    <ng-template ng-label-tmp let-item="item">
+                      <span class="badge badge-pill badge-light user-badge badge-light-contrast">
+                        <img [src]="item.image" alt="" class="avatar-circle"> {{ item.firstname + ' ' + item.lastname}}
+                      </span>
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                      <span class="badge badge-pill badge-light user-badge badge-light-contrast">
+                        <img [src]="item.image" alt="" class="avatar-circle"> {{ item.firstname + ' ' + item.lastname}}
+                      </span>
+                    </ng-template>
+                  </ng-select>
+                </td>
+                <td>
+                  <ng-select name="hideScheduler" [items]="schedulerStatus"
+                    [(ngModel)]="vessel['Product_Details']['hideScheduler']" bindLabel="label" bindValue="value" 
+                    [disabled]="isDisabledSchedulerStatus" placeholder="Select Status" (change)="hideVesselsOfScheduler($event)" 
+                    [searchable]="false" [clearable]="false">
+                  </ng-select>
+                </td>
+                <td>
+                  <button class="btn-xs btn btn-danger" (click)="deleteVesselRowEdit(i)">
+                    <i class="material-icons md-center">delete</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-outline-success btn-sm" (click)="addVesselRowEdit()">
+            <i class="material-icons md-center">add</i>Add row
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="saveEditRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="decline(modal); vesselsProjectsEdit = []; validationModal = false;">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Delete project</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong>
+      {{ errorMessageModal }}
+    </ngb-alert>
+    <div class="col-12">
+      <div *ngIf="deleteSuccessRespType; else elseBlock" class="alert alert-warning" role="alert">
+        Do you want to delete the row of ID {{ project._id }} ?
+      </div>
+      <ng-template #elseBlock>
+        <div class="alert alert-warning" role="alert">
+          {{deleteSuccesResp}}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div *ngIf="deleteSuccessRespType; else elseFBlock">
+      <button type="button" class="btn btn-danger" (click)="deleteRow(modal)" ngbAutofocus>
+        <i class="material-icons md-center">delete</i>Yes
+      </button>
+      <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+        <i class="material-icons md-center">cancel</i>No
+      </button>
+    </div>
+    <ng-template #elseFBlock>
+      <button type="button" class="btn btn-primary" (click)="accept(modal)">Ok</button>
+    </ng-template>
+  </div>
+</ng-template>

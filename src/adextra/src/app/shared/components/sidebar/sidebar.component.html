@@ -1,0 +1,79 @@
+<ul id="accordionSidebar" class="navbar-nav sidebar-dark accordion animated fadeInLeft"
+  [ngClass]="isToggledSidebar ? 'sidebar-toggled' : 'sidebar'">
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0">
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item active">
+    <a class="nav-link" routerLink="/dashboard">
+      <i class="material-icons md-center">apps</i>
+      <span>Dashboard</span></a>
+  </li>
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+  <!-- Heading -->
+  <div class="sidebar-heading">Interface</div>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/weather">
+      <i class="material-icons md-center">wb_sunny</i>
+      <span>Weather</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/about">
+      <i class="material-icons md-center">question_answer</i>
+      <span>About</span>
+    </a>
+  </li>
+  <!--  <li class="nav-item">-->
+  <!--    <a class="nav-link" routerLink="/download-center">-->
+  <!--      <i class="material-icons md-center">cloud_download</i>-->
+  <!--      <span>Download center</span>-->
+  <!--    </a>-->
+  <!--  </li>-->
+  
+  <ng-template [ngIf]="isOperatorLead() || isAdmin()">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">Project Controls</div>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/scheduler">
+        <i class="material-icons md-center">event_note</i>
+        <span>Scheduler</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/scheduler-logs">
+        <i class="material-icons md-center">event_note</i>
+        <span>Scheduler Logs</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/analysis-history">
+        <i class="material-icons md-center">show_chart</i>
+        <span>Analysis history</span>
+      </a>
+    </li>
+  </ng-template>
+
+  <ng-template [ngIf]="isAdmin()">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">Admin</div>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin-panel">
+        <i class="material-icons md-center">supervisor_account</i>
+        <span>Admin panel</span>
+      </a>
+    </li>
+  </ng-template>
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block">
+  <!-- Sidebar Toggler (Sidebar) -->
+  <!-- <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle" (click)="toggleSidebar()">
+      <i class="material-icons md-center chevron_toggle">{{ arrow }}</i>
+    </button>
+  </div> -->
+</ul>

@@ -1,0 +1,144 @@
+<div class="row mt-5 mb-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="state.isLoaded === true && state.canConnect === true">
+  <div class="row no-gutters mt-4 mb-4" style="min-height: 580px;">
+    <div class="col-12 col-lg-8 col-xl-8 order-last order-lg-first order-xl-first" style="min-height: 580px;">
+      <div class="p-1 text-left">
+        <h4 class="font-weight-bold mb-3 text-info h5">Project :</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Code :</div>
+                <div class="col-8 p-0">{{ project?.code }}</div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Name :</div>
+                <div class="col-8 p-0">{{ project?.name }}</div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Client :</div>
+                <div class="col-8 p-0"><img [src]="client?.image" alt="" height="30"> {{ client?.name | uppercase }}</div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Status :</div>
+                <div class="col-8 p-0">
+                  <span class="badge badge-pill" [ngClass]="{'badge-success': project?.disabled === false,
+                  'badge-danger': project?.disabled !== false}">
+                    {{ (project?.disabled === false) ? 'Enabled' : 'Disabled' }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Region :</div>
+                <div class="col-8 p-0">{{ region?.name }}</div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Country :</div>
+                <div class="col-8 p-0">
+                  <ng-template ngFor let-item [ngForOf]="countries || []" let-i="index" [ngForTrackBy]="trackByFn">
+                    <img [src]="getFlag(item?.code)" alt="" height="30"> {{ item?.name }}
+                    <br *ngIf="i + 1 >= 1 && i !== countries.length && (i + 1) % 2 === 0" />
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-12 font-weight-bold p-0">Description : </div>
+                <div class="col-12 p-0">{{ project?.description }}</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <h4 class="font-weight-bold mt-5 mb-3 text-info h5">
+          {{ (vessel.virtual) ? 'Object :' : 'Vessel :'}}
+        </h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Name :</div>
+                <div class="col-8 p-0">{{ vessel?.name }}</div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Type :</div>
+                <div class="col-8 p-0">
+                  <span class="badge badge-pill" style="color: #fff;" [style.backgroundColor]="vesselType?.color">
+                    {{ vesselType?.name | uppercase }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Product :</div>
+                <div class="col-8 p-0">
+                  <span class="badge badge-pill" style="border: 1px dashed #000; color: #fff;"
+                        [ngStyle]="{'backgroundColor': product?.color}">
+                    <!-- {{ product?.name | uppercase }} : {{ vesselInfos?.Product_Details.productName | uppercase }} -->
+                    {{ product?.name | uppercase }} : {{ productName | uppercase }}
+                  </span>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Status :</div>
+                <div class="col-8 p-0">
+                  <span class="badge badge-pill" [ngClass]="{'badge-success': vessel?.disabled === false,
+                  'badge-danger': vessel?.disabled !== false}">
+                    {{ (vessel?.disabled === false) ? 'Enabled' : 'Disabled' }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">
+                <div class="col-4 font-weight-bold p-0">Contact :</div>
+                <div class="col-8 p-0">
+                  <a [href]="'mailto:' + contact.email" [title]="'mailto:' + contact.email">
+                    <span class="badge badge-pill badge-light user-badge badge-light-contrast">
+                      <img [src]="contact?.image" alt="" class="avatar-circle">{{ contact?.firstname }} {{ contact?.lastname }}
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-xl-4 order-first order-lg-last order-xl-last">
+      <div class="agm-map" leaflet [leafletOptions]="options" [leafletZoom]="zoom" [leafletCenter]="center" *ngIf="ready">
+        <div [leafletLayer]="getMarker()"></div>
+      </div>
+    </div>
+  </div>
+</div>
+

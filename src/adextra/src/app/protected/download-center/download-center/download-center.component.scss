@@ -1,0 +1,30 @@
+.card-img-top {
+  margin-top: 0.5rem !important;
+  height: 10rem !important;
+}
+
+.list-group-item, .card-footer {
+  padding: 0.75rem 0.75rem !important;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .card-img-top {
+    height: 2.5rem !important;
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .card-img-top {
+    height: 2.5rem !important;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .card-img-top {
+    height: 5rem !important;
+  }
+}
+

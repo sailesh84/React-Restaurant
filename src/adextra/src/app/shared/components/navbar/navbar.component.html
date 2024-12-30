@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+  <a href="javascript:void(0)" (click)="toggleMenu()">
+    <i class="material-icons md-center ml-3 text-primary">{{arrow}}</i>
+  </a>
+
+  <img src="./assets/images/logo.svg" alt="" class="img-custom d-sm-inline-block" routerLink="/dashboard"/>
+  <ng-template [ngIf]="page && page !== ''">
+    <div style="width: 1px; height: 100%; border-left: 2px solid #512d6d;" class="d-none d-sm-inline-block"></div>
+    <h1 class="h3 text-section d-none d-sm-inline-block" style="margin: 30px 30px 30px 30px;">{{ page }}</h1>
+  </ng-template>
+
+  <!-- Topbar Navbar -->
+  <ul class="navbar-nav ml-auto">
+    <!-- Nav Item - Alerts -->
+    <app-notifications-center *ngIf="state.isLoaded && state.canConnect && isAdmin()"></app-notifications-center>
+    <div class="topbar-divider d-none d-sm-block" *ngIf="state.isLoaded && state.canConnect && isAdmin()"></div>
+
+    <!-- Nav Item - User Information -->
+    <li class="nav-item dropdown no-arrow" ngbDropdown placement="bottom-left"
+      *ngIf="state.isLoaded && state.canConnect">
+      <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" ngbDropdownToggle>
+        <span class="mr-2 d-none d-lg-inline text-primary">
+          {{ user?.firstname + ' ' + user?.lastname }}
+        </span>
+        <img class="img-profile rounded-circle" [src]="user?.image" alt="">
+      </a>
+      <!-- Dropdown - User Information -->
+      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in dropdown-custom"
+        aria-labelledby="userDropdown" ngbDropdownMenu>
+        <a class="dropdown-item user-dropdown-menu text-primary" routerLink="/profile" ngbDropdownItem>
+          <i class="material-icons md-center mr-2 text-primary">account_circle</i>
+          Profile
+        </a>
+        <a class="dropdown-item user-dropdown-menu text-primary" routerLink="/requests" ngbDropdownItem>
+          <i class="material-icons md-center mr-2 text-primary">receipt</i>
+          My requests
+        </a>
+        <a class="dropdown-item user-dropdown-menu text-primary d-md-none d-lg-none d-xl-none" ngbDropdownItem
+          href="javascript:void(0)" (click)="collapseSidebar()">
+          <i class="material-icons md-center mr-2 text-primary">menu</i>
+          {{ textOptionMenu }}
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item user-dropdown-menu text-primary" href="javascript:void(0)" ngbDropdownItem
+          (click)="logout()">
+          <i class="material-icons md-center mr-2 text-primary">power_settings_new</i>
+          Logout
+        </a>
+        <div class="dropdown-divider mt-3"></div>
+        <span class="dropdown-item text-primary copyright-item">
+          Copyright &copy; TechnipFMC {{ copyrightYear }}
+        </span>
+      </div>
+    </li>
+
+  </ul>
+
+</nav>

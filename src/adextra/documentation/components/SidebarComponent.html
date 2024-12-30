@@ -1,0 +1,938 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>infield-analysis-portal documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">infield-analysis-portal documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SidebarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/sidebar/sidebar.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component represents the sidebar</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-sidebar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./sidebar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sidebar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#arrow">arrow</a>
+                            </li>
+                            <li>
+                                <a href="#isToggled">isToggled</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#collapseSidebar">collapseSidebar</a>
+                            </li>
+                            <li>
+                                <a href="#isAdmin">isAdmin</a>
+                            </li>
+                            <li>
+                                <a href="#isOperatorLead">isOperatorLead</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSidebar">toggleSidebar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isCollapsed">isCollapsed</a>
+                            </li>
+                            <li>
+                                <a href="#levelAccess">levelAccess</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isCollapsed"></a>
+                        <b>isCollapsed</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:24</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Indicates the default state of the sidebar.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="levelAccess"></a>
+                        <b>levelAccess</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Accesses.General</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:29</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Accesses right of the current user.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="collapseSidebar"></a>
+                    <span class="name">
+                        <b>
+                            collapseSidebar
+                        </b>
+                        <a href="#collapseSidebar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>collapseSidebar()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method allows to reduce / extend the sidebar.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAdmin"></a>
+                    <span class="name">
+                        <b>
+                            isAdmin
+                        </b>
+                        <a href="#isAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isAdmin()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method allows to determine if a user is admin / lead or not.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOperatorLead"></a>
+                    <span class="name">
+                        <b>
+                            isOperatorLead
+                        </b>
+                        <a href="#isOperatorLead"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isOperatorLead()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method allows to determine if a user is operator lead or not.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Called during the changes of the component.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Called as soon as the creation of the component</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSidebar"></a>
+                    <span class="name">
+                        <b>
+                            toggleSidebar
+                        </b>
+                        <a href="#toggleSidebar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSidebar()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method allows to toggle the state of the sidebar.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="arrow"></a>
+                        <span class="name">
+                            <b>
+                            arrow</b>
+                            <a href="#arrow"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;chevron_right&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The chevron to show according to the state of the sidebar.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isToggled"></a>
+                        <span class="name">
+                            <b>
+                            isToggled</b>
+                            <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/components/sidebar/sidebar.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Represents the state of the sidebar.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnChanges, OnInit, SimpleChanges} from &#x27;@angular/core&#x27;;
+import {Accesses} from &#x27;@app/shared/enums/accesses.enum&#x27;;
+
+/**
+ * This component represents the sidebar
+ */
+@Component({
+  selector: &#x27;app-sidebar&#x27;,
+  templateUrl: &#x27;./sidebar.component.html&#x27;,
+  styleUrls: [&#x27;./sidebar.component.scss&#x27;]
+})
+export class SidebarComponent implements OnInit, OnChanges {
+  /**
+   * Represents the state of the sidebar.
+   */
+  isToggled &#x3D; true;
+  /**
+   * The chevron to show according to the state of the sidebar.
+   */
+  arrow &#x3D; &#x27;chevron_right&#x27;;
+  /**
+   * Indicates the default state of the sidebar.
+   */
+  @Input() isCollapsed &#x3D; true;
+
+  /**
+   * Accesses right of the current user.
+   */
+  @Input() levelAccess &#x3D; Accesses.General;
+
+  /**
+   * Constructor
+   */
+  constructor() { }
+
+  /**
+   * Called as soon as the creation of the component
+   */
+  ngOnInit() {
+  }
+
+  /**
+   * Called during the changes of the component.
+   */
+  ngOnChanges(changes: SimpleChanges): void {
+    this.collapseSidebar();
+  }
+
+  /**
+   * This method allows to toggle the state of the sidebar.
+   */
+  toggleSidebar() {
+    if (this.arrow &#x3D;&#x3D;&#x3D; &#x27;chevron_left&#x27; &amp;&amp; !this.isToggled) {
+      this.arrow &#x3D; &#x27;chevron_right&#x27;;
+      this.isToggled &#x3D; true;
+    } else {
+      this.arrow &#x3D; &#x27;chevron_left&#x27;;
+      this.isToggled &#x3D; false;
+    }
+  }
+
+  /**
+   * This method allows to reduce / extend the sidebar.
+   */
+  collapseSidebar() {
+    this.isToggled &#x3D; this.isCollapsed;
+  }
+
+  /**
+   * This method allows to determine if a user is admin / lead or not.
+   */
+  isAdmin() {
+    return this.levelAccess &amp;&amp; (this.levelAccess &#x3D;&#x3D;&#x3D; Accesses.Lead || this.levelAccess &#x3D;&#x3D;&#x3D; Accesses.Administrator);
+  }
+
+  /**
+   * This method allows to determine if a user is operator lead or not.
+   */
+  isOperatorLead() {
+    return this.levelAccess &amp;&amp; (this.levelAccess &#x3D;&#x3D;&#x3D; Accesses.Offshore);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ul class&#x3D;&quot;navbar-nav sidebar sidebar-dark accordion&quot; id&#x3D;&quot;accordionSidebar&quot;
+    [ngClass]&#x3D;&quot;{&#x27;toggled&#x27;: isToggled, &#x27;&#x27; : !isToggled}&quot;
+&gt;
+  &lt;!-- Sidebar - Brand --&gt;
+&lt;!--  &lt;a class&#x3D;&quot;sidebar-brand d-flex align-items-center justify-content-center&quot; routerLink&#x3D;&quot;/&quot;&gt;--&gt;
+&lt;!--    &lt;div class&#x3D;&quot;sidebar-brand-icon&quot;&gt;--&gt;
+&lt;!--      &amp;lt;!&amp;ndash;&lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;tag_faces&lt;/i&gt;&amp;ndash;&amp;gt;--&gt;
+&lt;!--      &lt;img src&#x3D;&quot;../../../../assets/images/logo.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;rounded img-custom&quot;/&gt;--&gt;
+&lt;!--    &lt;/div&gt;--&gt;
+&lt;!--    &lt;div class&#x3D;&quot;sidebar-brand-text mx-3&quot;&gt;TechnipFMC&lt;/div&gt;--&gt;
+&lt;!--  &lt;/a&gt;--&gt;
+  &lt;!-- Divider --&gt;
+  &lt;hr class&#x3D;&quot;sidebar-divider my-0&quot;&gt;
+  &lt;!-- Nav Item - Dashboard --&gt;
+  &lt;li class&#x3D;&quot;nav-item active&quot;&gt;
+    &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/dashboard&quot;&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;apps&lt;/i&gt;
+      &lt;span&gt;Dashboard&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;!-- Divider --&gt;
+  &lt;hr class&#x3D;&quot;sidebar-divider&quot;&gt;
+  &lt;!-- Heading --&gt;
+  &lt;div class&#x3D;&quot;sidebar-heading&quot;&gt;Interface&lt;/div&gt;
+&lt;!--  &lt;li class&#x3D;&quot;nav-item&quot;&gt;--&gt;
+&lt;!--    &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/scheduler&quot;&gt;--&gt;
+&lt;!--      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;calendar_today&lt;/i&gt;--&gt;
+&lt;!--      &lt;span&gt;Scheduler&lt;/span&gt;--&gt;
+&lt;!--    &lt;/a&gt;--&gt;
+&lt;!--  &lt;/li&gt;--&gt;
+  &lt;li class&#x3D;&quot;nav-item&quot;&gt;
+    &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/weather&quot;&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;wb_sunny&lt;/i&gt;
+      &lt;span&gt;Weather&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class&#x3D;&quot;nav-item&quot;&gt;
+    &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/about&quot;&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;question_answer&lt;/i&gt;
+      &lt;span&gt;About&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class&#x3D;&quot;nav-item&quot;&gt;
+    &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/download-center&quot;&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;cloud_download&lt;/i&gt;
+      &lt;span&gt;Download center&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;ng-template [ngIf]&#x3D;&quot;isOperatorLead() || isAdmin()&quot;&gt;
+    &lt;!-- Divider --&gt;
+    &lt;hr class&#x3D;&quot;sidebar-divider&quot;&gt;
+    &lt;!-- Heading --&gt;
+    &lt;div class&#x3D;&quot;sidebar-heading&quot;&gt;Project Controls&lt;/div&gt;
+    &lt;li class&#x3D;&quot;nav-item&quot;&gt;
+      &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/scheduler&quot;&gt;
+        &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;event_note&lt;/i&gt;
+        &lt;span&gt;Scheduler&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class&#x3D;&quot;nav-item&quot;&gt;
+      &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/analysis-history&quot;&gt;
+        &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;show_chart&lt;/i&gt;
+        &lt;span&gt;Analysis history&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ng-template&gt;
+  &lt;ng-template [ngIf]&#x3D;&quot;isAdmin()&quot;&gt;
+    &lt;!-- Divider --&gt;
+    &lt;hr class&#x3D;&quot;sidebar-divider&quot;&gt;
+    &lt;!-- Heading --&gt;
+    &lt;div class&#x3D;&quot;sidebar-heading&quot;&gt;Admin&lt;/div&gt;
+    &lt;li class&#x3D;&quot;nav-item&quot;&gt;
+      &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/admin-panel&quot;&gt;
+        &lt;i class&#x3D;&quot;material-icons md-center&quot;&gt;supervisor_account&lt;/i&gt;
+        &lt;span&gt;Admin panel&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ng-template&gt;
+  &lt;!-- Divider --&gt;
+  &lt;hr class&#x3D;&quot;sidebar-divider d-none d-md-block&quot;&gt;
+  &lt;!-- Sidebar Toggler (Sidebar) --&gt;
+  &lt;div class&#x3D;&quot;text-center d-none d-md-inline&quot;&gt;
+    &lt;button class&#x3D;&quot;rounded-circle border-0&quot; id&#x3D;&quot;sidebarToggle&quot; (click)&#x3D;&quot;toggleSidebar()&quot;&gt;
+      &lt;i class&#x3D;&quot;material-icons md-center chevron_toggle&quot;&gt;{{ arrow }}&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/ul&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./sidebar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.chevron_toggle {
+  font-weight: 900;
+  margin-right: 0.1rem;
+  color: white !important;
+}
+.img-custom {
+  max-height: 45px !important;
+  width: auto !important;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar"    [ngClass]="{\'toggled\': isToggled, \'\' : !isToggled}">  <!-- Sidebar - Brand --><!--  <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="/">--><!--    <div class="sidebar-brand-icon">--><!--      &lt;!&ndash;<i class="material-icons md-center">tag_faces</i>&ndash;&gt;--><!--      <img src="../../../../assets/images/logo.png" alt="" class="rounded img-custom"/>--><!--    </div>--><!--    <div class="sidebar-brand-text mx-3">TechnipFMC</div>--><!--  </a>-->  <!-- Divider -->  <hr class="sidebar-divider my-0">  <!-- Nav Item - Dashboard -->  <li class="nav-item active">    <a class="nav-link" routerLink="/dashboard">      <i class="material-icons md-center">apps</i>      <span>Dashboard</span></a>  </li>  <!-- Divider -->  <hr class="sidebar-divider">  <!-- Heading -->  <div class="sidebar-heading">Interface</div><!--  <li class="nav-item">--><!--    <a class="nav-link" routerLink="/scheduler">--><!--      <i class="material-icons md-center">calendar_today</i>--><!--      <span>Scheduler</span>--><!--    </a>--><!--  </li>-->  <li class="nav-item">    <a class="nav-link" routerLink="/weather">      <i class="material-icons md-center">wb_sunny</i>      <span>Weather</span>    </a>  </li>  <li class="nav-item">    <a class="nav-link" routerLink="/about">      <i class="material-icons md-center">question_answer</i>      <span>About</span>    </a>  </li>  <li class="nav-item">    <a class="nav-link" routerLink="/download-center">      <i class="material-icons md-center">cloud_download</i>      <span>Download center</span>    </a>  </li>  <ng-template [ngIf]="isOperatorLead() || isAdmin()">    <!-- Divider -->    <hr class="sidebar-divider">    <!-- Heading -->    <div class="sidebar-heading">Project Controls</div>    <li class="nav-item">      <a class="nav-link" routerLink="/scheduler">        <i class="material-icons md-center">event_note</i>        <span>Scheduler</span>      </a>    </li>    <li class="nav-item">      <a class="nav-link" routerLink="/analysis-history">        <i class="material-icons md-center">show_chart</i>        <span>Analysis history</span>      </a>    </li>  </ng-template>  <ng-template [ngIf]="isAdmin()">    <!-- Divider -->    <hr class="sidebar-divider">    <!-- Heading -->    <div class="sidebar-heading">Admin</div>    <li class="nav-item">      <a class="nav-link" routerLink="/admin-panel">        <i class="material-icons md-center">supervisor_account</i>        <span>Admin panel</span>      </a>    </li>  </ng-template>  <!-- Divider -->  <hr class="sidebar-divider d-none d-md-block">  <!-- Sidebar Toggler (Sidebar) -->  <div class="text-center d-none d-md-inline">    <button class="rounded-circle border-0" id="sidebarToggle" (click)="toggleSidebar()">      <i class="material-icons md-center chevron_toggle">{{ arrow }}</i>    </button>  </div></ul></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-home'},{'name': 'AccessDeniedComponent', 'selector': 'app-access-denied'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminPanelFeatureComponent', 'selector': 'app-admin-panel-feature'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationsAccessesComponent', 'selector': 'app-applications-accesses'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'CountriesComponent', 'selector': 'app-countries'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardFeatureProjectCardComponent', 'selector': 'app-dashboard-feature-project-card'},{'name': 'DashboardFeatureProjectProductComponent', 'selector': 'app-dashboard-feature-project-product'},{'name': 'DashboardFeatureProjectProgressbarComponent', 'selector': 'app-dashboard-feature-project-progressbar'},{'name': 'DashboardFeatureProjectUpatedDateComponent', 'selector': 'app-dashboard-feature-project-upated-date'},{'name': 'DashboardFeaturesComponent', 'selector': 'app-dashboard-features'},{'name': 'DashboardMapCardComponent', 'selector': 'app-dashboard-map-card'},{'name': 'DownloadCenterComponent', 'selector': 'app-download-center'},{'name': 'ExplanationsComponent', 'selector': 'app-explanations'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastersComponent', 'selector': 'app-forecasters'},{'name': 'HistoryComponent', 'selector': 'app-history'},{'name': 'HistoryFeatureAnalysisComponent', 'selector': 'app-history-feature-analysis'},{'name': 'HistoryFeatureForecastsComponent', 'selector': 'app-history-feature-forecasts'},{'name': 'HistoryFeatureInfoComponent', 'selector': 'app-history-feature-info'},{'name': 'HistoryFeaturesComponent', 'selector': 'app-history-features'},{'name': 'HistoryFeatureSummaryComponent', 'selector': 'app-history-feature-summary'},{'name': 'HistoryFeatureViewComponent', 'selector': 'app-history-feature-view'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginFeatureComponent', 'selector': 'app-login-feature'},{'name': 'LogsComponent', 'selector': 'app-logs'},{'name': 'MapLocationLogsComponent', 'selector': 'app-map-location-logs'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsCenterComponent', 'selector': 'app-notifications-center'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileFeatureCardComponent', 'selector': 'app-profile-feature-card'},{'name': 'ProfileFeatureComponent', 'selector': 'app-profile-feature'},{'name': 'ProjectFeatureAnalysisComponent', 'selector': 'app-project-feature-analysis'},{'name': 'ProjectFeatureCompareComponent', 'selector': 'app-project-feature-compare'},{'name': 'ProjectFeatureComponent', 'selector': 'app-project-feature'},{'name': 'ProjectFeatureContactCardComponent', 'selector': 'app-project-feature-contact-card'},{'name': 'ProjectFeatureForecastsComponent', 'selector': 'app-project-feature-forecasts'},{'name': 'ProjectFeatureInfoComponent', 'selector': 'app-project-feature-info'},{'name': 'ProjectFeatureSummaryComponent', 'selector': 'app-project-feature-summary'},{'name': 'ProjectFeatureViewComponent', 'selector': 'app-project-feature-view'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProtectedComponent', 'selector': 'app-protected'},{'name': 'RegionsComponent', 'selector': 'app-regions'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterFeatureComponent', 'selector': 'app-register-feature'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsFeatureComponent', 'selector': 'app-requests-feature'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SchedulerFeatureGanttComponent', 'selector': 'app-scheduler-feature-gantt'},{'name': 'SchedulerFeaturesComponent', 'selector': 'app-scheduler-features'},{'name': 'SchedulerFeatureTableComponent', 'selector': 'app-scheduler-feature-table'},{'name': 'SchedulerFeatureViewComponent', 'selector': 'app-scheduler-feature-view'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UploadComponent', 'selector': 'app-upload'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VesselsComponent', 'selector': 'app-vessels'},{'name': 'VesselsTypesComponent', 'selector': 'app-vessel-type'},{'name': 'WeatherComponent', 'selector': 'app-weather'},{'name': 'WindyComponent', 'selector': 'app-windy'}];
+    var DIRECTIVES = [{'name': 'RisksProgressbarDirective', 'selector': '[appRisksProgressbar]'}];
+    var ACTUAL_COMPONENT = {'name': 'SidebarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SidebarComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

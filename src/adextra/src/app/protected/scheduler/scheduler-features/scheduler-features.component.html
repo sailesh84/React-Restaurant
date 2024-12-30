@@ -1,0 +1,1969 @@
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Content Row -->
+<div class="row" *ngIf="state.isLoaded === true && state.canConnect === true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="card shadow mb-4 parent-card">
+      <div class="card-header py-3 row no-gutters align-items-center">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-9">
+          <ng-select id="select_scheduler" [items]="filteredSchedulers" bindValue="_id" name="scheduler"
+            groupBy="project" placeholder="Select a scheduler" [(ngModel)]="currentSchedulerId"
+            [searchFn]="schedulerSearchFn" (change)="onSchedulerChange($event)">
+            <ng-template ng-optgroup-tmp let-item="item">
+              {{ getGroupName(getProject(item?.project)) }}
+            </ng-template>
+            <ng-template ng-label-tmp let-item="item">
+              {{ getSchedulerName(item?.name, getVessel(item?.vessel)) }}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+              {{ getSchedulerName(item?.name, getVessel(item?.vessel)) }}
+            </ng-template>
+          </ng-select>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-3 action-lists d-flex justify-content-center pl-2">
+          <div class="btn-group m-0" role="group">
+            <button class="btn btn-outline-info" (click)="openModal('edit')"
+              [disabled]="!currentSchedulerId || !isActionActive" placement="bottom"
+              ngbTooltip="Edit current scheduler">
+              <i class="material-icons md-center md-sm">edit</i>
+            </button>
+            <!-- <button class="btn btn-outline-danger" (click)="openModal('delete')"
+              [disabled]="!currentSchedulerId || !isActionActive" placement="bottom"
+              ngbTooltip="Delete current scheduler">
+              <i class="material-icons md-center md-sm">delete</i>
+            </button> -->
+            <button class="btn btn-outline-success" (click)="openModal('add')" placement="bottom"
+              [disabled]="!isActionActive" ngbTooltip="Add new scheduler">
+              <i class="material-icons md-center md-sm">add</i>
+            </button>
+            <button class="btn btn-outline-secondary" (click)="openModal('copy')" [disabled]="!currentSchedulerId"
+              placement="bottom" ngbTooltip="Copy selected scheduler">
+              <i class="material-icons md-center md-sm">content_copy</i>
+            </button>
+            <button class="btn btn-outline-secondary" (click)="openModal('move')" placement="bottom"
+              [disabled]="!currentSchedulerId || !isActionActive" ngbTooltip="Move selected scheduler">
+              <i class="material-icons md-center md-sm">move_up</i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body" id="panel-body-scheduler">
+        <app-scheduler-feature-view *ngIf="state.isLoaded === true && state.canConnect === true" [scheduler]="scheduler"
+          [timezone]="getProject(scheduler?.project)?.timezone">
+        </app-scheduler-feature-view>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD MODAL -->
+<ng-template #modalAdd let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add scheduler</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); validationModal = false; isDisabledTesting = true; isDisabledForecaster = false;
+          this.forecastersWaveScheduler = []; this.isActiveWaveForecasterBtn = true;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div id="stepper-add-scheduler" class="bs-stepper">
+      <div class="bs-stepper-header">
+        <div class="step" data-target="#target-tab-add-1">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">General</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#target-tab-add-2">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Alpha factor</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#target-tab-add-3">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">3</span>
+            <span class="bs-stepper-label">Tasks</span>
+          </button>
+        </div>
+      </div>
+      <div class="bs-stepper-content">
+        <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+          <h1 class="display-4">Required Information</h1>
+          <ng-container *ngFor="let itemVM of validateVM">
+            <div class="ng-value">
+              <span class="ng-value-label">{{itemVM}}</span>
+            </div>
+          </ng-container>
+        </div>
+        <!-- <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+            <strong>Warning !</strong> {{ errorMessageModal }}
+          </ngb-alert> -->
+        <form role="form">
+          <div id="target-tab-add-1" class="content">
+            <div class="form-row">
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="add_scheduler_project">Project <abbr class="required" title="required">*</abbr>
+                </label>
+                <ng-select id="add_scheduler_project" [items]="projects" bindLabel="name" bindValue="_id" name="project"
+                  [(ngModel)]="scheduler.project" (change)="onProjectChange($event)" [searchFn]="projectSearchFn">
+                  <ng-template ng-label-tmp let-item="item">
+                    {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+                  </ng-template>
+                  <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                    {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+                  </ng-template>
+                </ng-select>
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="add_scheduler_vessel">Vessel <abbr class="required" title="required">*</abbr></label>
+                <ng-select id="add_scheduler_vessel" [items]="vesselsList" bindLabel="name" bindValue="_id"
+                  name="vessel" [(ngModel)]="scheduler.vessel" (change)="onVesselsChange($event, 'add')">
+                  <ng-template ng-label-tmp let-item="item">
+                    <img height="20" width="70" [src]="item.image" alt="" />
+                    {{item.name}}
+                  </ng-template>
+                  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                    <img height="20" width="70" [src]="item.image" alt="" />
+                    {{item.name}}
+                  </ng-template>
+                </ng-select>
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="add_scheduler_product">Product <abbr class="required" title="required">*</abbr></label>
+                <ng-select id="add_scheduler_product" [items]="filteredProducts" bindLabel="prodName"
+                  bindValue="prodName" name="product" [(ngModel)]="scheduler.product" (change)="onProdChange($event)">
+                </ng-select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="add_scheduler_name">Name <abbr class="required" title="required">*</abbr></label>
+                <input type="text" class="form-control" id="add_scheduler_name" name="name"
+                  [(ngModel)]="scheduler.name">
+              </div>
+            </div>
+
+            <div class="form-row my-2">
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="add_scheduler_disabled" name="done"
+                    [(ngModel)]="scheduler.done">
+                  <label class="custom-control-label" for="add_scheduler_disabled">
+                    Disabled
+                    <span class="badge rounded-pill bg-dark" placement="right"
+                      ngbTooltip="Disable current schduler if you have other scheduler with same vessel and/or same product">?</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="add_scheduler_analysis" name="analysis"
+                    [(ngModel)]="scheduler.analysis">
+                  <label class="custom-control-label" for="add_scheduler_analysis">
+                    Do an analysis
+                    <span class="badge rounded-pill bg-dark" placement="right"
+                      ngbTooltip="Performing analysis as per planned time in scheduler">?</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="add_scheduler_master" name="isMaster"
+                    [(ngModel)]="scheduler.isMaster">
+                  <label class="custom-control-label" for="add_scheduler_master">
+                    Master
+                    <span class="badge rounded-pill bg-dark" placement="right"
+                      ngbTooltip="Template that can be copied and modified for your project however only Admin can modify the Master itself">?</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="add_scheduler_fatigue" name="fatigue"
+                    [(ngModel)]="scheduler.fatigue">
+                  <label class="custom-control-label" for="add_scheduler_fatigue">Fatigue</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- WEATHER -->
+            <div class="form-row">
+              <div class="form-group col-12" style="margin-bottom: 0.5rem;">
+                <label for="add_scheduler_forecaster">Weather <abbr class="required" title="required">*</abbr></label>
+                <div class="form-check form-check-inline" *ngFor="let wheater of wheaterList">
+                  <input class="form-check-input" type="radio" name="whType" (change)="changeWeather($event, 'add')"
+                    [value]="wheater" [checked]="wheater === selectedWheaterList.option" />
+                  <label class="form-check-label">
+                    {{wheater}}
+                  </label>
+                </div>
+
+                <table class="table-bordered table table-sm table-striped" id="add_scheduler_forecaster"
+                  [hidden]="isDisabledForecaster">
+                  <thead>
+                    <tr>
+                      <th style="width: 75%">Weather Forecaster</th>
+                      <th style="width: 25%">Subscription</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let forecaster of forecastersScheduler; index as i; trackBy: trackByFn"
+                      [ngModelGroup]="i">
+                      <td>
+                        <ng-select
+                          [items]="selectedWheaterList.option === 'Wave Spectrum' ? forecastersWS : forecasters"
+                          bindLabel="name" bindValue="_id" name="forecaster" [(ngModel)]="forecaster[0]"
+                          (change)="onForecaster($event, i)" class="form-control input-sm" [clearable]="false"
+                          [searchable]="false">
+                        </ng-select>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter a subscription key"
+                          name="subscription" [(ngModel)]="forecaster[1]['subscription']" aria-label="">
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteForecasterRow(i)">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addForecasterRow(selectedWheaterList.option)"
+                  [hidden]="isDisabledForecaster" [disabled]="isActiveForecasterBtn">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+              <!-- Add : Testing -->
+              <div class="form-group col-6">
+                <ng-select id="add_scheduler_forecaster_testing" name="testingVal" [items]="testingList"
+                  [(ngModel)]="selectedTestingVal" bindLabel="label" bindValue="value" [hidden]="isDisabledTesting"
+                  placeholder="Select Testing Options" (change)="onTestChange($event)" [searchable]="false"
+                  [clearable]="false">
+                </ng-select>
+              </div>
+            </div>
+
+            <!-- ADD:WAVE -->
+            <div class="form-row">
+              <div class="form-group col-6" style="margin-bottom: 1.5rem;">
+                <label for="add_scheduler_wave">Current</label>
+
+                <div class="custom-control custom-switch" style="display: inline-block; margin-left: 1rem;">
+                  <input type="checkbox" class="custom-control-input" id="add_scheduler_current" name="current"
+                    [(ngModel)]="scheduler.current" (change)="currentChange($event)">
+                  <label class="custom-control-label" for="add_scheduler_current"></label>
+                </div>
+
+                <table class="table-bordered table table-sm table-striped" id="add_scheduler_wave_forecaster">
+                  <thead>
+                    <tr>
+                      <th style="width: 75%">Current Forecaster</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <ng-select [items]="currentWaveList" bindLabel="label" bindValue="value" name="forecasterWave"
+                          class="form-control input-sm" [clearable]="true" [searchable]="false"
+                          [(ngModel)]="scheduler.current_data" [disabled]="isDisabledWaveForecaster">
+                        </ng-select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+
+              <!-- <div class="form-group col-6">
+                <label for="add_scheduler_wave_spectrum">Wave Spectrum</label>
+              
+                <div class="custom-control custom-switch" style="display: inline-block; margin-left: 1rem;">
+                  <input type="checkbox" class="custom-control-input" id="add_scheduler_wave_spectrum" name="waveSpectrum"
+                    [(ngModel)]="scheduler.waveSpectrum">
+                  <label class="custom-control-label" for="add_scheduler_wave_spectrum"></label>
+                </div>
+              </div> -->
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="add_scheduler_cwd">Work path <abbr class="required" title="required">*</abbr></label>
+                <input type="text" class="form-control" name="cwd" id="add_scheduler_cwd" [(ngModel)]="scheduler.cwd">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="add_scheduler_scripts">Scripts to run (enter in running order) <abbr class="required"
+                    title="required">*</abbr></label>
+                <table class="table-bordered table table-sm table-striped" id="add_scheduler_scripts">
+                  <thead>
+                    <tr>
+                      <th>Script</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let script of scheduler.scripts; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                      <td>
+                        <input type="text" class="form-control form-control-sm" name="script" aria-label=""
+                          placeholder="Enter a script name (with extension) or into relative path (i.e. : ../../my_script.py)"
+                          [(ngModel)]="scheduler.scripts[i]">
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteScriptRow(i)">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addScriptRow()">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 mb-2">
+                <label for="add_scheduler_hours">Run Mode <abbr class="required" title="required">*</abbr></label>
+                <div class="form-check form-check-inline" *ngFor="let runmode of runModeList">
+                  <input class="form-check-input" type="radio" name="rmType"
+                    (ngModelChange)="changeRunMode($event, 'add')" [value]="runmode" [(ngModel)]="scheduler.rmType" />
+                  <label class="form-check-label" for="add_scheduler_vm">
+                    {{runmode}}
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div *ngIf="isVmActive; else elseBlock">
+                  <ng-select id="add_scheduler_vm" [items]="virtualMachineList" bindLabel="shortName"
+                    bindValue="serverName" name="vm" [(ngModel)]="scheduler.vm" [placeholder]="rmPlaceHolder">
+                  </ng-select>
+                </div>
+                <ng-template #elseBlock>
+                  <!-- <input class="form-control" type="text" name="vm" id="add_scheduler_vm" [placeholder]="rmPlaceHolder" 
+                    [value]="hpcDefault" [(ngModel)]="scheduler.vm" /> -->
+                  <ng-select id="add_scheduler_vm" [items]="virtualMachineList" bindLabel="shortName"
+                    bindValue="serverName" name="vm" [(ngModel)]="scheduler.vm" [placeholder]="rmPlaceHolder">
+                  </ng-select>
+                </ng-template>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="add_scheduler_hours">Running hours <abbr class="required" title="required">*</abbr></label>
+                <table class="table-bordered table table-sm table-striped" id="add_scheduler_hours">
+                  <thead>
+                    <tr>
+                      <th>Hour</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let script of scheduler.hours; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                      <td>
+                        <ngb-timepicker [(ngModel)]="scheduler.hours[i]" name="hour" [spinners]="false">
+                        </ngb-timepicker>
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteHourRow(i, 'add')">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addHourRow('add')">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="target-tab-add-2" class="content">
+            <div class="form-row">
+              <div class="form-group col-8">
+                <div class="custom-control custom-switch" style="margin-top: 2.25rem !important;">
+                  <input type="checkbox" class="custom-control-input" id="add_scheduler_alpha_factor" name="alphaFactor"
+                    [(ngModel)]="scheduler.alphaFactor" (change)="alphaFactorChange($event)">
+                  <label class="custom-control-label" for="add_scheduler_alpha_factor">Use alpha factor</label>
+                </div>
+              </div>
+              <div class="form-group col-4">
+                <label for="add_scheduler_get_alpha_factor">Select Table Name</label>
+                <ng-select id="add_scheduler_get_alpha_factor" [items]="alphaFactorList" bindLabel="name"
+                  bindValue="name" name="alphaFactorTableName" [(ngModel)]="scheduler.alphaFactorTableName"
+                  (change)="onGetAlphaFactorChange($event)" [disabled]="!scheduler.alphaFactor" [clearable]="false"
+                  placeholder="Select Item..">
+                </ng-select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12 table-responsive">Yes
+                <label for="add_scheduler_alpha_factor_table">Alpha Factor table</label>
+                <table class="table-bordered table table-sm table-striped alpha_factor_table"
+                  id="add_scheduler_alpha_factor_table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="header_row">
+                        <input type="text" class="form-control form-control-sm" name="header-0" aria-label=""
+                          [(ngModel)]="scheduler.alphaFactorTable.headers[0]" disabled="true">
+                      </th>
+                      <th [colSpan]="scheduler.alphaFactorTable.cols.length">
+                        <input type="text" class="form-control form-control-sm" name="header-1" aria-label=""
+                          [(ngModel)]="scheduler.alphaFactorTable.headers[1]" disabled="true">
+                      </th>
+                      <th style="width: 20px" rowspan="2"></th>
+                    </tr>
+                    <tr>
+                      <th *ngFor="let c of scheduler.alphaFactorTable.cols; index as i; trackBy: trackByFn"
+                        [ngModelGroup]="i" class="header_col">
+                        <div class="input-group input-group-sm">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Hs : </span>
+                          </div>
+                          <input type="number" class="form-control" name="cols" aria-label="" disabled="true"
+                            [ngModel]="scheduler.alphaFactorTable.cols[i]"
+                            (ngModelChange)="scheduler.alphaFactorTable.cols[i]=$event" #addCellHs
+                            (blur)="applyNumberFormat(addCellHs.valueAsNumber, addCellHs)"
+                            (load)="applyNumberFormat(addCellHs.valueAsNumber, addCellHs)">
+                          <div class="input-group-append">
+                            <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableCol(i)"
+                              [disabled]="scheduler.alphaFactorTable.cols.length <= 2 || !scheduler.alphaFactor">
+                              <i class="material-icons md-center md-xs">delete</i>
+                            </button>
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let r of scheduler.alphaFactorTable.rows; index as i; trackBy: trackByFn"
+                      [ngModelGroup]="i">
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Tpop</span>
+                          </div>
+                          <select class="custom-select" name="operator" [(ngModel)]="r.operator" aria-label=""
+                            disabled="true">
+                            <option value="=">&#61;</option>
+                            <option value="<">&lt;</option>
+                            <option value="<=">&le;</option>
+                            <option value=">">&gt;</option>
+                            <option value=">=">&ge;</option>
+                          </select>
+                          <div class="input-group-append">
+                            <input type="number" class="form-control form-control-sm" name="value" aria-label=""
+                              [(ngModel)]="r.value" disabled="true"
+                              style="border-top-left-radius: 0; border-bottom-left-radius: 0">
+                          </div>
+                        </div>
+                      </td>
+                      <td *ngFor="let d of r.data; index as ii; trackBy: trackByFn" [ngModelGroup]="ii">
+                        <input type="number" class="form-control form-control-sm" aria-label="" [ngModel]="r.data[ii]"
+                          (ngModelChange)="r.data[ii]=$event" name="data" #addCellAlphaFactor
+                          (blur)="applyNumberFormat(addCellAlphaFactor.valueAsNumber, addCellAlphaFactor)"
+                          (load)="applyNumberFormat(addCellAlphaFactor.valueAsNumber, addCellAlphaFactor)"
+                          disabled="true">
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableRow(i)" disabled="true">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [colSpan]="scheduler.alphaFactorTable.cols.length + 2">
+                        <label for="add-scheduler-alphaFactorTable-notes">Notes :</label>
+                        <textarea class="form-control " name="notes" rows="5" id="add-scheduler-alphaFactorTable-notes"
+                          disabled="true" [(ngModel)]="scheduler.alphaFactorTable.notes">
+                        </textarea>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="btn-group">
+                  <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableRow()" disabled="true">
+                    <i class="material-icons md-center">add</i>Add row
+                  </button>
+                  <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableCol()" disabled="true">
+                    <i class="material-icons md-center">add</i>Add column
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="target-tab-add-3" class="content">
+            <div class="form-row">
+              <div class="form-group col-12">
+                <!-- <label for="add_scheduler_tasks">Tasks</label> -->
+                <div class="jumbotron jumbotron-fluid">
+                  <h1 class="display-4-task">Required Information for Task name</h1>
+                  <div class="ng-value-task">
+                    <span class="ng-value-task-label">1: Task name should not be Blank.</span>
+                    <span class="ng-value-task-label">2: Task name should not exceed more than 31 characters, and it
+                      should not contain
+                      any of the following characters: \ / ? * [ or ]</span>
+                    <span class="ng-value-task-label">3: Alpha factor table name should not be blank, when the alpha
+                      factor option is turned on.</span>
+                  </div>
+                </div>
+                <table class="table-bordered table table-sm table-striped" id="add_scheduler_tasks">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th style="width: 170px">Name</th>
+                      <th style="width: 20px">Color</th>
+                      <th style="width: 170px">Start <span class="badge rounded-pill bg-dark" placement="top"
+                          ngbTooltip="Scheduler will be activated from start date (inclusive)">?</span></th>
+                      <th style="width: 170px">End <span class="badge rounded-pill bg-dark" placement="top"
+                          ngbTooltip="Scheduler will be deactivated from end date (exclusive)">?</span></th>
+                      <th style="width: 80px">Alpha Factor</th>
+                      <th style="width: 80px">Tpop</th>
+                      <th style="width: 80px">Tr</th>
+                      <th style="width: 60px">Predecessor</th>
+                      <th style="width: 80px">Weather Vaning</th>
+                      <th style="width: 80px">Forced run</th>
+                      <th style="width: 80px">Run</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let task of scheduler.tasks; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                      <td>{{i+1}}</td>
+                      <td>
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter a name" name="name"
+                          [(ngModel)]="task.name" maxlength="31" onCopy="return false" onPaste="return false"
+                          onDrag="return false" onDrop="return false" autocomplete=off
+                          (keypress)="omit_special_char($event)" (change)="onChangeTask($event)" aria-label="">
+                      </td>
+                      <td>
+                        <span class="form-control form-control-sm" name="color" [(colorPicker)]="task.color"
+                          [style.background]="task.color" [cpOKButton]="true" [cpCancelButton]="true"
+                          [cpPosition]="'bottom'" [cpCancelButtonClass]="'btn btn-outline-primary btn-xs'"
+                          [cpOKButtonClass]="'btn btn-outline-primary btn-xs'"></span>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input class="form-control" placeholder="Enter a start date (dd/mm/yyyy)" name="start"
+                            [(ngModel)]="task.start" ngbDatepicker #e1="ngbDatepicker" aria-label="">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary calendar" (click)="e1.toggle()" type="button">
+                              <i class="material-icons md-center md-xs">calendar_today</i>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input class="form-control" placeholder="Enter an end date (dd/mm/yyyy)" name="end"
+                            [(ngModel)]="task.end" ngbDatepicker #e2="ngbDatepicker" aria-label="">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary calendar" (click)="e2.toggle()" type="button">
+                              <i class="material-icons md-center md-xs">calendar_today</i>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <ng-select [items]="alphaFactorList" bindLabel="name" bindValue="name"
+                          name="alphaFactorTableName" [(ngModel)]="task.alphaFactorTableName"
+                          [disabled]="!scheduler.alphaFactor" placeholder="Select Item..."
+                          (change)="onGetAlphaFactorChangeByTasks($event, task.name)" [clearable]="false">
+                        </ng-select>
+                      </td>
+                      <!-- Tpop -->
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="" name="tPopVal"
+                          [(ngModel)]="task.tPopVal" aria-label="">
+                      </td>
+                      <!-- Tr -->
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="Enter a Tr" name="tPop"
+                          [(ngModel)]="task.offshoreDuration" aria-label="">
+                      </td>
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="Enter a Predecessor"
+                          name="predecessor" [(ngModel)]="task.predecessor" aria-label="">
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [attr.id]="'add-wv-swi' + i"
+                            name="weathervaning" [(ngModel)]="task.weathervaning">
+                          <label class="custom-control-label" [attr.for]="'add-wv-swi' + i"></label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [attr.id]="'add-fr-swi' + i"
+                            name="forcedRun" [(ngModel)]="task.forcedRun">
+                          <label class="custom-control-label" [attr.for]="'add-fr-swi' + i"></label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [attr.id]="'add-run-swi' + i" name="run"
+                            [(ngModel)]="task.run">
+                          <label class="custom-control-label" [attr.for]="'add-run-swi' + i"></label>
+                        </div>
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteTaskRow(i)">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addTaskRow()">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div class="btn-group" role="group">
+      <button (click)="previousStep()" class="btn btn-outline-info" [disabled]="currentStep <= 0">
+        <i class="material-icons md-center">arrow_back</i> Previous
+      </button>
+      <button (click)="nextStep()" class="btn btn-outline-info" ngbAutofocus [disabled]="currentStep === 2">
+        <i class="material-icons md-center">arrow_forward</i>Next
+      </button>
+    </div>
+    <button type="button" class="btn btn-success" (click)="addRow(modal, 'add')"
+      [disabled]="currentStep < 2 ? !isDisabledBtn : isDisabledBtn">
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="onClose()">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<!-- EDIT MODAL -->
+<ng-template #modalEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit {{ getSchedulerName(scheduler?.name, getVessel(scheduler?.vessel)) }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); scheduler = {}; currentSchedulerId = null; virtualMachineList = []; refresh(); validationModal = false;
+          this.forecastersWaveScheduler = []; this.isActiveWaveForecasterBtn = true;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div id="stepper-edit-scheduler" class="bs-stepper">
+      <div class="bs-stepper-header">
+        <div class="step" data-target="#target-tab-edit-1">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">General</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#target-tab-edit-2">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Alpha Factor Viewer</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#target-tab-edit-3">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">3</span>
+            <span class="bs-stepper-label">Tasks</span>
+          </button>
+        </div>
+      </div>
+      <div class="bs-stepper-content">
+        <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+          <h1 class="display-4">Required Information</h1>
+          <ng-container *ngFor="let itemVM of validateVM">
+            <div class="ng-value">
+              <span class="ng-value-label">{{itemVM}}</span>
+            </div>
+          </ng-container>
+        </div>
+        <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+          <strong>Warning !</strong> {{ errorMessageModal }}
+        </ngb-alert>
+        <form role="form">
+          <div id="target-tab-edit-1" class="content">
+            <div class="form-row">
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="edit_scheduler_project">Project <abbr class="required" title="required">*</abbr></label>
+                <ng-select id="edit_scheduler_project" [items]="projects" bindLabel="name" bindValue="_id"
+                  name="project" [(ngModel)]="scheduler.project" (change)="onProjectChange($event)"
+                  [searchFn]="projectSearchFn" [disabled]="true">
+                  <ng-template ng-label-tmp let-item="item">
+                    {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+                  </ng-template>
+                  <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                    {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+                  </ng-template>
+                </ng-select>
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="edit_scheduler_vessel">Vessel <abbr class="required" title="required">*</abbr></label>
+                <ng-select id="edit_scheduler_vessel" [items]="vesselsList" bindLabel="name" bindValue="_id"
+                  name="vessel" [(ngModel)]="scheduler.vessel" (change)="onVesselsChange($event, 'edit')">
+                  <ng-template ng-label-tmp let-item="item">
+                    <img height="20" width="70" [src]="item.image" alt="" />
+                    {{item.name}}
+                  </ng-template>
+                  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                    <img height="20" width="70" [src]="item.image" alt="" />
+                    {{item.name}}
+                  </ng-template>
+                </ng-select>
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="edit_scheduler_product">Product <abbr class="required" title="required">*</abbr></label>
+                <ng-select id="edit_scheduler_product" [items]="filteredProducts" bindLabel="prodName"
+                  bindValue="prodName" name="product" [(ngModel)]="scheduler.product" (change)="onProdChange($event)">
+                  <ng-template ng-label-tmp let-item="item">
+                    {{item.prodName}}
+                  </ng-template>
+                  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                    {{item.prodName}}
+                  </ng-template>
+                </ng-select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="edit_scheduler_name">Name <abbr class="required" title="required">*</abbr></label>
+                <input type="text" class="form-control" id="edit_scheduler_name" name="name"
+                  [(ngModel)]="scheduler.name">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_disabled" name="done"
+                    [(ngModel)]="scheduler.done">
+                  <label class="custom-control-label" for="edit_scheduler_disabled">
+                    Disabled
+                    <span class="badge rounded-pill bg-dark" placement="right"
+                      ngbTooltip="Disable current schduler if you have other scheduler with same vessel and/or same product">?</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_analysis" name="analysis"
+                    [(ngModel)]="scheduler.analysis">
+                  <label class="custom-control-label" for="edit_scheduler_analysis">
+                    Do an analysis
+                    <span class="badge rounded-pill bg-dark" placement="right"
+                      ngbTooltip="Performing analysis as per planned time in scheduler">?</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_master" name="isMaster"
+                    [(ngModel)]="scheduler.isMaster">
+                  <label class="custom-control-label" for="edit_scheduler_master">
+                    Master
+                    <span class="badge rounded-pill bg-dark" placement="right"
+                      ngbTooltip="Template that can be copied and modified for your project however only Admin can modify the Master itself">?</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_fatigue" name="fatigue"
+                    [(ngModel)]="scheduler.fatigue">
+                  <label class="custom-control-label" for="edit_scheduler_fatigue">Fatigue</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- WEATHER -->
+            <div class="form-row">
+              <div class="form-group col-12" style="margin-bottom: 0.5rem;">
+                <label for="edit_scheduler_forecaster">Weather</label>
+                <div class="form-check form-check-inline" *ngFor="let wheater of wheaterList">
+                  <input class="form-check-input" type="radio" name="whType" (change)="changeWeather($event, 'edit')"
+                    [value]="wheater" [checked]="wheater === selectedWheaterList.option" />
+                  <label class="form-check-label">
+                    {{wheater}}
+                  </label>
+                </div>
+
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_forecaster"
+                  [hidden]="isDisabledForecaster">
+                  <thead>
+                    <tr>
+                      <th style="width: 75%">Weather Forecaster</th>
+                      <th style="width: 25%">Subscription</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let forecaster of forecastersScheduler; index as i; trackBy: trackByFn"
+                      [ngModelGroup]="i">
+                      <td>
+                        <ng-select
+                          [items]="selectedWheaterList.option === 'Wave Spectrum' ? forecastersWS : forecasters"
+                          bindLabel="name" bindValue="_id" name="forecaster" [(ngModel)]="forecaster[0]"
+                          (change)="onForecaster($event, i)" class="form-control input-sm" [clearable]="false"
+                          [searchable]="false">
+                        </ng-select>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter a subscription key"
+                          name="subscription" [(ngModel)]="forecaster[1]['subscription']" aria-label="">
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteForecasterRow(i)">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addForecasterRow(selectedWheaterList.option)"
+                  [hidden]="isDisabledForecaster" [disabled]="isActiveForecasterBtn">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+
+              <!-- Edit : Testing -->
+              <div class="form-group col-6">
+                <ng-select id="edit_scheduler_forecaster_testing" name="testingVal" [items]="testingList"
+                  [(ngModel)]="scheduler.testingOptions" bindLabel="label" bindValue="value"
+                  [hidden]="isDisabledTesting" placeholder="Select Testing Options" (change)="onTestChange($event)"
+                  [searchable]="false" [clearable]="false">
+                  <ng-template ng-label-tmp let-item="item">
+                    {{item.value}}
+                  </ng-template>
+                  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                    {{item.value}}
+                  </ng-template>
+                </ng-select>
+              </div>
+            </div>
+
+            <!-- EDIT: WAVE -->
+            <div class="form-row">
+              <div class="form-group col-6" style="margin-bottom: 1.5rem;">
+                <label for="edit_scheduler_wave">Current</label>
+
+                <div class="custom-control custom-switch" style="display: inline-block; margin-left: 1rem;">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_current" name="current"
+                    [(ngModel)]="scheduler.current" (change)="currentChange($event)">
+                  <label class="custom-control-label" for="edit_scheduler_current"></label>
+                </div>
+
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_wave_forecaster">
+                  <thead>
+                    <tr>
+                      <th style="width: 75%">Current Forecaster</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <ng-select [items]="currentWaveList" bindLabel="label" bindValue="value" name="forecasterWave"
+                          class="form-control input-sm" [clearable]="true" [searchable]="false"
+                          [(ngModel)]="scheduler.current_data" [disabled]="isDisabledWaveForecaster">
+                        </ng-select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- <div class="form-group col-6">
+                <label for="edit_scheduler_wave_spectrum">Wave Spectrum</label>
+              
+                <div class="custom-control custom-switch" style="display: inline-block; margin-left: 1rem;">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_wave_spectrum" name="waveSpectrum"
+                    [(ngModel)]="scheduler.waveSpectrum">
+                  <label class="custom-control-label" for="edit_scheduler_wave_spectrum"></label>
+                </div>
+              </div> -->
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="edit_scheduler_cwd">Work path <abbr class="required" title="required">*</abbr></label>
+                <input type="text" class="form-control" name="cwd" id="edit_scheduler_cwd" [(ngModel)]="scheduler.cwd">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="edit_scheduler_scripts">Scripts to run (enter in running order) <abbr class="required"
+                    title="required">*</abbr></label>
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_scripts">
+                  <thead>
+                    <tr>
+                      <th>Script</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let script of scheduler.scripts; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                      <td>
+                        <input type="text" class="form-control form-control-sm" name="script" aria-label=""
+                          placeholder="Enter a script name (with extension) or into relative path (i.e. : ../../my_script.py)"
+                          [(ngModel)]="scheduler.scripts[i]">
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteScriptRow(i)">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addScriptRow()">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 mb-2">
+                <label for="edit_scheduler_vm">Run Mode <abbr class="required" title="required">*</abbr></label>
+                <div class="form-check form-check-inline" *ngFor="let runmode of runModeList">
+                  <input class="form-check-input" type="radio" name="rmType"
+                    (ngModelChange)="changeRunMode($event, 'edit')" [value]="runmode" [(ngModel)]="scheduler.rmType">
+                  <label class="form-check-label" for="edit_scheduler_vm">
+                    {{runmode}}
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <ng-select id="edit_scheduler_vm" [items]="virtualMachineList" bindLabel="shortName"
+                  bindValue="serverName" name="vm" [(ngModel)]="scheduler.vm" [placeholder]="rmPlaceHolder">
+                </ng-select>
+                <!-- <div *ngIf="isVmActive; else elseBlock">
+                    <ng-select id="edit_scheduler_vm" [items]="virtualMachineList" bindLabel="shortName"
+                      bindValue="serverName" name="vm" [(ngModel)]="scheduler.vm" [placeholder]="rmPlaceHolder">
+                    </ng-select>
+                  </div>
+                  <ng-template #elseBlock>
+                    <ng-select id="edit_scheduler_vm" [items]="virtualMachineList" bindLabel="shortName"
+                      bindValue="serverName" name="vm" [(ngModel)]="scheduler.vm" [placeholder]="rmPlaceHolder">
+                    </ng-select>
+                    <input class="form-control" type="text" name="vm" id="edit_scheduler_vm" [placeholder]="rmPlaceHolder" 
+                    [value]="hpcDefault" [(ngModel)]="scheduler.vm" />
+                  </ng-template> -->
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="edit_scheduler_hours">Running hours <abbr class="required" title="required">*</abbr></label>
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_hours">
+                  <thead>
+                    <tr>
+                      <th>Hour</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let script of runningHrs; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                      <td>
+                        <ngb-timepicker [(ngModel)]="runningHrs[i]" name="hour" [spinners]="false">
+                        </ngb-timepicker>
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteHourRow(i, 'edit')">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addHourRow('edit')">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="target-tab-edit-2" class="content">
+            <div class="form-row">
+              <div class="form-group col-8">
+                <div class="custom-control custom-switch" style="margin-top: 2.25rem !important;">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_alpha_factor"
+                    name="alphaFactor" [(ngModel)]="scheduler.alphaFactor" (change)="alphaFactorChange($event)">
+                  <label class="custom-control-label" for="edit_scheduler_alpha_factor">Use alpha factor</label>
+                </div>
+              </div>
+              <div class="form-group col-4">
+                <label for="edit_scheduler_get_alpha_factor">Select Table Name</label>
+                <ng-select id="edit_scheduler_get_alpha_factor" [items]="alphaFactorList" bindLabel="name"
+                  bindValue="name" name="alphaFactorTableName" [(ngModel)]="scheduler.alphaFactorTableName"
+                  [disabled]="!scheduler.alphaFactor" (change)="onGetAlphaFactorChange($event)" [clearable]="false"
+                  placeholder="Select Item..">
+                </ng-select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12 table-responsive">
+                <label for="edit_scheduler_alpha_factor_table">Alpha Factor table</label>
+                <table class="table-bordered table table-sm table-striped alpha_factor_table"
+                  id="edit_scheduler_alpha_factor_table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="header_row">
+                        <input type="text" class="form-control form-control-sm" name="header-0" aria-label=""
+                          [(ngModel)]="scheduler.alphaFactorTable.headers[0]" disabled="true">
+                      </th>
+                      <th [colSpan]="scheduler.alphaFactorTable.cols.length">
+                        <input type="text" class="form-control form-control-sm" name="header-1" aria-label=""
+                          [(ngModel)]="scheduler.alphaFactorTable.headers[1]" disabled="true">
+                      </th>
+                      <th style="width: 20px" rowspan="2"></th>
+                    </tr>
+                    <tr>
+                      <th *ngFor="let c of scheduler.alphaFactorTable.cols; index as i; trackBy: trackByFn"
+                        [ngModelGroup]="i" class="header_col">
+                        <div class="input-group input-group-sm">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Hs : </span>
+                          </div>
+                          <input type="number" class="form-control" name="cols" aria-label="" disabled="true"
+                            [ngModel]="scheduler.alphaFactorTable.cols[i]"
+                            (ngModelChange)="scheduler.alphaFactorTable.cols[i]=$event" #editCellHs
+                            (blur)="applyNumberFormat(editCellHs.valueAsNumber, editCellHs)"
+                            (load)="applyNumberFormat(editCellHs.valueAsNumber, editCellHs)">
+                          <div class="input-group-append">
+                            <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableCol(i)"
+                              [disabled]="scheduler.alphaFactorTable.cols.length <= 2 || !scheduler.alphaFactor">
+                              <i class="material-icons md-center md-xs">delete</i>
+                            </button>
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let r of scheduler.alphaFactorTable.rows; index as i; trackBy: trackByFn"
+                      [ngModelGroup]="i">
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Tpop</span>
+                          </div>
+                          <select class="custom-select" name="operator" [(ngModel)]="r.operator" aria-label=""
+                            disabled="true">
+                            <option value="=">&#61;</option>
+                            <option value="<">&lt;</option>
+                            <option value="<=">&le;</option>
+                            <option value=">">&gt;</option>
+                            <option value=">=">&ge;</option>
+                          </select>
+                          <div class="input-group-append">
+                            <input type="number" class="form-control form-control-sm" name="value" aria-label=""
+                              [(ngModel)]="r.value" disabled="true"
+                              style="border-top-left-radius: 0; border-bottom-left-radius: 0">
+                          </div>
+                        </div>
+                      </td>
+                      <td *ngFor="let d of r.data; index as ii; trackBy: trackByFn" [ngModelGroup]="ii">
+                        <input type="number" class="form-control form-control-sm" aria-label="" [ngModel]="r.data[ii]"
+                          (ngModelChange)="r.data[ii]=$event" name="data" #editCellAlphaFactor
+                          (blur)="applyNumberFormat(editCellAlphaFactor.valueAsNumber, editCellAlphaFactor)"
+                          (load)="applyNumberFormat(editCellAlphaFactor.valueAsNumber, editCellAlphaFactor)"
+                          disabled="true">
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableRow(i)" disabled="true">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [colSpan]="scheduler.alphaFactorTable.cols.length + 2">
+                        <label for="edit-scheduler-alphaFactorTable-notes">Notes :</label>
+                        <textarea class="form-control " name="notes" rows="5" id="edit-scheduler-alphaFactorTable-notes"
+                          disabled="true" [(ngModel)]="scheduler.alphaFactorTable.notes">
+                        </textarea>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="btn-group">
+                  <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableRow()" disabled="true">
+                    <i class="material-icons md-center">add</i>Add row
+                  </button>
+                  <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableCol()" disabled="true">
+                    <i class="material-icons md-center">add</i>Add column
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="target-tab-edit-3" class="content">
+            <div class="form-row">
+              <div class="form-group col-12">
+                <!-- <label for="edit_scheduler_tasks">Tasks</label> -->
+                <div class="jumbotron jumbotron-fluid">
+                  <h1 class="display-4-task">Required Information for Task name</h1>
+                  <div class="ng-value-task">
+                    <span class="ng-value-task-label">1: Task name should not be Blank.</span>
+                    <span class="ng-value-task-label">2: Task name should not exceed more than 31 characters, and it
+                      should not contain
+                      any of the following characters: \ / ? * [ or ]</span>
+                    <span class="ng-value-task-label">3: Alpha factor table name should not be blank, when the alpha
+                      factor option is turned on.</span>
+                  </div>
+                </div>
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_tasks">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th style="width: 170px">Name</th>
+                      <th style="width: 20px">Color</th>
+                      <th style="width: 170px">Start <span class="badge rounded-pill bg-dark" placement="top"
+                          ngbTooltip="Scheduler will be activated from start date (inclusive)">?</span></th>
+                      <th style="width: 170px">End <span class="badge rounded-pill bg-dark" placement="top"
+                          ngbTooltip="Scheduler will be deactivated from end date (exclusive)">?</span></th>
+                      <th style="width: 80px">Alpha Factor</th>
+                      <th style="width: 80px">Tpop</th>
+                      <th style="width: 80px">Tr</th>
+                      <th style="width: 60px">Predecessor</th>
+                      <th style="width: 80px">Weather Vaning</th>
+                      <th style="width: 80px">Forced run</th>
+                      <th style="width: 80px">Run</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let task of scheduler.tasks; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                      <td>{{i+1}}</td>
+                      <td>
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter a name" name="name"
+                          [(ngModel)]="task.name" aria-label="" maxlength="31" onCopy="return false"
+                          onPaste="return false" onDrag="return false" onDrop="return false" autocomplete=off
+                          (keypress)="omit_special_char($event)" (change)="onChangeTask($event)">
+                      </td>
+                      <td>
+                        <span class="form-control form-control-sm" name="color" [(colorPicker)]="task.color"
+                          [style.background]="task.color" [cpOKButton]="true" [cpCancelButton]="true"
+                          [cpPosition]="'bottom'" [cpCancelButtonClass]="'btn btn-outline-primary btn-xs'"
+                          [cpOKButtonClass]="'btn btn-outline-primary btn-xs'"></span>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input class="form-control" placeholder="Enter a start date (dd/mm/yyyy)" name="start"
+                            [(ngModel)]="task.start" ngbDatepicker #e1="ngbDatepicker" aria-label="">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary calendar" (click)="e1.toggle()" type="button">
+                              <i class="material-icons md-center md-xs">calendar_today</i>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input class="form-control" placeholder="Enter an end date (dd/mm/yyyy)" name="end"
+                            [(ngModel)]="task.end" ngbDatepicker #e2="ngbDatepicker" aria-label="">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary calendar" (click)="e2.toggle()" type="button">
+                              <i class="material-icons md-center md-xs">calendar_today</i>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <ng-select [items]="alphaFactorList" bindLabel="name" bindValue="name"
+                          name="alphaFactorTableName" [(ngModel)]="task.alphaFactorTableName"
+                          [disabled]="!scheduler.alphaFactor" placeholder="Select Item..."
+                          (change)="onGetAlphaFactorChangeByTasks($event, task.name)" [clearable]="false">
+                        </ng-select>
+                      </td>
+                      <!-- Tpop -->
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="" name="tPopVal"
+                          [(ngModel)]="task.tPopVal" aria-label="">
+                      </td>
+                      <!-- Tr -->
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="Enter a Tr" name="tPop"
+                          [(ngModel)]="task.offshoreDuration" aria-label="">
+                      </td>
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="Enter a Predecessor"
+                          name="predecessor" [(ngModel)]="task.predecessor" aria-label="">
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [attr.id]="'edit-wv-swi' + i"
+                            name="weathervaning" [(ngModel)]="task.weathervaning">
+                          <label class="custom-control-label" [attr.for]="'edit-wv-swi' + i"></label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [attr.id]="'edit-fr-swi' + i"
+                            name="forcedRun" [(ngModel)]="task.forcedRun">
+                          <label class="custom-control-label" [attr.for]="'edit-fr-swi' + i"></label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [attr.id]="'edit-run-swi' + i" name="run"
+                            [(ngModel)]="task.run">
+                          <label class="custom-control-label" [attr.for]="'edit-run-swi' + i"></label>
+                        </div>
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteTaskRow(i)">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addTaskRow()">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div class="btn-group" role="group">
+      <button (click)="previousStep()" class="btn btn-outline-info">
+        <i class="material-icons md-center">arrow_back</i> Previous
+      </button>
+      <button (click)="nextStep()" class="btn btn-outline-info">
+        <i class="material-icons md-center">arrow_forward</i>Next
+      </button>
+    </div>
+    <button type="button" class="btn btn-success" (click)="saveEditRow(modal)" [disabled]="isDisabledBtn" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="onClose()">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<!-- DELETE MODAL -->
+<ng-template #modalDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Delete {{ getSchedulerName(scheduler?.name, getVessel(scheduler?.vessel)) }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <div class="col-12 pl-0 pr-0">
+      <div *ngIf="deleteSuccessRespType; else elseBlock" class="alert alert-warning" role="alert">
+        Do you want to delete {{ getSchedulerName(scheduler?.name, getVessel(scheduler?.vessel)) }} ?
+      </div>
+      <ng-template #elseBlock>
+        <div class="alert alert-warning" role="alert">
+          {{deleteSuccesResp}}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div *ngIf="deleteSuccessRespType; else elseFBlock">
+      <button type="button" class="btn btn-danger" (click)="deleteRow(modal)" ngbAutofocus>
+        <i class="material-icons md-center">delete</i>Yes
+      </button>
+      <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+        <i class="material-icons md-center">cancel</i>No
+      </button>
+    </div>
+    <ng-template #elseFBlock>
+      <button type="button" class="btn btn-primary" (click)="accept(modal, 'delete')">Ok</button>
+    </ng-template>
+  </div>
+</ng-template>
+
+<!-- COPY MODAL -->
+<ng-template #modalCopy let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add {{ getSchedulerName(scheduler?.name, getVessel(scheduler?.vessel)) }}</h4>
+    <button type="button" class="close" aria-label="Close"
+      (click)="modal.dismiss('Cross click'); scheduler = {}; currentSchedulerId = null; virtualMachineList = []; refresh(); validationModal = false;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div id="stepper-edit-scheduler" class="bs-stepper">
+      <div class="bs-stepper-header">
+        <div class="step" data-target="#target-tab-edit-1">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">General</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#target-tab-edit-2">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Alpha factor</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#target-tab-edit-3">
+          <button class="step-trigger">
+            <span class="bs-stepper-circle">3</span>
+            <span class="bs-stepper-label">Tasks</span>
+          </button>
+        </div>
+      </div>
+      <div class="bs-stepper-content">
+        <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+          <h1 class="display-4">Required Information</h1>
+          <ng-container *ngFor="let itemVM of validateVM">
+            <div class="ng-value">
+              <span class="ng-value-label">{{itemVM}}</span>
+            </div>
+          </ng-container>
+        </div>
+        <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+          <strong>Warning !</strong> {{ errorMessageModal }}
+        </ngb-alert>
+        <form role="form">
+          <div id="target-tab-edit-1" class="content">
+            <div class="form-row">
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="edit_scheduler_project">Projects <abbr class="required" title="required">*</abbr></label>
+                <ng-select id="edit_scheduler_project" [items]="projects" bindLabel="name" bindValue="_id"
+                  name="project" [(ngModel)]="scheduler.project" (change)="onProjectChange($event)"
+                  [searchFn]="projectSearchFn">
+                  <ng-template ng-label-tmp let-item="item">
+                    {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+                  </ng-template>
+                  <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                    {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+                  </ng-template>
+                </ng-select>
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="edit_scheduler_vessel">Vessel <abbr class="required" title="required">*</abbr></label>
+                <ng-select id="edit_scheduler_vessel" [items]="vesselsList" bindLabel="name" bindValue="_id"
+                  name="vessel" [(ngModel)]="scheduler.vessel" (change)="onVesselsChange($event, 'edit')">
+                  <ng-template ng-label-tmp let-item="item">
+                    <img height="20" width="70" [src]="item.image" alt="" />
+                    {{item.name}}
+                  </ng-template>
+                  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                    <img height="20" width="70" [src]="item.image" alt="" />
+                    {{item.name}}
+                  </ng-template>
+                </ng-select>
+              </div>
+              <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="edit_scheduler_product">Product <abbr class="required" title="required">*</abbr></label>
+                <ng-select id="edit_scheduler_product" [items]="filteredProducts" bindLabel="prodName"
+                  bindValue="prodName" name="product" [(ngModel)]="scheduler.product" (change)="onProdChange($event)">
+                  <ng-template ng-label-tmp let-item="item">
+                    {{item.prodName}}
+                  </ng-template>
+                  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                    {{item.prodName}}
+                  </ng-template>
+                </ng-select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="edit_scheduler_name">Name <abbr class="required" title="required">*</abbr></label>
+                <input type="text" class="form-control" id="edit_scheduler_name" name="name"
+                  [(ngModel)]="scheduler.name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_disabled" name="done"
+                    [(ngModel)]="scheduler.done">
+                  <label class="custom-control-label" for="edit_scheduler_disabled">
+                    Disabled
+                    <span class="badge rounded-pill bg-dark" placement="right"
+                      ngbTooltip="Disable current schduler if you have other scheduler with same vessel and/or same product">?</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_analysis" name="analysis"
+                    [(ngModel)]="scheduler.analysis">
+                  <label class="custom-control-label" for="edit_scheduler_analysis">
+                    Do an analysis
+                    <span class="badge rounded-pill bg-dark" placement="right"
+                      ngbTooltip="Performing analysis as per planned time in scheduler">?</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_master" name="isMaster"
+                    [(ngModel)]="scheduler.isMaster">
+                  <label class="custom-control-label" for="edit_scheduler_master">
+                    Master
+                    <span class="badge rounded-pill bg-dark" placement="right"
+                      ngbTooltip="Template that can be copied and modified for your project however only Admin can modify the Master itself">?</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-3">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_fatigue" name="fatigue"
+                    [(ngModel)]="scheduler.fatigue">
+                  <label class="custom-control-label" for="edit_scheduler_fatigue">Fatigue</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- WEATHER -->
+            <div class="form-row">
+              <div class="form-group col-12" style="margin-bottom: 0.5rem;">
+                <label for="edit_scheduler_forecaster">Weather</label>
+                <div class="form-check form-check-inline" *ngFor="let wheater of wheaterList">
+                  <input class="form-check-input" type="radio" name="whType" (change)="changeWeather($event, 'edit')"
+                    [value]="wheater" [checked]="wheater === selectedWheaterList.option" />
+                  <label class="form-check-label">
+                    {{wheater}}
+                  </label>
+                </div>
+
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_forecaster"
+                  [hidden]="isDisabledForecaster">
+                  <thead>
+                    <tr>
+                      <th style="width: 75%">Weather Forecaster</th>
+                      <th style="width: 25%">Subscription</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let forecaster of forecastersScheduler; index as i; trackBy: trackByFn"
+                      [ngModelGroup]="i">
+                      <td>
+                        <ng-select [items]="forecasters" bindLabel="name" bindValue="_id" name="forecaster"
+                          [(ngModel)]="forecaster[0]" (change)="onForecaster($event, i)" class="form-control input-sm"
+                          [clearable]="false" [searchable]="false">
+                        </ng-select>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter a subscription key"
+                          name="subscription" [(ngModel)]="forecaster[1]['subscription']" aria-label="">
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteForecasterRow(i)">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addForecasterRow()"
+                  [hidden]="isDisabledForecaster" [disabled]="isActiveForecasterBtn">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+
+              <!-- Copy : Testing -->
+              <div class="form-group col-6">
+                <ng-select id="edit_scheduler_forecaster_testing" name="testingVal" [items]="testingList"
+                  [(ngModel)]="scheduler.testingOptions" bindLabel="label" bindValue="value"
+                  [hidden]="isDisabledTesting" placeholder="Select Testing Options" (change)="onTestChange($event)"
+                  [searchable]="false" [clearable]="false">
+                </ng-select>
+              </div>
+            </div>
+
+            <!-- COPY: WAVE -->
+            <div class="form-row">
+              <div class="form-group col-6" style="margin-bottom: 1.5rem;">
+                <label for="edit_scheduler_wave">Current</label>
+
+                <div class="custom-control custom-switch" style="display: inline-block; margin-left: 1rem;">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_current" name="current"
+                    [(ngModel)]="scheduler.current" (change)="currentChange($event)">
+                  <label class="custom-control-label" for="edit_scheduler_current"></label>
+                </div>
+
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_wave_forecaster">
+                  <thead>
+                    <tr>
+                      <th style="width: 75%">Current Forecaster</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <ng-select [items]="currentWaveList" bindLabel="label" bindValue="value" name="forecasterWave"
+                          class="form-control input-sm" [clearable]="true" [searchable]="false"
+                          [(ngModel)]="scheduler.current_data" [disabled]="isDisabledWaveForecaster">
+                        </ng-select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- <div class="form-group col-6">
+                <label for="edit_scheduler_wave_spectrum">Wave Spectrum</label>
+            
+                <div class="custom-control custom-switch" style="display: inline-block; margin-left: 1rem;">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_wave_spectrum" name="waveSpectrum"
+                    [(ngModel)]="scheduler.waveSpectrum">
+                  <label class="custom-control-label" for="edit_scheduler_wave_spectrum"></label>
+                </div>
+              </div> -->
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="edit_scheduler_cwd">Work path <abbr class="required" title="required">*</abbr></label>
+                <input type="text" class="form-control" name="cwd" id="edit_scheduler_cwd" [(ngModel)]="scheduler.cwd">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="edit_scheduler_scripts">Scripts to run (enter in running order) <abbr class="required"
+                    title="required">*</abbr></label>
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_scripts">
+                  <thead>
+                    <tr>
+                      <th>Script</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let script of scheduler.scripts; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                      <td>
+                        <input type="text" class="form-control form-control-sm" name="script" aria-label=""
+                          placeholder="Enter a script name (with extension) or into relative path (i.e. : ../../my_script.py)"
+                          [(ngModel)]="scheduler.scripts[i]">
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteScriptRow(i)">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addScriptRow()">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 mb-2">
+                <label for="edit_scheduler_vm">Run Mode <abbr class="required" title="required">*</abbr></label>
+                <div class="form-check form-check-inline" *ngFor="let runmode of runModeList">
+                  <input class="form-check-input" type="radio" name="rmType"
+                    (ngModelChange)="changeRunMode($event, 'edit')" [value]="runmode" [(ngModel)]="scheduler.rmType">
+                  <label class="form-check-label" for="edit_scheduler_vm">
+                    {{runmode}}
+                  </label>
+                </div>
+              </div>
+              <div class="form-group form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <ng-select id="edit_scheduler_vm" [items]="virtualMachineList" bindLabel="shortName"
+                  bindValue="serverName" name="vm" [(ngModel)]="scheduler.vm" [placeholder]="rmPlaceHolder">
+                </ng-select>
+                <!-- <div *ngIf="isVmActive; else elseBlock">
+                    <ng-select id="edit_scheduler_vm" [items]="virtualMachineList" bindLabel="shortName"
+                      bindValue="serverName" name="vm" [(ngModel)]="scheduler.vm" [placeholder]="rmPlaceHolder">
+                    </ng-select>
+                  </div>
+                  <ng-template #elseBlock>
+                    <ng-select id="edit_scheduler_vm" [items]="virtualMachineList" bindLabel="shortName"
+                      bindValue="serverName" name="vm" [(ngModel)]="scheduler.vm" [placeholder]="rmPlaceHolder">
+                    </ng-select>
+                    <input class="form-control" type="text" name="vm" id="edit_scheduler_vm" [placeholder]="rmPlaceHolder" 
+                    [value]="hpcDefault" [(ngModel)]="scheduler.vm" />
+                  </ng-template> -->
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="edit_scheduler_hours">Running hours <abbr class="required" title="required">*</abbr></label>
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_hours">
+                  <thead>
+                    <tr>
+                      <th>Hour</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let script of scheduler.hours; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                      <td>
+                        <ngb-timepicker [(ngModel)]="scheduler.hours[i]" name="hour" [spinners]="false">
+                        </ngb-timepicker>
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteHourRow(i, 'copy')">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addHourRow('copy')">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="target-tab-edit-2" class="content">
+            <div class="form-row">
+              <div class="form-group col-8">
+                <div class="custom-control custom-switch" style="margin-top: 2.25rem !important;">
+                  <input type="checkbox" class="custom-control-input" id="edit_scheduler_alpha_factor"
+                    name="alphaFactor" [(ngModel)]="scheduler.alphaFactor" (change)="alphaFactorChange($event)">
+                  <label class="custom-control-label" for="edit_scheduler_alpha_factor">Use alpha factor</label>
+                </div>
+              </div>
+              <div class="form-group col-4">
+                <label for="edit_scheduler_get_alpha_factor">Select Table Name</label>
+                <ng-select id="edit_scheduler_get_alpha_factor" [items]="alphaFactorList" bindLabel="name"
+                  bindValue="name" name="alphaFactorTableName" [(ngModel)]="scheduler.alphaFactorTableName"
+                  [disabled]="!scheduler.alphaFactor" (change)="onGetAlphaFactorChange($event)" [clearable]="false"
+                  placeholder="Select Item..">
+                </ng-select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12 table-responsive">
+                <label for="edit_scheduler_alpha_factor_table">Alpha Factor table</label>
+                <table class="table-bordered table table-sm table-striped alpha_factor_table"
+                  id="edit_scheduler_alpha_factor_table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" class="header_row">
+                        <input type="text" class="form-control form-control-sm" name="header-0" aria-label=""
+                          [(ngModel)]="scheduler.alphaFactorTable.headers[0]" disabled="true">
+                      </th>
+                      <th [colSpan]="scheduler.alphaFactorTable.cols.length">
+                        <input type="text" class="form-control form-control-sm" name="header-1" aria-label=""
+                          [(ngModel)]="scheduler.alphaFactorTable.headers[1]" disabled="true">
+                      </th>
+                      <th style="width: 20px" rowspan="2"></th>
+                    </tr>
+                    <tr>
+                      <th *ngFor="let c of scheduler.alphaFactorTable.cols; index as i; trackBy: trackByFn"
+                        [ngModelGroup]="i" class="header_col">
+                        <div class="input-group input-group-sm">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Hs : </span>
+                          </div>
+                          <input type="number" class="form-control" name="cols" aria-label="" disabled="true"
+                            [ngModel]="scheduler.alphaFactorTable.cols[i]"
+                            (ngModelChange)="scheduler.alphaFactorTable.cols[i]=$event" #editCellHs
+                            (blur)="applyNumberFormat(editCellHs.valueAsNumber, editCellHs)"
+                            (load)="applyNumberFormat(editCellHs.valueAsNumber, editCellHs)">
+                          <div class="input-group-append">
+                            <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableCol(i)"
+                              [disabled]="scheduler.alphaFactorTable.cols.length <= 2 || !scheduler.alphaFactor">
+                              <i class="material-icons md-center md-xs">delete</i>
+                            </button>
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let r of scheduler.alphaFactorTable.rows; index as i; trackBy: trackByFn"
+                      [ngModelGroup]="i">
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Tpop</span>
+                          </div>
+                          <select class="custom-select" name="operator" [(ngModel)]="r.operator" aria-label=""
+                            disabled="true">
+                            <option value="=">&#61;</option>
+                            <option value="<">&lt;</option>
+                            <option value="<=">&le;</option>
+                            <option value=">">&gt;</option>
+                            <option value=">=">&ge;</option>
+                          </select>
+                          <div class="input-group-append">
+                            <input type="number" class="form-control form-control-sm" name="value" aria-label=""
+                              [(ngModel)]="r.value" disabled="true"
+                              style="border-top-left-radius: 0; border-bottom-left-radius: 0">
+                          </div>
+                        </div>
+                      </td>
+                      <td *ngFor="let d of r.data; index as ii; trackBy: trackByFn" [ngModelGroup]="ii">
+                        <input type="number" class="form-control form-control-sm" aria-label="" [ngModel]="r.data[ii]"
+                          (ngModelChange)="r.data[ii]=$event" name="data" #editCellAlphaFactor
+                          (blur)="applyNumberFormat(editCellAlphaFactor.valueAsNumber, editCellAlphaFactor)"
+                          (load)="applyNumberFormat(editCellAlphaFactor.valueAsNumber, editCellAlphaFactor)"
+                          disabled="true">
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableRow(i)" disabled="true">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td [colSpan]="scheduler.alphaFactorTable.cols.length + 2">
+                        <label for="edit-scheduler-alphaFactorTable-notes">Notes :</label>
+                        <textarea class="form-control " name="notes" rows="5" id="edit-scheduler-alphaFactorTable-notes"
+                          disabled="true" [(ngModel)]="scheduler.alphaFactorTable.notes">
+                        </textarea>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="btn-group">
+                  <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableRow()" disabled="true">
+                    <i class="material-icons md-center">add</i>Add row
+                  </button>
+                  <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableCol()" disabled="true">
+                    <i class="material-icons md-center">add</i>Add column
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="target-tab-edit-3" class="content">
+            <div class="form-row">
+              <div class="form-group col-12">
+                <!-- <label for="edit_scheduler_tasks">Tasks</label> -->
+                <div class="jumbotron jumbotron-fluid">
+                  <h1 class="display-4-task">Required Information for Task name</h1>
+                  <div class="ng-value-task">
+                    <span class="ng-value-task-label">1: Task name should not be Blank.</span>
+                    <span class="ng-value-task-label">2: Task name should not exceed more than 31 characters, and it
+                      should not contain
+                      any of the following characters: \ / ? * [ or ]</span>
+                    <span class="ng-value-task-label">3: Alpha factor table name should not be blank, when the alpha
+                      factor option is turned on.</span>
+                  </div>
+                </div>
+                <table class="table-bordered table table-sm table-striped" id="edit_scheduler_tasks">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th style="width: 170px">Name</th>
+                      <th style="width: 20px">Color</th>
+                      <th style="width: 170px">Start <span class="badge rounded-pill bg-dark" placement="top"
+                          ngbTooltip="Scheduler will be activated from start date (inclusive)">?</span></th>
+                      <th style="width: 170px">End <span class="badge rounded-pill bg-dark" placement="top"
+                          ngbTooltip="Scheduler will be deactivated from end date (exclusive)">?</span></th>
+                      <th style="width: 80px">Alpha Factor</th>
+                      <th style="width: 80px">Tpop</th>
+                      <th style="width: 80px">Tr</th>
+                      <th style="width: 60px">Predecessor</th>
+                      <th style="width: 80px">Weather Vaning</th>
+                      <th style="width: 80px">Forced run</th>
+                      <th style="width: 80px">Run</th>
+                      <th style="width: 20px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let task of scheduler.tasks; index as i; trackBy: trackByFn" [ngModelGroup]="i">
+                      <td>{{i+1}}</td>
+                      <td>
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter a name" name="name"
+                          [(ngModel)]="task.name" aria-label="" maxlength="31" onCopy="return false"
+                          onPaste="return false" onDrag="return false" onDrop="return false" autocomplete=off
+                          (keypress)="omit_special_char($event)" (change)="onChangeTask($event)">
+                      </td>
+                      <td>
+                        <span class="form-control form-control-sm" name="color" [(colorPicker)]="task.color"
+                          [style.background]="task.color" [cpOKButton]="true" [cpCancelButton]="true"
+                          [cpPosition]="'bottom'" [cpCancelButtonClass]="'btn btn-outline-primary btn-xs'"
+                          [cpOKButtonClass]="'btn btn-outline-primary btn-xs'"></span>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input class="form-control" placeholder="Enter a start date (dd/mm/yyyy)" name="start"
+                            [(ngModel)]="task.start" ngbDatepicker #e1="ngbDatepicker" aria-label="">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary calendar" (click)="e1.toggle()" type="button">
+                              <i class="material-icons md-center md-xs">calendar_today</i>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input class="form-control" placeholder="Enter an end date (dd/mm/yyyy)" name="end"
+                            [(ngModel)]="task.end" ngbDatepicker #e2="ngbDatepicker" aria-label="">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary calendar" (click)="e2.toggle()" type="button">
+                              <i class="material-icons md-center md-xs">calendar_today</i>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <ng-select [items]="alphaFactorList" bindLabel="name" bindValue="name"
+                          name="alphaFactorTableName" [(ngModel)]="task.alphaFactorTableName"
+                          [disabled]="!scheduler.alphaFactor" placeholder="Select Item..."
+                          (change)="onGetAlphaFactorChangeByTasks($event, task.name)" [clearable]="false">
+                        </ng-select>
+                      </td>
+                      <!-- Tpop -->
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="" name="tPopVal"
+                          [(ngModel)]="task.tPopVal" aria-label="">
+                      </td>
+                      <!-- Tr -->
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="Enter a Tr" name="tPop"
+                          [(ngModel)]="task.offshoreDuration" aria-label="">
+                      </td>
+                      <td>
+                        <input type="number" class="form-control form-control-sm" placeholder="Enter a Predecessor"
+                          name="predecessor" [(ngModel)]="task.predecessor" aria-label="">
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [attr.id]="'edit-wv-swi' + i"
+                            name="weathervaning" [(ngModel)]="task.weathervaning">
+                          <label class="custom-control-label" [attr.for]="'edit-wv-swi' + i"></label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [attr.id]="'edit-fr-swi' + i"
+                            name="forcedRun" [(ngModel)]="task.forcedRun">
+                          <label class="custom-control-label" [attr.for]="'edit-fr-swi' + i"></label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [attr.id]="'edit-run-swi' + i" name="run"
+                            [(ngModel)]="task.run">
+                          <label class="custom-control-label" [attr.for]="'edit-run-swi' + i"></label>
+                        </div>
+                      </td>
+                      <td>
+                        <button class="btn-sm btn btn-danger" (click)="deleteTaskRow(i)">
+                          <i class="material-icons md-center md-xs">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-outline-success btn-sm" (click)="addTaskRow()">
+                  <i class="material-icons md-center">add</i>Add row
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div class="btn-group" role="group">
+      <button (click)="previousStep()" class="btn btn-outline-info">
+        <i class="material-icons md-center">arrow_back</i> Previous
+      </button>
+      <button (click)="nextStep()" class="btn btn-outline-info">
+        <i class="material-icons md-center">arrow_forward</i>Next
+      </button>
+    </div>
+    <button type="button" class="btn btn-success" (click)="addRow(modal, 'copy')" [disabled]="isDisabledBtn"
+      ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="onClose()">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<!-- CONFIRM MODAL -->
+<ng-template #modalConfirm let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirmation</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss(modal)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    Are you sure want to cancel. It will discard your all latest changes.
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="decline(modal); this.validationModal = false;">Cancel</button>
+    <button type="button" class="btn btn-primary"
+      (click)="accept(modal, 'confirm'); this.validationModal = false; this.selectedAlphaFactorTableName = null; isDisabledTesting = true; isDisabledForecaster = false;">Ok</button>
+  </div>
+</ng-template>
+
+<!-- MESSAGE MODAL -->
+<ng-template #modalMessage let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Message</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss(modal)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    {{responseMessage}}
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="accept(modal, 'move')">Ok</button>
+  </div>
+</ng-template>
+
+<!-- VALIDATION MODAL -->
+<ng-template #modalValidationMessage let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Message</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss(modal)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    {{responseMessage}}
+  </div>
+  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="closeValidationModal(modal)">Ok</button>
+  </div>
+</ng-template>

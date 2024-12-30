@@ -1,0 +1,356 @@
+<!-- Page Heading -->
+<div class="d-flex align-items-center justify-content-between mb-4 d-md-none">
+  <h1 class="h3 mb-0 text-section">{{ title }}</h1>
+</div>
+
+<!-- Content Row -->
+<div class="row" [ngClass]="{'mb-5': state.isLoaded === true && state.canConnect !== true}">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover
+    dt-responsive" style="width:100%">
+      <thead>
+        <tr>
+          <th style="width: 125px;" data-orderable="false">Action</th>
+          <th style="width: 300px;">Content</th>
+          <th style="width: 300px;">Project</th>
+          <th style="width: 200px;">Vessel</th>
+          <th>Forecaster</th>
+          <th style="width: 250px;">Analysis</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalView let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">View explanation #{{ explanation._id }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+      <!-- form -->
+      <div class="form-row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="view_explanation_project">Project</label>
+          <span class="element-view" id="view_explanation_project">{{ getProjectName(explanation?.project) }}</span>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="view_explanation_vessel">Vessel</label>
+          <span class="element-view" id="view_explanation_vessel">{{ getVessel(explanation?.vessel)?.name }}</span>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="view_explanation_forecaster">Forecaster</label>
+          <span class="element-view" id="view_explanation_forecaster">
+            {{ getForecaster(explanation?.forecaster)?.name }}
+          </span>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="view_explanation_analysis">Analysis</label>
+          <span class="element-view" id="view_explanation_analysis">
+            Analysis from {{ getAnalysis(explanation?.analysis)?.date | momentDate: 'EEE dd LLL yyyy HH:mm:ss (zzzz)' :
+            (getProject(explanation?.project)?.timezone) ? getProject(explanation?.project)?.timezone : 'UTC' }}
+          </span>
+        </div>
+        <div class="form-group col-12">
+          <label for="view_explanation_text">Contents</label>
+          <div style="height: 250px; max-height: 250px; overflow-x: hidden; overflow-y: auto; white-space: pre-line"
+            class="element-view" id="view_explanation_text" [innerHTML]="explanation.text">
+          </div>
+        </div>
+        <div class="form-group col-12">
+          <label for="view_explanation_note">Notes</label>
+          <div style="height: 100px; max-height: 100px; overflow-x: hidden; overflow-y: auto; white-space: pre-line"
+            class="element-view" id="view_explanation_note" [innerHTML]="explanation.note">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')" ngbAutofocus>
+      <i class="material-icons md-center">close</i>Close
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalAdd let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add explanation</h4>
+    <button type="button" class="close" aria-label="Close"
+      (click)="modal.dismiss('Cross click'); validationModal = false;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+      <h1 class="display-4">Required Information</h1>
+      <ng-container *ngFor="let itemVM of validateVM">
+        <div class="ng-value">
+          <span class="ng-value-label">{{itemVM}}</span>
+        </div>
+      </ng-container>
+    </div>
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <form role="form">
+      <div class="form-row">
+        <!-- Project List  -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="add_explanation_project">Project <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_explanation_project" [items]="projects" bindLabel="name" bindValue="_id" name="project"
+            [(ngModel)]="explanation.project" placeholder="Select a project" (change)="onProjectChange($event)"
+            [searchFn]="projectSearchFn">
+            <ng-template ng-label-tmp let-item="item">
+              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+            </ng-template>
+          </ng-select>
+        </div>
+        <!-- Vessel List  -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="add_explanation_vessel">Vessel <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_explanation_vessel" [items]="vesselsList" bindLabel="name" bindValue="_id" name="vessel"
+            placeholder="Select a vessel" [(ngModel)]="explanation.vessel" (change)="onVesselChange($event, 'add')">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="20" width="70" [src]="item.image" alt="" />
+              {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="20" width="70" [src]="item.image" alt="" />
+              {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+        <!-- Product List  -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="add_explanation_product">Product <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_explanation_product" [items]="productList" bindLabel="prodName" bindValue="prodName"
+            [(ngModel)]="explanation.product" name="product" placeholder="Select a product"
+            (change)="onProductTypeChange($event)">
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <!-- Forecaster List -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="add_explanation_forecaster">Forecaster <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_explanation_forecaster" [items]="forecasters" bindLabel="name" bindValue="_id"
+            name="forecaster" placeholder="Select a forecaster" [(ngModel)]="explanation.forecaster"
+            (change)="onForecasterChange($event)">
+          </ng-select>
+        </div>
+        <!-- Analysis List -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="add_explanation_analysis">Analysis <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_explanation_analysis" [items]="analysisList" bindLabel="name" bindValue="_id"
+            name="analysis" placeholder="Select an analysis" [(ngModel)]="explanation.analysis"
+            [searchFn]="analysisSearchFn">
+            <ng-template ng-label-tmp let-item="item">
+              Analysis from {{ item?.date | momentDate: 'EEE dd LLL yyyy HH:mm:ss (zzzz)' :
+              (getProject(item?.project)?.timezone) ? getProject(item.project)?.timezone : 'UTC' }}
+              (#{{ getShortId(item?._id) }})
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+              Analysis from {{ item?.date | momentDate: 'EEE dd LLL yyyy HH:mm:ss (zzzz)' :
+              (getProject(item?.project)?.timezone) ? getProject(item.project)?.timezone : 'UTC' }}
+              (#{{ getShortId(item?._id) }})
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="add_explanation_text">Content <abbr class="required" title="required">*</abbr></label>
+          <ckeditor [editor]="editorOne" [(ngModel)]="explanation.text" name="text" id="add_explanation_text"
+            (change)="onChangeContentCkeditor($event)" (ready)="onReady($event)" [config]="config">
+          </ckeditor>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="add_explanation_note">Notes <abbr class="required" title="required">*</abbr></label>
+          <ckeditor [editor]="editorBis" [(ngModel)]="explanation.note" name="note" id="add_explanation_note"
+            (change)="onChangeNoteCkeditor($event)" (ready)="onReady($event)" [config]="config">
+          </ckeditor>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="addRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); validationModal = false;">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit explanation #{{ explanation._id }}</h4>
+    <button type="button" class="close" aria-label="Close"
+      (click)="modal.dismiss('Cross click'); validationModal = false;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+      <h1 class="display-4">Required Information</h1>
+      <ng-container *ngFor="let itemVM of validateVM">
+        <div class="ng-value">
+          <span class="ng-value-label">{{itemVM}}</span>
+        </div>
+      </ng-container>
+    </div>
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <form role="form">
+      <div class="form-row">
+        <!-- Project List  -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="edit_explanation_project">Project <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_explanation_project" [items]="projects" bindLabel="name" bindValue="_id" name="project"
+            [(ngModel)]="explanation.project" (change)="onProjectChange($event)" [searchFn]="projectSearchFn">
+            <ng-template ng-label-tmp let-item="item">
+              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+              {{ item?.code }} - {{ getClient(item?.client)?.name }} {{ item?.name }}
+            </ng-template>
+          </ng-select>
+        </div>
+        <!-- Vessel List  -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="edit_explanation_vessel">Vessel <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_explanation_vessel" [items]="vesselsList" bindLabel="name" bindValue="_id" name="vessel"
+            [(ngModel)]="explanation.vessel" (change)="onVesselChange($event, 'edit')">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="20" width="70" [src]="item.image" alt="" />
+              {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="20" width="70" [src]="item.image" alt="" />
+              {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+        <!-- Product List  -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="edit_explanation_product">Product <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_explanation_product" [items]="productList" bindLabel="prodName" bindValue="prodName"
+            [(ngModel)]="explanation.product" name="product" placeholder="Select a product"
+            (change)="onProductTypeChange($event)">
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <!-- Forecaster List -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="edit_explanation_forecaster">Forecaster <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_explanation_forecaster" [items]="forecasters" bindLabel="name" bindValue="_id"
+            name="forecaster" [(ngModel)]="explanation.forecaster" (change)="onForecasterChange($event)">
+          </ng-select>
+        </div>
+        <!-- Analysis List -->
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <label for="edit_explanation_analysis">Analysis <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_explanation_analysis" [items]="analysisList" bindLabel="name" bindValue="_id"
+            name="analysis" [(ngModel)]="explanation.analysis" [searchFn]="analysisSearchFn">
+            <ng-template ng-label-tmp let-item="item">
+              Analysis from {{ item?.date | momentDate: 'EEE dd LLL yyyy HH:mm:ss (zzzz)' :
+              (getProject(item?.project)?.timezone) ? getProject(item.project)?.timezone : 'UTC' }}
+              (#{{ getShortId(item?._id) }})
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+              Analysis from {{ item?.date | momentDate: 'EEE dd LLL yyyy HH:mm:ss (zzzz)' :
+              (getProject(item?.project)?.timezone) ? getProject(item.project)?.timezone : 'UTC' }}
+              (#{{ getShortId(item?._id) }})
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_explanation_text">Content <abbr class="required" title="required">*</abbr></label>
+          <ckeditor [editor]="editorOne" [(ngModel)]="explanation.text" name="text" id="edit_explanation_text"
+            (change)="onChangeContentCkeditor($event)" (ready)="onReady($event)" [config]="config">
+          </ckeditor>
+          <!--          <textarea name="text" cols="30" rows="10" class="form-control" [(ngModel)]="explanation.text"-->
+          <!--                    id="edit_explanation_text"-->
+          <!--          >-->
+          <!--          </textarea>-->
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_explanation_note">Notes <abbr class="required" title="required">*</abbr></label>
+          <ckeditor [editor]="editorBis" [(ngModel)]="explanation.note" name="note" id="edit_explanation_note"
+            (change)="onChangeNoteCkeditor($event)" (ready)="onReady($event)" [config]="config">
+          </ckeditor>
+          <!--          <textarea name="text" cols="30" rows="10" class="form-control" [(ngModel)]="explanation.text"-->
+          <!--                    id="edit_explanation_text"-->
+          <!--          >-->
+          <!--          </textarea>-->
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="saveEditRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); validationModal = false;">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Delete explanation</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <div class="col-12">
+      <div class="alert alert-warning" role="alert">
+        Do you want to delete the row of ID {{ explanation._id }} ?
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="deleteRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">delete</i>Yes
+    </button>
+    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+      <i class="material-icons md-center">cancel</i>No
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,1824 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>infield-analysis-portal documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">infield-analysis-portal documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>HistoryFeatureInfoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-history-feature-info</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./history-feature-info.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./history-feature-info.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#center">center</a>
+                            </li>
+                            <li>
+                                <a href="#client">client</a>
+                            </li>
+                            <li>
+                                <a href="#contact">contact</a>
+                            </li>
+                            <li>
+                                <a href="#countries">countries</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isClientDead$">isClientDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isCountryDead$">isCountryDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isProductDead$">isProductDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isRegionDead$">isRegionDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isUserDead$">isUserDead$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isVesselTypeDead$">isVesselTypeDead$</a>
+                            </li>
+                            <li>
+                                <a href="#options">options</a>
+                            </li>
+                            <li>
+                                <a href="#product">product</a>
+                            </li>
+                            <li>
+                                <a href="#ready">ready</a>
+                            </li>
+                            <li>
+                                <a href="#region">region</a>
+                            </li>
+                            <li>
+                                <a href="#state">state</a>
+                            </li>
+                            <li>
+                                <a href="#vesselInfos">vesselInfos</a>
+                            </li>
+                            <li>
+                                <a href="#vesselType">vesselType</a>
+                            </li>
+                            <li>
+                                <a href="#zoom">zoom</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getFlag">getFlag</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getInformation">getInformation</a>
+                            </li>
+                            <li>
+                                <a href="#getMarker">getMarker</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getVesselInfos">getVesselInfos</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                <a href="#trackByFn">trackByFn</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#project">project</a>
+                            </li>
+                            <li>
+                                <a href="#vessel">vessel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(clientsService: <a href="../injectables/ClientsService.html">ClientsService</a>, countryService: <a href="../injectables/CountriesService.html">CountriesService</a>, regionService: <a href="../injectables/RegionsService.html">RegionsService</a>, vesselTypeService: <a href="../injectables/VesselsTypesService.html">VesselsTypesService</a>, userService: <a href="../injectables/UsersService.html">UsersService</a>, productsService: <a href="../injectables/ProductsService.html">ProductsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>clientsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ClientsService.html" target="_self" >ClientsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>countryService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CountriesService.html" target="_self" >CountriesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>regionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RegionsService.html" target="_self" >RegionsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>vesselTypeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/VesselsTypesService.html" target="_self" >VesselsTypesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>productsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProductsService.html" target="_self" >ProductsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="project"></a>
+                        <b>project</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Project.html" target="_self" >Project</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:27</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="vessel"></a>
+                        <b>vessel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Vessel.html" target="_self" >Vessel</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFlag"></a>
+                    <span class="name">
+                        <b>
+                            getFlag
+                        </b>
+                        <a href="#getFlag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFlag(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:127</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>code</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInformation"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            getInformation
+                        </b>
+                        <a href="#getInformation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getInformation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:95</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMarker"></a>
+                    <span class="name">
+                        <b>
+                            getMarker
+                        </b>
+                        <a href="#getMarker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMarker()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:131</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Marker</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVesselInfos"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            getVesselInfos
+                        </b>
+                        <a href="#getVesselInfos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getVesselInfos()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>literal type</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:70</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                        <b>
+                            refresh
+                        </b>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refresh()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:86</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByFn"></a>
+                    <span class="name">
+                        <b>
+                            trackByFn
+                        </b>
+                        <a href="#trackByFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackByFn(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:149</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>item</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="center"></a>
+                        <span class="name">
+                            <b>
+                            center</b>
+                            <a href="#center"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>latLng([ 55.9412846, -3.275378 ])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="client"></a>
+                        <span class="name">
+                            <b>
+                            client</b>
+                            <a href="#client"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Client.html" target="_self" >Client</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contact"></a>
+                        <span class="name">
+                            <b>
+                            contact</b>
+                            <a href="#contact"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="countries"></a>
+                        <span class="name">
+                            <b>
+                            countries</b>
+                            <a href="#countries"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Country.html" target="_self" >Country[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isClientDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isClientDead$</b>
+                            <a href="#isClientDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isCountryDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isCountryDead$</b>
+                            <a href="#isCountryDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isProductDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isProductDead$</b>
+                            <a href="#isProductDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isRegionDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isRegionDead$</b>
+                            <a href="#isRegionDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isUserDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isUserDead$</b>
+                            <a href="#isUserDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isVesselTypeDead$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            isVesselTypeDead$</b>
+                            <a href="#isVesselTypeDead$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="options"></a>
+                        <span class="name">
+                            <b>
+                            options</b>
+                            <a href="#options"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    layers: [ tileLayer(&#x27;http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#x27;, { attribution: &#x27;Open Street Map&#x27; }) ],
+    zoom: this.zoom,
+    center: this.center
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="product"></a>
+                        <span class="name">
+                            <b>
+                            product</b>
+                            <a href="#product"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Product.html" target="_self" >Product</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ready"></a>
+                        <span class="name">
+                            <b>
+                            ready</b>
+                            <a href="#ready"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="region"></a>
+                        <span class="name">
+                            <b>
+                            region</b>
+                            <a href="#region"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Region.html" target="_self" >Region</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="state"></a>
+                        <span class="name">
+                            <b>
+                            state</b>
+                            <a href="#state"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{ isLoaded: false, canConnect: null }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="vesselInfos"></a>
+                        <span class="name">
+                            <b>
+                            vesselInfos</b>
+                            <a href="#vesselInfos"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>literal type</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="vesselType"></a>
+                        <span class="name">
+                            <b>
+                            vesselType</b>
+                            <a href="#vesselType"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/VesselType.html" target="_self" >VesselType</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="zoom"></a>
+                        <span class="name">
+                            <b>
+                            zoom</b>
+                            <a href="#zoom"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>5</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/protected/analysis-history/history-feature-info/history-feature-info.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from &#x27;@angular/core&#x27;;
+import {Project} from &#x27;@app/shared/models/project&#x27;;
+import {forkJoin, Subject} from &#x27;rxjs&#x27;;
+import {ClientsService} from &#x27;@app/core/services/clients.service&#x27;;
+import {Vessel} from &#x27;@app/shared/models/vessel&#x27;;
+import {Client} from &#x27;@app/shared/models/client&#x27;;
+import {takeUntil} from &#x27;rxjs/operators&#x27;;
+import {Country} from &#x27;@app/shared/models/country&#x27;;
+import {Region} from &#x27;@app/shared/models/region&#x27;;
+import {RegionsService} from &#x27;@app/core/services/regions.service&#x27;;
+import {CountriesService} from &#x27;@app/core/services/countries.service&#x27;;
+import {VesselType} from &#x27;@app/shared/models/vessel-type&#x27;;
+import {User} from &#x27;@app/shared/models/user&#x27;;
+import {VesselsTypesService} from &#x27;@app/core/services/vessels-types.service&#x27;;
+import {UsersService} from &#x27;@app/core/services/users.service&#x27;;
+import {icon, latLng, marker, Marker, tileLayer} from &#x27;leaflet&#x27;;
+import {formatNumber} from &#x27;@app/shared/helpers/math&#x27;;
+import {Product} from &#x27;@app/shared/models/product&#x27;;
+import {ProductsService} from &#x27;@app/core/services/products.service&#x27;;
+
+@Component({
+  selector: &#x27;app-history-feature-info&#x27;,
+  templateUrl: &#x27;./history-feature-info.component.html&#x27;,
+  styleUrls: [&#x27;./history-feature-info.component.scss&#x27;]
+})
+export class HistoryFeatureInfoComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() project: Project;
+  @Input() vessel: Vessel;
+
+  state &#x3D; { isLoaded: false, canConnect: null };
+
+  private isClientDead$ &#x3D; new Subject();
+  private isCountryDead$ &#x3D; new Subject();
+  private isRegionDead$ &#x3D; new Subject();
+  private isVesselTypeDead$ &#x3D; new Subject();
+  private isUserDead$ &#x3D; new Subject();
+  private isProductDead$ &#x3D; new Subject();
+
+  client: Client;
+  countries: Country[];
+  region: Region;
+  vesselType: VesselType;
+  contact: User;
+  product: Product;
+
+  vesselInfos: {productType: string, productName: string, contact: string};
+
+  // Leaflet bindings
+  zoom &#x3D; 5;
+  center &#x3D; latLng([ 55.9412846, -3.275378 ]);
+  options &#x3D; {
+    layers: [ tileLayer(&#x27;http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#x27;, { attribution: &#x27;Open Street Map&#x27; }) ],
+    zoom: this.zoom,
+    center: this.center
+  };
+  ready &#x3D; false;
+
+  constructor(
+    private clientsService: ClientsService,
+    private countryService: CountriesService,
+    private regionService: RegionsService,
+    private vesselTypeService: VesselsTypesService,
+    private userService: UsersService,
+    private productsService: ProductsService
+  ) { }
+
+  ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.project &amp;&amp; this.vessel) {
+      this.vesselInfos &#x3D; this.getVesselInfos();
+      this.getInformation();
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.isClientDead$.next();
+    this.isRegionDead$.next();
+    this.isCountryDead$.next();
+    this.isVesselTypeDead$.next();
+    this.isUserDead$.next();
+    this.isProductDead$.next();
+  }
+
+  refresh(): void {
+    this.vesselInfos &#x3D; this.getVesselInfos();
+    this.getInformation();
+  }
+
+  private getVesselInfos(): {productType: string, productName: string, contact: string} {
+    return this.project.vessels[this.vessel._id];
+  }
+
+  private getInformation(): void {
+    forkJoin([
+      this.clientsService.getClient(this.project.client, true).pipe(takeUntil(this.isClientDead$)),
+      this.countryService.getManyCountries(this.project.countries.join(&#x27;,&#x27;), true).pipe(takeUntil(this.isCountryDead$)),
+      this.regionService.getRegion(this.project.region, true).pipe(takeUntil(this.isRegionDead$)),
+      this.vesselTypeService.getVesselType(this.vessel.type, true).pipe(takeUntil(this.isVesselTypeDead$)),
+      this.userService.getUserById(this.vesselInfos.contact, true).pipe(takeUntil(this.isUserDead$)),
+      this.productsService.getProduct(this.vesselInfos.productType, true).pipe(takeUntil(this.isProductDead$)),
+    ]).subscribe((responses) &#x3D;&gt; {
+      this.client &#x3D; responses[0].data;
+      this.countries &#x3D; responses[1].data;
+      this.region &#x3D; responses[2].data;
+      this.vesselType &#x3D; responses[3].data;
+      this.contact &#x3D; responses[4].data;
+      this.product &#x3D; responses[5].data;
+      this.center &#x3D; latLng(this.project.latitude, this.project.longitude);
+      this.state.canConnect &#x3D; true;
+      this.state.isLoaded &#x3D; true;
+      this.ready &#x3D; true;
+    }, () &#x3D;&gt; {
+      this.client &#x3D; null;
+      this.countries &#x3D; null;
+      this.region &#x3D; null;
+      this.vesselType &#x3D; null;
+      this.contact &#x3D; null;
+      this.product &#x3D; null;
+      this.state.canConnect &#x3D; false;
+      this.state.isLoaded &#x3D; true;
+      this.ready &#x3D; true;
+    });
+  }
+
+  getFlag(code: string): string {
+    return &#x60;/assets/images/flags/${code.trim().toLowerCase()}.svg&#x60;;
+  }
+
+  getMarker(): Marker {
+    return marker(
+      [this.project.latitude, this.project.longitude],
+      {
+        icon: icon({
+          iconSize: [ 120, 52.94 ],
+          iconUrl: this.project.marker,
+        }),
+        title: this.project.name,
+        alt: &#x27;field-marker-&#x27; + this.project._id
+      }
+    ).bindTooltip(
+      &#x60;&lt;div style&#x3D;&quot;min-width: 80px&quot; class&#x3D;&quot;text-secondary&quot;&gt;&lt;span&gt;Latitude :
+        ${formatNumber(this.project.latitude, 3, 4, 4)}&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;Longitude : ${formatNumber(this.project.longitude, 3, 4, 4)}&lt;/span&gt;
+        &lt;/div&gt;&#x60;, {permanent: false, direction: &#x27;left&#x27;, offset: [-60, 0]});
+  }
+
+  trackByFn(index: number, item: any): any {
+    return index;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;project &amp;&amp; vessel; else noInfo&quot; class&#x3D;&quot;col-12&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;ready&quot; class&#x3D;&quot;row no-gutters mt-4 mb-4&quot; style&#x3D;&quot;min-height: 580px;&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12 col-lg-8 col-xl-8 order-last order-lg-first order-xl-first&quot; style&#x3D;&quot;min-height: 580px;&quot;&gt;
+      &lt;div class&#x3D;&quot;p-1 text-left&quot;&gt;
+        &lt;h4 class&#x3D;&quot;font-weight-bold mb-3 text-info h5&quot;&gt;Project :&lt;/h4&gt;
+        &lt;ul class&#x3D;&quot;list-group list-group-flush&quot;&gt;
+          &lt;li class&#x3D;&quot;list-group-item&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Code :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;{{ project?.code }}&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Name :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;{{ project?.name }}&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;list-group-item&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Client :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;&lt;img [src]&#x3D;&quot;client?.image&quot; alt&#x3D;&quot;&quot; height&#x3D;&quot;30&quot;&gt; {{ client?.name | uppercase }}&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Status :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;
+                  &lt;span class&#x3D;&quot;badge badge-pill&quot; [ngClass]&#x3D;&quot;{&#x27;badge-success&#x27;: project?.disabled &#x3D;&#x3D;&#x3D; false,
+                  &#x27;badge-danger&#x27;: project?.disabled !&#x3D;&#x3D; false}&quot;&gt;
+                    {{ (project?.disabled &#x3D;&#x3D;&#x3D; false) ? &#x27;Enabled&#x27; : &#x27;Disabled&#x27; }}
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;list-group-item&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Region :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;{{ region?.name }}&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Countries :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;
+                  &lt;ng-template ngFor let-item [ngForOf]&#x3D;&quot;countries || []&quot; let-i&#x3D;&quot;index&quot; [ngForTrackBy]&#x3D;&quot;trackByFn&quot;&gt;
+                    &lt;img [src]&#x3D;&quot;getFlag(item?.code)&quot; alt&#x3D;&quot;&quot; height&#x3D;&quot;30&quot;&gt; {{ item?.name }}
+                    &lt;br *ngIf&#x3D;&quot;i + 1 &gt;&#x3D; 1 &amp;&amp; i !&#x3D;&#x3D; countries.length &amp;&amp; (i + 1) % 2 &#x3D;&#x3D;&#x3D; 0&quot; /&gt;
+                  &lt;/ng-template&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;list-group-item&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-12 font-weight-bold p-0&quot;&gt;Description : &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-12 p-0&quot;&gt;{{ project?.description }}&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;h4 class&#x3D;&quot;font-weight-bold mt-5 mb-3 text-info h5&quot;&gt;
+          {{ (vessel.virtual) ? &#x27;Object :&#x27; : &#x27;Vessel :&#x27;}}
+        &lt;/h4&gt;
+        &lt;ul class&#x3D;&quot;list-group list-group-flush&quot;&gt;
+          &lt;li class&#x3D;&quot;list-group-item&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Name :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;{{ vessel?.name }}&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Type :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;
+                  &lt;span class&#x3D;&quot;badge badge-pill&quot; style&#x3D;&quot;color: #fff;&quot; [style.backgroundColor]&#x3D;&quot;vesselType?.color&quot;&gt;
+                    {{ vesselType?.name | uppercase }}
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;list-group-item&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Product :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;
+                  &lt;span class&#x3D;&quot;badge badge-pill&quot; style&#x3D;&quot;border: 1px dashed #000; color: #fff;&quot;
+                        [ngStyle]&#x3D;&quot;{&#x27;backgroundColor&#x27;: product?.color}&quot;&gt;
+                    {{ product?.name | uppercase }} : {{ vesselInfos.productName | uppercase }}
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Status :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;
+                  &lt;span class&#x3D;&quot;badge badge-pill&quot; [ngClass]&#x3D;&quot;{&#x27;badge-success&#x27;: vessel?.disabled &#x3D;&#x3D;&#x3D; false,
+                  &#x27;badge-danger&#x27;: vessel?.disabled !&#x3D;&#x3D; false}&quot;&gt;
+                    {{ (vessel?.disabled &#x3D;&#x3D;&#x3D; false) ? &#x27;Enabled&#x27; : &#x27;Disabled&#x27; }}
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;list-group-item&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-4 font-weight-bold p-0&quot;&gt;Contact :&lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-8 p-0&quot;&gt;
+                  &lt;a [href]&#x3D;&quot;&#x27;mailto:&#x27; + contact.email&quot; [title]&#x3D;&quot;&#x27;mailto:&#x27; + contact.email&quot;&gt;
+                    &lt;span class&#x3D;&quot;badge badge-pill badge-light user-badge badge-light-contrast&quot;&gt;
+                      &lt;img [src]&#x3D;&quot;contact?.image&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;avatar-circle&quot;&gt;{{ contact?.firstname }} {{ contact?.lastname }}
+                    &lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-12 col-lg-4 col-xl-4 order-first order-lg-last order-xl-last&quot;&gt;
+      &lt;div class&#x3D;&quot;agm-map&quot; leaflet [leafletOptions]&#x3D;&quot;options&quot; [leafletZoom]&#x3D;&quot;zoom&quot; [leafletCenter]&#x3D;&quot;center&quot; *ngIf&#x3D;&quot;ready&quot;&gt;
+        &lt;div [leafletLayer]&#x3D;&quot;getMarker()&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;ng-template #noInfo&gt;
+  &lt;div class&#x3D;&quot;col-12 mt-5 text-center text-secondary text-lg&quot;&gt;
+    No information to display.
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./history-feature-info.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.agm-map {
+  height: 580px !important;
+}
+
+.leaflet-tooltip-left {
+  margin-left: -65px !important;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .agm-map {
+    height: 200px !important;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .agm-map {
+    height: 200px !important;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .agm-map {
+    height: 200px !important;
+  }
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="project && vessel; else noInfo" class="col-12">  <div *ngIf="ready" class="row no-gutters mt-4 mb-4" style="min-height: 580px;">    <div class="col-12 col-lg-8 col-xl-8 order-last order-lg-first order-xl-first" style="min-height: 580px;">      <div class="p-1 text-left">        <h4 class="font-weight-bold mb-3 text-info h5">Project :</h4>        <ul class="list-group list-group-flush">          <li class="list-group-item">            <div class="row">              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Code :</div>                <div class="col-8 p-0">{{ project?.code }}</div>              </div>              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Name :</div>                <div class="col-8 p-0">{{ project?.name }}</div>              </div>            </div>          </li>          <li class="list-group-item">            <div class="row">              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Client :</div>                <div class="col-8 p-0"><img [src]="client?.image" alt="" height="30"> {{ client?.name | uppercase }}</div>              </div>              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Status :</div>                <div class="col-8 p-0">                  <span class="badge badge-pill" [ngClass]="{\'badge-success\': project?.disabled === false,                  \'badge-danger\': project?.disabled !== false}">                    {{ (project?.disabled === false) ? \'Enabled\' : \'Disabled\' }}                  </span>                </div>              </div>            </div>          </li>          <li class="list-group-item">            <div class="row">              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Region :</div>                <div class="col-8 p-0">{{ region?.name }}</div>              </div>              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Countries :</div>                <div class="col-8 p-0">                  <ng-template ngFor let-item [ngForOf]="countries || []" let-i="index" [ngForTrackBy]="trackByFn">                    <img [src]="getFlag(item?.code)" alt="" height="30"> {{ item?.name }}                    <br *ngIf="i + 1 >= 1 && i !== countries.length && (i + 1) % 2 === 0" />                  </ng-template>                </div>              </div>            </div>          </li>          <li class="list-group-item">            <div class="row">              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-12 font-weight-bold p-0">Description : </div>                <div class="col-12 p-0">{{ project?.description }}</div>              </div>            </div>          </li>        </ul>        <h4 class="font-weight-bold mt-5 mb-3 text-info h5">          {{ (vessel.virtual) ? \'Object :\' : \'Vessel :\'}}        </h4>        <ul class="list-group list-group-flush">          <li class="list-group-item">            <div class="row">              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Name :</div>                <div class="col-8 p-0">{{ vessel?.name }}</div>              </div>              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Type :</div>                <div class="col-8 p-0">                  <span class="badge badge-pill" style="color: #fff;" [style.backgroundColor]="vesselType?.color">                    {{ vesselType?.name | uppercase }}                  </span>                </div>              </div>            </div>          </li>          <li class="list-group-item">            <div class="row">              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Product :</div>                <div class="col-8 p-0">                  <span class="badge badge-pill" style="border: 1px dashed #000; color: #fff;"                        [ngStyle]="{\'backgroundColor\': product?.color}">                    {{ product?.name | uppercase }} : {{ vesselInfos.productName | uppercase }}                  </span>                </div>              </div>              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Status :</div>                <div class="col-8 p-0">                  <span class="badge badge-pill" [ngClass]="{\'badge-success\': vessel?.disabled === false,                  \'badge-danger\': vessel?.disabled !== false}">                    {{ (vessel?.disabled === false) ? \'Enabled\' : \'Disabled\' }}                  </span>                </div>              </div>            </div>          </li>          <li class="list-group-item">            <div class="row">              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xs-6 row">                <div class="col-4 font-weight-bold p-0">Contact :</div>                <div class="col-8 p-0">                  <a [href]="\'mailto:\' + contact.email" [title]="\'mailto:\' + contact.email">                    <span class="badge badge-pill badge-light user-badge badge-light-contrast">                      <img [src]="contact?.image" alt="" class="avatar-circle">{{ contact?.firstname }} {{ contact?.lastname }}                    </span>                  </a>                </div>              </div>            </div>          </li>        </ul>      </div>    </div>    <div class="col-12 col-lg-4 col-xl-4 order-first order-lg-last order-xl-last">      <div class="agm-map" leaflet [leafletOptions]="options" [leafletZoom]="zoom" [leafletCenter]="center" *ngIf="ready">        <div [leafletLayer]="getMarker()"></div>      </div>    </div>  </div></div><ng-template #noInfo>  <div class="col-12 mt-5 text-center text-secondary text-lg">    No information to display.  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-home'},{'name': 'AccessDeniedComponent', 'selector': 'app-access-denied'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminPanelFeatureComponent', 'selector': 'app-admin-panel-feature'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationsAccessesComponent', 'selector': 'app-applications-accesses'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'CountriesComponent', 'selector': 'app-countries'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardFeatureProjectCardComponent', 'selector': 'app-dashboard-feature-project-card'},{'name': 'DashboardFeatureProjectProductComponent', 'selector': 'app-dashboard-feature-project-product'},{'name': 'DashboardFeatureProjectProgressbarComponent', 'selector': 'app-dashboard-feature-project-progressbar'},{'name': 'DashboardFeatureProjectUpatedDateComponent', 'selector': 'app-dashboard-feature-project-upated-date'},{'name': 'DashboardFeaturesComponent', 'selector': 'app-dashboard-features'},{'name': 'DashboardMapCardComponent', 'selector': 'app-dashboard-map-card'},{'name': 'DownloadCenterComponent', 'selector': 'app-download-center'},{'name': 'ExplanationsComponent', 'selector': 'app-explanations'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastersComponent', 'selector': 'app-forecasters'},{'name': 'HistoryComponent', 'selector': 'app-history'},{'name': 'HistoryFeatureAnalysisComponent', 'selector': 'app-history-feature-analysis'},{'name': 'HistoryFeatureForecastsComponent', 'selector': 'app-history-feature-forecasts'},{'name': 'HistoryFeatureInfoComponent', 'selector': 'app-history-feature-info'},{'name': 'HistoryFeaturesComponent', 'selector': 'app-history-features'},{'name': 'HistoryFeatureSummaryComponent', 'selector': 'app-history-feature-summary'},{'name': 'HistoryFeatureViewComponent', 'selector': 'app-history-feature-view'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginFeatureComponent', 'selector': 'app-login-feature'},{'name': 'LogsComponent', 'selector': 'app-logs'},{'name': 'MapLocationLogsComponent', 'selector': 'app-map-location-logs'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsCenterComponent', 'selector': 'app-notifications-center'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileFeatureCardComponent', 'selector': 'app-profile-feature-card'},{'name': 'ProfileFeatureComponent', 'selector': 'app-profile-feature'},{'name': 'ProjectFeatureAnalysisComponent', 'selector': 'app-project-feature-analysis'},{'name': 'ProjectFeatureCompareComponent', 'selector': 'app-project-feature-compare'},{'name': 'ProjectFeatureComponent', 'selector': 'app-project-feature'},{'name': 'ProjectFeatureContactCardComponent', 'selector': 'app-project-feature-contact-card'},{'name': 'ProjectFeatureForecastsComponent', 'selector': 'app-project-feature-forecasts'},{'name': 'ProjectFeatureInfoComponent', 'selector': 'app-project-feature-info'},{'name': 'ProjectFeatureSummaryComponent', 'selector': 'app-project-feature-summary'},{'name': 'ProjectFeatureViewComponent', 'selector': 'app-project-feature-view'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProtectedComponent', 'selector': 'app-protected'},{'name': 'RegionsComponent', 'selector': 'app-regions'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterFeatureComponent', 'selector': 'app-register-feature'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsFeatureComponent', 'selector': 'app-requests-feature'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SchedulerFeatureGanttComponent', 'selector': 'app-scheduler-feature-gantt'},{'name': 'SchedulerFeaturesComponent', 'selector': 'app-scheduler-features'},{'name': 'SchedulerFeatureTableComponent', 'selector': 'app-scheduler-feature-table'},{'name': 'SchedulerFeatureViewComponent', 'selector': 'app-scheduler-feature-view'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UploadComponent', 'selector': 'app-upload'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VesselsComponent', 'selector': 'app-vessels'},{'name': 'VesselsTypesComponent', 'selector': 'app-vessel-type'},{'name': 'WeatherComponent', 'selector': 'app-weather'},{'name': 'WindyComponent', 'selector': 'app-windy'}];
+    var DIRECTIVES = [{'name': 'RisksProgressbarDirective', 'selector': '[appRisksProgressbar]'}];
+    var ACTUAL_COMPONENT = {'name': 'HistoryFeatureInfoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HistoryFeatureInfoComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

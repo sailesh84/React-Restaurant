@@ -1,0 +1,1259 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>infield-analysis-portal documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">infield-analysis-portal documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SchedulerFeatureGanttComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-scheduler-feature-gantt</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./scheduler-feature-gantt.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./scheduler-feature-gantt.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#chartOptions">chartOptions</a>
+                            </li>
+                            <li>
+                                <a href="#highcharts">highcharts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#generateChart">generateChart</a>
+                            </li>
+                            <li>
+                                <a href="#getAlphaFactorInterval">getAlphaFactorInterval</a>
+                            </li>
+                            <li>
+                                <a href="#getDataSeries">getDataSeries</a>
+                            </li>
+                            <li>
+                                <a href="#getSchedulerRange">getSchedulerRange</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#scheduler">scheduler</a>
+                            </li>
+                            <li>
+                                <a href="#timezone">timezone</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="scheduler"></a>
+                        <b>scheduler</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Scheduler.html" target="_self" >Scheduler</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:32</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="timezone"></a>
+                        <b>timezone</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateChart"></a>
+                    <span class="name">
+                        <b>
+                            generateChart
+                        </b>
+                        <a href="#generateChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:122</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAlphaFactorInterval"></a>
+                    <span class="name">
+                        <b>
+                            getAlphaFactorInterval
+                        </b>
+                        <a href="#getAlphaFactorInterval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAlphaFactorInterval(tPop: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>tPop</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataSeries"></a>
+                    <span class="name">
+                        <b>
+                            getDataSeries
+                        </b>
+                        <a href="#getDataSeries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataSeries()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>any[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSchedulerRange"></a>
+                    <span class="name">
+                        <b>
+                            getSchedulerRange
+                        </b>
+                        <a href="#getSchedulerRange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSchedulerRange()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:76</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>literal type</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="chartOptions"></a>
+                        <span class="name">
+                            <b>
+                            chartOptions</b>
+                            <a href="#chartOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="highcharts"></a>
+                        <span class="name">
+                            <b>
+                            highcharts</b>
+                            <a href="#highcharts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/protected/scheduler/scheduler-feature-gantt/scheduler-feature-gantt.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnChanges, OnInit, SimpleChanges} from &#x27;@angular/core&#x27;;
+import {Time} from &#x27;@app/shared/enums/time.enums&#x27;;
+import * as Highcharts from &#x27;highcharts&#x27;;
+import HC_gantt from &#x27;highcharts/modules/gantt&#x27;;
+import HC_boost from &#x27;highcharts/modules/boost&#x27;;
+import HC_exporting from &#x27;highcharts/modules/exporting&#x27;;
+import HC_offline_exporting from &#x27;highcharts/modules/offline-exporting&#x27;;
+import HC_no_data_to_display from &#x27;highcharts/modules/no-data-to-display&#x27;;
+import HC_draggable_points from &#x27;highcharts/modules/draggable-points&#x27;;
+import HC_accessibility from &#x27;highcharts/modules/accessibility&#x27;;
+import {Scheduler} from &#x27;@app/shared/models/scheduler&#x27;;
+import * as moment from &#x27;moment&#x27;;
+import * as momentTZ from &#x27;moment-timezone&#x27;;
+HC_gantt(Highcharts);
+HC_boost(Highcharts);
+HC_exporting(Highcharts);
+HC_offline_exporting(Highcharts);
+HC_no_data_to_display(Highcharts);
+HC_draggable_points(Highcharts);
+HC_accessibility(Highcharts);
+
+// For highcharts, load moment in global
+(window as any).moment &#x3D; moment;
+momentTZ();
+
+@Component({
+  selector: &#x27;app-scheduler-feature-gantt&#x27;,
+  templateUrl: &#x27;./scheduler-feature-gantt.component.html&#x27;,
+  styleUrls: [&#x27;./scheduler-feature-gantt.component.scss&#x27;]
+})
+export class SchedulerFeatureGanttComponent implements OnInit, OnChanges {
+  @Input() scheduler: Scheduler;
+  @Input() timezone: string;
+
+  highcharts;
+  chartOptions &#x3D; {};
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.timezone) {
+      // overrides global time config for Highcharts
+      Highcharts.setOptions({
+        time: {
+          timezone: this.timezone
+        },
+      });
+      // add custom format : zone hour offset format
+      Highcharts.dateFormats.Z &#x3D; (timestamp) &#x3D;&gt; {
+        return &#x60;GMT ${momentTZ(timestamp).tz(this.timezone).format(&#x27;Z&#x27;)}&#x60;;
+      };
+    }
+    if (this.scheduler._id) {
+      this.highcharts &#x3D; null;
+      this.chartOptions &#x3D; {};
+      this.generateChart();
+    }
+  }
+
+  getAlphaFactorInterval(tPop: number): string {
+    if (this.scheduler.alphaFactor) {
+      const ev &#x3D; eval;
+      for (const r of this.scheduler.alphaFactorTable.rows) {
+        if (ev(&#x60;${tPop} ${r.operator} ${r.value}&#x60;) &#x3D;&#x3D;&#x3D; true) {
+          return&#x60;${r.data[0].toFixed(2)} - ${r.data[r.data.length - 1].toFixed(2)}&#x60;;
+        }
+      }
+      return null;
+    }
+    return null;
+  }
+
+  getSchedulerRange(): {min: number, max: number} {
+    const range &#x3D; {min: null, max: null, duration: null};
+    for (const t of this.scheduler.tasks) {
+      if (!range.min || range.min &gt; t.start) {
+        range.min &#x3D; t.start;
+      }
+      if (!range.max || range.max &lt; t.end) {
+        range.max &#x3D; t.end;
+      }
+    }
+    return range;
+  }
+
+  getDataSeries(): any[] {
+    const today &#x3D; new Date(Date.now());
+    // Set to 00:00:00:000 today
+    today.setUTCHours(0);
+    today.setUTCMinutes(0);
+    today.setUTCSeconds(0);
+    today.setUTCMilliseconds(0);
+
+    const dataPhases &#x3D; [];
+    let i &#x3D; 0;
+    for (const t of this.scheduler.tasks) {
+      dataPhases.push(
+        {
+          name: t.name,
+          id: t._id,
+          start: t.start,
+          end: t.end,
+          color: t.color,
+          tPop: t.tPop,
+          alphaFactor: this.getAlphaFactorInterval(t.tPop),
+          y: i++
+        }
+      );
+    }
+
+    return [
+      {
+        name: this.scheduler._id,
+        data: dataPhases.slice()
+      },
+    ];
+  }
+
+  generateChart(): void {
+    const schedulerRange &#x3D; this.getSchedulerRange();
+    let titleDuration &#x3D; &#x27;&#x27;;
+    if (schedulerRange.max &amp;&amp; schedulerRange.min) {
+      titleDuration &#x3D; &#x60;From ${Highcharts.dateFormat(&#x27;%a %e %b %Y %H:%M %Z&#x27;, schedulerRange.min)} to &#x60; +
+        &#x60;${Highcharts.dateFormat(&#x27;%a %e %b %Y %H:%M %Z&#x27;, schedulerRange.max)}&#x60;;
+    }
+    this.highcharts &#x3D; Highcharts;
+    this.chartOptions &#x3D; {
+      chart: {
+        zoomType: &#x27;x&#x27;,
+        type: &#x27;gantt&#x27;
+      },
+      legend: {
+        enabled: false
+      },
+      boost: {
+        useGPUTranslations: true
+      },
+      noData: {
+        style: {
+          fontWeight: &#x27;bold&#x27;,
+          fontSize: &#x27;15px&#x27;,
+          color: &#x27;#303030&#x27;
+        }
+      },
+      title: {
+        text: titleDuration
+      },
+      xAxis: [{
+        events: {
+          setExtremes(event) {
+            const duration &#x3D; event.max - event.min;
+            const chart &#x3D; event.target.chart as Highcharts.Chart;
+            // if (duration &lt;&#x3D; Time.Day) {
+            //   chart.xAxis[0].update({
+            //     tickInterval: Time.Hour // 1 hour
+            //   });
+            // } else if (duration &gt; Time.Day &amp;&amp; duration &lt;&#x3D; 1.5 * Time.Day) {
+            //   chart.xAxis[0].update({
+            //     tickInterval: Time.Hour * 3 // 3 hours
+            //   });
+            // }  else if (duration &gt; 1.5 * Time.Day &amp;&amp; duration &lt;&#x3D; 3.5 * Time.Day) {
+            //   chart.xAxis[0].update({
+            //     tickInterval: Time.Hour * 4.5 // 4.5 hours
+            //   });
+            // } else if (duration &gt; 3.5 * Time.Day &amp;&amp; duration &lt;&#x3D; 5 * Time.Day) {
+            //   chart.xAxis[0].update({
+            //     tickInterval: Time.Hour * 6 // 6 hours
+            //   });
+            // } else if (duration &gt; 5 * Time.Day &amp;&amp; duration &lt;&#x3D; 9 * Time.Day) {
+            //   chart.xAxis[0].update({
+            //     tickInterval: Time.Hour * 9// 9 hours
+            //   });
+            // } else {
+            //   chart.xAxis[0].update({
+            //     tickInterval: Time.Day // 12 hours
+            //   });
+            // }
+            if (duration &gt; 8 * Time.Day) {
+              chart.xAxis[0].update({visible: false});
+            } else {
+              chart.xAxis[0].update({visible: true});
+            }
+          }
+        },
+        minRange: Time.Hour, // 1 h
+        gridLineWidth: 1,
+        type: &#x27;datetime&#x27;,
+        dateTimeLabelFormats: {
+          hour: &#x27;%H:%M&#x27;,
+        },
+        grid: { // default setting
+          enabled: true
+        },
+        visible: false
+        // tickInterval: Time.Day / 2// 12 hour
+      }, {
+        type: &#x27;datetime&#x27;,
+        currentDateIndicator: {
+          label: {
+            format: &#x27;%a %e %b %Y %H:%M %Z&#x27;
+          },
+          width: 5
+        },
+        dateTimeLabelFormats: {
+          day: &#x27;%a %e %b&#x27;,
+        },
+        minRange: Time.Hour, // 1 h
+        tickInterval: Time.Day // 1 day
+      }],
+      yAxis: {
+        // type: &#x27;category&#x27;,
+        grid: {
+          enabled: true,
+          borderColor: &#x27;rgba(0,0,0,0.3)&#x27;,
+          borderWidth: 1,
+          // columns: [{
+          //   labels: {
+          //     useHTML: true,
+          //     formatter() {
+          //       return &#x60;&lt;div class&#x3D;&quot;btn-group btn-group-sm m-0&quot; role&#x3D;&quot;group&quot;&gt;&#x60; +
+          //         &#x60;&lt;button class&#x3D;&quot;btn btn-outline-info btn-edit&quot; onclick&#x3D;&quot;alert(&#x27;Edited ${this.point.name}&#x27;)&quot;&gt;&#x60; +
+          //         &#x60;&lt;i class&#x3D;&quot;material-icons md-center md-xs&quot;&gt;edit&lt;/i&gt;&lt;/button&gt;&#x60; +
+          //         &#x60;&lt;button class&#x3D;&quot;btn btn-outline-danger btn-delete&quot; onclick&#x3D;&quot;alert(&#x27;Edited ${this.point.name}&#x27;)&quot;&gt;&#x60; +
+          //         &#x60;&lt;i class&#x3D;&quot;material-icons md-center md-xs&quot;&gt;delete&lt;/i&gt;&lt;/button&gt;&#x60; +
+          //         &#x60;&lt;/div&gt;&#x60;;
+          //     },
+          //     padding: 0.2
+          //   },
+          // }, {
+          //   title: {
+          //     text: &#x27;Task&#x27;,
+          //     style: {
+          //       fontWeight: &#x27;bold&#x27;
+          //     }
+          //   },
+          //   labels: {
+          //     align: &#x27;left&#x27;,
+          //     style: {
+          //       fontWeight: &#x27;bold&#x27;
+          //     },
+          //     useHTML: true,
+          //     formatter() {
+          //       return &#x60;&lt;span&gt;&lt;i style&#x3D;&quot;color: ${this.point.color}&quot; class&#x3D;&quot;material-icons md-center md-sm&quot;&gt;assignment&lt;/i&gt; &#x60; +
+          //         &#x60;${this.point.name}&lt;/span&gt;&#x60;;
+          //     }
+          //   },
+          //   padding: 0.2
+          // }, {
+          //   title: {
+          //     text: &#x27;From&#x27;,
+          //     style: {
+          //       fontWeight: &#x27;bold&#x27;
+          //     }
+          //   },
+          //   labels: {
+          //     format: &#x27;{point.start:%a %e %b %H:%M}&#x27;,
+          //     padding: 0.2
+          //   }
+          // }, {
+          //   title: {
+          //     text: &#x27;To&#x27;,
+          //     style: {
+          //       fontWeight: &#x27;bold&#x27;
+          //     }
+          //   },
+          //   labels: {
+          //     format: &#x27;{point.end:%a %e %b %H:%M}&#x27;,
+          //     padding: 0.2
+          //   }
+          // }, {
+          //   title: {
+          //     text: &#x27;Est. hours&#x27;,
+          //     style: {
+          //       fontWeight: &#x27;bold&#x27;
+          //     }
+          //   },
+          //   offset: 10,
+          //   labels: {
+          //     formatter() {
+          //       const value &#x3D; (this.point.x2 - this.point.x) / (60 * 60 * 1000) ;
+          //       return &#x60;${value.toFixed(2)}&#x60;;
+          //     },
+          //     padding: 0.2
+          //   },
+          //   style: {
+          //     width: &#x27;45px&#x27;
+          //   }
+          // }]
+        }
+      },
+      tooltip: {
+        headerFormat: &#x27;&#x27;,
+        useHTML: true,
+        pointFormatter() {
+          const point &#x3D; this;
+          const lines &#x3D; [ {
+            title: &#x27;Start&#x27;,
+            value: Highcharts.dateFormat(&#x27;%a %e %b %Y %H:%M %Z&#x27;, point.start)
+          }, {
+            title: &#x27;End&#x27;,
+            value: Highcharts.dateFormat(&#x27;%a %e %b %Y %H:%M %Z&#x27;, point.end)
+          }, {
+            title: &#x27;Est. duration (hours)&#x27;,
+            value: &#x60;${((point.end - point.start) / Time.Hour).toFixed(2)}&#x60;
+          }, {
+            title: &#x27;Tpop&#x27;,
+            value: point.tPop
+          }];
+          if (point.alphaFactor) {
+            lines.push({
+              title: &#x27;Est. alpha factor&#x27;,
+              value: point.alphaFactor
+            });
+          }
+          let message &#x3D; &#x27;&lt;span style&#x3D;&quot;font-weight: bold; color: &#x27; +  point.color + &#x27;;&quot;&gt;\u25CF &#x27; + point.name + &#x27;&lt;/span&gt;&lt;table&gt;&#x27;;
+          for (const l of lines) {
+            message +&#x3D; &#x27;&lt;tr&gt;&lt;td style&#x3D;&quot;font-weight: bold&quot;&gt;&#x27; + l.title + &#x27; : &lt;/td&gt;&lt;td style&#x3D;&quot;text-align: right&quot;&gt;&#x27; + l.value + &#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;;
+          }
+          message +&#x3D; &#x27;&lt;/table&gt;&#x27;;
+          return message;
+        },
+      },
+      credits: {
+        enabled: false
+      },
+      series: this.getDataSeries().slice(),
+      responsive: {
+        rules: [{
+          condition: {
+            maxWidth: 500
+          },
+          chartOptions: {
+          }
+        }]
+      },
+      navigator: {
+        height: 100,
+        outlineColor: &#x27;#00a3e0&#x27;,
+        maskFill: &#x27;rgba(0, 163 , 224, 0.05)&#x27;,
+        enabled: true,
+        liveRedraw: true,
+        series: {
+          type: &#x27;gantt&#x27;,
+          pointPlacement: 0.5,
+          pointPadding: 0.25
+        },
+        xAxis: {
+          dateTimeLabelFormats: {
+            day: &#x27;%a %e %b %Y %H:%M&#x27;
+          },
+          currentDateIndicator: {
+            label: {
+              format: &#x27;%a %e %b %Y %H:%M&#x27;
+            },
+            width: 5
+          },
+        },
+        yAxis: {
+          min: 0,
+          max: this.scheduler.tasks.length + 1,
+          reversed: true,
+          categories: []
+        },
+      },
+      scrollbar: {
+        barBackgroundColor: &#x27;#009dd6&#x27;,
+        barBorderRadius: 7,
+        barBorderWidth: 0,
+        buttonBackgroundColor: &#x27;#009dd6&#x27;,
+        buttonBorderWidth: 0,
+        buttonBorderRadius: 7,
+        trackBackgroundColor: &#x27;none&#x27;,
+        trackBorderWidth: 1,
+        trackBorderRadius: 8,
+        trackBorderColor: &#x27;#00a3e0&#x27;,
+        enabled: true
+      },
+      rangeSelector: {
+        enabled: true,
+        selected: 4,
+        buttonTheme: { // styles for the buttons
+          fill: &#x27;none&#x27;,
+          stroke: &#x27;#009dd6&#x27;,
+          &#x27;stroke-width&#x27;: 1,
+          r: 8,
+          width: 45,
+          style: {
+            color: &#x27;#009dd6&#x27;,
+            fontWeight: &#x27;bold&#x27;
+          },
+          states: {
+            hover: {
+              fill: &#x27;#009dd6&#x27;,
+              style: {
+                color: &#x27;white&#x27;
+              }
+            },
+            select: {
+              fill: &#x27;#009dd6&#x27;,
+              style: {
+                color: &#x27;white&#x27;
+              }
+            }
+          }
+        },
+        inputBoxBorderColor: &#x27;#009dd6&#x27;,
+        inputBoxWidth: 145,
+        inputBoxHeight: 18,
+        inputStyle: {
+          color: &#x27;#009dd6&#x27;,
+          fontWeight: &#x27;bold&#x27;
+        },
+        labelStyle: {
+          color: &#x27;#512d6d&#x27;,
+          fontWeight: &#x27;bold&#x27;
+        },
+        buttons: [{
+          type: &#x27;day&#x27;,
+          count: 1,
+          text: &#x27;24h&#x27;,
+          events: {
+            click() {
+              for (const chart of Highcharts.charts) {
+                if (chart !&#x3D;&#x3D; undefined) {
+                  const now &#x3D; new Date(Date.now()).getTime();
+                  chart.xAxis[0].setExtremes(now, now + Time.Day, false);
+                  chart.redraw();
+                }
+              }
+            }
+          }
+        }, {
+          type: &#x27;day&#x27;,
+          count: 2,
+          text: &#x27;48h&#x27;,
+          events: {
+            click() {
+              for (const chart of Highcharts.charts) {
+                if (chart !&#x3D;&#x3D; undefined) {
+                  const now &#x3D; new Date(Date.now()).getTime();
+                  chart.xAxis[0].setExtremes(now, now + (Time.Day * 2), false);
+                  chart.redraw();
+                }
+              }
+            }
+          }
+        }, {
+          type: &#x27;day&#x27;,
+          count: 3,
+          text: &#x27;72h&#x27;,
+          events: {
+            click() {
+              for (const chart of Highcharts.charts) {
+                if (chart !&#x3D;&#x3D; undefined) {
+                  const now &#x3D; new Date(Date.now()).getTime();
+                  chart.xAxis[0].setExtremes(now, now + (Time.Day * 3), false);
+                  chart.redraw();
+                }
+              }
+            }
+          }
+        }, {
+          type: &#x27;week&#x27;,
+          count: 1,
+          text: &#x27;7 days&#x27;,
+          events: {
+            click() {
+              for (const chart of Highcharts.charts) {
+                if (chart !&#x3D;&#x3D; undefined) {
+                  const now &#x3D; new Date(Date.now()).getTime();
+                  chart.xAxis[0].setExtremes(now, now + (Time.Day * 7), false);
+                  chart.redraw();
+                }
+              }
+            }
+          }
+        }, {
+          type: &#x27;all&#x27;,
+          text: &#x27;Reset&#x27;
+        }],
+        inputDateFormat: &#x27;%a %e %b %Y %H:%M&#x27;,
+        inputEditDateFormat: &#x27;%a %e %b %Y %H:%M&#x27;,
+      },
+      exporting: {
+        sourceWidth: 1800,
+        // buttons: {
+        //   toggleTableChart: {
+        //     text: &#x27;Show / Hide table&#x27;,
+        //     onclick() {
+        //       that.showTableGantt &#x3D; !that.showTableGantt;
+        //       (this as Highcharts.Chart).yAxis[0].update({
+        //         visible: that.showTableGantt
+        //       }, true);
+        //     }
+        //   }
+        // }
+      }
+    };
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;scheduler &amp;&amp; scheduler._id; else noSchedulerBlock&quot;&gt;
+  &lt;highcharts-chart [Highcharts]&#x3D;&quot;highcharts&quot; [constructorType]&#x3D;&quot;&#x27;ganttChart&#x27;&quot; [options]&#x3D;&quot;chartOptions&quot;
+                    style&#x3D;&quot;width: 100%; height: 100%; display: block; max-height: 100%;&quot;
+
+  &gt;
+  &lt;/highcharts-chart&gt;
+&lt;/div&gt;
+&lt;ng-template #noSchedulerBlock&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;h3 class&#x3D;&quot;text-secondary text-center mt-5&quot;&gt;
+        No scheduler to show
+      &lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./scheduler-feature-gantt.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="scheduler && scheduler._id; else noSchedulerBlock">  <highcharts-chart [Highcharts]="highcharts" [constructorType]="\'ganttChart\'" [options]="chartOptions"                    style="width: 100%; height: 100%; display: block; max-height: 100%;"  >  </highcharts-chart></div><ng-template #noSchedulerBlock>  <div class="row">    <div class="col-12">      <h3 class="text-secondary text-center mt-5">        No scheduler to show      </h3>    </div>  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-home'},{'name': 'AccessDeniedComponent', 'selector': 'app-access-denied'},{'name': 'AdminPanelComponent', 'selector': 'app-admin-panel'},{'name': 'AdminPanelFeatureComponent', 'selector': 'app-admin-panel-feature'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationsAccessesComponent', 'selector': 'app-applications-accesses'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'CountriesComponent', 'selector': 'app-countries'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardFeatureProjectCardComponent', 'selector': 'app-dashboard-feature-project-card'},{'name': 'DashboardFeatureProjectProductComponent', 'selector': 'app-dashboard-feature-project-product'},{'name': 'DashboardFeatureProjectProgressbarComponent', 'selector': 'app-dashboard-feature-project-progressbar'},{'name': 'DashboardFeatureProjectUpatedDateComponent', 'selector': 'app-dashboard-feature-project-upated-date'},{'name': 'DashboardFeaturesComponent', 'selector': 'app-dashboard-features'},{'name': 'DashboardMapCardComponent', 'selector': 'app-dashboard-map-card'},{'name': 'DownloadCenterComponent', 'selector': 'app-download-center'},{'name': 'ExplanationsComponent', 'selector': 'app-explanations'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForecastersComponent', 'selector': 'app-forecasters'},{'name': 'HistoryComponent', 'selector': 'app-history'},{'name': 'HistoryFeatureAnalysisComponent', 'selector': 'app-history-feature-analysis'},{'name': 'HistoryFeatureForecastsComponent', 'selector': 'app-history-feature-forecasts'},{'name': 'HistoryFeatureInfoComponent', 'selector': 'app-history-feature-info'},{'name': 'HistoryFeaturesComponent', 'selector': 'app-history-features'},{'name': 'HistoryFeatureSummaryComponent', 'selector': 'app-history-feature-summary'},{'name': 'HistoryFeatureViewComponent', 'selector': 'app-history-feature-view'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginFeatureComponent', 'selector': 'app-login-feature'},{'name': 'LogsComponent', 'selector': 'app-logs'},{'name': 'MapLocationLogsComponent', 'selector': 'app-map-location-logs'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsCenterComponent', 'selector': 'app-notifications-center'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileFeatureCardComponent', 'selector': 'app-profile-feature-card'},{'name': 'ProfileFeatureComponent', 'selector': 'app-profile-feature'},{'name': 'ProjectFeatureAnalysisComponent', 'selector': 'app-project-feature-analysis'},{'name': 'ProjectFeatureCompareComponent', 'selector': 'app-project-feature-compare'},{'name': 'ProjectFeatureComponent', 'selector': 'app-project-feature'},{'name': 'ProjectFeatureContactCardComponent', 'selector': 'app-project-feature-contact-card'},{'name': 'ProjectFeatureForecastsComponent', 'selector': 'app-project-feature-forecasts'},{'name': 'ProjectFeatureInfoComponent', 'selector': 'app-project-feature-info'},{'name': 'ProjectFeatureSummaryComponent', 'selector': 'app-project-feature-summary'},{'name': 'ProjectFeatureViewComponent', 'selector': 'app-project-feature-view'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProjectsComponent', 'selector': 'app-projects'},{'name': 'ProtectedComponent', 'selector': 'app-protected'},{'name': 'RegionsComponent', 'selector': 'app-regions'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterFeatureComponent', 'selector': 'app-register-feature'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsComponent', 'selector': 'app-requests'},{'name': 'RequestsFeatureComponent', 'selector': 'app-requests-feature'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SchedulerFeatureGanttComponent', 'selector': 'app-scheduler-feature-gantt'},{'name': 'SchedulerFeaturesComponent', 'selector': 'app-scheduler-features'},{'name': 'SchedulerFeatureTableComponent', 'selector': 'app-scheduler-feature-table'},{'name': 'SchedulerFeatureViewComponent', 'selector': 'app-scheduler-feature-view'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'UploadComponent', 'selector': 'app-upload'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VesselsComponent', 'selector': 'app-vessels'},{'name': 'VesselsTypesComponent', 'selector': 'app-vessel-type'},{'name': 'WeatherComponent', 'selector': 'app-weather'},{'name': 'WindyComponent', 'selector': 'app-windy'}];
+    var DIRECTIVES = [{'name': 'RisksProgressbarDirective', 'selector': '[appRisksProgressbar]'}];
+    var ACTUAL_COMPONENT = {'name': 'SchedulerFeatureGanttComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SchedulerFeatureGanttComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

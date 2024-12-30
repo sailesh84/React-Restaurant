@@ -1,0 +1,492 @@
+<!-- Page Heading -->
+<div class="d-flex align-items-center justify-content-between mb-4 d-md-none">
+  <h1 class="h3 mb-0 text-section">{{ title }}</h1>
+</div>
+
+<!-- Source Row -->
+<div class="row" [ngClass]="{'mb-5': state.isLoaded === true && state.canConnect !== true}">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover
+    dt-responsive" style="width:100%">
+      <thead>
+        <tr>
+          <th style="width: 115px;" data-orderable="false">Action</th>
+          <th style="width: 100px;">First name</th>
+          <th style="width: 100px;">Last name</th>
+          <th>Email</th>
+          <th style="width: 70px;">Access</th>
+          <th style="width: 70px;">Status</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalView let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">View user</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+      <!-- form -->
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="view_user_id">ID</label>
+          <span class="element-view" id="view_user_id">{{ user?._id }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_user_name">Name</label>
+          <span class="element-view" id="view_user_name">{{ user?.firstname }} {{ user?.lastname | uppercase }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_user_email">Email</label>
+          <span class="element-view" id="view_user_email">{{ user?.email }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_user_job">Job</label>
+          <span class="element-view" id="view_user_job">{{ user?.job }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_user_phone">Phone number</label>
+          <span class="element-view" id="view_user_phone">{{ user?.phones[0] || 'No number' }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_user_mobile">Mobile number</label>
+          <span class="element-view" id="view_user_mobile">{{ user?.phones[1] || 'No number' }}</span>
+        </div>
+        <div class="form-group col-4">
+          <label for="view_user_access">Access</label>
+          <div class="element-view" id="view_user_access" [innerHTML]="getBadges('access', user?.access)"></div>
+        </div>
+        <div class="form-group col-4">
+          <label for="view_user_status">Status</label>
+          <div class="element-view" id="view_user_status" [innerHTML]="getBadges('status', user?.enabled)"></div>
+        </div>
+        <div class="form-group col-4">
+          <label for="view_user_language">Language</label>
+          <div class="element-view" id="view_user_language" [innerHTML]="getLanguageFlag(user?.language)"></div>
+        </div>
+        <div class="form-group col-4" *ngFor="let n of user?.notifications || []; index as i; trackBy: trackByFn">
+          <label [attr.for]="'view_user_notification' + i">{{ n?.type?.toUpperCase() }} notifications</label>
+          <div class="element-view" [attr.id]="'view_user_notification' + i"
+            [innerHTML]="getBadges('notifs', n?.enabled)">
+          </div>
+        </div>
+        <div class="form-group col-12">
+          <label for="view_user_favourite_project">Favourite project(s)</label>
+          <div style="height: 250px; max-height: 250px; overflow-x: hidden; overflow-y: auto; white-space: pre-line"
+            class="element-view" id="view_user_favourite_project">
+            <span *ngFor="let fp of user?.favouriteProjects || []; index as i; trackBy: trackByFn"
+              class="d-inline-block text-truncate row col-12" style="max-width: 100%">
+              {{ getProjectName(fp) }}
+            </span>
+            <span class="d-inline-block text-truncate row col-12" style="max-width: 100%"
+              *ngIf="(user?.favouriteProjects || []).length <= 0">
+              <strong>No favourite project</strong>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')" ngbAutofocus>
+      <i class="material-icons md-center">close</i>Close
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalAdd let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add user</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="add_user_first_name">First name <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="add_user_first_name" name="firstname"
+            [(ngModel)]="user.firstname" />
+        </div>
+        <div class="form-group col-6">
+          <label for="add_user_last_name">Last name <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="add_user_last_name" name="lastname" [(ngModel)]="user.lastname" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="add_user_email">Email <abbr class="required" title="required">*</abbr></label>
+          <input type="email" class="form-control" id="add_user_email" name="email" [(ngModel)]="user.email" />
+        </div>
+        <div class="form-group col-6">
+          <label for="add_user_password">Password</label>
+          <div class="input-group mb-3">
+            <input type="{{ this.typeInputNewPassword }}" class="form-control" id="add_user_password" name="password"
+              [(ngModel)]="user.password" aria-describedby="button-gen-password" />
+            <div class="input-group-append">
+              <button class="btn btn-outline-info" type="button" id="button-gen-password" (click)="generatePassword()">
+                Generate password
+              </button>
+              <button class="btn btn-outline-info" type="button" (click)="showHidePassword()">
+                <i class="material-icons md-center">{{ this.iconButtonShowHidePassword }}</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="add_user_job">Job <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="add_user_job" name="job" [(ngModel)]="user.job" />
+        </div>
+        <div class="form-group col-6">
+          <label for="add_user_access">Access</label>
+          <select class="custom-select form-control" id="add_user_access" name="access" [(ngModel)]="user.access">
+            <option [ngValue]="a.value" *ngFor="let a of accesses; index as i; trackBy: trackByFn">{{ a.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="add_user_language">Favourite language <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_user_language" [items]="languages" bindLabel="name" bindValue="id" name="language"
+            [(ngModel)]="user.language">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="30" [src]="getFlag(item)" alt="" />
+              {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="30" [src]="getFlag(item)" alt="" />
+              {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6 col-sm-3">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="add_user_enabled" name="enabled"
+              [(ngModel)]="user.enabled" [ngModelOptions]="{standalone: true}">
+            <label class="custom-control-label" for="add_user_enabled">Enabled account</label>
+          </div>
+        </div>
+        <div class="form-group col-6 col-sm-3" *ngFor="let n of user.notifications; index as i; trackBy: trackByFn">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" name="enabled" [id]="'add_user_' + n.type + '_notif'"
+              [(ngModel)]="n.enabled" [ngModelOptions]="{standalone: true}">
+            <label class="custom-control-label" [htmlFor]="'add_user_' + n.type + '_notif'">
+              {{ n.type }} notifications
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="add_user_phone_number">Phone number</label>
+          <international-phone-number [maxlength]="20" [defaultCountry]="'gb'" [allowDropdown]="true"
+            id="add_user_phone_number" [(ngModel)]="user?.phones[0]" name="phone">
+          </international-phone-number>
+        </div>
+        <div class="form-group col-6">
+          <label for="add_user_mobile_number">Mobile number</label>
+          <international-phone-number [maxlength]="20" [defaultCountry]="'gb'" [allowDropdown]="true"
+            id="add_user_mobile_number" [(ngModel)]="user?.phones[1]" name="mobile">
+          </international-phone-number>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="add_user_projects">Favourite project(s) (Max : {{limit}} project(s))</label>
+          <ng-select id="add_user_projects" [items]="projects" bindLabel="name" bindValue="_id" name="favouriteProjects"
+            [(ngModel)]="user.favouriteProjects" [multiple]="true" [maxSelectedItems]="limit" [closeOnSelect]="false"
+            [searchFn]="projectSearchFn">
+            <ng-template ng-label-tmp let-item="item" let-clear="clear">
+              <span class="ng-value-label">{{item?.code}} - {{getClient(item?.client)?.name | uppercase}}
+                {{item?.name}}</span>
+              <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item">
+              <span>{{item?.code}} - {{getClient(item?.client)?.name | uppercase}} {{item?.name}}</span>
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="add_user_regions">Favourite region(s) <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="add_user_regions" [items]="regions" bindLabel="name" bindValue="_id"
+            [(ngModel)]="user.favouriteRegion" groupBy="continent" placeholder="Select a region" name="favouriteRegion">
+            <ng-template ng-optgroup-tmp let-item="item">
+              {{ getContinent(item.continent)}}
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="addRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit user</h4>
+    <button type="button" class="close" aria-label="Close"
+      (click)="modal.dismiss('Cross click'); validationModal = false;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+      <h1 class="display-4">Required Information</h1>
+      <ng-container *ngFor="let itemVM of validateVM">
+        <div class="ng-value">
+          <span class="ng-value-label">{{itemVM}}</span>
+        </div>
+      </ng-container>
+    </div>
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="edit_user_first_name">First name <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="edit_user_first_name" name="firstname"
+            [(ngModel)]="user.firstname" />
+        </div>
+        <div class="form-group col-6">
+          <label for="edit_user_last_name">Last name <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="edit_user_last_name" name="lastname"
+            [(ngModel)]="user.lastname" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_user_email">Email <abbr class="required" title="required">*</abbr></label>
+          <input type="email" class="form-control" id="edit_user_email" name="email" [(ngModel)]="user.email" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="edit_user_job">Job <abbr class="required" title="required">*</abbr></label>
+          <input type="text" class="form-control" id="edit_user_job" name="job" [(ngModel)]="user.job" />
+        </div>
+        <div class="form-group col-6">
+          <label for="edit_user_access">Access</label>
+          <select class="custom-select form-control" id="edit_user_access" name="access" [(ngModel)]="user.access"
+            [disabled]="isDisabledAccess">
+            <option [ngValue]="a.value" *ngFor="let a of accesses; index as i; trackBy: trackByFn">{{ a.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_user_language">Favourite language <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_user_language" [items]="languages" bindLabel="name" bindValue="id" name="language"
+            [(ngModel)]="user.language">
+            <ng-template ng-label-tmp let-item="item">
+              <img height="30" [src]="getFlag(item)" alt="" />
+              {{item.name}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+              <img height="30" [src]="getFlag(item)" alt="" />
+              {{item.name}}
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6 col-sm-3">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="edit_user_enabled" name="enabled"
+              [(ngModel)]="user.enabled" [ngModelOptions]="{standalone: true}">
+            <label class="custom-control-label" for="edit_user_enabled">Enabled account</label>
+          </div>
+        </div>
+        <div class="form-group col-6 col-sm-3" *ngFor="let n of user.notifications; index as i; trackBy: trackByFn">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" name="enabled" [id]="'edit_user_' + n.type + '_notif'"
+              [(ngModel)]="n.enabled" [ngModelOptions]="{standalone: true}">
+            <label class="custom-control-label" [htmlFor]="'edit_user_' + n.type + '_notif'">
+              {{ n.type }} notifications
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="edit_user_phone_number">Phone number</label>
+          <div * ngIf="user?.phones?.length > 0">
+            <international-phone-number [maxlength]="20" [defaultCountry]="'gb'" [allowDropdown]="true"
+            id="edit_user_phone_number" [(ngModel)]="user?.phones[0]" name="phone">
+          </international-phone-number>
+          </div>
+       
+        </div>
+        <div class="form-group col-6">
+          <label for="edit_user_mobile_number">Mobile number</label>
+          <div * ngIf="user?.phones?.length > 0">
+            <international-phone-number [maxlength]="20" [defaultCountry]="'gb'" [allowDropdown]="true"
+              id="edit_user_mobile_number" [(ngModel)]="user?.phones[1]" name="mobile">
+            </international-phone-number>
+          </div>
+           
+
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_user_projects">Favourite project(s) (Max : {{limit}} project(s))</label>
+          <ng-select id="edit_user_projects" [items]="projects" bindLabel="name" bindValue="_id"
+            name="favouriteProjects" [(ngModel)]="user.favouriteProjects" [multiple]="true" [maxSelectedItems]="limit"
+            [closeOnSelect]="false" [searchFn]="projectSearchFn">
+            <ng-template ng-label-tmp let-item="item" let-clear="clear">
+              <span class="ng-value-label">{{item?.code}} - {{getClient(item?.client)?.name | uppercase}}
+                {{item?.name}}</span>
+              <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item">
+              <span>{{item?.code}} - {{getClient(item?.client)?.name | uppercase}} {{item?.name}}</span>
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="edit_user_regions">Favourite region(s) <abbr class="required" title="required">*</abbr></label>
+          <ng-select id="edit_user_regions" [items]="regions" bindLabel="name" bindValue="_id"
+            [(ngModel)]="user.favouriteRegion" groupBy="continent" name="favouriteRegion">
+            <ng-template ng-optgroup-tmp let-item="item">
+              {{ getContinent(item.continent)}}
+            </ng-template>
+          </ng-select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="saveEditRow(modal)" ngbAutofocus>
+      <i class="material-icons md-center">save</i>Save
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); validationModal = false;">
+      <i class="material-icons md-center">cancel</i>Cancel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Delete user</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+    <div class="col-12">
+      <div *ngIf="deleteSuccessRespType; else elseBlock" class="alert alert-warning" role="alert">
+        Do you want to delete the row of ID {{ user._id }} ?
+      </div>
+      <ng-template #elseBlock>
+        <div class="alert alert-warning" role="alert">
+          {{deleteSuccesResp}}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div *ngIf="deleteSuccessRespType; else elseFBlock">
+      <button type="button" class="btn btn-danger" (click)="deleteRow(modal)" ngbAutofocus>
+        <i class="material-icons md-center">delete</i>Yes
+      </button>
+      <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+        <i class="material-icons md-center">cancel</i>No
+      </button>
+    </div>
+    <ng-template #elseFBlock>
+      <button type="button" class="btn btn-primary" (click)="accept(modal)">Ok</button>
+    </ng-template>
+  </div>
+</ng-template>
+
+<ng-template #modalResetPassword let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Reset user password </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+      <strong>Warning !</strong> {{ errorMessageModal }}
+    </ngb-alert>
+
+    <form role="form">
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label for="reset_user_password">New Password</label>
+          <div class="input-group">
+            <input type="{{ this.typeInputNewPassword }}" class="form-control" id="reset_user_password" name="password"
+              [(ngModel)]="user.password" />
+            <div class="input-group-append">
+              <button class="btn btn-outline-dark" type="button" (click)="generatePassword()">
+                Generate password
+              </button>
+              <button class="btn btn-outline-dark" type="button" (click)="showHidePassword()">
+                <i class="material-icons md-center">{{ this.iconButtonShowHidePassword }}</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="col-12">
+      <div class="alert alert-warning" role="alert">
+        Do you want to reset the password of {{ user.firstname }} {{ user.lastname}} ?
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" (click)="resetPassword(modal)" ngbAutofocus>
+      <i class="material-icons md-center">lock</i>Yes
+    </button>
+    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+      <i class="material-icons md-center">cancel</i>No
+    </button>
+  </div>
+</ng-template>

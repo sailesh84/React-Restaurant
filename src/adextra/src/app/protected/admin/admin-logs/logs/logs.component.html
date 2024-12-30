@@ -1,0 +1,108 @@
+<div class="d-flex align-items-center justify-content-between mb-4 d-md-none">
+  <h1 class="h3 mb-0 text-section">{{ title }}</h1>
+</div>
+
+<div class="row" [ngClass]="{'mb-5': state.isLoaded === true && state.canConnect !== true}">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover
+    dt-responsive" style="width:100%"
+    >
+      <thead>
+      <tr>
+        <th style="width: 85px;" data-orderable="false">Action</th>
+        <th style="width: 85px;">Severity</th>
+        <th style="width: 150px;">Date</th>
+        <th style="width: 150px;">User</th>
+        <th style="width: 120px;">Source IP</th>
+        <th style="width: 120px;">User Agent</th>
+        <th style="width: 500px;">Message</th>
+      </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalMap let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Users location</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-map-location-logs [locations]="locations"></app-map-location-logs>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')" ngbAutofocus>
+      <i class="material-icons md-center">close</i>Close
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #modalView let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">View log</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div> <!-- form -->
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="view_log_id">ID</label>
+          <span class="element-view" id="view_log_id">{{ log._id }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_log_severity">Severity</label>
+          <div class="element-view" id="view_log_severity" [innerHTML]="getBadge(log.severity)"></div>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_log_date">Date</label>
+          <span class="element-view" id="view_log_date">
+            {{ log.date | momentDate: 'EEE dd LLL yyyy HH:mm:ss (zzzz)' : 'UTC' }}
+          </span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_log_user">User</label>
+          <span class="element-view" id="view_log_user">{{ log.user }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_log_sourceIP">Source IP</label>
+          <span class="element-view" id="view_log_sourceIP">{{ log.sourceIP }}</span>
+        </div>
+        <div class="form-group col-6">
+          <label for="view_log_userAgent">Browser</label>
+          <div class="element-view" id="view_log_userAgent">{{ log.userAgent }}</div>
+        </div>
+        <div class="form-group col-12">
+          <label for="view_log_message">Message</label>
+          <div style="height: 250px; max-height: 250px; overflow-x: hidden; overflow-y: auto; white-space: pre-line"
+               class="element-view" id="view_log_message" [innerHTML]="log.message"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="modal.close('Close click')" ngbAutofocus>
+      <i class="material-icons md-center">close</i>Close
+    </button>
+  </div>
+</ng-template>

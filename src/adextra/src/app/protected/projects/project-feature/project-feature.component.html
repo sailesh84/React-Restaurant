@@ -1,0 +1,118 @@
+<!-- Page Heading -->
+<div class="align-items-center justify-content-between mb-4" *ngIf="state.isLoaded === true &&
+      state.canConnect === true">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 mr-auto">
+      <h1 class="h3 mb-2 text-section text-truncate">
+        {{ project?.code }} - {{ (client$ | async)?.data?.name | uppercase }} {{ project?.name }}
+      </h1>
+      <h3 class="h5 mb-3 text-secondary">
+        Weather forecast time:
+        <div *ngIf="schedulerCurrentRunStatus; else elseContent" style="display: inline-block">
+          <span>Scheduler Run InProgress</span>
+        </div>
+        <ng-template #elseContent>
+          <span *ngIf="forecastUpdated"> {{ forecastUpdated | momentDate: 'dd LLL yyyy HH:mm (zzzz)' : (project?.timezone) ?
+            project?.timezone : 'UTC' }}</span>
+        </ng-template>
+      </h3>
+      <!-- <h3 class="h5 mb-3 text-secondary">Weather Interpreter Time : <span></span> </h3> -->
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-md-flex d-lg-flex d-xl-flex justify-content-end ml-auto">
+      <!-- Here's my code will be there -->
+      <ul class="list-unstyled">
+        <li class="media row no-gutters align-items-center vessel-border" [ngStyle]="{'border-color': getBorderLeftColorVesselType(vessel?.type)}">
+          <h6 class="vessel-name">{{ vessel?.name }}</h6>
+          <img [src]="vessel?.image" class="m-3 img-fluid col-auto vessel-image" alt="">
+          <div class="col mt-0 mb-2 pl-2 pr-2">
+            <div class="media-body">
+              <h6 class="mt-0 mb-2 text-primary">
+                <!-- <app-dashboard-feature-project-product [product]="getProduct(project?.vessels[i]?.Product_Details?.productType)"
+                                  [name]="project?.vessels[i]?.Product_Details?.productName">
+                                  </app-dashboard-feature-project-product> -->
+
+                <app-dashboard-feature-project-product
+                  [product]="getProduct(vessel?._id)"
+                  [name]="getProductName(vessel?._id)" [productName]="productName">
+                </app-dashboard-feature-project-product>
+              </h6>
+
+              <div class="ng-value">
+                <strong class="text-primary">Responsible Engineer : </strong>
+                <span class="badge badge-pill badge-light user-badge badge-light-contrast">
+                  <img [src]="contact.image" alt="" class="avatar-circle"> {{ contact.firstname + ' ' + contact.lastname}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row justify-content-center bg-white mt-4">
+    <div class="col-12">
+      <div class="input-group input-group-sm- mt-4">
+        
+        <ng-container *ngIf="isActiveCFStatus === true; else noActiveCF">
+          <h4 class="mt-2 ml-2" style="font-weight:bold; color: #00a3e0;">{{schedulerCurrentData}}</h4>
+        </ng-container>
+
+
+        <ng-template #noActiveCF>
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="material-icons md-center md-sm">cast</i>
+            </span>
+          </div>
+          <ng-container *ngIf="forecastUpdated; else emptyForecast">
+            <ng-select [items]="filteredForecasters" bindLabel="name" bindValue="_id" [(ngModel)]="forecaster"
+              placeholder="Select a forecaster" class="form-control ng-select-info" (change)="onForecasterChange($event)">
+              <ng-template ng-label-tmp let-item="item">
+                {{item?.name}}
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                {{item?.name}}
+              </ng-template>
+            </ng-select>
+          </ng-container>
+          <ng-template #emptyForecast>
+            <ng-select [items]="filteredForecasters" placeholder="No forecaster yet" bindLabel="name" bindValue="_id"
+              class="form-control ng-select-info" (change)="onForecasterChange($event)"></ng-select>
+          </ng-template>
+        </ng-template>
+
+      </div>
+    </div>
+    <div class="col-12 mt-4">
+      <app-project-feature-view *ngIf="state.isLoaded === true && state.canConnect === true" [project]="project"
+        [projectTypeID]="projectTypeID" [productName]="productName" [vesselID]="vesselID"
+        [session]="(forecast) ? forecast.session : null" [forecaster]="forecaster" [schedulerID]="schedulerID"
+        [isAlphaFactor]="isAlphaFactor" [isFatigue]="isFatigue" [contactID]="contactID" [schedulerCurrent]="schedulerCurrent"
+        [schedulerCurrentData]="schedulerCurrentData" (notifyStatusToProjectView)="checkCurrForecasterStatusInProject($event)"
+        (notifyStatusToProjectViewFromSummary)="checkCurrForecasterStatusInProjectFromSummary($event)"
+        (notifyStatusToProjectViewFromAnalysis)="checkCurrForecasterStatusInProjectFromAnalysis($event)"
+        (notifyStatusToProjectViewFromWF)="checkCurrForecasterStatusInProjectFromWF($event)"
+        (notifyStatusToProjectViewFromWI)="checkCurrForecasterStatusInProjectFromWI($event)"
+        (notifyStatusToProjectViewFromInformation)="checkCurrForecasterStatusInProjectFromInformation($event)"
+        >
+      </app-project-feature-view>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+  <div class="col-12">
+    <div class="error-content-loading text-danger text-center">
+      <div class="connection-error">
+        <p>Connection error</p>
+      </div>
+      <div class="refresh">
+        <button class="btn btn-outline-danger" (click)="refresh()">
+          <i class="material-icons md-center">refresh</i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

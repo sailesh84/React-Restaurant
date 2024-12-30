@@ -1,0 +1,377 @@
+<!-- Page Heading -->
+<div class="d-flex align-items-center justify-content-between mb-4 d-md-none">
+    <h1 class="h3 mb-0 text-section">{{ title }}</h1>
+</div>
+
+<!-- Content Row -->
+<div class="row" [ngClass]="{'mb-5': state.isLoaded === true && state.canConnect !== true}">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover
+      dt-responsive" style="width:100%">
+            <thead>
+                <tr>
+                    <th style="width: 125px;" data-orderable="false">Action</th>
+                    <th>Name</th>
+                    <!-- <th>Short Name</th>
+                    <th>Active</th> -->
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div class="row mt-5" *ngIf="state.isLoaded === true && state.canConnect !== true">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="error-content-loading text-danger text-center">
+            <div class="connection-error">
+                <p>Connection error</p>
+            </div>
+            <div class="refresh">
+                <button class="btn btn-outline-danger" (click)="refresh()">
+                    <i class="material-icons md-center">refresh</i> Refresh
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #modalAdd let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Add Alpha Factor</h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="modal.dismiss('Cross click'); validationModal = false;">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+            <h1 class="display-4">Required Information</h1>
+            <ng-container *ngFor="let itemAF of validateAF">
+                <div class="ng-value">
+                    <span class="ng-value-label">{{itemAF}}</span>
+                </div>
+            </ng-container>
+        </div>
+        <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+            <strong>Warning !</strong> {{ errorMessageModal }}
+        </ngb-alert>
+        <form role="form">
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="add_table_name">Table Name <abbr class="required"
+                            title="required">*</abbr></label>
+                    <input type="text" class="form-control" [(ngModel)]="alphaFactor.name"
+                        id="add_table_name" name="name" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12 table-responsive">
+                    <label for="add_alpha_factor_table">Alpha Factor table</label>
+                    <table class="table-bordered table table-sm table-striped alpha_factor_table"
+                        id="add_alpha_factor_table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" class="header_row">
+                                    <input type="text" class="form-control form-control-sm" name="header-0" aria-label=""
+                                        [(ngModel)]="alphaFactor.tableLayout.headers[0]">
+                                </th>
+                                <th [colSpan]="alphaFactor.tableLayout.cols.length">
+                                    <input type="text" class="form-control form-control-sm" name="header-1" aria-label=""
+                                        [(ngModel)]="alphaFactor.tableLayout.headers[1]">
+                                </th>
+                                <th style="width: 20px" rowspan="2"></th>
+                            </tr>
+                            <tr>
+                                <th *ngFor="let c of alphaFactor.tableLayout.cols; index as i; trackBy: trackByFn" [ngModelGroup]="i"
+                                    class="header_col">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Hs : </span>
+                                        </div>
+                                        <input type="number" class="form-control" name="cols" aria-label=""
+                                            [ngModel]="alphaFactor.tableLayout.cols[i]" (ngModelChange)="alphaFactor.tableLayout.cols[i]=$event"
+                                            #addCellHs (blur)="applyNumberFormat(addCellHs.valueAsNumber, addCellHs)"
+                                            (load)="applyNumberFormat(addCellHs.valueAsNumber, addCellHs)">
+                                        <div class="input-group-append">
+                                            <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableCol(i)">
+                                                <i class="material-icons md-center md-xs">delete</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let r of alphaFactor.tableLayout.rows; index as i; trackBy: trackByFn"
+                                [ngModelGroup]="i">
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Tpop</span>
+                                        </div>
+                                        <select class="custom-select" name="operator" [(ngModel)]="r.operator" aria-label=""
+                                            >
+                                            <option value="=">&#61;</option>
+                                            <option value="<">&lt;</option>
+                                            <option value="<=">&le;</option>
+                                            <option value=">">&gt;</option>
+                                            <option value=">=">&ge;</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <input type="number" class="form-control form-control-sm" name="value" aria-label=""
+                                                [(ngModel)]="r.value" 
+                                                style="border-top-left-radius: 0; border-bottom-left-radius: 0">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td *ngFor="let d of r.data; index as ii; trackBy: trackByFn" [ngModelGroup]="ii">
+                                    <input type="number" class="form-control form-control-sm" aria-label="" [ngModel]="r.data[ii]"
+                                        (ngModelChange)="r.data[ii]=$event" name="data" #addCellAlphaFactor
+                                        (blur)="applyNumberFormat(addCellAlphaFactor.valueAsNumber, addCellAlphaFactor)"
+                                        (load)="applyNumberFormat(addCellAlphaFactor.valueAsNumber, addCellAlphaFactor)">
+                                </td>
+                                <td>
+                                    <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableRow(i)">
+                                        <i class="material-icons md-center md-xs">delete</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [colSpan]="alphaFactor.tableLayout.cols.length + 2">
+                                    <label for="add-scheduler-alphaFactorTable-notes">Notes :</label>
+                                    <textarea class="form-control " name="notes" rows="5" id="add-alphaFactorTable-notes"
+                                        [(ngModel)]="alphaFactor.tableLayout.notes"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableRow()">
+                            <i class="material-icons md-center">add</i>Add row
+                        </button>
+                        <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableCol()">
+                            <i class="material-icons md-center">add</i>Add column
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="addRow(modal)" ngbAutofocus>
+            <i class="material-icons md-center">save</i>Save
+        </button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); validationModal = false;">
+            <i class="material-icons md-center">cancel</i>Cancel
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #modalEdit let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Edit Alpha Factor</h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="modal.dismiss('Cross click'); validationModal = false;">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="jumbotron jumbotron-fluid" *ngIf="validationModal">
+            <h1 class="display-4">Required Information</h1>
+            <ng-container *ngFor="let itemAF of validateAF">
+                <div class="ng-value">
+                    <span class="ng-value-label">{{itemAF}}</span>
+                </div>
+            </ng-container>
+        </div>
+        <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+            <strong>Warning !</strong> {{ errorMessageModal }}
+        </ngb-alert>
+
+        <form role="form">
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="edit_table_name">Table Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="alphaFactor.name" id="edit_table_name" name="name" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12 table-responsive">
+                    <label for="edit_alpha_factor_table">Alpha Factor table</label>
+                    <table class="table-bordered table table-sm table-striped alpha_factor_table" id="edit_alpha_factor_table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" class="header_row">
+                                    <input type="text" class="form-control form-control-sm" name="header-0" aria-label=""
+                                        [(ngModel)]="alphaFactor.tableLayout.headers[0]">
+                                </th>
+                                <th [colSpan]="alphaFactor.tableLayout.cols.length">
+                                    <input type="text" class="form-control form-control-sm" name="header-1" aria-label=""
+                                        [(ngModel)]="alphaFactor.tableLayout.headers[1]">
+                                </th>
+                                <th style="width: 20px" rowspan="2"></th>
+                            </tr>
+                            <tr>
+                                <th *ngFor="let c of alphaFactor.tableLayout.cols; index as i; trackBy: trackByFn"
+                                    [ngModelGroup]="i" class="header_col">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Hs : </span>
+                                        </div>
+                                        <input type="number" class="form-control" name="cols" aria-label=""
+                                            [ngModel]="alphaFactor.tableLayout.cols[i]"
+                                            (ngModelChange)="alphaFactor.tableLayout.cols[i]=$event" #editCellHs
+                                            (blur)="applyNumberFormat(editCellHs.valueAsNumber, editCellHs)"
+                                            (load)="applyNumberFormat(editCellHs.valueAsNumber, editCellHs)">
+                                        <div class="input-group-append">
+                                            <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableCol(i)"
+                                                [disabled]="alphaFactor.tableLayout.cols.length <= 2 || !alphaFactor.tableLayout">
+                                                <i class="material-icons md-center md-xs">delete</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let r of alphaFactor.tableLayout.rows; index as i; trackBy: trackByFn"
+                                [ngModelGroup]="i">
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Tpop</span>
+                                        </div>
+                                        <select class="custom-select" name="operator" [(ngModel)]="r.operator" aria-label="">
+                                            <option value="=">&#61;</option>
+                                            <option value="<">&lt;</option>
+                                            <option value="<=">&le;</option>
+                                            <option value=">">&gt;</option>
+                                            <option value=">=">&ge;</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <input type="number" class="form-control form-control-sm" name="value" aria-label=""
+                                                [(ngModel)]="r.value"
+                                                style="border-top-left-radius: 0; border-bottom-left-radius: 0">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td *ngFor="let d of r.data; index as ii; trackBy: trackByFn" [ngModelGroup]="ii">
+                                    <input type="number" class="form-control form-control-sm" aria-label=""
+                                        [ngModel]="r.data[ii]" (ngModelChange)="r.data[ii]=$event" name="data"
+                                        #editCellAlphaFactor
+                                        (blur)="applyNumberFormat(editCellAlphaFactor.valueAsNumber, editCellAlphaFactor)"
+                                        (load)="applyNumberFormat(editCellAlphaFactor.valueAsNumber, editCellAlphaFactor)">
+                                </td>
+                                <td>
+                                    <button class="btn-sm btn btn-danger" (click)="deleteAlphaFactorTableRow(i)">
+                                        <i class="material-icons md-center md-xs">delete</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [colSpan]="alphaFactor.tableLayout.cols.length + 2">
+                                    <label for="edit-scheduler-alphaFactorTable-notes">Notes :</label>
+                                    <textarea class="form-control " name="notes" rows="5"
+                                        id="edit-scheduler-alphaFactorTable-notes" [(ngModel)]="alphaFactor.tableLayout.notes">
+                                  </textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableRow()">
+                            <i class="material-icons md-center">add</i>Add row
+                        </button>
+                        <button class="btn btn-outline-success btn-sm" (click)="addAlphaFactorTableCol()">
+                            <i class="material-icons md-center">add</i>Add column
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="saveEditRow(modal)" ngbAutofocus>
+            <i class="material-icons md-center">save</i>Save
+        </button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click'); validationModal = false;">
+            <i class="material-icons md-center">cancel</i>Cancel
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #modalDelete let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Delete Alpha Factor</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+            <strong>Warning !</strong> {{ errorMessageModal }}
+        </ngb-alert>
+        <div class="col-12">
+            <div *ngIf="deleteSuccessRespType; else elseBlock" class="alert alert-warning" role="alert">
+                Do you want to delete the row of ID {{ alphaFactor._id }} ?
+            </div>
+            <ng-template #elseBlock>
+                <div class="alert alert-warning" role="alert">
+                    {{deleteSuccesResp}}
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div *ngIf="deleteSuccessRespType; else elseFBlock">
+            <button type="button" class="btn btn-danger" (click)="deleteRow(modal)" ngbAutofocus>
+                <i class="material-icons md-center">delete</i>Yes
+            </button>
+            <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+                <i class="material-icons md-center">cancel</i>No
+            </button>
+        </div>
+        <ng-template #elseFBlock>
+            <button type="button" class="btn btn-primary" (click)="accept(modal)">Ok</button>
+        </ng-template>
+    </div>
+</ng-template>
+
+
+
+<!-- <ng-template #modalRefresh let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Re-start virtual machine</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ngb-alert [type]="'warning'" [dismissible]="true" (close)="errorModal = false" *ngIf="errorModal">
+            <strong>Warning !</strong> {{ errorMessageModal }}
+        </ngb-alert>
+        <div class="col-12">
+            <div *ngIf="refreshSuccessRespType; else elseBlock" class="alert alert-warning" role="alert">
+                Do you want to re-start the server {{ virtualMachine.serverName }} ?
+            </div>
+            <ng-template #elseBlock>
+                <div class="alert alert-warning" role="alert">
+                    {{refreshSuccesResp}}
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div *ngIf="refreshSuccessRespType; else elseFBlock">
+            <button type="button" class="btn btn-danger" (click)="restartServer(modal)" ngbAutofocus>
+                <i class="material-icons md-center">delete</i>Yes
+            </button>
+            <button type="button" class="btn btn-dark" (click)="modal.close('Close click')">
+                <i class="material-icons md-center">cancel</i>No
+            </button>
+        </div>
+        <ng-template #elseFBlock>
+            <button type="button" class="btn btn-primary" (click)="accept(modal)">Ok</button>
+        </ng-template>
+    </div>
+</ng-template> -->

@@ -1,0 +1,45 @@
+<div class="row m-2">
+  <div class="col-12">
+    <div class="row no-gutters">
+      <div class="col-12">
+        <div *ngIf="hasTableToShow(); else noTableToShow" class="table-responsive">
+          <label for="view_scheduler_alpha_factor_table">Alpha Factor table</label>
+          <table class="table-bordered table table-sm table-striped alpha_factor_table"
+                 id="view_scheduler_alpha_factor_table">
+            <thead>
+            <tr>
+              <th rowspan="2" class="header_row">{{ scheduler.alphaFactorTable.headers[0] }} </th>
+              <th [colSpan]="scheduler.alphaFactorTable.cols.length"> {{ scheduler.alphaFactorTable.headers[1] }}</th>
+            </tr>
+            <tr>
+              <th *ngFor="let c of scheduler.alphaFactorTable.cols; index as i; trackBy: trackByFn" class="header_col">
+                Hs = {{ scheduler.alphaFactorTable.cols[i] | number:'1.2-2' }}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let r of scheduler.alphaFactorTable.rows; index as i; trackBy: trackByFn">
+              <td>Tpop {{ r.operator }} {{ r.value }}</td>
+              <td *ngFor="let d of r.data; index as ii; trackBy: trackByFn">
+                {{ r.data[ii] | number:'1.2-2' }}
+              </td>
+            </tr>
+            <tr>
+              <td [colSpan]="scheduler.alphaFactorTable.cols.length + 2">
+                <span>Notes :</span>
+                <div [innerHTML]="scheduler.alphaFactorTable.notes"></div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #noTableToShow>
+          <h3 class="text-secondary text-center mt-5">
+            No table to show
+          </h3>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+<div *ngIf="progressbars.length > 0">
+  <div class="progress mr-0 rounded-pill">
+    <div class="progress-bar" *ngFor="let pb of progressbars; index as i; trackBy: trackByFn" aria-valuemin="0"
+         aria-valuemax="100" [attr.aria-valuenow]="pb.width" [appRisksProgressbar]="pb.width" [ngClass]="pb.class"
+         [ngbTooltip]="(pb.startDate | date: 'E dd LLL yyyy HH:mm': 'UTC') + ' - ' +
+         (pb.endDate | date: 'E dd LLL yyyy HH:mm': 'UTC') + ' (' + getDuration(pb.startDate, pb.endDate) + ')'"
+         [container]="'body'" [autoClose]="true" placement="top" triggers="manual" #t="ngbTooltip" (click)="t.open()"
+         (mouseenter)="t.open()" (mouseleave)="t.close()" tooltipClass="appRisksProgressbarTooltip"
+    >
+      {{ pb.label }}
+    </div>
+  </div>
+</div>
+
+

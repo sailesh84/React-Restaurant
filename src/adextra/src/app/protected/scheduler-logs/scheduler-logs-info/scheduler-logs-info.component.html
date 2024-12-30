@@ -1,0 +1,36 @@
+<!-- Content Row -->
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4">
+        <div class="row" style="margin-bottom: 7px;">
+            <div class="col-sm-3 col-12">
+                <button ngbTooltip="Click to refresh data with the current filters" class="btn btn-outline-success" (click)="refreshLogs()">
+                    <i class="material-icons md-center">refresh</i> Refresh Data
+                </button>
+           
+    </div>
+    <div class="col-sm-8 col-8 text-center">
+        <div class="dt-buttons btn-group">
+    </div>
+</div>
+    <div class="col-sm-1 col-12"  style="text-align:right">
+        <div ngbTooltip="If this option is selected, date/time range filter will not be considered and the grid will update every 10 seconds automatically showing the last 10 minutes of logs" class="custom-control custom-checkbox">
+            <input  type="checkbox" class="custom-control-input" id="refreshLog" name="disabled"
+                   [(ngModel)]="checkRefresh" [ngModelOptions]="{standalone: true}">
+            <label class="custom-control-label" for="refreshLog">Auto Refresh?</label>
+          </div>
+    </div>
+</div>
+
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover
+      dt-responsive" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Timerange</th>
+                    <th>Message</th>
+                    <th>Server</th>
+                    <th>Level</th>
+                </tr>
+            </thead>            
+        </table>
+    </div>
+</div>
